@@ -1,0 +1,77 @@
+.footer-box{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: #f5f5f5;
+}
+.about-scoop h1{
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #000;
+    letter-spacing: 1px;
+}
+.about-scoop p{
+    font-size: .9rem;
+    color: #222;
+    font-weight: 500;
+}
+.footer-itmes{
+    padding-bottom: 1rem;
+}
+.social a{
+    margin: .4rem;
+    border-radius: 50%;
+    background-color: #212529;
+    color: #fff;
+    padding: .4rem;
+}
+.footer-links h3{
+    font-weight: 610;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #3d4855;
+}
+.footer-links a{
+    text-decoration: none;
+    color: #222222;
+    font-size: .9rem;
+}
+.copyright{
+    background-color: #222;
+    color: #fff;
+}
+.copyright a{
+    color: #ffffff;
+}
+.copyright a i{
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+.copyright-para{
+    font-size: .7rem;
+}
+#scrollToTop{
+    position: fixed;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #247e6a;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+}
+#scrollToTop i{
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+@media(max-width:700px){
+    #scrollToTop{
+        bottom: 50px;
+    }
+}
+#scrollToTop:active{
+    background-color: #1e9f83;
+}

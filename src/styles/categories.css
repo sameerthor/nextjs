@@ -1,0 +1,31 @@
+/* *****************NAVIGATION********************* */
+.navigation{
+    margin-top: 1.6rem;
+}
+.navigation a{
+    text-decoration: none;
+    color: #212529;
+    font-weight: 500;
+    font-size: .95rem;
+}
+/* ***************Categories*********************** */
+.categories{
+    margin-top: 2rem;
+    margin-bottom: 7.2rem;
+}
+.categories-box{
+    padding: 1.1rem;
+    text-align: center;
+    margin-bottom: 2.4rem;
+}
+.categories-box:hover{
+    background-color: #f8eeee;
+    cursor: pointer;
+}
+.categories-box a{
+    text-decoration: none;
+    display: block;
+    color: #111111;
+    font-weight: 500;
+    font-size: .79rem;
+}

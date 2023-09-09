@@ -1,0 +1,35 @@
+{
+  "name": "scoopreview",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@nextui-org/react": "^2.1.5",
+    "bootstrap": "^5.3.1",
+    "css-loader": "^6.8.1",
+    "jquery": "^3.7.0",
+    "moment": "^2.29.4",
+    "next": "13.4.16",
+    "next-remove-imports": "^1.0.12",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-loading-skeleton": "^3.3.1",
+    "react-owl-carousel": "^2.3.3",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4",
+    "serverless-mysql": "^1.5.5",
+    "style-loader": "^3.3.3",
+    "swr": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.21",
+    "@zeit/next-css": "^1.0.1",
+    "sass": "^1.65.1",
+    "typescript": "5.2.2"
+  }
+}

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScoopReview: Makes shopping easy.</title>
+  <link rel="shortcut icon" href="./images/page_icon.webp" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- ***********************************Montserrat********************************** -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;800&family=Open+Sans:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <!-- *****************************OPENSANS************************ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/master.css">
+  <link rel="stylesheet" href="./public/store.css">
+  <link rel="stylesheet" href="./public/footer.css">
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="./bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+  <script src="./bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+  <!-- ************************NAVBAR**************************************** -->
+  <nav class="container-fluid navbar navbar-expand-lg bg-body-light" id="top">
+    <div class="container-fluid col sm-8">
+
+      <button class="navbar-toggler mr-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbarbrand mx-auto" href="./index.html">ScoopReview</a>
+      <form id="searchform" role="search">
+        <input id="form-control" type="search" placeholder="Search  for stores ...." aria-label="Search">
+        <button id="searchbtn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </form>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./review-cat.html">REVIEWS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./all-blogs.html">BLOG</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./categories.html">CATEGORIES</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- *********************************Coupons and Deals********************************************** -->
+  <div class="container-fluid deal-bg">
+    <div class="container col-lg-8 col-md-8 col-sm-11 mx-auto">
+      <p><a href="./index.html">ScoopReview <span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a>
+        <a href="">Deals <span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a> <a href="">Store
+          Title</a></p>
+    </div>
+    <div class="container col-lg-8 col-md-8 col-sm-11 mx-auto deal-box">
+      <h1>40% Off <strong>Clytia Love</strong> Coupons & Promo Codes 2023</h1>
+      <p class="verified"><span class="check"><i class="fa fa-check-circle-o" aria-hidden="true"></i></span>Last
+        verified on <span>19th July, 2023</span></p>
+      <div class="btns">
+        <button class="selected">All <span>8</span></button>
+        <button class="coupons">Coupons <span>1</span></button>
+        <button class="deals">Deals <span>7</span></button>
+      </div>
+      <!-- ******************************************************************************************* -->
+      <div class="container col-lg-12 col-md-12 col-sm-12 mx-auto deals">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col col-lg-9 col-md-9 col-sm-12 mx-auto duo">
+            <div class="d-flex">
+              <div class="image">
+                <img src="./images/clytia-love-coupons.png" alt="">
+                <p class="discount">40% <strong>off</strong></p>
+                <p class="success">100% success</p>
+              </div>
+              <div class="content">
+                <a id="store" href="">
+                  <h3>Clytia Love Coupon Code – Get 40% Off On All Purchases.</h3>
+                </a>
+                <div class="d-flex">
+                  <span id="code">Code</span>
+                  <span id="noexp">No Expires</span>
+                </div>
+                <p>Your one-stop smart shopping resource! Avail flat 30% Off discount now.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-3 col-md-3 col-sm-12 mx-auto">
+            <button class="submit d-flex" data-bs-toggle="modal" data-bs-target="#popUp" type="button">get code <i
+                class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+            <div class="" id="icons">
+              <span class="face">
+                <span class="smile" data-bs-toggle="tooltip" data-bs-placement="top" title="This Worked!"><i
+                    class="fa fa-smile-o" aria-hidden="true"></i></span>
+                <span class="sad" data-bs-toggle="tooltip" data-bs-placement="top" title="It didn't Work"><i
+                    class="fa fa-frown-o" aria-hidden="true"></i></span>
+                <span class="star" data-bs-toggle="tooltip" data-bs-placement="top" title="Save this coupon"><i
+                    class="fa fa-star-o" aria-hidden="true"></i></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <p id="msg"><span id="lock"><i class="fa fa-lock" aria-hidden="true"></i></span><span
+              id="excl">Exclusive:</span> This coupon can only be found at our website.</p>
+          <div class="impression d-flex">
+            <div>
+              <span><i class="fa fa-wifi" aria-hidden="true"></i>445 Used - 0 Today</span>
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#shareCoupon"
+                data-bs-whatever="@mdo"><span><i class="fa fa-share-alt" aria-hidden="true"></i><span
+                    id="hide">share</span></span></button>
+            </div>
+            <div class="ms-auto">
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#sendEmail"
+                data-bs-whatever="@mdo"><span><i class="fa fa-envelope-o" aria-hidden="true"></i><span
+                    id="hide">Email</span></span></span></button>
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#newComment"
+                data-bs-whatever="@mdo"><span><i class="fa fa-comments-o" aria-hidden="true"></i><span id="hide">0
+                    Comments</span></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- *************************Ends!************************* -->
+      <div class="container col-lg-12 col-md-12 col-sm-12 mx-auto deals">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col col-lg-9 col-md-9 col-sm-12 mx-auto duo">
+            <div class="d-flex">
+              <div class="image">
+                <img src="./images/clytia-love-coupons.png" alt="">
+                <p class="discount">40% <strong>off</strong></p>
+                <p class="success">100% success</p>
+              </div>
+              <div class="content">
+                <a id="store" href="">
+                  <h3>Clytia Love Coupon Code – Get 40% Off On All Purchases.</h3>
+                </a>
+                <div class="d-flex">
+                  <span id="deal">DEAL </span>
+                  <span id="noexp">No Expires</span>
+                </div>
+                <p>Your one-stop smart shopping resource! Avail flat 30% Off discount now.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-3 col-md-3 col-sm-12 mx-auto">
+            <button class="submit d-flex" data-bs-toggle="modal" data-bs-target="#getDeal" type="button">get deal <i
+                class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+            <div class="" id="icons">
+              <span class="face">
+                <span class="smile" data-bs-toggle="tooltip" data-bs-placement="top" title="This Worked!"><i
+                    class="fa fa-smile-o" aria-hidden="true"></i></span>
+                <span class="sad" data-bs-toggle="tooltip" data-bs-placement="top" title="It didn't Work"><i
+                    class="fa fa-frown-o" aria-hidden="true"></i></span>
+                <span class="star" data-bs-toggle="tooltip" data-bs-placement="top" title="Save this coupon"><i
+                    class="fa fa-star-o" aria-hidden="true"></i></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <p id="msg"><span id="lock"><i class="fa fa-lock" aria-hidden="true"></i></span><span
+              id="excl">Exclusive:</span> This coupon can only be found at our website.</p>
+          <div class="impression d-flex">
+            <div>
+              <span><i class="fa fa-wifi" aria-hidden="true"></i>445 Used - 0 Today</span>
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#shareCoupon"
+                data-bs-whatever="@mdo"><span><i class="fa fa-share-alt" aria-hidden="true"></i><span
+                    id="hide">share</span></span></button>
+            </div>
+            <div class="ms-auto">
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#sendEmail"
+                data-bs-whatever="@mdo"><span><i class="fa fa-envelope-o" aria-hidden="true"></i><span
+                    id="hide">Email</span></span></span></button>
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#newComment"
+                data-bs-whatever="@mdo"><span><i class="fa fa-comments-o" aria-hidden="true"></i><span id="hide">0
+                    Comments</span></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ***************************Ends********************************** -->
+      <div class="container col-lg-12 col-md-12 col-sm-12 mx-auto deals">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col col-lg-9 col-md-9 col-sm-12 mx-auto duo">
+            <div class="d-flex">
+              <div class="image">
+                <img src="./images/clytia-love-coupons.png" alt="">
+                <p class="discount">40% <strong>off</strong></p>
+                <p class="success">100% success</p>
+              </div>
+              <div class="content">
+                <a id="store" href="">
+                  <h3>Clytia Love Coupon Code – Get 40% Off On All Purchases.</h3>
+                </a>
+                <div class="d-flex">
+                  <span id="code">code </span>
+                  <span id="noexp">No Expires</span>
+                </div>
+                <p>Your one-stop smart shopping resource! Avail flat 30% Off discount now.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-3 col-md-3 col-sm-12 mx-auto">
+            <button class="submit d-flex" data-bs-toggle="modal" data-bs-target="#popUp" type="button">get code <i
+                class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+            <div class="" id="icons">
+              <span class="face">
+                <span class="smile" data-bs-toggle="tooltip" data-bs-placement="top" title="This Worked!"><i
+                    class="fa fa-smile-o" aria-hidden="true"></i></span>
+                <span class="sad" data-bs-toggle="tooltip" data-bs-placement="top" title="It didn't Work"><i
+                    class="fa fa-frown-o" aria-hidden="true"></i></span>
+                <span class="star" data-bs-toggle="tooltip" data-bs-placement="top" title="Save this coupon"><i
+                    class="fa fa-star-o" aria-hidden="true"></i></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <p id="msg"><span id="lock"><i class="fa fa-lock" aria-hidden="true"></i></span><span
+              id="excl">Exclusive:</span> This coupon can only be found at our website.</p>
+          <div class="impression d-flex">
+            <div>
+              <span><i class="fa fa-wifi" aria-hidden="true"></i>445 Used - 0 Today</span>
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#shareCoupon"
+                data-bs-whatever="@mdo"><span><i class="fa fa-share-alt" aria-hidden="true"></i><span
+                    id="hide">share</span></span></button>
+            </div>
+            <div class="ms-auto">
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#sendEmail"
+                data-bs-whatever="@mdo"><span><i class="fa fa-envelope-o" aria-hidden="true"></i><span
+                    id="hide">Email</span></span></span></button>
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#newComment"
+                data-bs-whatever="@mdo"><span><i class="fa fa-comments-o" aria-hidden="true"></i><span id="hide">0
+                    Comments</span></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- *******************************Ends************************************************* -->
+      <div class="container col-lg-12 col-md-12 col-sm-12 mx-auto deals">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col col-lg-9 col-md-9 col-sm-12 mx-auto duo">
+            <div class="d-flex">
+              <div class="image">
+                <img src="./images/clytia-love-coupons.png" alt="">
+                <p class="discount">40% <strong>off</strong></p>
+                <p class="success">100% success</p>
+              </div>
+              <div class="content">
+                <a id="store" href="">
+                  <h3>Clytia Love Coupon Code – Get 40% Off On All Purchases.</h3>
+                </a>
+                <div class="d-flex">
+                  <span id="code">code </span>
+                  <span id="noexp">No Expires</span>
+                </div>
+                <p>Your one-stop smart shopping resource! Avail flat 30% Off discount now.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-3 col-md-3 col-sm-12 mx-auto">
+            <button class="submit d-flex" data-bs-toggle="modal" data-bs-target="#popUp" type="button">get code <i
+                class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+            <div class="" id="icons">
+              <span class="face">
+                <span class="smile" data-bs-toggle="tooltip" data-bs-placement="top" title="This Worked!"><i
+                    class="fa fa-smile-o" aria-hidden="true"></i></span>
+                <span class="sad" data-bs-toggle="tooltip" data-bs-placement="top" title="It didn't Work"><i
+                    class="fa fa-frown-o" aria-hidden="true"></i></span>
+                <span class="star" data-bs-toggle="tooltip" data-bs-placement="top" title="Save this coupon"><i
+                    class="fa fa-star-o" aria-hidden="true"></i></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <p id="msg"><span id="lock"><i class="fa fa-lock" aria-hidden="true"></i></span><span
+              id="excl">Exclusive:</span> This coupon can only be found at our website.</p>
+          <div class="impression d-flex">
+            <div>
+              <span><i class="fa fa-wifi" aria-hidden="true"></i>445 Used - 0 Today</span>
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#shareCoupon"
+                data-bs-whatever="@mdo"><span><i class="fa fa-share-alt" aria-hidden="true"></i><span
+                    id="hide">share</span></span></button>
+            </div>
+            <div class="ms-auto">
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#sendEmail"
+                data-bs-whatever="@mdo"><span><i class="fa fa-envelope-o" aria-hidden="true"></i><span
+                    id="hide">Email</span></span></span></button>
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#newComment"
+                data-bs-whatever="@mdo"><span><i class="fa fa-comments-o" aria-hidden="true"></i><span id="hide">0
+                    Comments</span></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container col-lg-12 col-md-12 col-sm-12 mx-auto deals">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col col-lg-9 col-md-9 col-sm-12 mx-auto duo">
+            <div class="d-flex">
+              <div class="image">
+                <img src="./images/clytia-love-coupons.png" alt="">
+                <p class="discount">40% <strong>off</strong></p>
+                <p class="success">100% success</p>
+              </div>
+              <div class="content">
+                <a id="store" href="">
+                  <h3>Clytia Love Coupon Code – Get 40% Off On All Purchases.</h3>
+                </a>
+                <div class="d-flex">
+                  <span id="deal">DEAL </span>
+                  <span id="noexp">No Expires</span>
+                </div>
+                <p>Your one-stop smart shopping resource! Avail flat 30% Off discount now.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-3 col-md-3 col-sm-12 mx-auto">
+            <button class="submit d-flex" data-bs-toggle="modal" data-bs-target="#getDeal" type="button">get deal <i
+                class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+            <div class="" id="icons">
+              <span class="face">
+                <span class="smile" data-bs-toggle="tooltip" data-bs-placement="top" title="This Worked!"><i
+                    class="fa fa-smile-o" aria-hidden="true"></i></span>
+                <span class="sad" data-bs-toggle="tooltip" data-bs-placement="top" title="It didn't Work"><i
+                    class="fa fa-frown-o" aria-hidden="true"></i></span>
+                <span class="star" data-bs-toggle="tooltip" data-bs-placement="top" title="Save this coupon"><i
+                    class="fa fa-star-o" aria-hidden="true"></i></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <p id="msg"><span id="lock"><i class="fa fa-lock" aria-hidden="true"></i></span><span
+              id="excl">Exclusive:</span> This coupon can only be found at our website.</p>
+          <div class="impression d-flex">
+            <div>
+              <span><i class="fa fa-wifi" aria-hidden="true"></i>445 Used - 0 Today</span>
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#shareCoupon"
+                data-bs-whatever="@mdo"><span><i class="fa fa-share-alt" aria-hidden="true"></i><span
+                    id="hide">share</span></span></button>
+            </div>
+            <div class="ms-auto">
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#sendEmail"
+                data-bs-whatever="@mdo"><span><i class="fa fa-envelope-o" aria-hidden="true"></i><span
+                    id="hide">Email</span></span></span></button>
+              <button type="button" class="modal-btn" data-bs-toggle="modal" data-bs-target="#newComment"
+                data-bs-whatever="@mdo"><span><i class="fa fa-comments-o" aria-hidden="true"></i><span id="hide">0
+                    Comments</span></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ***************************Ends********************************** -->
+      <!-- *********************************Best Coupons******************************************* -->
+      <div class="container col-lg-12 col-md-12 col-sm-12 mx-auto shadow-sm best-coupons">
+        <h3>Best Clytia Love Coupon Codes</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Discount</th>
+              <th>Discription</th>
+              <th>Status</th>
+              <th>Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> 40% OFF</td>
+              <td> Clytia Love Coupon Code – Get 40% Off On All Purchases.</td>
+              <td><strong>Active</strong></td>
+              <td> 2023/07/21</td>
+            </tr>
+            <tr>
+              <td> 40% OFF</td>
+              <td> Clytia Love Promo Code - Grab 40% Off On Clytia Love Products.</td>
+              <td><strong>Active</strong></td>
+              <td> 2023/07/21</td>
+            </tr>
+            <tr>
+              <td> 70% OFF</td>
+              <td> Clytia Love Cyber Monday Sale - Save 70% On Your Shopping Expenses.</td>
+              <td><strong>Active</strong></td>
+              <td> 2023/07/21</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- ************************************************************************************************* -->
+    </div>
+  </div>
+  </div>
+  </div>
+  <!-- *******************************About Coupons**************************************** -->
+  <div class="container-fluid">
+    <div class="container col-lg-8 col-md-8 col-sm-11 mx-auto shadow-sm coupon-details">
+      <div class="about-coupons">
+        <h2>About Odyssey Activewear Coupons</h2>
+        <p>Have A Happy Shopping Time! We Are A Popular Website For Discovering Odyssey Activewear Coupons And Promo
+          Codes. You Can Find Coupons For Almost Everything You Need. Our Website Offers A Variety Of Exciting Deals In
+          Countless Categories. It’s Time To Save More! We Trim Shopping Expenses To Give Customers Peace Of Mind. We
+          Are Among The Best Deal-hunting Sites That You Will Love To Buy. Get Ready To Open The Window Of Money-saving
+          Opportunities! Here You Can Find Discount Coupons On Every Occasion. Browse Our Vast Selection Of Mind-blowing
+          Deals To Enjoy Additional Savings. You Can Boost Your Savings By Applying Our Odyssey Activewear Discount
+          Codes.</p>
+      </div>
+      <div class="fnq">
+        <h2>Ozone Signature Coupons FAQs</h2>
+        <h3>What Is Today's Best Ozone Signature Coupon?</h3>
+        <p>Today's Best Coupon Is Up To 40% Off On Ozone Signature Products. Moreover, You Will Get A Cashback Guarantee
+          On All Orders. Besides Ozone Signature Provides The Best Deals For Customers To Save Money, Which Are All
+          Listed Here.</p>
+        <h3>Where Can I Get A Free Ozone Signature Coupon Code?</h3>
+        <p>The Best Place To Find A Ozone Signature Coupon Code Is Right Here. We Offer A Variety Of Ozone Signature
+          Promo Codes, Discount Vouchers, And Other Special Offers. Simply Enter Our Ozone Signature Discount Code At
+          Checkout And Save Big.</p>
+        <h3>How Much Can I Save With Ozone Signature Promo Code?</h3>
+        <p>Shoppers Can Save Huge On Their Orders After Applying Ozone Signature Promo Codes. Also, You Can Save A Lot
+          By Using One Of The Ozone Signature Coupon Codes. Currently, The Most You Can Save Is 40% Off.</p>
+        <h3>Who Is Ozone Signature Biggest Competitors?</h3>
+        <p>Ozone Signature Biggest Competitors Are Wild Wood Apothecary, Sugar Love, Feran Beauty, DocLab Korea, Earth
+          Stuffs</p>
+      </div>
+    </div>
+  </div>
+  <!-- ************************************Related Store****************************************** -->
+  <div class="container-fluid">
+    <div class="container col-lg-8 col-md-8 col-sm-11 mx-auto shadow-sm related-store">
+      <h3>Related Store</h3>
+      <div class="row">
+        <div class="col-lg-3 col-md-5 col-sm-10 mx-auto store-item">
+          <a class="text-center" href=""><i class="fa fa-check-circle-o" aria-hidden="true"></i></span> Glam42</a>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-10 mx-auto store-item">
+          <a href=""><i class="fa fa-check-circle-o" aria-hidden="true"></i></span>Padel Corner</a>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-10 mx-auto store-item">
+          <a href=""><i class="fa fa-check-circle-o" aria-hidden="true"></i></span> Imogino Store</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-5 col-sm-10 mx-auto store-item">
+          <a href=""><i class="fa fa-check-circle-o" aria-hidden="true"></i></span> Meta Pizza Club</a>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-10 mx-auto store-item">
+          <a href=""><i class="fa fa-check-circle-o" aria-hidden="true"></i></span> Odyssey Activewear</a>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-10 mx-auto store-item">
+          <a href=""><i class="fa fa-check-circle-o" aria-hidden="true"></i></span> Glam42</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- *******************************Popular store*************************************** -->
+  <div class="container-fluid">
+    <div class="container col-sm-11 col-md-8 col-lg-8 shadow-sm popular">
+      <h3>Popular Stores</h3>
+      <div class="row row-cols-2 row-cols-lg-4">
+        <!-- All the images should be designed in fixed dimensions -->
+        <div class="col popular-store mx-auto">
+          <a href="./mystore.html"><img src="./images/ozone-signature-coupons.png" alt=""></a>
+          <p class="text-center">STORE Name</p>
+        </div>
+        <div class="col popular-store mx-auto">
+          <a href="./mystore.html"><img src="./images/ep-jewels-coupons.png" alt=""></a>
+          <p class="text-center">STORE Name</p>
+        </div>
+        <div class="col popular-store mx-auto">
+          <a href="./mystore.html"><img src="./images/clytia-love-coupons.png" alt=""></a>
+          <p class="text-center">STORE Name</p>
+        </div>
+        <div class="col popular-store mx-auto">
+          <a href="./mystore.html"><img src="./images/ozone-signature-coupons.png" alt=""></a>
+          <p class="text-center">STORE Name</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- *************************Footer*************************************************************** -->
+  <div class=" container-fluid footer-box">
+    <div class="container col-lg-11 col-md-11 col-sm-11">
+      <div class="row">
+        <div class="col-lg-5 col-md-12 col-sm-12 about-scoop footer-itmes mx-auto">
+          <h1>ScoopReview</h1>
+          <p>At ScoopReview, we want to be your one-stop-shop for wide, in-depth product reviews of the top brands on
+            the market while pointing you to the best prices on the internet.</p>
+          <div class="social">
+            <a href=""><span><i class="fa fa-facebook-square" aria-hidden="true"></i></span></a>
+            <a href=""><span><i class="fa fa-twitter" aria-hidden="true"></i></span></a>
+            <a href=""><span><i class="fa fa-instagram" aria-hidden="true"></i></span></a>
+            <a href=""><span><i class="fa fa-youtube-play" aria-hidden="true"></i></span></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
+          <h3>NAVIGATIONS</h3>
+          <a href="./index.html">Home</a><br>
+          <a href="./about.html">About</a><br>
+          <a href="./all-blogs.html">Blog</a>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
+          <h3>QUICK LINKS</h3>
+          <a href="./review-cat.html">Reviews</a><br>
+          <a href="./coupons.html">Coupons</a><br>
+          <a href="./categories.html">Categories</a>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
+          <h3>NEED HELP?</h3>
+          <a href="">Sitemap</a><br>
+          <a href="">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- *******************************copyright section****************************** -->
+  <div>
+    <a href="#top"><button id="scrollToTop"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button></a>
+  </div>
+  <div class="container-fluid copyright">
+    <div class="row text-center">
+      <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+      <p class="copyright-para">ScoopReview earns affiliate commisions on qualifying purchases as an amazon associate.
+        "Amazon, and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
+      <p>Copyright &copy; 2023 ScoopReview. All Right Reserved</p>
+    </div>
+  </div>
+  <!-- ===================================================Models=================================================== -->
+  <!--*********************************Coupon Pop-Up GET-CODE Modal*********************************************** -->
+  <div class="modal fade" id="popUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Clytia Love Coupon Code – Get 40% Off</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <span id="showCode">COPY-ME!</span>
+        </div>
+        <div>
+          <h5 class="modal-info text-center">Select The Coupon Code & Hit Copy Button to Copy Your Code</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+            onclick="copyToClipboard('#showCode')">COPY</button>
+          <button type="button" class="btn btn-warning text-white">Visit Store</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--*********************************Coupon Pop-Up GET-deal Modal*********************************************** -->
+  <div class="modal fade" id="getDeal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalLabel">Clytia Love Coupon Code – Get 40% Off</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <span id="showCode">Deal Activated</span>
+        </div>
+        <div>
+          <h5 class="modal-info text-center">No Coupon Code Required</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning text-white">Visit Store</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- *********************************Comment Modal************************************************* -->
+  <div class="modal fade" id="newComment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Leave a Comment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Add Comment:</label>
+              <textarea class="form-control" id="message-text" placeholder="Input your thought..."></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Email:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning">COMMENT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***************************************************************share Modal***************************** -->
+  <div class="modal fade" id="shareCoupon" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Share it with your friends</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Coupon URL</label>
+              <input type="text" class="form-control" id="recipient-name"
+                placeholder="coupon URL should be fetched here...">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning social-btn" style="background-color: #0000ff;">Facebook<span><i
+                class="fa fa-facebook-official" aria-hidden="true"></i></span></button>
+          <button type="button" class="btn btn-warning social-btn" style="background-color: #00ACEE;">Twitter<span><i
+                class="fa fa-twitter" aria-hidden="true"></i></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***************************************************************email Modal***************************** -->
+  <div class="modal fade" id="sendEmail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Send this coupon to an email</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Your Email:</label>
+              <input type="text" class="form-control" id="recipient-name" placeholder="input your email...">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="./script/app.js"></script>
+</body>
+
+</html>

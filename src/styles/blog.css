@@ -1,0 +1,244 @@
+/* ********************* Blog-Header*********************************** */
+#blogHeader{
+    background-image: url('/images/blog-header-3.avif');
+    max-height: 200px;
+    min-height: 200px; 
+}
+.blog-title{
+    max-height: 200px;
+    min-height: 200px;
+}
+.blog-title h1{
+    color: #ffffff;
+    font-weight: 600;
+}
+/* **********************Blog-Navigation*************************** */
+.blog-navigation{
+    margin-top: 1.6rem;
+}
+.blog-navigation a{
+    text-decoration: none;
+    color: #212529;
+    font-weight: 500;
+    font-size: .95rem;
+}
+/* ***********************Blog-section**************************************** */
+.blog-image{
+    margin: 1rem auto;
+    display: block;
+    justify-content: center;
+}
+.blog-image img{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 100%; 
+}
+.author p{
+    color: #af9b9e;
+    font-size: 1rem;
+}
+.author span{
+    color: #222;
+    cursor: pointer;
+    font-weight: 500;
+}
+.author span:hover{
+    color: #2a826e
+}
+/* ********************** */
+.blog-section{
+    margin-bottom: 2rem;
+}
+.contents{
+    background-color: #fcfcfc;
+
+}
+#unfold{
+    display: none;
+    width: 95%;
+    margin: .5rem auto .5rem auto;
+}
+
+#unfold a{
+    margin: .3rem;
+    font-weight: 650;
+    font-size: .9rem;
+    display: block;
+    text-decoration: none;
+    color: #222;
+}
+@media(max-width:550px){
+    #unfold a{
+        border-bottom: .1px solid #e4dddd;
+        font-size: .8rem;
+    }
+}
+#unfold a:hover{
+   color: #177761;
+   font-size: .95rem;
+   transition: all .4s ease;
+}
+.review{
+    margin-bottom: 3rem;
+}
+.review-box{
+    background-color: #fcfcfc;
+    padding: 1rem;
+}
+.contents button{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #ece7e7;
+    background-color: transparent;
+    padding: .5rem;
+    font-weight: 600;
+}
+/* **************Blog-Content*************** */
+.blog-content{
+    margin-bottom: 3.2rem;
+}
+.write-blog{
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+.write-blog ul{
+    list-style-type: decimal;
+    font-weight: 500;
+    font-size: .9rem;
+}
+.write-blog img{
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: 100%; 
+}
+.product{
+    margin-bottom: 1.2rem;
+}
+.product h2{
+    font-weight: 650;
+    font-size: 1.8rem;
+}
+.product h3 strong{
+    margin-right: 1rem;
+    font-size: 1.8rem;  
+}
+.product h3{
+    font-weight: 600;
+    margin-top: 1.5rem;
+    font-size: 1.6rem;
+}
+.product h4{
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+.product p{
+    text-align: justify;
+    font-weight: 500;
+    font-size: .9rem;
+}
+/* **************author**************** */
+.author-box{
+   
+    margin-bottom: 2rem;
+}
+.author-box span{
+    margin-right: 1rem;
+    display: block;
+    margin-top: 1.2rem;
+    margin-left: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.author-box span:hover {
+   color: #177761;
+}
+.author-box .image{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+.author-box .image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.blog-box .card {
+    background-color: #fcfcfc !important;
+    border: none !important;
+}
+
+.blog-box .card-header {
+    padding: 0.75rem 0.5rem !important;
+    background-color: #fcfcfc !important;
+    border: none !important;
+}
+.blog-box .list-group li a {
+    color: #232f3e !important;
+    font-size: 14px !important;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* .commentbox{
+    padding-top: 1rem;
+}
+.comment h3{
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: .1rem;
+}
+.comment p{
+    font-size: 1.1rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+.comment p span{
+    color: #ff0000;
+    font-size: 1.5rem;
+}
+.input form textarea{
+    margin-bottom: 1.2rem;
+}
+.input form input, textarea{
+    outline: none;
+    padding-left: .9rem;
+    border: 1px solid #e2e2e3;
+    margin-bottom: 1.5rem;
+}
+.input form input{
+    height: 2.2rem;
+}
+@media (max-width: 700px){
+    .input form input, textarea{
+        width: 80%;
+    }  
+    .input form textarea{
+        width: 80%;
+        height: 9.4rem;
+    } 
+}
+.input form button{
+    border: none;
+    background-color: #067377;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    width: 8.5rem;
+    height: 2.5rem;
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    margin-bottom: 1rem;
+}
+.commentbox{
+     border: 1px solid #D9D7D7;
+    margin-bottom: 2.5rem;
+} */
+

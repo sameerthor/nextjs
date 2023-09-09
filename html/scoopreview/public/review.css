@@ -1,0 +1,285 @@
+.review-title{
+    margin-top: 1rem;
+}
+.review-title a{
+    text-decoration: none;
+    color: #222222;
+}
+/* *********************Review****************************** */
+#unfold{
+    display: none;
+    width: 95%;
+    margin: .5rem auto .5rem auto;
+}
+
+#unfold a{
+    margin: .3rem;
+    font-weight: 650;
+    font-size: .9rem;
+}
+@media(max-width:550px){
+    #unfold a{
+        border-bottom: .1px solid #e4dddd;
+        font-size: .8rem;
+    }
+}
+#unfold a:hover{
+   color: #177761;
+   font-size: .95rem;
+   transition: all .4s ease;
+}
+.review{
+    margin-bottom: 3rem;
+}
+.review-box{
+    background-color: #fcfcfc;
+    padding: 1rem;
+}
+.review-box button{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #ece7e7;
+    background-color: transparent;
+    padding: .5rem;
+    font-weight: 600;
+}
+.review-box h1{
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+@media(max-width:700px){
+    .review-box h1{
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+}
+.contents a{
+    color: #222222;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    display: block;
+}
+.coupons{
+    border: 1px solid #ede9e9;
+    background-color: #ffffff;
+    margin: 1rem auto 1rem auto;
+    width: 95%;
+}
+.coupons a{
+    text-decoration: none;
+}
+.coupon-name{
+    width: 30%;
+}
+
+.coupon-name a{
+    margin: auto;
+    color: #222222;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    border: 2px solid #ece6e6;
+}
+@media(max-width:991px){
+    .coupon-name a{
+        margin-left: .5rem;
+    }
+}
+@media(min-width:576px) and (max-width:786px){
+    .coupon-name a{
+        margin-left: 0px;
+        margin-right: 1rem;
+    }
+}
+@media(max-width:425px){
+    .coupon-name a{
+        font-size: 1rem;
+        padding-left: .3rem;
+    }
+}
+.coupon-content a{
+    display: block;
+    color: #222222;
+    font-weight: 600;
+    padding-left: 1rem;
+    font-size: 1.4rem;
+}
+@media(max-width:425px){
+    .coupon-content a{
+        font-size: 1.2rem;
+    }
+}
+.coupon-content p{
+    padding-left: 1rem;
+    color: #222222;
+    font-size: .9rem;
+    margin-top: .5rem;
+    font-weight: 500;
+}
+.btns{
+    padding-top: .7rem;
+    margin-top: .5rem;
+}
+.btns button{
+    display: block;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 10rem;
+    background-color: #177761;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-weight: 600;
+    height: 2.9rem;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+}
+.btns button i{
+    margin-left: .5rem;
+}
+
+@media(min-width:991px) and (max-width:1400px){
+    .btns button{
+        width: 100%;
+    }
+}
+.content-box{
+    padding-top: .7rem;
+}
+/*************************Review Content*******************************/
+.review{
+    padding-top: 1.5rem;
+}
+.visitbtn {
+    margin-top: 1.2rem;
+    margin-bottom: 2.2rem;
+}
+.visitbtn button{
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #ffffff;
+    height: 3.5rem;
+    padding: .7rem;
+    font-weight: 600;
+}
+.write-review h1{
+    font-weight: 700;
+    font-size: 1.9rem;
+    margin-bottom: 1.2rem;
+    color: #222222;
+}
+.write-review p{
+    font-size: 1rem;
+    text-align: justify;
+    line-height: 1.6rem;
+}
+.write-review i{
+    font-weight: 600;
+}
+.write-review .review-details{
+    width: 50%;
+}
+.write-review h3{
+    font-weight: 550;
+    font-size: 1.5rem;
+}
+.review-img{
+    margin-bottom: 1rem;
+}
+.review-img img{
+    display: block;
+    margin: auto;
+    object-fit: contain;
+}
+@media(max-width:768px){
+    .review-img img{
+       width: 100%;
+    }
+    .write-review .review-details {
+        width: 90%;
+    }
+    .write-review h1{
+        font-size: 1.4rem;
+    }
+    .write-review h3{
+        font-size: 1.2rem;
+    }
+    .write-review p{
+        font-size: .9rem;
+    }
+}
+/**************************Realated review*******************************/
+.related-review{
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+}
+.related-review h3{
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin-bottom: 2.2rem;
+}
+.related-review .row{
+    margin-bottom: 1rem;
+}
+.review-item {
+    margin: auto;
+    text-align: center; 
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.border{
+    border: 1px solid #ebe8e8;
+}
+.border i{
+    color: #177761;
+    margin-right: .4rem;
+}
+.review-item a {
+   text-decoration: none;
+   color: #222;
+   font-weight: 500;
+}
+.review-item a:hover {
+  color: #177761;
+ }
+ /* ****************************Popular Store********************************* */
+ .popular-store{
+    background-color: #f9fbfc;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    margin-top: 4rem;
+  }
+  .popular-store h1{
+    margin-bottom: 1.6rem;
+    font-weight: 600;
+    color: #000000;
+    font-size: 2rem;
+  }
+  .popular-store .container .row img{
+    margin:  .5rem auto .5rem auto;
+    display: block;
+    width: 100%; 
+    height: 7.5rem;
+    object-fit: contain;
+    border: 2px solid #efebeb;
+  } 
+  .popular-store .container .row .text-center a{
+    text-decoration: none;
+    color: #07525e;
+    font-weight: 700;
+    font-size: .9rem;
+  }
+  .coupons {
+    margin-bottom: .9rem;
+  }
