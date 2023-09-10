@@ -7,7 +7,6 @@ import Categories from '.';
 const { publicRuntimeConfig } = getConfig()
 
 const exampleFunction = ({page}) => {
-    console.log(page);
     return (
 
         page && (

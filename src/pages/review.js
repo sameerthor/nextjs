@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '@/styles/review.css';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -9,7 +9,11 @@ const { publicRuntimeConfig } = getConfig()
 
 
 export default function Reviews({ data }) {
+    ;
     const [reviewdata, setReviewdata] = useState(data);
+    const [dealModaldata, setDealModaldata] = useState({});
+    const [couponModaldata, setCouponModaldata] = useState({});
+
     const changeView = ((index) => {
         setReviewdata((prevState) => {
             prevState.pcoupons_above[index].is_more = (!reviewdata.pcoupons_above[index].is_more);
@@ -23,7 +27,7 @@ export default function Reviews({ data }) {
 
     useEffect(() => {
         setReviewdata(data)
-      }, [data]);
+    }, [data]);
 
 
 
@@ -91,6 +95,7 @@ export default function Reviews({ data }) {
         });
     }, [])
 
+
     return (
         reviewdata && (
             <>
@@ -146,7 +151,7 @@ export default function Reviews({ data }) {
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-2 col-md-4 col-sm-5  btns">
-                                                    <button>Get Deal</button>
+                                                    <button data-bs-toggle="modal"  onClick={(e)=>{setDealModaldata(item),window.open(item.aff_url && item.aff_url)}} data-bs-target="#dealPopup">Get Deal</button>
                                                 </div>
                                             </div>);
                                         else
@@ -167,7 +172,7 @@ export default function Reviews({ data }) {
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-2 col-md-4 col-sm-5  btns">
-                                                    <button>Get Code</button>
+                                                    <button onClick={(e)=>setCouponModaldata(item)} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
                                                 </div>
                                             </div>);
                                     }
@@ -189,9 +194,9 @@ export default function Reviews({ data }) {
                                 <div id="fAq">
                                     {reviewdata.faqs.map((item) => {
                                         return (<>
-                                            <div class="faq_block">
-                                                <h3 class="faq_question">{item.faq_question}</h3>
-                                                <p class="faq_answer">{item.faq_answer}</p>
+                                            <div className="faq_block">
+                                                <h3 className="faq_question">{item.faq_question}</h3>
+                                                <p className="faq_answer">{item.faq_answer}</p>
                                             </div>
                                         </>);
                                     })
@@ -240,8 +245,47 @@ export default function Reviews({ data }) {
                     </div>
 
                 </div>
-
                 <Footer />
+                <div className="modal fade" id="dealPopup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title text-center" id="exampleModalLabel">{dealModaldata.title && dealModaldata.title}</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body text-center">
+                                <span id="showCode">Deal Activated</span>
+                            </div>
+                            <div>
+                                <h5 className="modal-info text-center">No Coupon Code Required</h5>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" onClick={(e)=>window.open(dealModaldata.aff_url && dealModaldata.aff_url)} className="btn btn-warning text-white">Visit Store</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal fade" id="codePopup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">{couponModaldata.title && couponModaldata.title}</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body text-center">
+                                <span id="showCode">{couponModaldata.coupon_code && couponModaldata.coupon_code}</span>
+                            </div>
+                            <div>
+                                <h5 className="modal-info text-center">Select The Coupon Code & Hit Copy Button to Copy Your Code</h5>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" onClick={(e)=>{navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code);alert('Coupon Code Copied to Clipboard Successfully!')}}
+                                    >COPY</button>
+                                <button type="button" onClick={(e)=>window.location.href=couponModaldata.aff_url && couponModaldata.aff_url} className="btn btn-warning text-white">Visit Store</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </>)
     )
 }

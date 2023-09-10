@@ -1,6 +1,6 @@
 import Header from './components/header';
 import Footer from './components/footer';
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import '@/styles/store.css';
 import Link from 'next/link';
 import moment from "moment";
@@ -9,14 +9,16 @@ const { publicRuntimeConfig } = getConfig()
 
 
 export default function Store({ data }) {
-
+    ;
     const [storedata, setStoredata] = useState(data);
     const [activetab, setActivetab] = useState("all");
+    const [dealModaldata, setDealModaldata] = useState({});
+    const [couponModaldata, setCouponModaldata] = useState({});
 
     useEffect(() => {
         setStoredata(data);
         setActivetab("all");
-      }, [data]);
+    }, [data]);
 
     const changeTab = (tab) => {
         setActivetab(tab)
@@ -41,8 +43,8 @@ export default function Store({ data }) {
 
 
     return (
-            <>
-               { data && (<><Header />
+        <>
+            {data && (<><Header />
                 <div className="container-fluid deal-bg">
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto">
                         <p><a href="./index.html">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></a> <a href="">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></a> <a href="">Store Title</a></p>
@@ -62,22 +64,29 @@ export default function Store({ data }) {
                                     <div className="col col-lg-9 col-md-9 col-sm-12 mx-auto duo">
                                         <div className="d-flex">
                                             <div className="image">
-                                                <img src="./images/clytia-love-coupons.png" alt="" />
-                                                <p className="discount">40% <strong>off</strong></p>
+                                                <img src={`${publicRuntimeConfig.imageUrl}images/${storedata.store.store_logo}`} alt="" />
+                                                <p className="discount">{item.type_text}% <strong>off</strong></p>
                                                 <p className="success">100% success</p>
                                             </div>
                                             <div className="content">
                                                 <a id="store" href=""><h3>{item.title}</h3></a>
                                                 <div className="d-flex">
-                                                    <span id="code">Code</span>
-                                                    <span id="noexp">No Expires</span>
+                                                    <span id="code">{ item.is_deal=='0'?'Code':'Deal'}</span>
+                                                    
+                                                  { item.is_deal=='0' && <span id="noexp">No Expires</span> }
                                                 </div>
                                                 <p>{item.descp}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col col-lg-3 col-md-3 col-sm-12 mx-auto">
-                                        <button className="submit d-flex" data-bs-toggle="modal" data-bs-target="#popUp" type="button">{item.is_deal == '0' ? 'GET CODE' : 'GET DEAL'} <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                                        {
+                                            item.is_deal=='0'?
+                                            <button className="submit d-flex" data-bs-toggle="modal" onClick={(e)=>setCouponModaldata(item)} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                                            :
+                                            <button className="submit d-flex" data-bs-toggle="modal" onClick={(e)=>{setDealModaldata(item),window.open(storedata.store.aff_url)}} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+
+                                        }
                                         <div className="" id="icons">
                                             <span className="face">
                                                 <span className="smile" data-bs-toggle="tooltip" data-bs-placement="top" title="This Worked!"><i className="fa fa-smile-o" aria-hidden="true"></i></span>
@@ -167,7 +176,7 @@ export default function Store({ data }) {
                         <h3>Related Store</h3>
                         <div className="row">
                             {
-                               storedata.rstores &&   storedata.rstores.map((item) =>
+                                storedata.rstores && storedata.rstores.map((item) =>
                                     <div className="col-lg-3 col-md-5 col-sm-10 mx-auto store-item" key={item.id}>
                                         <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i> {item.name}</Link>
                                     </div>
@@ -193,8 +202,49 @@ export default function Store({ data }) {
                         </div>
                     </div>
                 </div>
-                <Footer /></>
-               )}
+                <div className="modal fade" id="dealPopup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title text-center" id="exampleModalLabel">{dealModaldata.title && dealModaldata.title}</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body text-center">
+                                <span id="showCode">Deal Activated</span>
+                            </div>
+                            <div>
+                                <h5 className="modal-info text-center">No Coupon Code Required</h5>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" onClick={(e) => window.open(storedata.store.aff_url && storedata.store.aff_url)} className="btn btn-warning text-white">Visit Store</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal fade" id="codePopup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">{couponModaldata.title && couponModaldata.title}</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body text-center">
+                                <span id="showCode">{couponModaldata.coupon_code && couponModaldata.coupon_code}</span>
+                            </div>
+                            <div>
+                                <h5 className="modal-info text-center">Select The Coupon Code & Hit Copy Button to Copy Your Code</h5>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code); alert('Coupon Code Copied to Clipboard Successfully!') }}
+                                >COPY</button>
+                                <button type="button" onClick={(e) => window.location.href = storedata.store.aff_url && storedata.store.aff_url} className="btn btn-warning text-white">Visit Store</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <Footer />
             </>
+            )}
+        </>
     )
 }

@@ -37,7 +37,7 @@ export default function Coupons() {
 
             const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/coupons`);
             const data = await response.json();
-            console.log(data);
+            ;
             setCouponsdata(data);
         })();
     }, []);

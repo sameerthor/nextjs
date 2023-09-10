@@ -29,9 +29,7 @@ export default function Blog({ data }) {
             const h2Tags = document.querySelectorAll('h2');
             const h3Tags = document.querySelectorAll('h3');
             const h4Tags = document.querySelectorAll('h4');
-            console.log(h2Tags)
-            console.log(h3Tags)
-            console.log(h4Tags)
+           
             var content = [];
             var elementId;
 

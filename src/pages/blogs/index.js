@@ -22,7 +22,7 @@ export default function Blogs({data}) {
 
             const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/blogs?page=${page_no}`);
             const data = await response.json();
-            console.log(data);
+            ;
             setBlogdata(data);
         })();
     }, [page_no]);

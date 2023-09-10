@@ -24,7 +24,6 @@ export default function Special({ data }) {
         const filtered = data.special.filter(entry => entry.title.toLowerCase().includes(keyword.toLowerCase()));
         if(filtered.length>0)
         {
-           console.log(filtered);
            setResults(filtered);
         }else{
             setResults([]);
