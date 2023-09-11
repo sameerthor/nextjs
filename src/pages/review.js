@@ -130,11 +130,11 @@ export default function Reviews({ data }) {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="coupons">
 
-                                    {reviewdata.pcoupons_above.map((item, index) => {
-                                        if (item.is_deal == 1)
-                                            return (<div className="row" key={item.id}>
+                                {reviewdata.pcoupons_above.map((item, index) => {
+                                    if (item.is_deal == 1)
+                                        return (<div className="coupons" key={item.id}>
+                                            <div className="row" >
                                                 <div className="col-lg-9 col-md-8 col-sm-9 ">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
@@ -151,11 +151,12 @@ export default function Reviews({ data }) {
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-2 col-md-4 col-sm-5  btns">
-                                                    <button data-bs-toggle="modal"  onClick={(e)=>{setDealModaldata(item),window.open(item.aff_url && item.aff_url)}} data-bs-target="#dealPopup">Get Deal</button>
+                                                    <button data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-target="#dealPopup">Get Deal</button>
                                                 </div>
-                                            </div>);
-                                        else
-                                            return (<div className="row" key={item.id}>
+                                            </div></div>);
+                                    else
+                                        return (<div className="coupons" key={item.id}>
+                                            <div className="row" >
                                                 <div className="col-lg-9 col-md-8 col-sm-9">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
@@ -172,12 +173,11 @@ export default function Reviews({ data }) {
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-2 col-md-4 col-sm-5  btns">
-                                                    <button onClick={(e)=>setCouponModaldata(item)} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
+                                                    <button onClick={(e) => setCouponModaldata(item)} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
                                                 </div>
-                                            </div>);
-                                    }
-                                    )}
-                                </div>
+                                            </div></div>);
+                                }
+                                )}
 
 
                             </div>
@@ -260,7 +260,7 @@ export default function Reviews({ data }) {
                                 <h5 className="modal-info text-center">No Coupon Code Required</h5>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" onClick={(e)=>window.open(dealModaldata.aff_url && dealModaldata.aff_url)} className="btn btn-warning text-white">Visit Store</button>
+                                <button type="button" onClick={(e) => window.open(dealModaldata.aff_url && dealModaldata.aff_url)} className="btn btn-warning text-white">Visit Store</button>
                             </div>
                         </div>
                     </div>
@@ -279,9 +279,9 @@ export default function Reviews({ data }) {
                                 <h5 className="modal-info text-center">Select The Coupon Code & Hit Copy Button to Copy Your Code</h5>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={(e)=>{navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code);alert('Coupon Code Copied to Clipboard Successfully!')}}
-                                    >COPY</button>
-                                <button type="button" onClick={(e)=>window.location.href=couponModaldata.aff_url && couponModaldata.aff_url} className="btn btn-warning text-white">Visit Store</button>
+                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code); alert('Coupon Code Copied to Clipboard Successfully!') }}
+                                >COPY</button>
+                                <button type="button" onClick={(e) => window.location.href = couponModaldata.aff_url && couponModaldata.aff_url} className="btn btn-warning text-white">Visit Store</button>
                             </div>
                         </div>
                     </div>
