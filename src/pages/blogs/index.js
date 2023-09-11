@@ -7,25 +7,23 @@ import getConfig from 'next/config'
 import moment from "moment";
 const { publicRuntimeConfig } = getConfig()
 
-export default function Blogs({data}) {
-    
+export default function Blogs({ data }) {
+
     const [blogdata, setBlogdata] = useState([]);
     const [page_no, setPage_no] = useState("1");
-    
+
     useEffect(() => {
         setBlogdata(data);
-    },[])
+    }, [])
 
-    useEffect(() => {
 
-        (async () => {
-
-            const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/blogs?page=${page_no}`);
-            const data = await response.json();
-            ;
-            setBlogdata(data);
-        })();
-    }, [page_no]);
+    const fetchBlogs = async (i) => {
+        setPage_no(i)
+        const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/blogs?page=${i}`);
+        const data = await response.json();
+        ;
+        setBlogdata(data);
+    };
 
 
     return (
@@ -65,14 +63,14 @@ export default function Blogs({data}) {
                     <div className="container">
                         <div className="text-center blog-count d-flex">
                             {blogdata.blogs.current_page != 1 ?
-                                <span onClick={() => setPage_no(blogdata.blogs.current_page-1)}  className="angle-left" ><i className="fa fa-angle-left" aria-hidden="true"></i></span>
+                                <span onClick={() => fetchBlogs(blogdata.blogs.current_page - 1)} className="angle-left" ><i className="fa fa-angle-left" aria-hidden="true"></i></span>
                                 : ''
                             }
                             {(() => {
                                 const arr = [];
                                 for (let i = 1; i <= blogdata.blogs.last_page; i++) {
                                     arr.push(
-                                        <span onClick={() => setPage_no(i)} className={i == blogdata.blogs.current_page ? 'bg-dark' : 'not-selected'}>{i}</span>
+                                        <span onClick={() => fetchBlogs(i)} className={i == blogdata.blogs.current_page ? 'bg-dark' : 'not-selected'}>{i}</span>
 
                                     );
                                 }
@@ -80,7 +78,7 @@ export default function Blogs({data}) {
                             })()}
                             {blogdata.blogs.current_page != blogdata.blogs.last_page ?
 
-                                <span onClick={() => setPage_no(blogdata.blogs.current_page+1)} className="angle-right"><i className="fa fa-angle-right" aria-hidden="true"></i></span>
+                                <span onClick={() => fetchBlogs(blogdata.blogs.current_page + 1)} className="angle-right"><i className="fa fa-angle-right" aria-hidden="true"></i></span>
                                 : ''
                             }
                         </div>
@@ -129,14 +127,13 @@ export default function Blogs({data}) {
     )
 }
 
-export async function getServerSideProps({ req, res }) {  
-    
-    res.setHeader(
-        'Cache-Control',
-        'public, s-maxage=10, stale-while-revalidate=59'
-      )
+export async function getStaticProps() {
+
+
     const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/blogs`);
     const data = await response.json();
-   
-    return { props: { data } }
-   }
+
+    return {
+        props: { data }, revalidate: 10
+    }
+}

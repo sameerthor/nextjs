@@ -29,20 +29,8 @@ const Responsive = {
 }
 
 
-export default function Home() {
-    const [homeData, setHomeData] = useState({
-        blogs: [], home_categories: [], home_slides: []
-    });
-
-    useEffect(() => {
-
-        (async () => {
-
-            const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}/api/home`);
-            const data = await response.json();
-            setHomeData(data);
-        })();
-    }, []);
+export default function Home({page}) {
+    const [homeData, setHomeData] = useState(page);
 
 
     return (
@@ -53,7 +41,7 @@ export default function Home() {
                 <div className="container-fluid my-2">
                     <h1 className="text-center fw-bold">Top <span className="text-success">Reviews</span></h1>
                     <div className="row mt-5">
-                        {homeData.home_slides.length > 0 && (
+                        {homeData.home_slides && (
                             <OwlCarousel className='owl-theme' responsive={Responsive} loop margin={15} nav>
                                 {homeData.home_slides.map((item) => {
                                     return (
@@ -101,7 +89,7 @@ export default function Home() {
                         <div className="container-fluid my-2">
                             <h1 className="text-center fw-bold mainh">Reviews By Categories</h1>
                             <div className="row mt-5">
-                                {homeData.home_categories.length > 0 && (
+                                {homeData.home_categories && (
                                     <OwlCarousel className='owl-theme' responsive={Responsive} loop margin={15} nav>
                                         {homeData.home_categories.map((item) => {
                                             return (
@@ -279,7 +267,7 @@ export default function Home() {
                 <div className="container  col-lg-10 col-md-10 col-sm-10 blog-box">
                     <div className="row">
                         <h1>Latest Blogs</h1>
-                        {homeData.blogs.length > 0 && (
+                        {homeData.blogs && (
                             homeData.blogs.map((item) => {
                                 return (
                                     <div className="col-lg-4 col-md-6 col-sm-9 latest-blog" key={item.id}>
@@ -359,4 +347,16 @@ export default function Home() {
             <Footer />
         </>
     )
+}
+export async function getStaticProps() {
+
+    
+    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/home`);
+    const data = await response.json();
+    return {
+        props: {
+            page: data 
+        },
+        revalidate: 10
+    };
 }

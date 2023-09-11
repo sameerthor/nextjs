@@ -42,17 +42,15 @@ export default function Reviews({reviews}) {
     )
 }
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps() {
 
-    ctx.res.setHeader(
-        'Cache-Control',
-        'public, s-maxage=10, stale-while-revalidate=59'
-    )
+    
     const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/reviews`);
     const data = await response.json();
     return {
         props: {
             reviews: data 
-        }
+        },
+        revalidate: 10
     };
 }

@@ -47,7 +47,7 @@ export default function Store({ data }) {
             {data && (<><Header />
                 <div className="container-fluid deal-bg">
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto">
-                        <p><a href="./index.html">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></a> <a href="">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></a> <a href="">Store Title</a></p>
+                        <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href={storedata.store.slug}>{storedata.store.name}</Link></p>
                     </div>
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto deal-box">
                         <h1>{data.store.seo_title} {moment().format('YYYY')}</h1>
