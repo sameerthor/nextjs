@@ -55,7 +55,7 @@ export default function Store({ data }) {
                             verified on <span>{moment().format('Do MMMM YYYY')}</span></p>
                         <div className="btns">
                             <button onClick={() => changeTab('all')} className={activetab == 'all' ? 'selected all' : 'all'}>All <span>{data.coupon_h2.length}</span></button>
-                            <button onClick={() => changeTab('coupons')} className={activetab == 'coupons' ? 'selected coupons' : 'coupons'}><span>{data.coupon_h2.filter(element => element.is_deal === 0).length} Coupons</span></button>
+                            <button onClick={() => changeTab('coupons')} className={activetab == 'coupons' ? 'selected coupons' : 'coupons'}>Coupons <span>{data.coupon_h2.filter(element => element.is_deal === 0).length}</span></button>
                             <button onClick={() => changeTab('deals')} className={activetab == 'deals' ? 'selected deals' : 'deals'}>Deals <span>{data.coupon_h2.filter(element => element.is_deal !== 0).length}</span></button>
                         </div>
                         {storedata.coupon_h2 && storedata.coupon_h2.map((item) =>
