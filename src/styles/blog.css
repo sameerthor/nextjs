@@ -22,6 +22,9 @@
     font-weight: 500;
     font-size: .95rem;
 }
+.blog-navigation a:hover{
+    color: #212529;
+}
 /* ***********************Blog-section**************************************** */
 .blog-image{
     margin: 1rem auto;
@@ -52,12 +55,13 @@
 }
 .contents{
     background-color: #fcfcfc;
-
+    border: none;
 }
 #unfold{
     display: none;
     width: 95%;
     margin: .5rem auto .5rem auto;
+    border: 2px solid green;
 }
 
 #unfold a{
@@ -78,6 +82,15 @@
    color: #177761;
    font-size: .95rem;
    transition: all .4s ease;
+}
+.contents a{
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+}
+.contents a:hover{
+    text-decoration: none;
+    color: #222;
 }
 .review{
     margin-bottom: 3rem;

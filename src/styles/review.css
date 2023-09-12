@@ -1,11 +1,17 @@
 .review-title{
-    margin-top: 1rem;
+    margin: 1rem auto;
 }
 .review-title a{
     text-decoration: none;
     color: #222222;
 }
+.review-title a:hover{
+    color: #222222;
+}
 /* *********************Review****************************** */
+.review-box a{
+    text-decoration: none !important;
+}
 #unfold{
     display: none;
     width: 95%;
@@ -13,9 +19,15 @@
 }
 
 #unfold a{
-    margin: .3rem;
-    font-weight: 650;
+    /* margin: .3rem; */
+    font-weight: 600;
     font-size: .9rem;
+    text-decoration: none !important;
+}
+.contents a{
+    text-align: left;
+    display: block;
+    text-decoration: none;
 }
 @media(max-width:550px){
     #unfold a{
@@ -31,17 +43,44 @@
 .review{
     margin-bottom: 3rem;
 }
+.review .write-review{
+    margin: auto;
+    padding: 1.6rem 1.4rem;
+}
+.write-review img{
+    margin: .5rem auto;
+    display: block;
+    max-width: 80%;
+    object-fit: contain;
+}
 .review-box{
     background-color: #fcfcfc;
     padding: 1rem;
+    margin: .5rem auto;
 }
 .review-box button{
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     border: 2px solid #ece7e7;
     background-color: transparent;
-    padding: .5rem;
+    padding: 1rem;
     font-weight: 600;
+    outline: none;
+}
+#headingOne button{
+    border: 2px solid #ece7e7;
+    padding: .7rem .85rem;
+    border-radius: 0px;
+    font-weight: 600;
+    margin-right: 100%;
+    min-width: 12rem;
+    display: block;
+    font-size: 1.1rem;
+    text-align-last: center;
+}
+.review-box button:hover{
+    border: 2px solid #ece7e7;
+    outline: none;
 }
 .review-box h1{
     font-weight: 700;
@@ -53,23 +92,48 @@
         font-size: 1.6rem;
     }
 }
-.contents a{
+.card-header{
+    border: none !important;
+}
+#headingOne{
+    border: none !important;
+}
+#tableofcontents li a u{
+    text-decoration: underline;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.card ul li a{
+    text-decoration: none;
+}
+.contents ul li a{
     color: #222222;
     text-decoration: none;
     font-weight: 500;
-    margin-top: 1.5rem;
+    margin-top: .5rem;
     display: block;
 }
 .coupons{
     border: 1px solid #ede9e9;
+    padding: 1rem 1rem;
     background-color: #ffffff;
-    margin: 1rem auto 1rem auto;
+    margin: 1.6rem auto;
 }
 .coupons a{
     text-decoration: none;
+    cursor: pointer;
 }
+.coupons a:hover{
+    color: #000000;
+}
+
 .coupon-name{
-    width: 30%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0rem 1rem;
+  border: 2px solid #ece6e6;
 }
 
 .coupon-name a{
@@ -80,8 +144,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size: 1.3rem;
-    border: 2px solid #ece6e6;
+    font-size: 1.4rem;
 }
 @media(max-width:991px){
     .coupon-name a{
@@ -105,7 +168,7 @@
     color: #222222;
     font-weight: 600;
     padding-left: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.55rem;
 }
 @media(max-width:425px){
     .coupon-content a{
@@ -115,13 +178,14 @@
 .coupon-content p{
     padding-left: 1rem;
     color: #222222;
-    font-size: .9rem;
+    font-size: 1.1rem;
     margin-top: .5rem;
     font-weight: 500;
 }
 .btns{
-    padding-top: .7rem;
-    margin-top: .5rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .btns button{
     display: block;
@@ -129,16 +193,15 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 10rem;
     background-color: #177761;
     border: none;
     outline: none;
     color: #ffffff;
     font-weight: 600;
-    height: 2.9rem;
     border-radius: 4px;
     font-size: 1.2rem;
-    margin-bottom: .5rem;
+    padding: .85rem 1.6rem;
+    text-transform: uppercase;
 }
 @media(min-width:991px) and (max-width:1400px){
     .btns button{
@@ -173,7 +236,7 @@
     color: #222222;
 }
 .write-review p{
-    font-size: 1rem;
+    font-size: 1.5rem;
     text-align: justify;
     line-height: 1.6rem;
 }
@@ -219,21 +282,25 @@
 }
 .related-review h3{
     font-weight: 600;
-    font-size: 1.7rem;
+    font-size: 2rem;
     margin-bottom: 2.2rem;
 }
 .related-review .row{
     margin-bottom: 1rem;
 }
 .review-item {
-    margin: auto;
     text-align: center; 
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.4rem;
 }
 .border{
     border: 1px solid #ebe8e8;
+    padding: .5rem 0rem;
+}
+.border a{
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 .border i{
     color: #177761;
@@ -286,3 +353,22 @@
     color: rgb(159, 159, 246);
 
   }
+
+#accordion .card-body{ margin-left: 7%;}
+#accordion .card{border: none;}
+
+@media(max-width:768px){
+    .coupon-content{
+        width: 100%;
+    }
+    .coupon-content a{
+        width: 100%;
+        letter-spacing: .2px;
+        line-height: 1.2;
+        font-size: 1.2rem;
+    }
+    .btns button{
+        display: block;
+        margin: 1.2rem auto;
+    }
+}
