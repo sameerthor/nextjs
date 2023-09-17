@@ -5,7 +5,8 @@ const nextConfig = {
   reactStrictMode: false,
   publicRuntimeConfig: {
     apiBaseUrl: 'https://scoopreview.com/scoop/public/',
-    imageUrl:'https://scoopreview.com/'
+    imageUrl:'https://scoopreview.com/',
+    webUrl:'https://scoopreview.com/'
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(

@@ -3,6 +3,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import 'semantic-ui-css/semantic.min.css'
 import '@/styles/special.css';
+import Head from 'next/head';
 import Link from 'next/link';
 import getConfig from 'next/config'
 import { Search } from 'semantic-ui-react'
@@ -22,10 +23,9 @@ export default function Special({ data }) {
         var keyword = searchdata.value;
         setValue(searchdata.value);
         const filtered = data.special.filter(entry => entry.title.toLowerCase().includes(keyword.toLowerCase()));
-        if(filtered.length>0)
-        {
-           setResults(filtered);
-        }else{
+        if (filtered.length > 0) {
+            setResults(filtered);
+        } else {
             setResults([]);
         }
         setLoading(false);
@@ -34,8 +34,31 @@ export default function Special({ data }) {
     return (
         data && (
             <>
+                <Head>
+                    <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}`} />
+                    <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
+                    <title>ScoopReview - ScoopReview</title>
+                    <meta name="description" content="" />
+
+                    <meta name="twitter:card" content="summary" />
+                    <meta name="twitter:site" content="@" />
+                    <meta name="twitter:title" content="" />
+                    <meta name="twitter:description" content="" />
+                    <meta name="twitter:image" content="" />
+                    <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}reviews`} />
+
+                    <meta property="fb:app_id" content="" />
+                    <meta property="og:title" content="" />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content={`${publicRuntimeConfig.webUrl}reviews`} />
+                    <meta property="og:image" content="" />
+                    <meta property="og:site_name" content="" />
+                    <meta property="og:description" content="" />
+
+                    <link rel="canonical" href={`${publicRuntimeConfig.webUrl}reviews`} />  </Head>
+    
                 <Header />
-                <div id="couponHeader" style={{ backgroundImage: (`url(${publicRuntimeConfig.apiBaseUrl}images/${data.bg[0].bg})`) }}>
+                <div id="couponHeader" style={{ backgroundImage: (`url(${publicRuntimeConfig.imageUrl}images/${data.bg[0].bg})`) }}>
                     <div className="container">
                         <div className="d-flex coupon-search justify-content-center align-items-center">
                             <Search

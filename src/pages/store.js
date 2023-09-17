@@ -3,6 +3,7 @@ import Footer from './components/footer';
 import { useState, useEffect } from "react";
 import '@/styles/store.css';
 import Link from 'next/link';
+import Head from 'next/head';
 import moment from "moment";
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
@@ -44,7 +45,33 @@ export default function Store({ data }) {
 
     return (
         <>
-            {data && (<><Header />
+            {data && (<>
+                <Head>
+                    <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}`} />
+                    <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
+                    <title>{data.store.seo_title} {new Date().getFullYear()}</title>
+                    <meta name="description" content={`${data.store.seo_desc}`} />
+                    <meta name="keywords" content={`${data.store.seo_keywords}`} />
+                    <meta name="twitter:card" content="summary" />
+                    <meta name="twitter:site" content="@" />
+                    <meta name="twitter:title" content={`${data.store.seo_title} ${new Date().getFullYear()}`} />
+                    <meta name="twitter:description" content={`${data.store.seo_desc}`} />
+                    <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}${data.store.slug}`} />
+
+                    <meta property="fb:app_id" content={`${data.meta.fbapp_id.value}`} />
+                    <meta property="og:title" content={`${data.store.seo_title}`} />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content={`${publicRuntimeConfig.webUrl}${data.store.slug}`} />
+                    <meta property="og:image" content={`${publicRuntimeConfig.imageUrl}${data.store.store_logo}`} />
+                    <meta property="og:site_name" content={`${data.meta.site_name.value}`} />
+                    <meta property="og:description" content={`${data.store.seo_desc}`} />
+                    <meta property="article:section" content={`${data.store.name}`} />
+                    <meta property="article:modified_time" content={`${new Date(data.store.updated_at).toISOString()}`} />
+                    <meta property="og:updated_time" content={`${new Date(data.store.updated_at).toISOString()}`} />
+
+                    <link rel="canonical" href={`${publicRuntimeConfig.webUrl}${data.store.slug}`} />
+                </Head>
+                <Header />
                 <div className="container-fluid deal-bg">
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto">
                         <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href={storedata.store.slug}>{storedata.store.name}</Link></p>
@@ -71,9 +98,9 @@ export default function Store({ data }) {
                                             <div className="content">
                                                 <a id="store" href=""><h3>{item.title}</h3></a>
                                                 <div className="d-flex">
-                                                    <span id="code">{ item.is_deal=='0'?'Code':'Deal'}</span>
-                                                    
-                                                  { item.is_deal=='0' && <span id="noexp">No Expires</span> }
+                                                    <span id="code">{item.is_deal == '0' ? 'Code' : 'Deal'}</span>
+
+                                                    {item.is_deal == '0' && <span id="noexp">No Expires</span>}
                                                 </div>
                                                 <p>{item.descp}</p>
                                             </div>
@@ -81,10 +108,10 @@ export default function Store({ data }) {
                                     </div>
                                     <div className="col col-lg-3 col-md-3 col-sm-12 mx-auto">
                                         {
-                                            item.is_deal=='0'?
-                                            <button className="submit d-flex" data-bs-toggle="modal" onClick={(e)=>setCouponModaldata(item)} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
-                                            :
-                                            <button className="submit d-flex" data-bs-toggle="modal" onClick={(e)=>{setDealModaldata(item),window.open(storedata.store.aff_url)}} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                                            item.is_deal == '0' ?
+                                                <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => setCouponModaldata(item)} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                                                :
+                                                <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(storedata.store.aff_url) }} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
 
                                         }
                                         <div className="" id="icons">

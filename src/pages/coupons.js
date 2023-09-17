@@ -1,6 +1,7 @@
 import Header from './components/header';
 import Footer from './components/footer';
 import { useEffect, useState } from "react";
+import Head from 'next/head';
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css"
 import Link from 'next/link';
@@ -27,23 +28,32 @@ const Responsive = {
     }
 }
 
-export default function Coupons() {
+export default function Coupons({page}) {
 
-    const [couponsdata, setCouponsdata] = useState([]);
-
-    useEffect(() => {
-
-        (async () => {
-
-            const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/coupons`);
-            const data = await response.json();
-            ;
-            setCouponsdata(data);
-        })();
-    }, []);
+    const [couponsdata, setCouponsdata] = useState(page);
 
     return (
         <>
+             <Head>
+                <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${couponsdata.meta.site_ico.value}`} />
+                <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
+                <title>{couponsdata.metas.seo_title}</title>
+                <meta name="description" content={couponsdata.metas.seo_descp==null?"":`${couponsdata.metas.seo_descp}`} />
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:site" content="@" />
+                <meta name="twitter:title" content={`${couponsdata.metas.seo_title}`} />
+                <meta name="twitter:description" content={couponsdata.metas.seo_descp==null?"":`${couponsdata.metas.seo_descp}`} />
+                <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}coupons`} />
+                <meta property="fb:app_id" content={`${couponsdata.meta.fbapp_id.value}`} />
+                <meta property="og:title" content={`${couponsdata.metas.seo_title}`} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={`${publicRuntimeConfig.webUrl}coupons`} />
+                <meta property="og:image" content={`${publicRuntimeConfig.imageUrl}images/${couponsdata.meta.site_logo.value}`} />
+                <meta property="og:site_name" content={`${couponsdata.meta.site_title.value}`} />
+                <meta property="og:description" content={couponsdata.metas.seo_descp==null?"":`${couponsdata.metas.seo_descp}`} />
+
+                <link rel="canonical" href={`${publicRuntimeConfig.webUrl}coupons`} />
+            </Head>
             <Header />
             <section>
                 <div className="container-fluid my-2">
@@ -272,4 +282,17 @@ export default function Coupons() {
             <Footer />
         </>
     )
+}
+
+export async function getStaticProps() {
+
+
+    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/coupons`);
+    const data = await response.json();
+    return {
+        props: {
+            page: data
+        },
+        revalidate: 10
+    };
 }
