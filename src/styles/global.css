@@ -1,8 +1,10 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+
 body{
     min-width: 345px;
+    overflow-x: hidden;
 }
 nav{
     padding: .5rem .6rem;
@@ -199,4 +201,18 @@ nav{
 
 .text-blue{
     color: #c6e3f6 !important;
+}
+@media(max-width:992px){
+    .footer-links h3{
+        padding-bottom: .5rem;
+    }
+    .footer-links a{
+        padding: .4rem;
+        display: inline-block;
+    }
+}
+@media(max-width:768px){
+    .footer-links{
+        margin-bottom: 1rem;
+    }
 }

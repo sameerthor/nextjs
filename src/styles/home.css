@@ -402,11 +402,12 @@
     padding-bottom: 1rem;
 }
 .blog-box h1{
-    margin-bottom: 1rem;
+    margin-bottom: 1.4rem;
     font-weight: 650;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
 }
 .latest-blog{
+    /* margin-right: 100%; */
     margin-bottom: 2.5rem;
 }
 .latest-blog a{
@@ -416,6 +417,8 @@
     display: block;
     width: 100%;
     margin: auto;
+    object-fit: contain;
+    aspect-ratio: 6/3;
 }
 .blog-items img:hover{
     opacity: .9;
@@ -444,13 +447,14 @@
     color: #222222;
 }
 .author{
-    font-size: .9rem;
+    font-size: .76rem;
     color: #222222;
 }
 .author a{
-    font-size: 1rem;
+    font-size: .75rem;
     font-weight: 600;
     color: #177761;
+    margin-left: .2rem;
     text-transform: uppercase;
 }
 .icons span{

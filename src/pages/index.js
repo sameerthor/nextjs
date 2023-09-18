@@ -278,7 +278,7 @@ export default function Home({page}) {
                                             </div>
                                             <h2 className="blog-title"><a href="">{item.title.substring(0,35)}....</a></h2>
                                             <p className="blog-desc">{item.content.replace( /(<([^>]+)>)/ig, '').substring(0,200)}....</p>
-                                            <p className="author">By <a href="">Auhtor_Name</a> | <span className="time">10 min read</span></p>
+                                            <p className="author">By<a href="">Tauseef Siddiqui</a> | <span className="time">10 min read</span></p>
                                             <div className="icons d-flex">
                                                 <span className="me-auto shadow-sm"><i className="fa fa-thumbs-up" aria-hidden="true"></i> Likes 315</span>
                                                 <span className="ms-auto shadow-sm"><i className="fa fa-share-alt" aria-hidden="true"></i> Shares 78</span>

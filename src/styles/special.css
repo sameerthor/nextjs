@@ -4,16 +4,61 @@
     min-height: 250px;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #177761;
 }
 .coupon-search{
     max-height: 250px;
     min-height: 250px;
 }
-#couponHeader form{
+.coupon-search .input{
+    outline: none;
+    width: 100%;
+    background-color: #cfd6e2;
+    border: 1px solid #cfd6e2;
+    cursor: pointer;
+    color: #a5a5a5;
+    padding: .5rem 0rem;
+    border-radius: 4px;
+}
+.coupon-search .input input{
+    border-radius: 0px;
+    background-color: #cfd6e2;
+    border: none;
+    outline: none;
+    max-width: 90%;
+ }
+  ::placeholder{
+    color: black;
+ }
+ .coupon-search .input input:focus{
+    background-color: #cfd6e2;
+    outline: none;
+    border: none;
+ }
+ .coupon-search .input .search{
+   width: 10%;
+   display: inline-block;
+   padding: 0rem 2.8rem;
+   background-color: #177761;
+   color: #fff;
+ }
+ @media(max-width:600px){
+    .coupon-search .input{
+        padding: .36rem 0rem;
+    }
+    .coupon-search .input .search{
+        padding: 0rem 2rem;
+    }
+    .coupon-search{
+        margin-top: 1rem;
+    }
+ }
+/* #couponHeader form{
     width: 80%;
     margin: auto;
     justify-content: center;
     height: 3rem;
+    border: 2px solid red;
 }
 #couponHeader form input{
     outline: none;
@@ -23,6 +68,7 @@
     cursor: pointer;
     color: #a5a5a5;
     padding: .5rem;
+    border: 2px solid yellowgreen;
 }
 #couponHeader form button{
     width: 15%;
@@ -31,8 +77,8 @@
     border: 1px solid #cfd6e2;
     padding: .5rem;
     color: #ffffff;
-}
-@media(max-width:750px){
+} */
+/* @media(max-width:750px){
     #couponHeader form{
         width: 100%;
     }
@@ -44,7 +90,7 @@
     #couponHeader form input{
         font-size: .85rem;
     }
-}
+} */
 /* **********************Blog-Navigation*************************** */
 .navigation-box{
     margin-bottom: 1rem;

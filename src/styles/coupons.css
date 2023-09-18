@@ -26,6 +26,14 @@ body h2{
         width: 75%;
     }
 }
+.container-fluid .fw-bold{
+   margin-top: 1rem;
+}
+@media(max-width:768px){
+    .container-fluid .fw-bold{
+        margin-top: 1.6rem;
+    }
+}
 /* *****************WHY SCOOP********************************** */
 .coupons-deals{
     padding-top: 1rem;
@@ -105,7 +113,7 @@ body h2{
 /* **********Message************** */
 .message{
     background-color: #111111;
-    padding: 5.2rem;
+    padding: 5.2rem .6rem;
 }
 .msg-box p{
     color: #ffffff;
@@ -126,9 +134,10 @@ body h2{
 }
 .store-items{
     min-height: 2.8rem;
+    padding: .8rem .4rem;
 }
 .store-items:hover{
-    background-color: #f8eeee;
+    background-color: #fff;
 }
 .store-items a{
     text-decoration: none;
@@ -137,12 +146,21 @@ body h2{
     display: block;
     width: 100%;
 }
-.store-items span{
-  font-weight: 500;
+.popular-stores .store-items .store-img{
+    display: block;
+    margin:auto;
+    max-width: 90%;
+    object-fit: contain;
+    /* aspect-ratio: 2/3; */
+}
+.popular-stores .store-items .store-name{
+    display: block;
+    margin: .5rem auto;
+    max-width: 100%;
+    font-weight: 500;
 }
 /* ***************************Featured Categories******************************* */
 .featured{
-    border: 2px solid red;
     margin: 1rem auto;
 }
 .featured img{
@@ -187,10 +205,10 @@ body h2{
 }
 .latest-box{
     margin-bottom: 1.4rem;
-
 }
 .latest-items{
     padding-bottom: .85rem;
+    padding-top: .85rem;
 }
 .latest-items a{
     text-decoration: none;
@@ -261,4 +279,10 @@ body h2{
     color: #111111;
     border: 1px solid #333333;
     transition: .5s all ease;
+}
+@media(max-width:768px){
+    .latest-box{
+        margin-bottom: 1.85rem;
+    }
+
 }

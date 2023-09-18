@@ -208,8 +208,13 @@ export default function Coupons() {
                         {
                             couponsdata.pstores && couponsdata.pstores.map((item) =>
                                 <div className="col-lg-3 col-md-4 col-sm-6 store-box" key={item.id}>
-                                    <div className=" d-flex justify-content-center align-items-center store-items shadow">
-                                        <Link href={`/${item.slug}`}><span>{item.render_name}</span></Link>
+                                    <div className="justify-content-center align-items-center store-items shadow">
+                                        <div>
+                                            <Link href={`/${item.slug}`}><img src="./images/sbi.jpg" class="store-img" alt="image"/></Link>
+                                        </div>
+                                       <div>
+                                            <Link href={`/${item.slug}`}><span class="store-name">{item.render_name}</span></Link>
+                                       </div>
                                     </div>
                                 </div>
                             )
