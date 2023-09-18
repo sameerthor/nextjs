@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import '@/styles/review.css';
 import Header from './components/header';
+import Head from 'next/head';
 import Footer from './components/footer';
 import Link from 'next/link';
 import getConfig from 'next/config'
@@ -99,10 +100,33 @@ export default function Reviews({ data }) {
     return (
         reviewdata && (
             <>
+                <Head>
+                    <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}`} />
+                    <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
+                    <title>{data.review.seo_title} { new Date().getFullYear() }</title>
+                    <meta name="description" content={`${data.review.seo_desc}`} />
+                    <meta name="keywords" content={`${data.review.seo_keywords}`} />
+
+                    <meta name="twitter:card" content="summary" />
+                    <meta name="twitter:site" content="@" />
+                    <meta name="twitter:title" content={`${data.review.seo_title} ${new Date().getFullYear()}`} />
+                    <meta name="twitter:description" content={`${data.review.seo_desc}`} />
+                    <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}${data.review.slug}`} />
+
+                    <meta property="fb:app_id" content={`${data.meta.fbapp_id.value}`} />
+                    <meta property="og:title" content={`${data.review.seo_title} ${new Date().getFullYear()}`} />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content={`${publicRuntimeConfig.webUrl}${data.review.slug}`} />
+                    <meta property="og:image" content={`${publicRuntimeConfig.imageUrl}${data.review.review_logo}`} />
+                    <meta property="og:site_name" content={`${data.meta.site_name.value}`} />
+                    <meta property="og:description" content={`${data.review.seo_desc}`} />
+                    <meta property="article:section" content={`${data.review.name}`} />
+
+                    <link rel="canonical" href={`${publicRuntimeConfig.webUrl}${data.review.slug}`} />    </Head>
                 <Header />
                 <div className="container-fluid">
                     <div className="container review-title">
-                        <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <a href="#">{reviewdata.review.render_name} Review</a></p>
+                        <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="">{reviewdata.review.render_name} Review</Link></p>
                     </div>
                 </div>
                 <div className="container-fluid">
@@ -138,10 +162,10 @@ export default function Reviews({ data }) {
                                                 <div className="col-lg-9 col-md-8 col-sm-9 ">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
-                                                            <a href="">{reviewdata.review.render_name}</a>
+                                                            <a href="#">{reviewdata.review.render_name}</a>
                                                         </div>
                                                         <div className="coupon-content">
-                                                            <a href="">{item.title}</a>
+                                                            <a href="#">{item.title}</a>
                                                             <p>{
                                                                 item.descp.replace(/<\/?[^>]+(>|$)/g, "").length > 30 ? <>{
                                                                     item.is_more === false ? item.descp.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 30) : item.descp.replace(/<\/?[^>]+(>|$)/g, "")}... <span onClick={() => changeView(index)} className='less_more'>{item.is_more === false ? 'more' : 'less'}</span>
@@ -160,10 +184,10 @@ export default function Reviews({ data }) {
                                                 <div className="col-lg-9 col-md-8 col-sm-9">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
-                                                            <a href="">{reviewdata.review.render_name}</a>
+                                                            <a href="#">{reviewdata.review.render_name}</a>
                                                         </div>
                                                         <div className="coupon-content">
-                                                            <a href="">{item.title}</a>
+                                                            <a href="#">{item.title}</a>
                                                             <p>{
                                                                 item.descp.replace(/<\/?[^>]+(>|$)/g, "").length > 30 ? <>{
                                                                     item.is_more === false ? item.descp.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 30) : item.descp.replace(/<\/?[^>]+(>|$)/g, "")}... <span onClick={() => changeView(index)} className='less_more'>{item.is_more === false ? 'more' : 'less'}</span>

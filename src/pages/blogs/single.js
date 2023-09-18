@@ -2,6 +2,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import { useEffect } from "react";
 import '@/styles/blog.css';
+import Head from 'next/head';
 import Link from 'next/link';
 import getConfig from 'next/config'
 import $ from 'jquery';
@@ -29,7 +30,7 @@ export default function Blog({ data }) {
             const h2Tags = document.querySelectorAll('h2');
             const h3Tags = document.querySelectorAll('h3');
             const h4Tags = document.querySelectorAll('h4');
-           
+
             var content = [];
             var elementId;
 
@@ -79,6 +80,28 @@ export default function Blog({ data }) {
     return (
         data && (
             <>
+                <Head>
+                    <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}`} />
+                    <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
+                    <title>{ data.blog.meta_title !== '' ? data.blog.meta_title : data.meta.site_name.value} - ScoopReview</title>
+                    <meta name="description" content={data.blog.meta_descp!==''?`${data.blog.meta_descp}`:''} />
+
+                    <meta name="twitter:card" content="summary" />
+                    <meta name="twitter:site" content="@" />
+                    <meta name="twitter:title" content={data.blog.meta_title!==''?`${data.blog.meta_title}`:''} />
+                    <meta name="twitter:description" content={data.blog.meta_descp!==''?`${data.blog.meta_descp}`:''} />
+                    <meta name="twitter:image" content={`${publicRuntimeConfig.imageUrl}${data.blog.image}`} />
+                    <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}${data.blog.slug}`} />
+
+                    <meta property="fb:app_id" content={`${data.meta.fbapp_id.value}`} />
+                    <meta property="og:title" content={data.blog.meta_title!==''?`${data.blog.meta_title}`:''} />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content={`${publicRuntimeConfig.webUrl}${data.blog.slug}`} />
+                    <meta property="og:image" content={`${publicRuntimeConfig.imageUrl}${data.blog.image}`} />
+                    <meta property="og:site_name" content={`${data.meta.site_name.value}`} />
+                    <meta property="og:description" content={data.blog.meta_descp!==''?`${data.blog.meta_descp}`:''} />
+
+                    <link rel="canonical" href={`${publicRuntimeConfig.webUrl}${data.blog.slug}`} />  </Head>
                 <Header />
                 <div id="blogHeader">
                     <div className="container">
@@ -107,7 +130,7 @@ export default function Blog({ data }) {
                                         <div className="card">
                                             <div className="card-header" id="headingOne">
                                                 <span className="bg-light p-3">
-                                                    <button data-bs-toggle="collapse" className="btn font-weight-bold"  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <button data-bs-toggle="collapse" className="btn font-weight-bold" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                         Contents [show]
                                                     </button>
                                                 </span>
@@ -116,7 +139,7 @@ export default function Blog({ data }) {
                                             <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                                 <div className="card-body">
                                                     <ul className="list-group" id="tableofcontents">
-                                                  </ul>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>

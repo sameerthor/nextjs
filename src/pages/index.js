@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import Head from 'next/head';
 import Header from './components/header';
 import Footer from './components/footer';
 import '@/styles/home.css'
@@ -29,12 +30,32 @@ const Responsive = {
 }
 
 
-export default function Home({page}) {
+export default function Home({ page }) {
+    console.log(page)
     const [homeData, setHomeData] = useState(page);
-
 
     return (
         <>
+            <Head>
+                <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${page.meta.site_ico.value}`} />
+                <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
+                <title>{page.meta.site_title.value}</title>
+                <meta name="description" content={`${page.meta.site_title.value}`} />
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:site" content="@" />
+                <meta name="twitter:title" content={`${page.meta.site_title.value}`} />
+                <meta name="twitter:description" content={`${page.meta.site_desc.value}`} />
+                <meta name="twitter:image" content={`${publicRuntimeConfig.imageUrl}/${page.meta.site_logo.value}`} />
+                <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}`} />
+                <meta property="fb:app_id" content={`${page.meta.fbapp_id.value}`} />
+                <meta property="og:title" content={`${page.meta.site_title.value}`} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={`${publicRuntimeConfig.webUrl}`} />
+                <meta property="og:image" content={`${publicRuntimeConfig.imageUrl}/${page.meta.site_logo.value}`} />
+                <meta property="og:site_name" content={`${page.meta.site_title.value}`} />
+                <meta property="og:description" content={`${page.meta.site_desc.value}`} />
+                <link rel="canonical" href={`${publicRuntimeConfig.webUrl}`} />
+            </Head>
             <Header />
 
             <section>
@@ -119,24 +140,24 @@ export default function Home({page}) {
                     <h1>Featured</h1>
                     <div className="row">
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <a href="./review.html"><img src="./images/apple.webp" alt="" /></a>
-                            <p><a href="">Tech & Gadgets</a></p>
-                            <h4 className="text-center"><a href="./review.html">Apple Review</a></h4>
+                            <Link href="/apple-review"><img src="./images/apple.webp" alt="" /></Link>
+                            <p><Link href="/review-category/tech-and-gadgets">Tech & Gadgets</Link></p>
+                            <h4 className="text-center"><Link href="/apple-review">Apple Review</Link></h4>
                         </div>
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <a href="./review.html"> <img src="./images/clinique.webp" alt="" /></a>
-                            <p><a href="">Health & Wellness</a></p>
-                            <h4 className="text-center"><a href="./review.html">Clinique Review</a></h4>
+                            <Link href="/clinique-review"> <img src="./images/clinique.webp" alt="" /></Link>
+                            <p><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
+                            <h4 className="text-center"><Link href="/clinique-review">Clinique Review</Link></h4>
                         </div>
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <a href="./review.html"><img src="./images/lego.webp" alt="" /></a>
-                            <p><a href="">Babycare</a></p>
-                            <h4 className="text-center"><a href="./review.html">LEGO Review</a></h4>
+                            <Link href="/lego-reviews"><img src="./images/lego.webp" alt="" /></Link>
+                            <p><Link href="/review-category/babycare">Babycare</Link></p>
+                            <h4 className="text-center"><Link href="/lego-reviews">LEGO Review</Link></h4>
                         </div>
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <a href="./review.html"> <img src="./images/sams-club.webp" alt="" /></a>
-                            <p><a href="">E-Commerce</a></p>
-                            <h4 className="text-center"><a href="./review.html">Sam's Review</a></h4>
+                            <Link href="/sams-club-review"> <img src="./images/sams-club.webp" alt="" /></Link>
+                            <p><Link href="/review-category/e-commerce">E-Commerce</Link></p>
+                            <h4 className="text-center"><Link href="/sams-club-review">Sam's Review</Link></h4>
                         </div>
                     </div>
                 </div>
@@ -160,18 +181,18 @@ export default function Home({page}) {
                         <h2>Best Product Reviews</h2>
                         <div className="col-lg-6 col-md-6 col-sm-5 review-item">
                             <div className="item-box shadow">
-                                <a href="./review.html"><img src="./images/Bath-n-Body-Works.webp" alt="" /></a>
-                                <p className="review-category"><a href="">Health & Wellness</a></p>
-                                <h4 className="review-topic"><a href="./review.html">Bath & Body Review</a></h4>
-                                <p className="review-desc">Bath & Body Works provides you with ample choices for choosing the right skincare products for your body <a href="./review.html">read more</a> </p>
+                                <Link href="/bath-and-body-works-review"><img src="./images/Bath-n-Body-Works.webp" alt="" /></Link>
+                                <p className="review-category"><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
+                                <h4 className="review-topic"><Link href="/bath-and-body-works-review">Bath & Body Review</Link></h4>
+                                <p className="review-desc">Bath & Body Works provides you with ample choices for choosing the right skincare products for your body <Link href="/bath-and-body-works-review">read more</Link> </p>
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-5 review-item">
                             <div className="item-box shadow">
-                                <a href="./review.html"><img src="./images/Ebay.webp" alt="" /></a>
-                                <p className="review-category"><a href="">E-Commerce</a></p>
-                                <h4 className="review-topic"><a href="./review.html">Ebay Review</a></h4>
-                                <p className="review-desc">Ebay is a global commerce leader that connects millions of buyers and sellers in more than 190 markets around the world <a href="./review.html">read more</a> </p>
+                                <Link href="/ebay-review"><img src="./images/Ebay.webp" alt="" /></Link>
+                                <p className="review-category"><Link href="/review-category/e-commerce">E-Commerce</Link></p>
+                                <h4 className="review-topic"><Link href="/ebay-review">Ebay Review</Link></h4>
+                                <p className="review-desc">Ebay is a global commerce leader that connects millions of buyers and sellers in more than 190 markets around the world <Link href="/ebay-review">read more</Link> </p>
                             </div>
                         </div>
                     </div>
@@ -180,34 +201,34 @@ export default function Home({page}) {
                     <div className="row">
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <a href="./review.html"><img src="./images/Fruit-Bouquet.webp" alt="" /></a>
-                                <p className="review-category"><a href="">Food & Drinks</a></p>
-                                <h4 className="review-topic"><a href="./review.html">Fruit Bouquets Review</a></h4>
-                                <p className="review-desc">If you are looking for an alternative to showpieces or high sugar <a href="./review.html">read more</a> </p>
+                                <Link href="/fruit-bouquets-review"><img src="./images/Fruit-Bouquet.webp" alt="" /></Link>
+                                <p className="review-category"><Link href="/review-category/food-drinks">Food & Drinks</Link></p>
+                                <h4 className="review-topic"><Link href="/fruit-bouquets-review">Fruit Bouquets Review</Link></h4>
+                                <p className="review-desc">If you are looking for an alternative to showpieces or high sugar <Link href="/fruit-bouquets-review">read more</Link> </p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <a href="./review.html"><img src="./images/Sally.webp" alt="" /></a>
-                                <p className="review-category"><a href="">Health & Wellness</a></p>
-                                <h4 className="review-topic"><a href="./review.html">Sally Beauty Review</a></h4>
-                                <p className="review-desc">Sally Beauty Supply and Beauty Systems Group has <a href="./review.html">read more</a> </p>
+                                <Link href="/sally-beauty-review"><img src="./images/Sally.webp" alt="" /></Link>
+                                <p className="review-category"><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
+                                <h4 className="review-topic"><Link href="/sally-beauty-review">Sally Beauty Review</Link></h4>
+                                <p className="review-desc">Sally Beauty Supply and Beauty Systems Group has <Link href="/sally-beauty-review">read more</Link> </p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <a href="./review.html"><img src="./images/ulta-beauty.webp" alt="" /></a>
-                                <p className="review-category"><a href="">Health & Wellness</a></p>
-                                <h4 className="review-topic"><a href="./review.html">Ulta Beauty Review</a></h4>
-                                <p className="review-desc">Ulta Beauty acts as your one-stop-shop for exploring <a href="./review.html">read more</a> </p>
+                                <Link href="/ulta-beauty-review"><img src="./images/ulta-beauty.webp" alt="" /></Link>
+                                <p className="review-category"><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
+                                <h4 className="review-topic"><Link href="/ulta-beauty-review">Ulta Beauty Review</Link></h4>
+                                <p className="review-desc">Ulta Beauty acts as your one-stop-shop for exploring <Link href="/ulta-beauty-review">read more</Link> </p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <a href="./review.html"><img src="./images/annie-selke.webp" alt="" /></a>
-                                <p className="review-category"><a href="">Home Products</a></p>
-                                <h4 className="review-topic"><a href="./review.html">Annie Selke Review</a></h4>
-                                <p className="review-desc">Annie Selke is a firm that designs and manufactures bedding <a href="./review.html">read more</a> </p>
+                                <Link href="/annie-selke-review"><img src="./images/annie-selke.webp" alt="" /></Link>
+                                <p className="review-category"><Link href="/review-category/home-products">Home Products</Link></p>
+                                <h4 className="review-topic"><Link href="/annie-selke-review">Annie Selke Review</Link></h4>
+                                <p className="review-desc">Annie Selke is a firm that designs and manufactures bedding <Link href="/annie-selke-review">read more</Link> </p>
                             </div>
                         </div>
                     </div>
@@ -276,9 +297,9 @@ export default function Home({page}) {
                                             <div className="d-flex">
                                                 <span className="blog-category me-auto"> {item.category}</span>
                                             </div>
-                                            <h2 className="blog-title"><a href="">{item.title.substring(0,35)}....</a></h2>
-                                            <p className="blog-desc">{item.content.replace( /(<([^>]+)>)/ig, '').substring(0,200)}....</p>
-                                            <p className="author">By<a href="">Tauseef Siddiqui</a> | <span className="time">10 min read</span></p>
+                                            <h2 className="blog-title"><a href={`/${item.slug}`}>{item.title.substring(0, 35)}....</a></h2>
+                                            <p className="blog-desc">{item.content.replace(/(<([^>]+)>)/ig, '').substring(0, 200)}....</p>
+                                            <p className="author">By <a href={`/${item.slug}`}>Tauseef Siddiqu</a> | <span className="time">10 min read</span></p>
                                             <div className="icons d-flex">
                                                 <span className="me-auto shadow-sm"><i className="fa fa-thumbs-up" aria-hidden="true"></i> Likes 315</span>
                                                 <span className="ms-auto shadow-sm"><i className="fa fa-share-alt" aria-hidden="true"></i> Shares 78</span>
@@ -350,12 +371,12 @@ export default function Home({page}) {
 }
 export async function getStaticProps() {
 
-    
+
     const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/home`);
     const data = await response.json();
     return {
         props: {
-            page: data 
+            page: data
         },
         revalidate: 10
     };
