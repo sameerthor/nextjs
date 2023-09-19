@@ -31,7 +31,6 @@ const Responsive = {
 
 
 export default function Home({ page }) {
-    console.log(page)
     const [homeData, setHomeData] = useState(page);
 
     return (
