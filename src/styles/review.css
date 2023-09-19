@@ -68,7 +68,7 @@
     outline: none;
 }
 #headingOne button{
-    border: 2px solid #ece7e7;
+    border: none;
     padding: .7rem .85rem;
     border-radius: 0px;
     font-weight: 600;
@@ -119,6 +119,8 @@
     padding: 1rem 1rem;
     background-color: #ffffff;
     margin: 1.6rem auto;
+    border-radius: 12px;
+    box-shadow: -3px 3px 10px #a4a4a4;
 }
 .coupons a{
     text-decoration: none;
@@ -202,11 +204,6 @@
     font-size: 1.2rem;
     padding: .85rem 1.6rem;
     text-transform: uppercase;
-}
-@media(min-width:991px) and (max-width:1400px){
-    .btns button{
-        width: 100%;
-    }
 }
 .content-box{
     padding-top: .7rem;
@@ -367,8 +364,14 @@
         line-height: 1.2;
         font-size: 1.2rem;
     }
-    .btns button{
+    .btns {
         display: block;
-        margin: 1.2rem auto;
+        margin: .85rem auto;
+        width: 100%;
+    }
+    .coupons .btns button{
+        display: block;
+        margin:  auto;
+        width: 80%;
     }
 }

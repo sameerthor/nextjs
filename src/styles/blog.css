@@ -61,7 +61,6 @@
     display: none;
     width: 95%;
     margin: .5rem auto .5rem auto;
-    border: 2px solid green;
 }
 
 #unfold a{
@@ -198,60 +197,99 @@ ul{
     margin: 0;
     list-style: none;
 }
-
-/* .commentbox{
-    padding-top: 1rem;
+/* *********************related articles********************* */
+.article{
+    background-color: #fafbfb;
+    padding: 4rem 0rem;
 }
-.comment h3{
-    font-weight: 700;
+.related-article h2{
+    font-weight: 600;
     font-size: 1.8rem;
-    letter-spacing: .1rem;
+    margin-bottom: 1.4rem;
+    color: #000;
 }
-.comment p{
-    font-size: 1.1rem;
-    text-align: justify;
-    text-justify: inter-word;
+.related-article .article-box{
+    margin-bottom: 1.8rem;
 }
-.comment p span{
-    color: #ff0000;
-    font-size: 1.5rem;
+ .article-item img{
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    object-fit: contain;
+    aspect-ratio: 4/2;
 }
-.input form textarea{
-    margin-bottom: 1.2rem;
+.article-item a{
+    text-decoration: none;
 }
-.input form input, textarea{
-    outline: none;
-    padding-left: .9rem;
-    border: 1px solid #e2e2e3;
-    margin-bottom: 1.5rem;
+.article-box .article-item a h3{
+    margin: 0.6rem 0rem;
+    letter-spacing: .2px;
+    font-size: 1.2rem;
+    color: #222;
+    font-weight: 600;
 }
-.input form input{
-    height: 2.2rem;
+.article-item .full-story{
+    text-decoration: none;
+    font-weight: 500;
+    padding: .5rem 0rem;
+    display: inline-block;
+    font-size: .95rem;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
 }
-@media (max-width: 700px){
-    .input form input, textarea{
-        width: 80%;
-    }  
-    .input form textarea{
-        width: 80%;
-        height: 9.4rem;
-    } 
+.article-item .full-story i{
+    margin-left: .5rem;
+    font-weight: 600;
 }
-.input form button{
-    border: none;
-    background-color: #067377;
-    outline: none;
-    color: #fff;
-    border-radius: 5px;
-    width: 8.5rem;
-    height: 2.5rem;
-    font-size: .9rem;
-    font-weight: 700;
-    letter-spacing: .1rem;
-    margin-bottom: 1rem;
+@media(max-width:992px){
+    .article-box .article-item{
+        border-bottom: 1px solid #e6e5e5;
+        padding-bottom: 1rem;
+    }
 }
-.commentbox{
-     border: 1px solid #D9D7D7;
-    margin-bottom: 2.5rem;
-} */
+@media(max-width:768px){
+    .article-item img{
+        max-width: 80%;
+    }
+}
+/* *********************Related reviews*********************** */
+.product-review{
+    padding: 2.6rem 0rem;
+}
+.product-review h2{
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
+    color: #000;
+}
 
+.product-review .product-box{
+    margin-bottom: 1.4rem;
+}
+.product-item{
+    box-shadow: -5px 5px 10px #d9d8d8;
+    padding: .4rem;
+}
+.product-item a{
+    display: block;
+    margin: auto;
+    text-decoration: none;
+}
+.product-item .review-logo{
+    max-width: 100%;
+    margin: 0 auto .5rem auto;
+    display: block;
+    object-fit: contain;
+    aspect-ratio: 3/1;
+}
+.product-item .review-title{
+    text-transform: capitalize;
+    text-align: center;
+    display: block;
+    margin: auto;
+    font-size: 1rem;
+    color: #000;
+    font-weight: 500;
+    padding: .5rem 0rem;
+}
