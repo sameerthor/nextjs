@@ -53,44 +53,6 @@
         margin-top: 1rem;
     }
  }
-/* #couponHeader form{
-    width: 80%;
-    margin: auto;
-    justify-content: center;
-    height: 3rem;
-    border: 2px solid red;
-}
-#couponHeader form input{
-    outline: none;
-    width: 80%;
-    background-color: #cfd6e2;
-    border: 1px solid #cfd6e2;
-    cursor: pointer;
-    color: #a5a5a5;
-    padding: .5rem;
-    border: 2px solid yellowgreen;
-}
-#couponHeader form button{
-    width: 15%;
-    background-color: #177761;
-    font-weight: 600;
-    border: 1px solid #cfd6e2;
-    padding: .5rem;
-    color: #ffffff;
-} */
-/* @media(max-width:750px){
-    #couponHeader form{
-        width: 100%;
-    }
-    #couponHeader form button{
-        width: 30%;
-    }
-}
-@media(max-width:430px){
-    #couponHeader form input{
-        font-size: .85rem;
-    }
-} */
 /* **********************Blog-Navigation*************************** */
 .navigation-box{
     margin-bottom: 1rem;
@@ -152,6 +114,10 @@
     font-weight: 650;
     color: #111111;
     font-size: 1.4rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .latest-items p{
     font-weight: 500;
@@ -160,6 +126,10 @@
     width: 90%;
     margin: .5rem auto .7rem auto;
     letter-spacing: .2px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .latest-items button{
   display: block;

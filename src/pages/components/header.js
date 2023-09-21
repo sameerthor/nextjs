@@ -19,7 +19,7 @@ export function Header() {
           <Link
             className="navbarbrand mx-auto"
             href='/'
-          >ScoopReview</Link>
+          >Scoop<span>Review</span></Link>
           <form id="searchform" role="search">
             <input id="form-control" type="search" placeholder="Search  for stores ...." aria-label="Search" />
             <button id="searchbtn" type="submit"><i className="fa fa-search" aria-hidden="true"></i></button>

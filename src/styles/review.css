@@ -85,6 +85,7 @@
 .review-box h1{
     font-weight: 700;
     font-size: 2.2rem;
+    text-align: center;
 }
 @media(max-width:700px){
     .review-box h1{
@@ -97,6 +98,10 @@
 }
 #headingOne{
     border: none !important;
+    background-color: #fcfcfc;
+}
+#collapseOne{
+    background-color: #fcfcfc;
 }
 #tableofcontents li a u{
     text-decoration: underline;
@@ -114,31 +119,38 @@
     margin-top: .5rem;
     display: block;
 }
-.coupons{
+.review-box .coupons{
     border: 1px solid #ede9e9;
-    padding: 1rem 1rem;
     background-color: #ffffff;
     margin: 1.6rem auto;
-    border-radius: 12px;
-    box-shadow: -3px 3px 10px #a4a4a4;
+    border-radius: 4px;
+    padding: .5rem 0rem;
 }
-.coupons a{
+.review-box .coupons a{
     text-decoration: none;
     cursor: pointer;
 }
-.coupons a:hover{
+.review-box .coupons a:hover{
     color: #000000;
 }
-
-.coupon-name{
+.review-box .content-box{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: none !important;
+}
+.content-box .coupon-content{
+    border-left: 1px solid #ede9e9;
+    padding: 1rem 2rem;
+}
+.review-box .coupon-name{
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 0rem 1rem;
-  border: 2px solid #ece6e6;
+  align-items: center;
+  padding: 1rem 2rem;
 }
-
-.coupon-name a{
+.review-box .coupon-name a{
     margin: auto;
     color: #222222;
     font-weight: 600;
@@ -146,50 +158,44 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
-@media(max-width:991px){
-    .coupon-name a{
-        margin-left: .5rem;
-    }
+.coupon-name .discount-tag{
+    margin-top: .8rem;
+    display: inline-block;
+    padding: .4rem 1rem;
+    background-color: #34a853;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.5rem;
 }
-@media(min-width:576px) and (max-width:786px){
-    .coupon-name a{
-        margin-left: 0px;
-        margin-right: 1rem;
-    }
-}
-@media(max-width:425px){
-    .coupon-name a{
-        font-size: 1rem;
-        padding-left: .3rem;
-    }
-}
-.coupon-content a{
+.review-box .coupon-content a{
     display: block;
     color: #222222;
     font-weight: 600;
     padding-left: 1rem;
     font-size: 1.55rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.2;
 }
-@media(max-width:425px){
-    .coupon-content a{
-        font-size: 1.2rem;
-    }
-}
-.coupon-content p{
+.review-box .coupon-content p{
     padding-left: 1rem;
     color: #222222;
     font-size: 1.1rem;
     margin-top: .5rem;
     font-weight: 500;
 }
-.btns{
+.review-box .btns{
    display: flex;
    align-items: center;
    justify-content: center;
+   border-left: 1px solid #ede9e9;
 }
-.btns button{
+.review-box .btns button{
     display: block;
     margin: auto;
     align-items: center;
@@ -202,11 +208,29 @@
     font-weight: 600;
     border-radius: 4px;
     font-size: 1.2rem;
-    padding: .85rem 1.6rem;
+    padding: .85rem 2.2rem;
     text-transform: uppercase;
 }
-.content-box{
-    padding-top: .7rem;
+@media(max-width:600px){
+    .review-box .coupon-name a{
+        font-size: 1.4rem;
+    }
+    .review-box .coupon-name{
+        padding: 1rem .5rem;
+      }
+      .review-box .coupon-content{
+        padding: 1rem .5rem;
+      }
+      .review-box .coupon-content a{
+        font-size: 1.1rem;
+    }
+    .review-box .coupon-content p{
+        font-size: .95rem;
+    }
+    .review-box .coupon-name .discount-tag{
+        font-size: .75rem;
+        padding: .4rem .6rem;
+    }
 }
 /*************************Review Content*******************************/
 .review{
@@ -232,20 +256,11 @@
     margin-bottom: 1.2rem;
     color: #222222;
 }
-.write-review p{
-    font-size: 1.5rem;
-    text-align: justify;
-    line-height: 1.6rem;
-}
 .write-review i{
     font-weight: 600;
 }
 .write-review .review-details{
     width: 50%;
-}
-.write-review h3{
-    font-weight: 550;
-    font-size: 1.5rem;
 }
 .review-img{
     margin-bottom: 1rem;
@@ -265,11 +280,24 @@
     .write-review h1{
         font-size: 1.4rem;
     }
-    .write-review h3{
+}
+.schema-faq-question strong{
+    font-size: 1.4rem;
+    display: inline-block;
+    margin: 1.4rem 0rem .4rem 0rem;
+}
+.schema-faq-answer{
+    font-size: 1.2rem;
+    text-align: justify;
+    line-height: 1.6rem;
+}
+@media(max-width:768px){
+    .schema-faq-question strong{
         font-size: 1.2rem;
     }
-    .write-review p{
+    .schema-faq-answer{
         font-size: .9rem;
+        line-height: 1.35rem;
     }
 }
 /**************************Realated review*******************************/
@@ -338,7 +366,7 @@
     font-weight: 700;
     font-size: .9rem;
   }
-  .coupons {
+  .review-box .coupons {
     margin-bottom: .9rem;
   }
 

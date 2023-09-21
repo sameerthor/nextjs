@@ -17,6 +17,9 @@ nav{
     color: #000;
     letter-spacing: 1px;
 }
+.navbarbrand span{
+    color: #247e6a;
+}
 .navbarbrand:hover{
     color: #000;
 }

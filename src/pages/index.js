@@ -290,7 +290,7 @@ export default function Home({ page }) {
                         {homeData.blogs && (
                             homeData.blogs.map((item) => {
                                 return (
-                                    <div className="col-lg-4 col-md-6 col-sm-9 latest-blog" key={item.id}>
+                                    <div className="col-lg-4 col-md-6 col-sm-12 latest-blog" key={item.id}>
                                         <div className="blog-items">
                                             <Link href={`/${item.slug}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.image}`} alt="" /></Link>
                                             <div className="d-flex">

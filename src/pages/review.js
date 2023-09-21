@@ -125,7 +125,7 @@ export default function Reviews({ data }) {
                     <link rel="canonical" href={`${publicRuntimeConfig.webUrl}${data.review.slug}`} />    </Head>
                 <Header />
                 <div className="container-fluid">
-                    <div className="container review-title">
+                    <div className="container review-title mx-auto col-10">
                         <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="">{reviewdata.review.render_name} Review</Link></p>
                     </div>
                 </div>
@@ -159,10 +159,11 @@ export default function Reviews({ data }) {
                                     if (item.is_deal == 1)
                                         return (<div className="coupons" key={item.id}>
                                             <div className="row" >
-                                                <div className="col-lg-9 col-md-8 col-sm-9 ">
+                                                <div className="col-lg-9 col-md-8 col-sm-12 ">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
-                                                            <a href="#">{reviewdata.review.render_name}</a>
+                                                            <a href="#">{reviewdata.review.render_name}<br/><span className="discount-tag">40% off</span></a>
+                                                            {/* <span className="d-block discount-tag">40%</span> */}
                                                         </div>
                                                         <div className="coupon-content">
                                                             <a href="#">{item.title}</a>
@@ -174,7 +175,7 @@ export default function Reviews({ data }) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="col-lg-2 col-md-4 col-sm-5  btns">
+                                                <div className="col-lg-3 col-md-4 col-sm-12  btns">
                                                     <button data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-target="#dealPopup">Get Deal</button>
                                                 </div>
                                             </div></div>);
@@ -184,7 +185,7 @@ export default function Reviews({ data }) {
                                                 <div className="col-lg-9 col-md-8 col-sm-9">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
-                                                            <a href="#">{reviewdata.review.render_name}</a>
+                                                        <a href="#">{reviewdata.review.render_name}<br/><span className="discount-tag">40% off</span></a>
                                                         </div>
                                                         <div className="coupon-content">
                                                             <a href="#">{item.title}</a>
@@ -196,7 +197,7 @@ export default function Reviews({ data }) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="col-lg-2 col-md-4 col-sm-5  btns">
+                                                <div className="col-lg-3 col-md-4 col-sm-5  btns">
                                                     <button onClick={(e) => setCouponModaldata(item)} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
                                                 </div>
                                             </div></div>);
