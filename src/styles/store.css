@@ -44,12 +44,17 @@ body{
 .deal-box .verified .check{
     margin-right: .5rem;
 }
-.deal-bg .btns{
+.deal-bg .toggle-btn{
     align-items: center;
     display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 2px solid red; */
+    margin-bottom: 1.6rem;
 }
 
-.deal-bg .btns button{
+.deal-bg .toggle-btn button{
     border: none;
     outline: none;
     background-color: transparent;
@@ -59,14 +64,14 @@ body{
     box-shadow: none;
 }
 
-.deal-bg .btns .selected{
+.deal-bg .toggle-btn .selected{
     background-color: #0f4d5c;
     color: #ffffff;
     border-radius: 4px;
     padding: .5rem;
 }
 
-.deal-bg .btns .all span {
+.deal-bg .toggle-btn .all span {
     color: #fff;
     background-color: #111111;
     padding: 0.2rem 0.5rem;
@@ -75,10 +80,10 @@ body{
     margin-left: 0.2rem;
 }
 
-.deal-bg .btns .selected:hover{
+.deal-bg .toggle-btn .selected:hover{
     color: #FFF;
 }
-.deal-bg .btns .selected span{
+.deal-bg .toggle-btn .selected span{
    color: #fff;
    background-color: #111111;
    padding: .2rem .5rem;
@@ -86,7 +91,7 @@ body{
    font-size: .9rem;
    margin-left: .2rem;
 }
-.deal-bg .btns .coupons span{
+.deal-bg .toggle-btn .coupons span{
     color: #111;
     background-color: #b9dc2f;
     padding: .2rem .5rem;
@@ -94,7 +99,7 @@ body{
     font-size: .9rem;
     margin-left: .2rem;
  }
- .deal-bg .btns .deals span{
+ .deal-bg .toggle-btn .deals span{
     color: #FFF;
     background-color: #17a2b8;
     padding: .2rem .5rem;
@@ -102,33 +107,33 @@ body{
     font-size: .9rem;
     margin-left: .2rem;
  }
- .deal-bg .btns button:hover{
+ .deal-bg .toggle-btn button:hover{
     color: #177761;
  }
  /* ********************************Coupons************************************ */
- .deals{
+ .coupon-box{
     border: 2px solid #f7f7f8;
     background-color: #fff;
     border-radius: 4px;
-    margin-top: 2rem;
+    margin-bottom: 2rem;
  }
 
-.deals .row{
+.coupon-box .row{
     border-bottom: 1px solid #ede9e9;
     margin: auto;
     width: 100%;
     padding-top: .7rem;
     padding-bottom: .4rem;
 }
-.deals .row .offer p{
+.coupon-box .row .offer p{
     margin-top: .4rem;
     color: #202020;
     font-size: .95rem;
 }
-.deals .image{
+.coupon-box .image{
     max-width: 100%;
 }
- .deals .image img{
+ .coupon-box .image img{
     border: 2px solid #fff;
     width: 100%;
     aspect-ratio: 3/1;
@@ -138,14 +143,19 @@ body{
     margin: auto;
     margin-bottom: .5rem;
 }
-.discount{
+.coupon-box .discount{
     border: 1px solid #f3efef;
     width: 90%;
     text-transform: uppercase;
     color: #174d5c;
     text-align: center;
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
+}
+@media(max-width:500px){
+    .coupon-box .discount{
+        font-size: 1rem;
+    }
 }
 .success{
     text-align: center;
@@ -159,27 +169,30 @@ body{
         font-size: .68rem;
     }
 }
- .deals .content{
+ .coupon-box .content{
     margin-left: 1rem;
     font-family: 'Montserrat', sans-serif;
 }
- .deals a{
+ .coupon-box a{
     text-decoration: none;
 }
- .deals .content a h3{
+ .coupon-box .content a h3{
     width: 100%;
-    overflow: hidden;
     color: #213552;
     font-weight: 700;
     font-size: 1.35rem;
     letter-spacing: .2px;
     font-family: 'Montserrat', sans-serif;
     margin-bottom: .4rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
-   .deals .content a h3:hover{
+   .coupon-box .content a h3:hover{
     color: #177761;
   }
-   .deals .content p{
+   .coupon-box .content p{
     color: #212529;
     margin-top: .3rem;
     font-size: .95rem;
@@ -187,16 +200,16 @@ body{
     margin: .4rem 0px;
   }
   @media(max-width:450px){
-    .deals .content a h3{
+    .coupon-box .content a h3{
         font-weight: 650;
         font-size: 1rem;
     }
-    .deals .content p{
+    .coupon-box .content p{
         font-size: .88rem;
         font-weight: 500;
     }
     .success{
-        font-size: .72rem;
+        font-size: .8rem;
     }
   }
 #deal, #code{
@@ -226,7 +239,7 @@ body{
     margin-left: .4rem;
     font-size: .8rem;
 }
- .deals .submit{
+ .coupon-box .submit{
    outline: none;
    background-color: #177761;
    color: #fff;
@@ -242,16 +255,16 @@ body{
    font-weight: 600;
    font-size: 1rem;
 }
-.deals .submit i{
+.coupon-box .submit i{
     margin-left: .5rem;
 }
 @media(min-width:767px) and (max-width:1066px){
-    .deals .submit{
+    .coupon-box .submit{
         font-size: .7rem;
         width: 100%;
     }
 }
- .row .deals button i{
+  .coupon-box button i{
     margin-left: .5rem;
 }
 #icons{
@@ -259,9 +272,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 #icons span{
-    /* border: 1px solid #dedcdc; */
     padding: .4rem .6rem; 
     display: flex; 
     text-align: center;
@@ -281,6 +294,13 @@ body{
 #icons span i{
     font-size: 1.2rem;
     color: #ababab;
+}
+@media(max-width:768px){
+    .coupon-box .icon-success{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 /* ********************************************************************* */
@@ -305,15 +325,15 @@ body{
     border-bottom: 1px solid #ede9e9;
     padding-bottom: .5rem;
 }
-.deals .impression{
+.coupon-box .impression{
     margin-bottom: 1rem;
 }
-.deals .impression span{
+.coupon-box .impression span{
     margin-right: 1rem;
     color: #999999;
     font-size: .9rem;
 }
-.deals .impression span i{
+.coupon-box .impression span i{
     margin-right: .3rem;  
 }
 @media(max-width:890px){
@@ -331,30 +351,58 @@ body{
     font-size: 1.6rem ;
     color: #111;
 }
-.about-coupons p{
+.about-coupons .store-info{
     text-align: justify;
     font-weight: 500;
-    font-size: .95rem;
+    font-size: 1rem;
     line-height: 1.6rem;
 }
-.fnq h2{
-    margin-top: 1.5rem;
-    margin-bottom: 1.1rem;
-    font-weight: 650;
+.faq-title{
+    font-weight: 600;
     font-size: 1.8rem ;
     color: #111;
+    text-transform: capitalize;
 }
-.fnq h3{
-    font-weight: 650;
-    font-size: 1.2rem ;
+.faq-title span{
+    margin-left: .5rem;
+    font-weight: 600;
     color: #111;
 }
-.fnq p{
+.fnq .faq-question{
+    font-weight: 600;
+    font-size: 1.4rem ;
+    color: #111;
+    display: block;
+    margin: 1.4rem 0rem .5rem 0rem;
+}
+.fnq .faq-answer{
     text-align: justify;
     font-weight: 500;
-    font-size: .95rem;
+    font-size: 1rem;
     line-height: 1.6rem;
     margin-bottom: 1.5rem;
+}
+@media(max-width:600px){
+    .about-coupons h2{
+        font-size: 1.5rem;
+    }
+    .about-coupons .store-info{
+        font-size: .95rem;
+        line-height: 1.5rem;
+    }
+    .faq-title{
+        font-size: 1.6rem ;
+    } 
+    .faq-title span{
+        margin-left: .4rem;
+    }
+    .fnq .faq-question{
+        font-size: 1.2rem ;
+    }
+    .fnq .faq-answer{
+        font-size: .95rem;
+        line-height: 1.5rem;
+    }
 }
 /* *************************Realated store****************************** */
 .related-store h3{
@@ -392,6 +440,10 @@ body{
     font-weight: 600;
     font-size: 1.3rem;
  }
+ .best-coupons .last-update{
+    font-weight: 600;
+    padding: .5rem;
+ }
  .best-coupons table{
     margin: auto;
     width: 95%;
@@ -411,8 +463,8 @@ body{
     height: 3rem;
  }
  table tbody tr td strong{
-   color: #28a745;
    text-transform: uppercase;
+   color: #34a853;
  }
  table tbody tr:hover{
     background-color: #e5e2e2;
@@ -435,19 +487,23 @@ body{
         align-items: center;
      }
  }
- @media(max-width:550px){
-    table thead tr th:nth-of-type(1){
-        font-size: .8rem;
-        border: 2px solid red;
+ @media(max-width:768px){
+    .best-coupons table thead tr th:nth-of-type(4){
         display: none;
      }
-    table tbody tr td:nth-of-type(1){
-        font-size: .7rem;
-        text-align: left;
-        border: 2px solid green;
+    .best-coupons table tbody tr td:nth-of-type(4){
         display: none;
      }
  }
+ @media(max-width:550px){
+    table thead tr th:nth-of-type(1){
+        display: none;
+     }
+    table tbody tr td:nth-of-type(1){
+        display: none;
+     }
+ }
+
  /* **************************Popular Store********************************** */
  .popular{
     margin-top: 3rem;
@@ -461,7 +517,6 @@ body{
 .popular-store{
     background-color: transparent;
     margin-top: .5rem;
-
 }
  .popular-store img{
     object-fit: contain;
@@ -478,6 +533,7 @@ body{
     font-weight: 600;
     font-size: .9rem;
     color: #222;
+    margin-bottom: 0rem;
  }
  .popular-store p:hover{
    color: #177761;

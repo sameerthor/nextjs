@@ -80,20 +80,19 @@ export default function Store({ data }) {
                         <h1>{data.store.seo_title} {moment().format('YYYY')}</h1>
                         <p className="verified"><span className="check"><i className="fa fa-check-circle-o" aria-hidden="true"></i></span>Last
                             verified on <span>{moment().format('Do MMMM YYYY')}</span></p>
-                        <div className="btns">
+                        <div className="toggle-btn">
                             <button onClick={() => changeTab('all')} className={activetab == 'all' ? 'selected all' : 'all'}>All <span>{data.coupon_h2.length}</span></button>
                             <button onClick={() => changeTab('coupons')} className={activetab == 'coupons' ? 'selected coupons' : 'coupons'}>Coupons <span>{data.coupon_h2.filter(element => element.is_deal === 0).length}</span></button>
                             <button onClick={() => changeTab('deals')} className={activetab == 'deals' ? 'selected deals' : 'deals'}>Deals <span>{data.coupon_h2.filter(element => element.is_deal !== 0).length}</span></button>
                         </div>
                         {storedata.coupon_h2 && storedata.coupon_h2.map((item) =>
-                            <div className="container col-lg-12 col-md-12 col-sm-12 mx-auto deals" key={item.id}>
+                            <div className="container col-lg-12 col-md-12 col-sm-12 mx-auto coupon-box" key={item.id}>
                                 <div className="row row-cols-1 row-cols-lg-2">
                                     <div className="col col-lg-9 col-md-9 col-sm-12 mx-auto duo">
                                         <div className="d-flex">
                                             <div className="image">
                                                 <img src={`${publicRuntimeConfig.imageUrl}images/${storedata.store.store_logo}`} alt="" />
                                                 <p className="discount">{item.type_text}% <strong>off</strong></p>
-                                                <p className="success">100% success</p>
                                             </div>
                                             <div className="content">
                                                 <a id="store" href=""><h3>{item.title}</h3></a>
@@ -102,7 +101,11 @@ export default function Store({ data }) {
 
                                                     {item.is_deal == '0' && <span id="noexp">No Expires</span>}
                                                 </div>
-                                                <p>{item.descp}</p>
+                                                <p>{
+                                                    item.descp.replace(/<\/?[^>]+(>|$)/g, "").length > 30 ? <>{
+                                                        item.is_more === false ? item.descp.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 30) : item.descp.replace(/<\/?[^>]+(>|$)/g, "")}... <span onClick={() => changeView(index)} className='less_more'>{item.is_more === false ? 'less' : 'more'}</span>
+                                                    </> : item.descp.replace(/<\/?[^>]+(>|$)/g, "")
+                                                    }</p>
                                             </div>
                                         </div>
                                     </div>
@@ -114,12 +117,15 @@ export default function Store({ data }) {
                                                 <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(storedata.store.aff_url) }} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
 
                                         }
-                                        <div className="" id="icons">
-                                            <span className="face">
-                                                <span className="smile" data-bs-toggle="tooltip" data-bs-placement="top" title="This Worked!"><i className="fa fa-smile-o" aria-hidden="true"></i></span>
-                                                <span className="sad" data-bs-toggle="tooltip" data-bs-placement="top" title="It didn't Work"><i className="fa fa-frown-o" aria-hidden="true"></i></span>
-                                                <span className="star" data-bs-toggle="tooltip" data-bs-placement="top" title="Save this coupon"><i className="fa fa-star-o" aria-hidden="true"></i></span>
-                                            </span>
+                                        <div className="icon-success">
+                                            <div className="" id="icons">
+                                                <span className="face">
+                                                    <span className="smile" data-bs-toggle="tooltip" data-bs-placement="top" title="This Worked!"><i className="fa fa-smile-o" aria-hidden="true"></i></span>
+                                                    <span className="sad" data-bs-toggle="tooltip" data-bs-placement="top" title="It didn't Work"><i className="fa fa-frown-o" aria-hidden="true"></i></span>
+                                                    <span className="star" data-bs-toggle="tooltip" data-bs-placement="top" title="Save this coupon"><i className="fa fa-star-o" aria-hidden="true"></i></span>
+                                                </span>
+                                            </div>
+                                            <p className="success mt-2">100% success</p>        
                                         </div>
                                     </div>
                                 </div>
@@ -141,13 +147,14 @@ export default function Store({ data }) {
                         }
                         <div className="container col-lg-12 col-md-12 col-sm-12 mx-auto shadow-sm best-coupons">
                             <h3>Best Clytia Love Coupon Codes</h3>
+                            <span class="d-block d-md-none last-update">Updated on {moment().format('YYYY-MM-DD')}</span>
                             <table>
                                 <thead>
                                     <tr>
                                         <th>Discount</th>
                                         <th>Discription</th>
                                         <th>Status</th>
-                                        <th>Updated</th>
+                                        <th class="">Updated</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -158,7 +165,7 @@ export default function Store({ data }) {
                                                     <td> {item.type_text}% OFF</td>
                                                     <td>{item.title}</td>
                                                     <td><strong>Active</strong></td>
-                                                    <td>{moment().format('YYYY-MM-DD')}</td>
+                                                    <td class="">{moment().format('YYYY-MM-DD')}</td>
                                                 </tr>);
                                     }
                                     )}
@@ -172,22 +179,22 @@ export default function Store({ data }) {
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto shadow-sm coupon-details">
                         <div className="about-coupons">
                             <h2>About {storedata.store.name} Coupons</h2>
-                            <div
+                            <div class="store-info"
                                 dangerouslySetInnerHTML={{ __html: storedata.store.desc.match(/^[^<]*/)[0] }}
                             />
                         </div>
                         {
                             storedata.faqs.length > 0 &&
                             <>
-                                <h2>Ozone Signature Coupons FAQs</h2>
+                                <h2 class="faq-title">{storedata.store.name} <span>FAQs</span></h2>
 
                                 <div className="fnq">
                                     {
                                         storedata.faqs && storedata.faqs.map((item) =>
                                             <div key={item.id}>
-                                                <h3>{item.faq_question}</h3>
+                                                <h3 class="faq-question">{item.faq_question}</h3>
 
-                                                <div
+                                                <div className="faq-answer"
                                                     dangerouslySetInnerHTML={{ __html: item.faq_answer }}
                                                 />
                                             </div>
@@ -204,7 +211,7 @@ export default function Store({ data }) {
                         <div className="row">
                             {
                                 storedata.rstores && storedata.rstores.map((item) =>
-                                    <div className="col-lg-3 col-md-5 col-sm-10 mx-auto store-item" key={item.id}>
+                                    <div className="col-lg-3 col-md-6 col-sm-6 store-item" key={item.id}>
                                         <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i> {item.name}</Link>
                                     </div>
                                 )
@@ -213,12 +220,12 @@ export default function Store({ data }) {
                     </div>
                 </div>
                 <div className="container-fluid">
-                    <div className="container col-sm-11 col-md-8 col-lg-8 shadow-sm popular">
+                    <div className="container col-sm-11 col-md-8 col-lg-8 mx-auto shadow-sm popular"> 
                         <h3>Popular Stores</h3>
-                        <div className="row row-cols-2 row-cols-lg-4">
+                        <div className="row row-cols-2">
                             {
                                 storedata.pstores && storedata.pstores.map((item) =>
-                                    <div className="col popular-store mx-auto" key={item.id}>
+                                    <div className="col-md-4 popular-store" key={item.id}>
                                         <Link href={`/${item.slug}`}>
                                             <img src={`${publicRuntimeConfig.imageUrl}images/${item.store_logo}`} alt={item.name} />
                                         </Link>
