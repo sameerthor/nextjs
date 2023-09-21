@@ -232,7 +232,7 @@ export default function Reviews({ data }) {
                 </div>
                 <div className="container-fluid">
                     <div className="container text-center">
-                        <p className="fw-bolder"> You may also like - <button className="btn btn-primary">6th Sense Styling Technology Reviews</button></p>
+                        <p className="fw-bolder"> You may also like - <Link href="/6th-sense-styling-technology-review" className="btn btn-primary">6th Sense Styling Technology Reviews</Link></p>
                     </div>
                 </div>
 

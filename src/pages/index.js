@@ -31,6 +31,7 @@ const Responsive = {
 
 
 export default function Home({ page }) {
+    console.log(page);
     const [homeData, setHomeData] = useState(page);
 
     return (
@@ -67,9 +68,9 @@ export default function Home({ page }) {
                                     return (
                                         <div className="item mb-4" key={item.id}>
                                             <div className="card border-0 shadow">
-                                                <a href={`/review-category/${item.slug}`}> <img src={`${publicRuntimeConfig.imageUrl}images/banner/${item.thumb}`} alt="image" className="card-img-top" /></a>
+                                                <Link href={`/review-category/${item.slug}`}> <img src={`${publicRuntimeConfig.imageUrl}images/banner/${item.thumb}`} alt="image" className="card-img-top" /></Link>
                                                 <div className="card-body">
-                                                    <a href={`/review-category/${item.slug}`}> <h4>{item.name}</h4></a>
+                                                    <Link href={`/review-category/${item.slug}`}> <h4>{item.name}</h4></Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -237,47 +238,15 @@ export default function Home({ page }) {
                 <div className="container col-lg-10 col-md-10 col-sm-10 week-box">
                     <div className="row">
                         <h2>Top Reviews of the Week</h2>
-                        <div className="col-lg-2 col-md-2 col-sm-5 col-xs-5 week-items">
+                        {homeData.top_reviews && (
+                            homeData.top_reviews.map((item) => 
+                        <div className="col-lg-2 col-md-2 col-sm-5 col-xs-5 week-items" key={item.id}>
                             <div className="week-image">
-                                <a href="./review.html"> <img src="./images/8 Greens.jpg" alt="" /></a>
+                                <Link href={`${item.slug}`}> <img src={`${publicRuntimeConfig.imageUrl}images/${item.review_logo}`} alt="" /></Link>
                             </div>
-                            <a href="./review.html"> <span className="week-title d-block text-center">8 Greens</span></a>
+                            <Link href={`${item.slug}`}> <span className="week-title d-block text-center">{item.render_name}</span></Link>
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-5 col-xs-5 week-items">
-                            <div className="week-image">
-                                <a href="./review.html"> <img src="./images/Wisp.jpg" alt="" /></a>
-                            </div>
-                            <a href="./review.html"><span className="week-title d-block text-center">Wisp</span></a>
-                        </div>
-
-                        <div className="col-lg-2 col-md-2 col-sm-5 col-xs-5 week-items">
-                            <div className="week-image">
-                                <a href="./review.html"><img src="./images/Bombas socks.jpg" alt="" /></a>
-                            </div>
-                            <a href="./review.html"> <span className="week-title d-block text-center">Bombas</span></a>
-                        </div>
-
-                        <div className="col-lg-2 col-md-2 col-sm-5 week-items">
-                            <div className="week-image">
-                                <a href="./review.html"><img src="./images/Ritual Vitamins.jpg" alt="" /></a>
-                            </div>
-                            <a href="./review.html"> <span className="week-title d-block text-center">Ritual</span></a>
-                        </div>
-
-                        <div className="col-lg-2 col-md-2 col-sm-5 week-items">
-                            <div className="week-image">
-                                <a href="./review.html"><img src="./images/Keeps Hair.jpg" alt="" /></a>
-                            </div>
-                            <a href="./review.html"> <span className="week-title d-block text-center">Keeps</span></a>
-                        </div>
-
-                        <div className="col-lg-2 col-md-2 col-sm-5 week-items">
-                            <div className="week-image">
-                                <a href="./review.html"><img src="./images/Prose_Hair.jpg" alt="" /></a>
-                            </div>
-                            <a href="./review.html"> <span className="week-title d-block text-center">Prose</span></a>
-                        </div>
-
+                            ))}
                     </div>
 
                 </div>

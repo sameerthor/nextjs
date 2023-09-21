@@ -162,6 +162,7 @@ body h2{
 .popular-stores .store-items .store-img{
     display: block;
     margin:auto;
+    height: 100px;
     max-width: 90%;
     object-fit: contain;
     /* aspect-ratio: 2/3; */

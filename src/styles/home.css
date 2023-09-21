@@ -352,9 +352,10 @@
 }
 .week-image img{
     width: 100%;
+    height: 100%;
+    object-position: center;
     border-radius: 50%;
     margin: auto;
-    justify-content: space-evenly;
     
 }
 .week-items a{
