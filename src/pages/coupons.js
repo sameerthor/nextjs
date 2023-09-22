@@ -171,32 +171,32 @@ export default function Coupons({page}) {
                     <div className="row row-cols-2">
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <a href="./store.html"> <img src="./images/agoda.webp" alt="" /></a>
+                                <Link href="/agoda-coupons"> <img src="./images/agoda.webp" alt="" /></Link>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <a href="./store.html"> <img src="./images/at-n-tn.webp" alt="" /></a>
+                                <Link href="/at-t-mobility-coupons"> <img src="./images/at-n-tn.webp" alt="" /></Link>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <a href="./store.html"> <img src="./images/glamira.webp" alt="" /></a>
+                                <Link href="/glamira-coupons"> <img src="./images/glamira.webp" alt="" /></Link>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <a href="./store.html"> <img src="./images/levis.webp" alt="" /></a>
+                                <Link href="/levis-coupons"> <img src="./images/levis.webp" alt="" /></Link>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <a href="./store.html"> <img src="./images/m-n-s.webp" alt="" /></a>
+                                <Link href="/marks-and-spencer-coupons"> <img src="./images/m-n-s.webp" alt="" /></Link>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <a href="./store.html"> <img src="./images/microsoft.webp" alt="" /></a>
+                                <Link href="/microsoft-coupons"> <img src="./images/microsoft.webp" alt="" /></Link>
                             </div>
                         </div>
                     </div>
@@ -220,7 +220,7 @@ export default function Coupons({page}) {
                                 <div className="col-lg-3 col-md-4 col-sm-6 store-box" key={item.id}>
                                     <div className="justify-content-center align-items-center store-items shadow">
                                         <div>
-                                            <Link href={`/${item.slug}`}><img src="./images/sbi.jpg" class="store-img" alt="image"/></Link>
+                                            <Link href={`/${item.slug}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.store_logo}`} class="store-img" alt="image"/></Link>
                                         </div>
                                        <div>
                                             <Link href={`/${item.slug}`}><span class="store-name">{item.render_name}</span></Link>
