@@ -111,7 +111,7 @@ export default function Blog({ data }) {
                     </div>
                 </div>
                 <div className="container-fluid">
-                    <div className="container blog-navigation">
+                    <div className="container blog-navigation col-lg-7 mx-auto">
                         <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/blogs">Blogs <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href={`/${data.blog.slug}`}>{data.blog.title}</Link></p>
                     </div>
                 </div>
@@ -148,7 +148,7 @@ export default function Blog({ data }) {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-lg-8 blog-content mx-auto">
+                            <div className="col-lg-8 col-xs-12 blog-content mx-auto">
                                 <div className="write-blog">
                                     <div
                                         dangerouslySetInnerHTML={{ __html: data.blog.content }}

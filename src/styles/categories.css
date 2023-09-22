@@ -27,7 +27,11 @@
     display: block;
     color: #111111;
     font-weight: 500;
-    font-size: .8rem;
+    font-size: .9rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 }
 .categories-box a:hover{
     color: #111111;

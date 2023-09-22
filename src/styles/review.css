@@ -43,16 +43,6 @@
 .review{
     margin-bottom: 3rem;
 }
-.review .write-review{
-    margin: auto;
-    padding: 1.6rem 1.4rem;
-}
-.write-review img{
-    margin: .5rem auto;
-    display: block;
-    max-width: 80%;
-    object-fit: contain;
-}
 .review-box{
     background-color: #fcfcfc;
     padding: 1rem;
@@ -159,6 +149,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.8rem;
+    line-height: 1.3;
 }
 .coupon-name .discount-tag{
     margin-top: .8rem;
@@ -194,6 +185,7 @@
    align-items: center;
    justify-content: center;
    border-left: 1px solid #ede9e9;
+   flex-direction: column;
 }
 .review-box .btns button{
     display: block;
@@ -210,10 +202,37 @@
     font-size: 1.2rem;
     padding: .85rem 2.2rem;
     text-transform: uppercase;
+    cursor: pointer;
+}
+.review-box .btns span{
+    display: block;
+    margin: .5rem auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    outline: none;
+    color: #000;
+    font-weight: 600;
+    font-size: .9rem;
+    padding: .4rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+}
+.review-box .btns span i{
+    margin-right: .5rem;
+    color: #0066da;
+    font-weight: 700;
+    font-size: 1rem;
+}
+@media(max-width:768px){
+    .review-box .btns span{
+        margin-top: .5rem;
+    }
 }
 @media(max-width:600px){
     .review-box .coupon-name a{
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
     .review-box .coupon-name{
         padding: 1rem .5rem;
@@ -236,6 +255,15 @@
 .review{
     padding-top: 1.5rem;
 }
+.review .write-review{
+    margin: auto;
+    padding: 1.6rem 1rem;
+}
+@media(max-width:576px){
+    .review .write-review{
+        padding: 1.4rem 0rem;
+    }
+}
 .visitbtn {
     margin-top: 1.2rem;
     margin-bottom: 2.2rem;
@@ -250,11 +278,57 @@
     padding: .7rem;
     font-weight: 600;
 }
-.write-review h1{
-    font-weight: 700;
-    font-size: 1.9rem;
-    margin-bottom: 1.2rem;
-    color: #222222;
+.write-review{
+    font-family: 'Montserrat', sans-serif;
+    color: #2b2b33;
+    font-weight: 400;
+    font-size: 1.26rem;
+    line-height: 1.36;
+    letter-spacing: .3px;
+}
+.write-review img{
+    margin: .5rem auto;
+    display: block;
+    max-width: 80%;
+    object-fit: contain;
+}
+.write-review h2{
+    font-size: 1.62rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: #000;
+}
+.write-review h3{
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: #000;
+}
+.write-review h4{
+    margin: 1.4rem auto .6rem auto;
+    font-size: 1.2rem;
+    color: #000;
+}
+.write-review ol{
+    list-style-type: disc;
+    font-weight: 500;
+    margin: 1rem auto;
+}
+.write-review ol li{
+   margin: .6rem auto;
+   font-size: 1.16rem;
+   color: #2b2b33;
+}
+.write-review ul{
+    list-style-type: disc;
+    font-weight: 500;
+    margin: 1rem auto;
+}
+.write-review ul li{
+   margin: .6rem auto;
+   font-size: 1.16rem;
+   color: #2b2b33;
+   margin-left: 2%;
 }
 .write-review i{
     font-weight: 600;
@@ -270,6 +344,18 @@
     margin: auto;
     object-fit: contain;
 }
+.wp-block-image img{
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+@media(max-width:1000px){
+    .wp-block-image img{
+        width: 100%;
+    }
+}
 @media(max-width:768px){
     .review-img img{
        width: 100%;
@@ -277,27 +363,45 @@
     .write-review .review-details {
         width: 90%;
     }
-    .write-review h1{
-        font-size: 1.4rem;
+    .write-review img{
+        max-width: 98%;
     }
+
 }
+
 .schema-faq-question strong{
-    font-size: 1.4rem;
-    display: inline-block;
-    margin: 1.4rem 0rem .4rem 0rem;
+    margin: 1.4rem auto .6rem auto;
+    font-size: 1.15rem;
+    color: #000;
 }
-.schema-faq-answer{
-    font-size: 1.2rem;
-    text-align: justify;
-    line-height: 1.6rem;
+.schema-faq-answer strong{
+    font-family: 'Montserrat', sans-serif;
+    color: #2b2b33;
+    font-weight: 400;
+    font-size: 1.26rem;
+    line-height: 1.36;
+    letter-spacing: .3px;
+    margin-bottom: 1rem;
 }
-@media(max-width:768px){
-    .schema-faq-question strong{
+@media(max-width:600px){
+    .write-review{
         font-size: 1.2rem;
+        line-height: 1.36;
+        letter-spacing: .3px;
+    }
+    .write-review h2{
+        font-size: 1.46rem;
+    }
+    .write-review h4{
+        font-size: 1.18rem;
+    }
+    .schema-faq-question strong{
+        font-size: 1.18rem;
     }
     .schema-faq-answer{
-        font-size: .9rem;
-        line-height: 1.35rem;
+        font-size: 1.2rem;
+        line-height: 1.36;
+        letter-spacing: .3px;
     }
 }
 /**************************Realated review*******************************/
@@ -335,6 +439,10 @@
    text-decoration: none;
    color: #222;
    font-weight: 500;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
 }
 .review-item a:hover {
   color: #177761;

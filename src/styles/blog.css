@@ -20,7 +20,7 @@
     text-decoration: none;
     color: #212529;
     font-weight: 500;
-    font-size: .95rem;
+    font-size: 1rem;
 }
 .blog-navigation a:hover{
     color: #212529;
@@ -35,7 +35,8 @@
     display: block;
     margin: auto;
     width: 100%;
-    height: 100%; 
+    height: 100%;
+    object-fit: contain; 
 }
 .author p{
     color: #af9b9e;
@@ -109,50 +110,101 @@
 /* **************Blog-Content*************** */
 .blog-content{
     margin-bottom: 3.2rem;
+    background-color: #fcfcfc;
 }
 .write-blog{
     margin-top: .5rem;
     margin-bottom: .5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.write-blog ol{
+    list-style-type: disc;
+    font-weight: 500;
+    margin: 1rem auto;
+}
+.write-blog ol li{
+   margin: .6rem auto;
+   font-size: 1.2rem;
+   color: #2b2b33;
 }
 .write-blog ul{
-    list-style-type: decimal;
+    list-style-type: disc;
     font-weight: 500;
-    font-size: .9rem;
+    margin: 1rem auto;
+}
+.write-blog ul li{
+   margin: .6rem auto;
+   font-size: 1.2rem;
+   color: #2b2b33;
 }
 .write-blog img{
     display: block;
     margin: auto;
     width: 80%;
-    height: 100%; 
+    object-fit: contain;
 }
-.product{
-    margin-bottom: 1.2rem;
+.write-blog p{
+    font-family: 'Montserrat', sans-serif;
+    color: #2b2b33;
+    font-weight: 400;
+    font-size: 1.35rem;
+    line-height: 1.38;
+    letter-spacing: .3px;
+    margin-bottom: 1rem;
 }
-.product h2{
-    font-weight: 650;
-    font-size: 1.8rem;
+.write-blog h2{
+    font-size: 1.62rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: #000;
 }
-.product h3 strong{
-    margin-right: 1rem;
-    font-size: 1.8rem;  
+.write-blog h3{
+    font-size: 1.55rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: #000;
+    
 }
-.product h3{
-    font-weight: 600;
-    margin-top: 1.5rem;
-    font-size: 1.6rem;
+.write-blog h4{
+    margin: 1.4rem auto .6rem auto;
+    font-size: 1.2rem;
+    color: #000;
 }
-.product h4{
-    font-weight: 600;
-    font-size: 1.4rem;
+@media(max-width:600px){
+    .write-blog img{
+        width: 90%;
+    }
+    .write-blog p{
+        font-size: 1.25rem;
+        line-height: 1.3;
+        letter-spacing: .4px;
+    }
+    .write-blog h2{
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        color: #000;
+        border: 2px solid red;
+    }
+    .write-blog h3{
+        font-size: 1.34rem;
+        border: 2px solid black;
+        
+    }
+    .write-blog h4{
+        font-size: 1.15rem;
+        border: 2px solid pink;
+    }
+    .write-blog ol li{
+        font-size: 1.1rem;
+     }
+     .write-blog ul li{
+        font-size: 1.1rem;
+     }
 }
-.product p{
-    text-align: justify;
-    font-weight: 500;
-    font-size: .9rem;
-}
+
 /* **************author**************** */
 .author-box{
-   
     margin-bottom: 2rem;
 }
 .author-box span{
@@ -282,6 +334,7 @@ ul{
     display: block;
     object-fit: contain;
     aspect-ratio: 3/1;
+    border: 1px solid #dfdcdc;
 }
 .product-item .review-title{
     text-transform: capitalize;

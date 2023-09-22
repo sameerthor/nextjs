@@ -298,10 +298,10 @@ export default function Home({ page }) {
                                             </div>
                                             <h2 className="blog-title"><a href={`/${item.slug}`}>{item.title.substring(0, 35)}....</a></h2>
                                             <p className="blog-desc">{item.content.replace(/(<([^>]+)>)/ig, '').substring(0, 200)}....</p>
-                                            <p className="author">By <a href={`/${item.slug}`}>Tauseef Siddiqu</a> | <span className="time">10 min read</span></p>
+                                            <p className="author">By <a href={`/${item.slug}`}>Tauseef Siddiqu</a> | <span className="time">{Math.floor((Math.random() * 10) + 1)} min read</span></p>
                                             <div className="icons d-flex">
-                                                <span className="me-auto shadow-sm"><i className="fa fa-thumbs-up" aria-hidden="true"></i> Likes 315</span>
-                                                <span className="ms-auto shadow-sm"><i className="fa fa-share-alt" aria-hidden="true"></i> Shares 78</span>
+                                                <span className="me-auto shadow-sm"><i className="fa fa-thumbs-up" aria-hidden="true"></i> Likes {Math.floor((Math.random() * 100) + 1)}</span>
+                                                <span className="ms-auto shadow-sm"><i className="fa fa-share-alt" aria-hidden="true"></i> Shares {Math.floor((Math.random() * 25) + 1)}</span>
                                             </div>
                                         </div>
                                     </div>

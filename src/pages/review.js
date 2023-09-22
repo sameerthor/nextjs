@@ -163,7 +163,6 @@ export default function Reviews({ data }) {
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
                                                             <a href="#">{reviewdata.review.render_name}<br/><span className="discount-tag">40% off</span></a>
-                                                            {/* <span className="d-block discount-tag">40%</span> */}
                                                         </div>
                                                         <div className="coupon-content">
                                                             <a href="#">{item.title}</a>
@@ -177,6 +176,10 @@ export default function Reviews({ data }) {
                                                 </div>
                                                 <div className="col-lg-3 col-md-4 col-sm-12  btns">
                                                     <button data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-target="#dealPopup">Get Deal</button>
+                                                    <span className="badge"><i class="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
+                                                </div>
+                                                <div>
+
                                                 </div>
                                             </div></div>);
                                     else
@@ -199,6 +202,7 @@ export default function Reviews({ data }) {
                                                 </div>
                                                 <div className="col-lg-3 col-md-4 col-sm-5  btns">
                                                     <button onClick={(e) => setCouponModaldata(item)} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
+                                                    <span className="badge"><i class="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
                                                 </div>
                                             </div></div>);
                                 }
@@ -212,7 +216,7 @@ export default function Reviews({ data }) {
                 <div className="container-fluid">
                     <div className="container">
                         <div className="row review">
-                            <div className="col-lg-11 col-md-12 col-sm-11  shadow write-review">
+                            <div className="col-lg-11 col-md-12 col-sm-11 write-review">
                                 <div
                                     dangerouslySetInnerHTML={{ __html: reviewdata.review.desc }}
                                 />
@@ -242,7 +246,7 @@ export default function Reviews({ data }) {
                         <h3>Related Reviews</h3>
                         <div className="row">
                             {reviewdata.rreviews.map(item =>
-                                <div className="col-lg-4 col-md-5 col-sm-10  review-item" key={item.id}>
+                                <div className="col-lg-4 col-md-6 col-sm-12  review-item" key={item.id}>
                                     <div className="border">
                                         <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i>{item.render_name}</Link>
                                     </div>

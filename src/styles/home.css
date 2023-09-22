@@ -41,7 +41,7 @@
 }
 .why-scoop p{
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: #212529;
   margin-bottom: 1.2rem;
 }
@@ -104,7 +104,7 @@
 }
 .trust-content h2{
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.2rem;
    
 }
 .trust-content h2 i{
@@ -115,7 +115,8 @@
 }
 .trust-content p{
     font-weight: 500;
-    font-size: .9rem;
+    font-size: 1rem;
+    letter-spacing: .4px;
    
 }
 .trust-content h3{
@@ -125,6 +126,17 @@
 .trust-content h3 i{
     font-weight: 700;
     font-size: 1.2rem;
+}
+@media(max-width:600px){
+    .why-scoop h1{
+        font-size: 2.2rem;
+    }
+    .why-scoop p{
+        font-size: 1.2rem;
+    }
+    .trust-content .main-heading {
+        font-size: 1.3rem;
+    }
 }
 /* *************************************REVIEW BY CATEGORY************************************* */
 .cust-item{
@@ -347,7 +359,7 @@
 }
 .review-desc{
     font-weight: 500;
-    font-size: .85rem;
+    font-size: .88rem;
     margin-left: .4rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -469,7 +481,7 @@
     overflow: hidden;
 }
 .blog-desc{
-    font-size: .85rem;
+    font-size: .88rem;
     text-align: justify;
     color: #222222;
     display: -webkit-box;

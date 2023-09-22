@@ -426,6 +426,10 @@ body{
    border: 1px solid #ebe8e8;
    padding: .4rem 0rem;
    font-size: 1.09rem;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+   overflow: hidden;
 }
 .store-item a:hover {
   color: #177761;
