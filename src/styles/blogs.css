@@ -69,11 +69,20 @@
     font-size: 1.2rem;
     font-weight: 500;
     margin-top: .6rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .blog-items p{
     letter-spacing: .4px;
     font-size: .9rem;
+    margin-top: .5rem;
     color: #999999;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .blog-items button{
     border: none;
