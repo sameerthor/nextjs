@@ -597,3 +597,60 @@ body{
         font-size: .8rem;
      }
 }
+/* ***********************feedback modal******************** */
+.modal .feedback-content{
+    margin: auto;
+    max-width: 70%;
+}
+.modal .feedback-content img{
+    object-fit: contain;
+    display: block;
+    margin: auto;
+    max-width: 40%;
+}
+.modal .feedback-content h2{
+   margin: .8rem auto;
+   display: block;
+   color: #000;
+   font-weight: 600;
+   font-size: 2rem;
+}
+.modal .feedback-content p{
+    margin: .8rem auto;
+    display: block;
+    color: #000;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding: .6rem .2rem;
+ }
+ .modal .feedback-content .feedback-msg{
+    font-weight: 600;
+    font-size: .9rem;
+    padding: 1rem 0rem;
+    background-color: #f3f1f1;    
+ }
+ .modal .feedback-content a{
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  padding: .5rem 2rem;
+  display: inline-block;
+  margin: auto;
+  background-color: #177761;
+  border-radius: 4px;
+ }
+ @media(max-width:600px){
+    .modal .feedback-content{
+        max-width: 85%;
+    }
+    .modal .feedback-content h2{
+        font-size: 1.6rem;
+     }
+     .modal .feedback-content p{
+        font-size: .85rem;
+     }
+}  
+  

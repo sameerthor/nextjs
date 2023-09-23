@@ -120,9 +120,9 @@ export default function Store({ data }) {
                                         <div className="icon-success">
                                             <div className="" id="icons">
                                                 <span className="face">
-                                                    <span className="smile" data-bs-toggle="tooltip" data-bs-placement="top" title="This Worked!"><i className="fa fa-smile-o" aria-hidden="true"></i></span>
-                                                    <span className="sad" data-bs-toggle="tooltip" data-bs-placement="top" title="It didn't Work"><i className="fa fa-frown-o" aria-hidden="true"></i></span>
-                                                    <span className="star" data-bs-toggle="tooltip" data-bs-placement="top" title="Save this coupon"><i className="fa fa-star-o" aria-hidden="true"></i></span>
+                                                    <span className="smile" data-bs-toggle="tooltip modal" data-bs-target="#itWorked" data-bs-placement="top" title="This Worked!"><i className="fa fa-smile-o" aria-hidden="true"></i></span>
+                                                    <span className="sad" data-bs-toggle="tooltip modal" data-bs-target="#itDidNotWork" data-bs-placement="top" title="It didn't Work"><i className="fa fa-frown-o" aria-hidden="true"></i></span>
+                                                    <span className="star" data-bs-toggle="tooltip modal" data-bs-target="#saveCoupon" data-bs-placement="top" title="Save this coupon"><i className="fa fa-star-o" aria-hidden="true"></i></span>
                                                 </span>
                                             </div>
                                             <p className="success mt-2"> {Math.floor(Math.random() * (95 - 80) + 80)}% success</p>        
@@ -272,6 +272,43 @@ export default function Store({ data }) {
                                 <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code); alert('Coupon Code Copied to Clipboard Successfully!') }}
                                 >COPY</button>
                                 <button type="button" onClick={(e) => window.location.href = storedata.store.aff_url && storedata.store.aff_url} className="btn btn-warning text-white">Visit Store</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="itWorked" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content feedback-content">
+                            <div class="modal-body logout-body text-center">
+                                <img src="./images/smile.svg" alt="smile-img"/>
+                                <h2>Thank You!</h2>
+                                <p class="feedback-msg">Your feedback is important to us!</p>
+                                <a type="button" class="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="itDidNotWork" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content feedback-content">
+                            <div class="modal-body logout-body text-center">
+                                <img src="./images/sad.png" alt="smile-img"/>
+                                <h2>Did'nt Worked?</h2>
+                                <p class="bg-warning text-white">Please let us know your concern in comment section.<br/>Our team will verify this coupon on immidiate effect.</p>
+                                <p class="feedback-msg">Your feedback is important to us!</p>
+                                <a type="button" class="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="saveCoupon" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content feedback-content">
+                            <div class="modal-body logout-body text-center">
+                                <img src="./images/star.svg" alt="smile-img"/>
+                                <h2>Thank You!</h2>
+                                <p>We Saved this coupon for you.</p>
+                                <a type="button" class="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
                             </div>
                         </div>
                     </div>
