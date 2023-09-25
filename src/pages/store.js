@@ -49,7 +49,7 @@ export default function Store({ data }) {
                 <Head>
                     <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}`} />
                     <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
-                    <title>{data.store.seo_title} {new Date().getFullYear()}</title>
+                    <title>{data.store.seo_title}{new Date().getFullYear()}</title>
                     <meta name="description" content={`${data.store.seo_desc}`} />
                     <meta name="keywords" content={`${data.store.seo_keywords}`} />
                     <meta name="twitter:card" content="summary" />
