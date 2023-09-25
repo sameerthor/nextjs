@@ -125,7 +125,7 @@ export default function Store({ data }) {
                                                     <span className="star" data-bs-toggle="tooltip" data-bs-placement="top" title="Save this coupon"><i className="fa fa-star-o" aria-hidden="true"></i></span>
                                                 </span>
                                             </div>
-                                            <p className="success mt-2"> {Math.floor(Math.random() * (95 - 80) + 80)}% success</p>        
+                                            <p className="success mt-2"> {item.percent}% success</p>        
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +133,7 @@ export default function Store({ data }) {
                                     <p id="msg"><span id="lock"><i className="fa fa-lock" aria-hidden="true"></i></span><span id="excl">Exclusive:</span> This coupon can only be found at our website.</p>
                                     <div className="impression d-flex">
                                         <div>
-                                            <span><i className="fa fa-wifi" aria-hidden="true"></i>{Math.floor(Math.random() * (250 - 125) + 125)} Used - {Math.floor(Math.random() * (50 - 25) + 25)} Today</span>
+                                            <span><i className="fa fa-wifi" aria-hidden="true"></i>{item.used} Used - {item.today_used} Today</span>
                                             <button type="button" className="modal-btn" data-bs-toggle="modal" data-bs-target="#shareCoupon" data-bs-whatever="@mdo"><span><i className="fa fa-share-alt" aria-hidden="true"></i><span id="hide">share</span></span></button>
                                         </div>
                                         <div className="ms-auto">
