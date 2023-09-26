@@ -10,7 +10,6 @@ const { publicRuntimeConfig } = getConfig()
 
 
 export default function Reviews({ data }) {
-    ;
     const [reviewdata, setReviewdata] = useState(data);
     const [dealModaldata, setDealModaldata] = useState({});
     const [couponModaldata, setCouponModaldata] = useState({});
@@ -162,7 +161,7 @@ export default function Reviews({ data }) {
                                                 <div className="col-lg-9 col-md-8 col-sm-12 ">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
-                                                            <a href="#">{reviewdata.review.render_name}<br/><span className="discount-tag">40% off</span></a>
+                                                            <a href="#">{reviewdata.review.render_name}<br/><span className="discount-tag">{item.type_text}% off</span></a>
                                                         </div>
                                                         <div className="coupon-content">
                                                             <a href="#">{item.title}</a>
@@ -188,7 +187,7 @@ export default function Reviews({ data }) {
                                                 <div className="col-lg-9 col-md-8 col-sm-9">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
-                                                        <a href="#">{reviewdata.review.render_name}<br/><span className="discount-tag">40% off</span></a>
+                                                        <a href="#">{reviewdata.review.render_name}<br/><span className="discount-tag">{item.type_text}% off</span></a>
                                                         </div>
                                                         <div className="coupon-content">
                                                             <a href="#">{item.title}</a>
@@ -212,7 +211,7 @@ export default function Reviews({ data }) {
                             </div>
                         </div>
                     </div>
-                </div >
+                </div>
                 <div className="container-fluid">
                     <div className="container">
                         <div className="row review">
@@ -237,7 +236,7 @@ export default function Reviews({ data }) {
                 </div>
                 <div className="container-fluid">
                     <div className="container text-center">
-                        <p className="fw-bolder"> You may also like - <Link href="/6th-sense-styling-technology-review" className="btn btn-primary">6th Sense Styling Technology Reviews</Link></p>
+                        <p className="fw-bolder"> You may also like - <Link href={`/${reviewdata.rreviews[6].slug}`} className="btn btn-primary">{reviewdata.rreviews[6].render_name}</Link></p>
                     </div>
                 </div>
 
@@ -245,12 +244,16 @@ export default function Reviews({ data }) {
                     <div className="container col-lg-10 col-md-10 col-sm-10  shadow-sm related-review">
                         <h3>Related Reviews</h3>
                         <div className="row">
-                            {reviewdata.rreviews.map(item =>
-                                <div className="col-lg-4 col-md-6 col-sm-12  review-item" key={item.id}>
+                            {reviewdata.rreviews.map((item,index) =>
+                               {
+                                if(index<6)
+                                return
+                                (<div className="col-lg-4 col-md-6 col-sm-12  review-item" key={item.id}>
                                     <div className="border">
                                         <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i>{item.render_name}</Link>
                                     </div>
-                                </div>
+                                </div>);
+                               }
                             )}
                         </div>
                     </div>

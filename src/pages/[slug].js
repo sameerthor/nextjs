@@ -50,8 +50,10 @@ export async function getStaticProps({params}) {
     const data = await response.json();
     return {
         props: {
-            page: data || null
-        }
+            page: data || null,
+        },
+        revalidate: 10
+
     };
 }
 

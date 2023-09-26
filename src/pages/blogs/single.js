@@ -178,34 +178,15 @@ export default function Blog({ data }) {
                     <div class="container col-lg-10 col-md-10 col-sm-10 related-article ">
                         <h2>Related Articles</h2>
                         <div class="row">
+                        {data.blogs.map((item)=>
                             <div class="col-lg-3 col-md-6 col-sm-12 article-box">
                                 <div class="article-item">
-                                    <a href="#"><img src="./images/11-best-joomla-templates-for-2022-copy.webp" alt=""/></a>
-                                    <a href="#"> <h3>11 Best Joomla Templates for 2023</h3></a>
-                                    <a href="#" class="full-story">Full Story <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+                                    <Link href={`/${item.slug}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.image}`} alt=""/></Link>
+                                    <Link href={`/${item.slug}`}> <h3>{item.title}</h3></Link>
+                                    <Link href={`/${item.slug}`} class="full-story">Full Story <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></Link>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 article-box">
-                                <div class="article-item">
-                                    <a href="#"><img src="./images/11-best-joomla-templates-for-2022-copy.webp" alt=""/></a>
-                                    <a href="#"> <h3>11 Best Joomla Templates for 2023</h3></a>
-                                    <a href="#" class="full-story">Full Story <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 article-box">
-                                <div class="article-item">
-                                    <a href="#"><img src="./images/11-best-joomla-templates-for-2022-copy.webp" alt=""/></a>
-                                    <a href="#"> <h3>11 Best Joomla Templates for 2023</h3></a>
-                                    <a href="#" class="full-story">Full Story <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 article-box">
-                                <div class="article-item">
-                                    <a href="#"><img src="./images/11-best-joomla-templates-for-2022-copy.webp" alt=""/></a>
-                                    <a href="#"> <h3>11 Best Joomla Templates for 2023</h3></a>
-                                    <a href="#" class="full-story">Full Story <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-                                </div>
-                            </div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -214,42 +195,14 @@ export default function Blog({ data }) {
                     <div class="container col-lg-10 col-md-10 col-sm-10">
                         <h2>Product Review based on your interset</h2>
                         <div class="row row-cols-2">
+                        {data.reviews.map((item)=>
                             <div class="col-lg-2 col-md-4 col-xs-6 product-box">
                                 <div class="product-item">
-                                    <a href="#"><img class="review-logo" src="./images/roger-black-fitness-promo-code.png" alt=""/></a>
-                                    <a href="#" class="review-title">Roger Black Fitness Review</a>
+                                    <Link href={`/${item.slug}`}><img class="review-logo" src={`${publicRuntimeConfig.imageUrl}images/${item.review_logo}`} alt=""/></Link>
+                                    <Link href={`/${item.slug}`} class="review-title">{item.render_name}</Link>
                                 </div>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-xs-6 product-box">
-                                <div class="product-item">
-                                    <a href="#"><img class="review-logo" src="./images/roger-black-fitness-promo-code.png" alt=""/></a>
-                                    <a href="#" class="review-title">Roger Black Fitness Review</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-xs-6 product-box">
-                                <div class="product-item">
-                                    <a href="#"><img class="review-logo" src="./images/roger-black-fitness-promo-code.png" alt=""/></a>
-                                    <a href="#" class="review-title">Roger Black Fitness Review</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-xs-6 product-box">
-                                <div class="product-item">
-                                    <a href="#"><img class="review-logo" src="./images/roger-black-fitness-promo-code.png" alt=""/></a>
-                                    <a href="#" class="review-title">Roger Black Fitness Review</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-xs-6 procuct-box">
-                                <div class="product-item">
-                                    <a href="#"><img class="review-logo" src="./images/roger-black-fitness-promo-code.png" alt=""/></a>
-                                    <a href="#" class="review-title">Roger Black Fitness Review</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-xs-6 procuct-box">
-                                <div class="product-item">
-                                    <a href="#"><img class="review-logo" src="./images/roger-black-fitness-promo-code.png" alt=""/></a>
-                                    <a href="#" class="review-title">Roger Black Fitness Review</a>
-                                </div>
-                            </div>
+                        )}
                         </div>
                     </div>
                 </div>
