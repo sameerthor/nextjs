@@ -112,7 +112,7 @@ export default function Blogs({ data }) {
                     <div className="row row-cols-2">
                         {blogdata.blog_categories && (blogdata.blog_categories.map((item) =>
 
-                            <div className="col-lg-1 col-md-6 col-sm-6 fav-item mx-auto" key={item.id}>
+                            <div className="col-lg-10 col-md-6 col-sm-6 fav-item mx-auto" key={item.id}>
                                 <div>
                                     <Link href={`/blog/category/${item.slug}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.image}`} alt="" /></Link>
                                     <span><Link href={`blog/category/${item.slug}`}>{item.name}</Link></span>

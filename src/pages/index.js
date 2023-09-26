@@ -86,7 +86,7 @@ export default function Home({ page }) {
                     <h1 className="text-center">Why ScoopReview</h1>
                     <p className="text-center">We're one of the trusted sources for honest and in-depth brand reviews.</p>
                 </div>
-                <div className="container col-lg-6 col-md-6 col-sm-6 why-scoop">
+                <div className="container col-lg-8 col-md-10 col-xs-10 why-scoop">
                     <div id="bg-image">
 
                     </div>
