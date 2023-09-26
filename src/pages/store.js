@@ -280,7 +280,7 @@ export default function Store({ data }) {
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content feedback-content">
                             <div class="modal-body logout-body text-center">
-                                <img src="./images/smile.svg" alt="smile-img"/>
+                                <img src="./assets/smile.svg" alt="smile-img"/>
                                 <h2>Thank You!</h2>
                                 <p class="feedback-msg">Your feedback is important to us!</p>
                                 <a type="button" class="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
@@ -292,7 +292,7 @@ export default function Store({ data }) {
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content feedback-content">
                             <div class="modal-body logout-body text-center">
-                                <img src="./images/sad.png" alt="smile-img"/>
+                                <img src="./assets/sad.png" alt="smile-img"/>
                                 <h2>Did'nt Worked?</h2>
                                 <p class="bg-warning text-white">Please let us know your concern in comment section.<br/>Our team will verify this coupon on immidiate effect.</p>
                                 <p class="feedback-msg">Your feedback is important to us!</p>
@@ -305,7 +305,7 @@ export default function Store({ data }) {
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content feedback-content">
                             <div class="modal-body logout-body text-center">
-                                <img src="./images/star.svg" alt="smile-img"/>
+                                <img src="./assets/star.svg" alt="smile-img"/>
                                 <h2>Thank You!</h2>
                                 <p>We Saved this coupon for you.</p>
                                 <a type="button" class="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>

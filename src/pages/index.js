@@ -140,22 +140,22 @@ export default function Home({ page }) {
                     <h1>Featured</h1>
                     <div className="row">
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <Link href="/apple-review"><img src="./images/apple.webp" alt="" /></Link>
+                            <Link href="/apple-review"><img src="./assets/apple.webp" alt="" /></Link>
                             <p><Link href="/review-category/tech-and-gadgets">Tech & Gadgets</Link></p>
                             <h4 className="text-center"><Link href="/apple-review">Apple Review</Link></h4>
                         </div>
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <Link href="/clinique-review"> <img src="./images/clinique.webp" alt="" /></Link>
+                            <Link href="/clinique-review"> <img src="./assets/clinique.webp" alt="" /></Link>
                             <p><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
                             <h4 className="text-center"><Link href="/clinique-review">Clinique Review</Link></h4>
                         </div>
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <Link href="/lego-reviews"><img src="./images/lego.webp" alt="" /></Link>
+                            <Link href="/lego-reviews"><img src="./assets/lego.webp" alt="" /></Link>
                             <p><Link href="/review-category/babycare">Babycare</Link></p>
                             <h4 className="text-center"><Link href="/lego-reviews">LEGO Review</Link></h4>
                         </div>
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <Link href="/sams-club-review"> <img src="./images/sams-club.webp" alt="" /></Link>
+                            <Link href="/sams-club-review"> <img src="./assets/sams-club.webp" alt="" /></Link>
                             <p><Link href="/review-category/e-commerce">E-Commerce</Link></p>
                             <h4 className="text-center"><Link href="/sams-club-review">Sam's Review</Link></h4>
                         </div>
@@ -181,7 +181,7 @@ export default function Home({ page }) {
                         <h2>Best Product Reviews</h2>
                         <div className="col-lg-6 col-md-6 col-sm-5 review-item">
                             <div className="item-box shadow">
-                                <Link href="/bath-and-body-works-review"><img src="./images/Bath-n-Body-Works.webp" alt="" /></Link>
+                                <Link href="/bath-and-body-works-review"><img src="./assets/Bath-n-Body-Works.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
                                 <h4 className="review-topic"><Link href="/bath-and-body-works-review">Bath & Body Review</Link></h4>
                                 <p className="review-desc">Bath & Body Works provides you with ample choices for choosing the right skincare products for your body <Link href="/bath-and-body-works-review">read more</Link> </p>
@@ -189,7 +189,7 @@ export default function Home({ page }) {
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-5 review-item">
                             <div className="item-box shadow">
-                                <Link href="/ebay-review"><img src="./images/Ebay.webp" alt="" /></Link>
+                                <Link href="/ebay-review"><img src="./assets/Ebay.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/e-commerce">E-Commerce</Link></p>
                                 <h4 className="review-topic"><Link href="/ebay-review">Ebay Review</Link></h4>
                                 <p className="review-desc">Ebay is a global commerce leader that connects millions of buyers and sellers in more than 190 markets around the world <Link href="/ebay-review">read more</Link> </p>
@@ -201,7 +201,7 @@ export default function Home({ page }) {
                     <div className="row">
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <Link href="/fruit-bouquets-review"><img src="./images/Fruit-Bouquet.webp" alt="" /></Link>
+                                <Link href="/fruit-bouquets-review"><img src="./assets/Fruit-Bouquet.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/food-drinks">Food & Drinks</Link></p>
                                 <h4 className="review-topic"><Link href="/fruit-bouquets-review">Fruit Bouquets Review</Link></h4>
                                 <p className="review-desc">If you are looking for an alternative to showpieces or high sugar <Link href="/fruit-bouquets-review">read more</Link> </p>
@@ -209,7 +209,7 @@ export default function Home({ page }) {
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <Link href="/sally-beauty-review"><img src="./images/Sally.webp" alt="" /></Link>
+                                <Link href="/sally-beauty-review"><img src="./assets/Sally.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
                                 <h4 className="review-topic"><Link href="/sally-beauty-review">Sally Beauty Review</Link></h4>
                                 <p className="review-desc">Sally Beauty Supply and Beauty Systems Group has <Link href="/sally-beauty-review">read more</Link> </p>
@@ -217,7 +217,7 @@ export default function Home({ page }) {
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <Link href="/ulta-beauty-review"><img src="./images/ulta-beauty.webp" alt="" /></Link>
+                                <Link href="/ulta-beauty-review"><img src="./assets/ulta-beauty.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
                                 <h4 className="review-topic"><Link href="/ulta-beauty-review">Ulta Beauty Review</Link></h4>
                                 <p className="review-desc">Ulta Beauty acts as your one-stop-shop for exploring <Link href="/ulta-beauty-review">read more</Link> </p>
@@ -225,7 +225,7 @@ export default function Home({ page }) {
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <Link href="/annie-selke-review"><img src="./images/annie-selke.webp" alt="" /></Link>
+                                <Link href="/annie-selke-review"><img src="./assets/annie-selke.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/home-products">Home Products</Link></p>
                                 <h4 className="review-topic"><Link href="/annie-selke-review">Annie Selke Review</Link></h4>
                                 <p className="review-desc">Annie Selke is a firm that designs and manufactures bedding <Link href="/annie-selke-review">read more</Link> </p>
@@ -289,7 +289,7 @@ export default function Home({ page }) {
                         <div className="col-lg-3 col-md-6 use-coupons">
                             <div className="d-flex use-items">
                                 <div className="image">
-                                    <img src="./images/find-icon.webp" alt="" />
+                                    <img src="./assets/find-icon.webp" alt="" />
                                 </div>
                                 <div>
                                     <h4>Find</h4>
@@ -300,7 +300,7 @@ export default function Home({ page }) {
                         <div className="col-lg-3 col-md-6 use-coupons">
                             <div className="d-flex use-items">
                                 <div className="image">
-                                    <img src="./images/review-icon.webp" alt="" />
+                                    <img src="./assets/review-icon.webp" alt="" />
                                 </div>
                                 <div>
                                     <h4>Review</h4>
@@ -311,7 +311,7 @@ export default function Home({ page }) {
                         <div className="col-lg-3 col-md-6 use-coupons">
                             <div className="d-flex use-items">
                                 <div className="image">
-                                    <img src="./images/shop-icon.webp" alt="" />
+                                    <img src="./assets/shop-icon.webp" alt="" />
                                 </div>
                                 <div>
                                     <h4>Shop</h4>
@@ -322,7 +322,7 @@ export default function Home({ page }) {
                         <div className="col-lg-3 col-md-6 use-coupons">
                             <div className="d-flex use-items" id="last-item">
                                 <div className="image">
-                                    <img src="./images/save-icon.webp" alt="" />
+                                    <img src="./assets/save-icon.webp" alt="" />
                                 </div>
                                 <div>
                                     <h4>Save</h4>

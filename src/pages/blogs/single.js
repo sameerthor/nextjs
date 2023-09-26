@@ -163,7 +163,7 @@ export default function Blog({ data }) {
                         <div className="row">
                             <div className="col-lg-8 author-box mx-auto d-flex">
                                 <div className="image">
-                                    <img src="./images/author-img.svg" alt="" />
+                                    <img src="./assets/author-img.svg" alt="" />
                                 </div>
                                 <div>
                                     <span>{data.blog.author.name}</span>
