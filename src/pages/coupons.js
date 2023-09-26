@@ -159,7 +159,7 @@ export default function Coupons({page}) {
                 <div className="container col-lg-10 col-md-10 col-sm-10 coupons-deals">
                     <h3 className="text-center">Top Coupons, Promo Codes & Deals</h3>
                 </div>
-                <div className="container col-lg-6 col-md-6 col-sm-6 why-scoop">
+                <div className="container col-lg-8 col-md-10 col-xs-10 why-scoop">
                     <div id="bg-image">
 
                     </div>
