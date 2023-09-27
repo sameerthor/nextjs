@@ -63,7 +63,7 @@ export default function Coupons({page}) {
 
                             <div className="item mb-4">
                                 <div className="card border-0 shadow">
-                                    <Link href="/thanksgiving-day-coupon"> <img src="./images/thanksgiving.webp" alt="image" className="card-img-top" /></Link>
+                                    <Link href="/thanksgiving-day-coupon"> <img src="./assets/thanksgiving.webp" alt="image" className="card-img-top" /></Link>
                                     <div className="card-body">
                                         <Link href="/thanksgiving-day-coupon"> <h4>Thanksgiving Deal</h4></Link>
                                     </div>
@@ -72,7 +72,7 @@ export default function Coupons({page}) {
 
                             <div className="item mb-4">
                                 <div className="card border-0 shadow">
-                                    <Link href="/christmas-discount-code"> <img src="./images/christmas.webp" alt="image" className="card-img-top" /></Link>
+                                    <Link href="/christmas-discount-code"> <img src="./assets/christmas.webp" alt="image" className="card-img-top" /></Link>
                                     <div className="card-body">
                                         <Link href="/christmas-discount-code"> <h4>Christmas Day Deal</h4></Link>
                                     </div>
@@ -81,7 +81,7 @@ export default function Coupons({page}) {
 
                             <div className="item mb-4">
                                 <div className="card border-0 shadow">
-                                    <Link href="/happy-new-year-sale"> <img src="./images/new-year.webp" alt="image" className="card-img-top" /></Link>
+                                    <Link href="/happy-new-year-sale"> <img src="./assets/new-year.webp" alt="image" className="card-img-top" /></Link>
                                     <div className="card-body">
                                         <Link href="/happy-new-year-sale"><h4>New Year Sale</h4></Link>
                                     </div>
@@ -90,7 +90,7 @@ export default function Coupons({page}) {
 
                             <div className="item mb-4">
                                 <div className="card border-0 shadow">
-                                    <Link href="/black-friday-coupon"><img src="./images/black-friday.webp" alt="image" className="card-img-top" /></Link>
+                                    <Link href="/black-friday-coupon"><img src="./assets/black-friday.webp" alt="image" className="card-img-top" /></Link>
                                     <div className="card-body">
                                         <Link href="/black-friday-coupon"> <h4>Black Friday Deals</h4></Link>
                                     </div>
@@ -99,7 +99,7 @@ export default function Coupons({page}) {
 
                             <div className="item mb-4">
                                 <div className="card border-0 shadow">
-                                    <Link href="/ester-day-offer"><img src="./images/ester.webp" alt="image" className="card-img-top" /></Link>
+                                    <Link href="/ester-day-offer"><img src="./assets/ester.webp" alt="image" className="card-img-top" /></Link>
                                     <div className="card-body">
                                         <Link href="/ester-day-offer"><h4>Ester Day Offer</h4></Link>
                                     </div>
@@ -108,7 +108,7 @@ export default function Coupons({page}) {
 
                             <div className="item mb-4">
                                 <div className="card border-0 shadow">
-                                    <Link href="/labour-day-discount-code"><img src="./images/labour-day.webp" alt="image" className="card-img-top" /></Link>
+                                    <Link href="/labour-day-discount-code"><img src="./assets/labour-day.webp" alt="image" className="card-img-top" /></Link>
                                     <div className="card-body">
                                         <Link href="/labour-day-discount-code"> <h4>Labour Day Deals</h4></Link>
                                     </div>
@@ -117,7 +117,7 @@ export default function Coupons({page}) {
 
                             <div className="item mb-4">
                                 <div className="card border-0 shadow">
-                                    <Link href="/eid-offer"> <img src="./images/eid.webp" alt="image" className="card-img-top" /></Link>
+                                    <Link href="/eid-offer"> <img src="./assets/eid.webp" alt="image" className="card-img-top" /></Link>
                                     <div className="card-body">
                                         <Link href="/eid-offer"><h4>Eid Offers</h4></Link>
                                     </div>
@@ -126,7 +126,7 @@ export default function Coupons({page}) {
 
                             <div className="item mb-4">
                                 <div className="card border-0 shadow">
-                                    <Link href="/halloween-day-sale-coupon"> <img src="./images/halloween.webp" alt="image" className="card-img-top" /></Link>
+                                    <Link href="/halloween-day-sale-coupon"> <img src="./assets/halloween.webp" alt="image" className="card-img-top" /></Link>
                                     <div className="card-body">
                                         <Link href="/halloween-day-sale-coupon"><h4>Halloween Sale</h4></Link>
                                     </div>
@@ -135,7 +135,7 @@ export default function Coupons({page}) {
 
                             <div className="item mb-4">
                                 <div className="card border-0 shadow">
-                                    <Link href="/valentine’s-day-discount-code"> <img src="./images/valentines-day.webp" alt="image" className="card-img-top" /></Link>
+                                    <Link href="/valentine’s-day-discount-code"> <img src="./assets/valentines-day.webp" alt="image" className="card-img-top" /></Link>
                                     <div className="card-body">
                                         <Link href="/valentine’s-day-discount-code"><h4>Valentines Day Discounts</h4></Link>
                                     </div>
@@ -144,7 +144,7 @@ export default function Coupons({page}) {
 
                             <div className="item mb-4">
                                 <div className="card border-0 shadow">
-                                    <Link href="/cyber-monday-coupon"> <img src="./images/cyber-monday.webp" alt="image" className="card-img-top" /></Link>
+                                    <Link href="/cyber-monday-coupon"> <img src="./assets/cyber-monday.webp" alt="image" className="card-img-top" /></Link>
                                     <div className="card-body">
                                         <Link href="/cyber-monday-coupon"><h4>Cyber Monday Sale</h4></Link>
                                     </div>
@@ -171,32 +171,32 @@ export default function Coupons({page}) {
                     <div className="row row-cols-2">
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <Link href="/agoda-coupons"> <img src="./images/agoda.webp" alt="" /></Link>
+                                <Link href="/agoda-coupons"> <img src="./assets/agoda.webp" alt="" /></Link>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <Link href="/at-t-mobility-coupons"> <img src="./images/at-n-tn.webp" alt="" /></Link>
+                                <Link href="/at-t-mobility-coupons"> <img src="./assets/at-n-tn.webp" alt="" /></Link>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <Link href="/glamira-coupons"> <img src="./images/glamira.webp" alt="" /></Link>
+                                <Link href="/glamira-coupons"> <img src="./assets/glamira.webp" alt="" /></Link>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <Link href="/levis-coupons"> <img src="./images/levis.webp" alt="" /></Link>
+                                <Link href="/levis-coupons"> <img src="./assets/levis.webp" alt="" /></Link>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <Link href="/marks-and-spencer-coupons"> <img src="./images/m-n-s.webp" alt="" /></Link>
+                                <Link href="/marks-and-spencer-coupons"> <img src="./assets/m-n-s.webp" alt="" /></Link>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-6 brand-items">
                             <div className="shadow">
-                                <Link href="/microsoft-coupons"> <img src="./images/microsoft.webp" alt="" /></Link>
+                                <Link href="/microsoft-coupons"> <img src="./assets/microsoft.webp" alt="" /></Link>
                             </div>
                         </div>
                     </div>

@@ -31,7 +31,7 @@ const exampleFunction = ({ page }) => {
 };
 
 export async function getStaticPaths() {
-  const response = await fetch('https://scoopreview.com/scoop/public/api/slugs');
+  const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}/api/slugs`);
   const data = await response.json();
   // Get the paths we want to pre-render based on posts
   const paths = data.map(post => ({
@@ -46,7 +46,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({params}) {
 
    
-    const response = await fetch(`https://scoopreview.com/scoop/public/api/slug/${params.slug}`);
+    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}/api/slug/${params.slug}`);
     const data = await response.json();
     return {
         props: {

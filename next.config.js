@@ -4,7 +4,7 @@ const path = require('path');
 const nextConfig = {
   reactStrictMode: false,
   publicRuntimeConfig: {
-    apiBaseUrl: 'https://scoopreview.com/scoop/public/',
+    apiBaseUrl: 'https://admin.scoopreview.com/scoop/public/',
     imageUrl:'https://scoopreview.com/',
     webUrl:'https://scoopreview.com/'
   },

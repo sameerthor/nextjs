@@ -1,6 +1,6 @@
 /* ********************* Blog-Header*********************************** */
 #blogHeader{
-    background-image: url("/images/blog-header-3.avif");
+    background-image: url("/assets/blog-header-3.avif");
     max-height: 200px;
     min-height: 200px; 
 }
