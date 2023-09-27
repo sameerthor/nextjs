@@ -152,7 +152,7 @@ export default function Store({ data }) {
                                 <thead>
                                     <tr>
                                         <th>Discount</th>
-                                        <th>Discription</th>
+                                        <th>Description</th>
                                         <th>Status</th>
                                         <th class="">Updated</th>
                                     </tr>
