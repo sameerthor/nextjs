@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import '@/styles/home.css'
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css"
+import Image from 'next/image'
 import dynamic from "next/dynamic";
 import Link from 'next/link';
 import getConfig from 'next/config'
@@ -67,7 +68,8 @@ export default function Home({ page }) {
                                     return (
                                         <div className="item mb-4" key={item.id}>
                                             <div className="card border-0 shadow">
-                                                <Link href={`/review-category/${item.slug}`}> <img src={`${publicRuntimeConfig.imageUrl}images/banner/${item.thumb}`} alt="image" className="card-img-top" /></Link>
+                                                <Link href={`/review-category/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
+                                                    style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/banner/${item.thumb}`} alt="image" className="card-img-top" /></Link>
                                                 <div className="card-body">
                                                     <Link href={`/review-category/${item.slug}`}> <h4>{item.name}</h4></Link>
                                                 </div>
@@ -115,7 +117,8 @@ export default function Home({ page }) {
                                             return (
                                                 <div className="item mb-4 cust-item mx-auto" key={item.id}>
                                                     <div className="custome card border-0">
-                                                        <a href={`/review-category/${item.slug}`}> <img src={`${publicRuntimeConfig.imageUrl}images/category/${item.thumb}`} alt="image" className="card-img-top" /></a>
+                                                        <a href={`/review-category/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
+                                                            style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/category/${item.thumb}`} alt="image" className="card-img-top" /></a>
                                                     </div>
                                                     <div className="custome-text">
                                                         <span>{item.name}</span>
@@ -139,22 +142,26 @@ export default function Home({ page }) {
                     <h1>Featured</h1>
                     <div className="row">
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <Link href="/apple-review"><img src="./assets/apple.webp" alt="" /></Link>
+                            <Link href="/apple-review"><Image width={0} height={0} sizes="100vw"
+                                style={{ width: '100%', height: 'auto' }} src="/assets/apple.webp" alt="" /></Link>
                             <p><Link href="/review-category/tech-and-gadgets">Tech & Gadgets</Link></p>
                             <h4 className="text-center"><Link href="/apple-review">Apple Review</Link></h4>
                         </div>
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <Link href="/clinique-review"> <img src="./assets/clinique.webp" alt="" /></Link>
+                            <Link href="/clinique-review"> <Image width={0} height={0} sizes="100vw"
+                                style={{ width: '100%', height: 'auto' }} src="/assets/clinique.webp" alt="" /></Link>
                             <p><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
                             <h4 className="text-center"><Link href="/clinique-review">Clinique Review</Link></h4>
                         </div>
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <Link href="/lego-reviews"><img src="./assets/lego.webp" alt="" /></Link>
+                            <Link href="/lego-reviews"><Image width={0} height={0} sizes="100vw"
+                                style={{ width: '100%', height: 'auto' }} src="/assets/lego.webp" alt="" /></Link>
                             <p><Link href="/review-category/babycare">Babycare</Link></p>
                             <h4 className="text-center"><Link href="/lego-reviews">LEGO Review</Link></h4>
                         </div>
                         <div className="col-lg-3 col-md-5 col-sm-7 featured-items">
-                            <Link href="/sams-club-review"> <img src="./assets/sams-club.webp" alt="" /></Link>
+                            <Link href="/sams-club-review"> <Image width={0} height={0} sizes="100vw"
+                                style={{ width: '100%', height: 'auto' }} src="/assets/sams-club.webp" alt="" /></Link>
                             <p><Link href="/review-category/e-commerce">E-Commerce</Link></p>
                             <h4 className="text-center"><Link href="/sams-club-review">Sam's Review</Link></h4>
                         </div>
@@ -180,7 +187,8 @@ export default function Home({ page }) {
                         <h2>Best Product Reviews</h2>
                         <div className="col-lg-6 col-md-6 col-sm-5 review-item">
                             <div className="item-box shadow">
-                                <Link href="/bath-and-body-works-review"><img src="./assets/Bath-n-Body-Works.webp" alt="" /></Link>
+                                <Link href="/bath-and-body-works-review"><Image width={0} height={0} sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }} src="/assets/Bath-n-Body-Works.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
                                 <h4 className="review-topic"><Link href="/bath-and-body-works-review">Bath & Body Review</Link></h4>
                                 <p className="review-desc">Bath & Body Works provides you with ample choices for choosing the right skincare products for your body <Link href="/bath-and-body-works-review">read more</Link> </p>
@@ -188,7 +196,8 @@ export default function Home({ page }) {
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-5 review-item">
                             <div className="item-box shadow">
-                                <Link href="/ebay-review"><img src="./assets/Ebay.webp" alt="" /></Link>
+                                <Link href="/ebay-review"><Image width={0} height={0} sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }} src="/assets/Ebay.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/e-commerce">E-Commerce</Link></p>
                                 <h4 className="review-topic"><Link href="/ebay-review">Ebay Review</Link></h4>
                                 <p className="review-desc">Ebay is a global commerce leader that connects millions of buyers and sellers in more than 190 markets around the world <Link href="/ebay-review">read more</Link> </p>
@@ -200,7 +209,8 @@ export default function Home({ page }) {
                     <div className="row">
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <Link href="/fruit-bouquets-review"><img src="./assets/Fruit-Bouquet.webp" alt="" /></Link>
+                                <Link href="/fruit-bouquets-review"><Image width={0} height={0} sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }} src="/assets/Fruit-Bouquet.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/food-drinks">Food & Drinks</Link></p>
                                 <h4 className="review-topic"><Link href="/fruit-bouquets-review">Fruit Bouquets Review</Link></h4>
                                 <p className="review-desc">If you are looking for an alternative to showpieces or high sugar <Link href="/fruit-bouquets-review">read more</Link> </p>
@@ -208,7 +218,8 @@ export default function Home({ page }) {
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <Link href="/sally-beauty-review"><img src="./assets/Sally.webp" alt="" /></Link>
+                                <Link href="/sally-beauty-review"><Image width={0} height={0} sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }} src="/assets/Sally.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
                                 <h4 className="review-topic"><Link href="/sally-beauty-review">Sally Beauty Review</Link></h4>
                                 <p className="review-desc">Sally Beauty Supply and Beauty Systems Group has <Link href="/sally-beauty-review">read more</Link> </p>
@@ -216,7 +227,8 @@ export default function Home({ page }) {
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <Link href="/ulta-beauty-review"><img src="./assets/ulta-beauty.webp" alt="" /></Link>
+                                <Link href="/ulta-beauty-review"><Image width={0} height={0} sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }} src="/assets/ulta-beauty.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/health-and-wellness">Health & Wellness</Link></p>
                                 <h4 className="review-topic"><Link href="/ulta-beauty-review">Ulta Beauty Review</Link></h4>
                                 <p className="review-desc">Ulta Beauty acts as your one-stop-shop for exploring <Link href="/ulta-beauty-review">read more</Link> </p>
@@ -224,7 +236,8 @@ export default function Home({ page }) {
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
-                                <Link href="/annie-selke-review"><img src="./assets/annie-selke.webp" alt="" /></Link>
+                                <Link href="/annie-selke-review"><Image width={0} height={0} sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }} src="/assets/annie-selke.webp" alt="" /></Link>
                                 <p className="review-category"><Link href="/review-category/home-products">Home Products</Link></p>
                                 <h4 className="review-topic"><Link href="/annie-selke-review">Annie Selke Review</Link></h4>
                                 <p className="review-desc">Annie Selke is a firm that designs and manufactures bedding <Link href="/annie-selke-review">read more</Link> </p>
@@ -238,13 +251,14 @@ export default function Home({ page }) {
                     <div className="row">
                         <h2>Top Reviews of the Week</h2>
                         {homeData.top_reviews && (
-                            homeData.top_reviews.map((item) => 
-                        <div className="col-lg-2 col-md-2 col-sm-5 col-xs-5 week-items" key={item.id}>
-                            <div className="week-image">
-                                <Link href={`${item.slug}`}> <img src={`${publicRuntimeConfig.imageUrl}images/${item.review_logo}`} alt="" /></Link>
-                            </div>
-                            <Link href={`${item.slug}`}> <span className="week-title d-block text-center">{item.render_name}</span></Link>
-                        </div>
+                            homeData.top_reviews.map((item,index) =>
+                                <div className="col-lg-2 col-md-2 col-sm-5 col-xs-5 week-items" key={index}>
+                                    <div className="week-image">
+                                        <Link href={`${item.slug}`}> <Image width={0} height={0} sizes="100vw"
+                                            style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt="" /></Link>
+                                    </div>
+                                    <Link href={`${item.slug}`}> <span className="week-title d-block text-center">{item.render_name}</span></Link>
+                                </div>
                             ))}
                     </div>
 
@@ -260,7 +274,8 @@ export default function Home({ page }) {
                                 return (
                                     <div className="col-lg-4 col-md-6 col-sm-12 latest-blog" key={item.id}>
                                         <div className="blog-items">
-                                            <Link href={`/${item.slug}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.image}`} alt="" /></Link>
+                                            <Link href={`/${item.slug}`}><Image width={0} height={0} sizes="100vw"
+                                                style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/${item.image}`} alt="" /></Link>
                                             <div className="d-flex">
                                                 <span className="blog-category me-auto"> {item.category}</span>
                                             </div>
@@ -288,7 +303,8 @@ export default function Home({ page }) {
                         <div className="col-lg-3 col-md-6 use-coupons">
                             <div className="d-flex use-items">
                                 <div className="image">
-                                    <img src="./assets/find-icon.webp" alt="" />
+                                    <Image width={0} height={0} sizes="100vw"
+                                        style={{ width: '100%', height: 'auto' }} src="/assets/find-icon.webp" alt="" />
                                 </div>
                                 <div>
                                     <h4>Find</h4>
@@ -299,7 +315,8 @@ export default function Home({ page }) {
                         <div className="col-lg-3 col-md-6 use-coupons">
                             <div className="d-flex use-items">
                                 <div className="image">
-                                    <img src="./assets/review-icon.webp" alt="" />
+                                    <Image width={0} height={0} sizes="100vw"
+                                        style={{ width: '100%', height: 'auto' }} src="/assets/review-icon.webp" alt="" />
                                 </div>
                                 <div>
                                     <h4>Review</h4>
@@ -310,7 +327,8 @@ export default function Home({ page }) {
                         <div className="col-lg-3 col-md-6 use-coupons">
                             <div className="d-flex use-items">
                                 <div className="image">
-                                    <img src="./assets/shop-icon.webp" alt="" />
+                                    <Image width={0} height={0} sizes="100vw"
+                                        style={{ width: '100%', height: 'auto' }} src="/assets/shop-icon.webp" alt="" />
                                 </div>
                                 <div>
                                     <h4>Shop</h4>
@@ -321,7 +339,8 @@ export default function Home({ page }) {
                         <div className="col-lg-3 col-md-6 use-coupons">
                             <div className="d-flex use-items" id="last-item">
                                 <div className="image">
-                                    <img src="./assets/save-icon.webp" alt="" />
+                                    <Image width={0} height={0} sizes="100vw"
+                                        style={{ width: '100%', height: 'auto' }} src="/assets/save-icon.webp" alt="" />
                                 </div>
                                 <div>
                                     <h4>Save</h4>
