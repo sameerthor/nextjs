@@ -10,6 +10,7 @@ const { publicRuntimeConfig } = getConfig()
 
 
 export default function Reviews({ data }) {
+
     const [reviewdata, setReviewdata] = useState(data);
     const [dealModaldata, setDealModaldata] = useState({});
     const [couponModaldata, setCouponModaldata] = useState({});
@@ -175,7 +176,7 @@ export default function Reviews({ data }) {
                                                 </div>
                                                 <div className="col-lg-3 col-md-4 col-sm-12  btns">
                                                     <button data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-target="#dealPopup">Get Deal</button>
-                                                    <span className="badge"><i class="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
+                                                    <span className="badge"><i className="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
                                                 </div>
                                                 <div>
 
@@ -201,7 +202,7 @@ export default function Reviews({ data }) {
                                                 </div>
                                                 <div className="col-lg-3 col-md-4 col-sm-5  btns">
                                                     <button onClick={(e) => setCouponModaldata(item)} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
-                                                    <span className="badge"><i class="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
+                                                    <span className="badge"><i className="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
                                                 </div>
                                             </div></div>);
                                 }
@@ -247,8 +248,7 @@ export default function Reviews({ data }) {
                             {reviewdata.rreviews.map((item,index) =>
                                {
                                 if(index<6)
-                                return
-                                (<div className="col-lg-4 col-md-6 col-sm-12  review-item" key={item.id}>
+                                return (<div className="col-lg-4 col-md-6 col-sm-12  review-item" key={item.id}>
                                     <div className="border">
                                         <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i>{item.render_name}</Link>
                                     </div>
@@ -266,7 +266,7 @@ export default function Reviews({ data }) {
                             {reviewdata.previews.map(item =>
                                 <div className="col-lg-2 col-md-4 col-sm-4  coupons" key={item.id}>
                                     <div>
-                                        <Link href={`/${item.slug}`}> <img className="d-flex" src={`${publicRuntimeConfig.imageUrl}images/${item.review_logo}`} alt="" /></Link>
+                                        <Link href={`/${item.slug}`}> <img className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt="" /></Link>
                                     </div>
                                     <div className="text-center">
                                         <Link href={`/${item.slug}`}><span>{item.render_name}</span></Link>
