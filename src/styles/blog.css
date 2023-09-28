@@ -57,20 +57,7 @@
 .contents{
     background-color: #fcfcfc;
     border: none;
-}
-#unfold{
-    display: none;
-    width: 95%;
-    margin: .5rem auto .5rem auto;
-}
-
-#unfold a{
-    margin: .3rem;
-    font-weight: 650;
-    font-size: .9rem;
-    display: block;
-    text-decoration: none;
-    color: #222;
+    padding: 0px !important;
 }
 @media(max-width:550px){
     #unfold a{
@@ -104,7 +91,7 @@
     margin-bottom: 1.5rem;
     border: 2px solid #ece7e7;
     background-color: transparent;
-    padding: .5rem;
+    /* padding: .5rem; */
     font-weight: 600;
 }
 /* **************Blog-Content*************** */
@@ -345,4 +332,11 @@ ul{
     color: #000;
     font-weight: 500;
     padding: .5rem 0rem;
+}
+/* ***************Related Coupons***************** */
+.latest-deal h2 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
+    color: #000;
 }

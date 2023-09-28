@@ -126,10 +126,10 @@ export default function Blog({ data }) {
                                     <p>Posted by <span>{data.blog.author.name}</span></p>
                                 </div>
                                 <div className="contents">
-                                    <div id="accordion" className="my-3">
+                                    <div id="accordion" className="">
                                         <div className="card">
                                             <div className="card-header" id="headingOne">
-                                                <span className="bg-light p-3">
+                                                <span className="bg-light">
                                                     <button data-bs-toggle="collapse" className="btn font-weight-bold" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                         Contents [show]
                                                     </button>
@@ -206,7 +206,49 @@ export default function Blog({ data }) {
                         </div>
                     </div>
                 </div>
-                {/* ======================================== */}
+                {/* =====================Related Coupons=================== */}
+                <div class="container-fluid">
+                    <div class="container col-lg-10 col-md-10 col-sm-10 latest-deal">
+                        <h2 className='f-4'>Get Discount on your favorite stores.</h2>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-12 latest-box">
+                                <div class="latest-items shadow">
+                                    <a class="shadow-sm" href="./store.html"><img src="./images/agoda.webp" alt=""/></a>
+                                    <a href="./store.html"> <h3>Tudungsico...</h3></a>
+                                    <p>40% Off TudungSiComel Coupons & Promo Co...</p>
+                                    <button onclick = "window.location.href='./store.html';">Get Deal <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
+                                </div>
+                            </div>
+                            {/* <!-- *********************** --> */}
+                            <div class="col-lg-3 col-md-6 col-sm-12 latest-box">
+                                <div class="latest-items shadow">
+                                    <a class="shadow-sm" href="./store.html"><img src="./images/at-n-tn.webp" alt=""/></a>
+                                    <a href="./store.html"><h3>My Kachhi...</h3></a>
+                                    <p>40% Off My Kachhi Coupons & Promo Codes</p>
+                                    <button onclick = "window.location.href='./store.html';">Get Code <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
+                                </div>
+                            </div>
+                            {/* <!-- *********************** --> */}
+                            <div class="col-lg-3 col-md-6 col-sm-12 latest-box">
+                                <div class="latest-items shadow">
+                                    <a class="shadow-sm" href="./store.html"><img src="./images/glamira.webp" alt=""/></a>
+                                    <a href="./store.html"><h3>Club L Lon...</h3></a>
+                                    <p>40% Off Club L London AU Coupons & Promo..</p>
+                                    <button onclick = "window.location.href='./store.html';">Get Deal <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
+                                </div>
+                            </div>
+                            {/* <!-- *********************** --> */}
+                            <div class="col-lg-3 col-md-6 col-sm-12 latest-box">
+                                <div class="latest-items shadow">
+                                    <a class="shadow-sm" href="./store.html"><img src="./images/levis.webp" alt=""/></a>
+                                    <a href="./store.html"><h3>Nic Zoe...</h3></a>
+                                    <p>40% Off NIC ZOE Coupons & Promo Codes</p>
+                                    <button onclick = "window.location.href='./store.html';">Get Code <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
                 <Footer />
             </>)
     )
