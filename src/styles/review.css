@@ -62,11 +62,13 @@
     padding: .7rem .85rem;
     border-radius: 0px;
     font-weight: 600;
-    margin-right: 100%;
+    margin-right: 50%;
     min-width: 12rem;
     display: block;
     font-size: 1.1rem;
     text-align-last: center;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
 }
 .review-box button:hover{
     border: 2px solid #ece7e7;
@@ -76,6 +78,8 @@
     font-weight: 700;
     font-size: 2.2rem;
     text-align: center;
+    margin-bottom: 0rem;
+    padding-top: 1rem;
 }
 @media(max-width:700px){
     .review-box h1{
@@ -88,8 +92,8 @@
     padding: 0px !important;
 }
 #headingOne{
-    border: none !important;
     background-color: #fcfcfc;
+    padding: 0rem !important;
 }
 #collapseOne{
     background-color: #fcfcfc;
