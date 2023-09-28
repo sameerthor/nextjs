@@ -175,7 +175,7 @@ export default function Reviews({ data }) {
                                                 </div>
                                                 <div className="col-lg-3 col-md-4 col-sm-12  btns">
                                                     <button data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-target="#dealPopup">Get Deal</button>
-                                                    <span className="badge"><i class="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
+                                                    <span className="badge"><i className="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
                                                 </div>
                                                 <div>
 
@@ -201,7 +201,7 @@ export default function Reviews({ data }) {
                                                 </div>
                                                 <div className="col-lg-3 col-md-4 col-sm-5  btns">
                                                     <button onClick={(e) => setCouponModaldata(item)} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
-                                                    <span className="badge"><i class="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
+                                                    <span className="badge"><i className="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
                                                 </div>
                                             </div></div>);
                                 }
@@ -236,7 +236,7 @@ export default function Reviews({ data }) {
                 </div>
                 <div className="container-fluid">
                     <div className="container text-center">
-                        <p className="fw-bolder"> You may also like - <Link href={`/${reviewdata.rreviews[6].slug}`} className="btn btn-primary">{reviewdata.rreviews[6].render_name}</Link></p>
+                        <p className="fw-bolder"> You may also like - <Link href={`/${reviewdata.previews[6].slug}`} className="btn btn-primary">{reviewdata.previews[6].render_name}</Link></p>
                     </div>
                 </div>
 
@@ -244,16 +244,12 @@ export default function Reviews({ data }) {
                     <div className="container col-lg-10 col-md-10 col-sm-10  shadow-sm related-review">
                         <h3>Related Reviews</h3>
                         <div className="row">
-                            {reviewdata.rreviews.map((item,index) =>
-                               {
-                                if(index<6)
-                                return
-                                (<div className="col-lg-4 col-md-6 col-sm-12  review-item" key={item.id}>
+                            {reviewdata.rreviews.map((item) =>
+                          <div className="col-lg-4 col-md-6 col-sm-12  review-item" key={item.id}>
                                     <div className="border">
                                         <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i>{item.render_name}</Link>
                                     </div>
-                                </div>);
-                               }
+                                </div>
                             )}
                         </div>
                     </div>
@@ -263,15 +259,19 @@ export default function Reviews({ data }) {
                     <div className="container col-sm-10 col-md-10 col-lg-10">
                         <div className="row row-cols-2">
 
-                            {reviewdata.previews.map(item =>
-                                <div className="col-lg-2 col-md-4 col-sm-4  coupons" key={item.id}>
+                            {reviewdata.previews.map((item,index) =>
+                                {
+                                if(index<6)
+                                return ( <div className="col-lg-2 col-md-4 col-sm-4  coupons" key={item.id}>
                                     <div>
-                                        <Link href={`/${item.slug}`}> <img className="d-flex" src={`${publicRuntimeConfig.imageUrl}images/${item.review_logo}`} alt="" /></Link>
+                                        <Link href={`/${item.slug}`}> <img className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt="" /></Link>
                                     </div>
                                     <div className="text-center">
                                         <Link href={`/${item.slug}`}><span>{item.render_name}</span></Link>
                                     </div>
                                 </div>
+                                )
+                                }
                             )}
                         </div>
                     </div>
