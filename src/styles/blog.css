@@ -57,20 +57,7 @@
 .contents{
     background-color: #fcfcfc;
     border: none;
-}
-#unfold{
-    display: none;
-    width: 95%;
-    margin: .5rem auto .5rem auto;
-}
-
-#unfold a{
-    margin: .3rem;
-    font-weight: 650;
-    font-size: .9rem;
-    display: block;
-    text-decoration: none;
-    color: #222;
+    padding: 0px !important;
 }
 @media(max-width:550px){
     #unfold a{
@@ -104,7 +91,7 @@
     margin-bottom: 1.5rem;
     border: 2px solid #ece7e7;
     background-color: transparent;
-    padding: .5rem;
+    /* padding: .5rem; */
     font-weight: 600;
 }
 /* **************Blog-Content*************** */

@@ -126,10 +126,10 @@ export default function Blog({ data }) {
                                     <p>Posted by <span>{data.blog.author.name}</span></p>
                                 </div>
                                 <div className="contents">
-                                    <div id="accordion" className="my-3">
+                                    <div id="accordion" className="">
                                         <div className="card">
                                             <div className="card-header" id="headingOne">
-                                                <span className="bg-light p-3">
+                                                <span className="bg-light">
                                                     <button data-bs-toggle="collapse" className="btn font-weight-bold" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                         Contents [show]
                                                     </button>

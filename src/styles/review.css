@@ -85,6 +85,7 @@
 }
 .card-header{
     border: none !important;
+    padding: 0px !important;
 }
 #headingOne{
     border: none !important;
@@ -484,12 +485,13 @@
   }
   .less_more:hover{
     color: rgb(159, 159, 246);
-
   }
-
-#accordion .card-body{ margin-left: 7%;}
-#accordion .card{border: none;}
-
+#accordion .card-body{ 
+    margin-left: 7%;
+}
+#accordion .card{
+    border: none;
+}
 @media(max-width:768px){
     .coupon-content{
         width: 100%;
