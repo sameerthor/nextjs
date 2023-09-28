@@ -255,7 +255,7 @@ export default function Home({ page }) {
                                 <div className="col-lg-2 col-md-2 col-sm-5 col-xs-5 week-items" key={index}>
                                     <div className="week-image">
                                         <Link href={`${item.slug}`}> <Image width={0} height={0} sizes="100vw"
-                                            style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt="" /></Link>
+                                            style={{ width: '100%', height: '100%' }} src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt="" /></Link>
                                     </div>
                                     <Link href={`${item.slug}`}> <span className="week-title d-block text-center">{item.render_name}</span></Link>
                                 </div>
