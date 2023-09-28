@@ -346,3 +346,10 @@ ul{
     font-weight: 500;
     padding: .5rem 0rem;
 }
+/* ***************Related Coupons***************** */
+.latest-deal h2 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
+    color: #000;
+}

@@ -466,6 +466,13 @@ body{
     font-size: .9rem;
     height: 3rem;
  }
+ table tbody tr .description{
+   border: 2px solid red;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+ }
  table tbody tr td strong{
    text-transform: uppercase;
    color: #34a853;

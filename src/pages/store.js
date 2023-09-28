@@ -163,7 +163,8 @@ export default function Store({ data }) {
                                             return (
                                                 <tr key={item.id}>
                                                     <td> {item.type_text}% OFF</td>
-                                                    <td>{item.title}</td>
+                                                    {/* <td className='description'>{item.title}</td> */}
+                                                    <td>{storedata.store.name} Coupon & Discount Code</td>
                                                     <td><strong>Active</strong></td>
                                                     <td class="">{moment().format('YYYY-MM-DD')}</td>
                                                 </tr>);
