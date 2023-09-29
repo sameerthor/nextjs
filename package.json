@@ -21,11 +21,9 @@
     "postcss-preset-env": "^9.1.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-loading-skeleton": "^3.3.1",
     "react-owl-carousel": "^2.3.3",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4",
-    "serverless-mysql": "^1.5.5",
     "style-loader": "^3.3.3",
     "swr": "^2.2.2"
   },
