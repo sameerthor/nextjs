@@ -108,12 +108,12 @@ export default function Blogs({ data }) {
             )}
             <div className="container-fluid fav-box">
                 <div className="container col-lg-12 col-md-12 col-sm-12">
-                    <h2 className="text-center">Favorite Categories</h2>
+                    <h2 className="text-center">Favourite Categories</h2>
                     <div className="row row-cols-2">
                         {blogdata.blog_categories && (blogdata.blog_categories.map((item) =>
 
-                            <div className="col-lg-10 col-md-6 col-sm-6 fav-item mx-auto" key={item.id}>
-                                <div>
+                            <div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
+                                <div className="fav-item">
                                     <Link href={`/blog/category/${item.slug}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.image}`} alt="" /></Link>
                                     <span><Link href={`blog/category/${item.slug}`}>{item.name}</Link></span>
                                 </div>
