@@ -4,13 +4,14 @@ import Header from './components/header';
 import Head from 'next/head';
 import Footer from './components/footer';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
 
 
 export default function Reviews({ data }) {
-
+    const router = useRouter()
     const [reviewdata, setReviewdata] = useState(data);
     const [dealModaldata, setDealModaldata] = useState({});
     const [year, setYear] = useState(new Date().getFullYear());
@@ -97,13 +98,24 @@ export default function Reviews({ data }) {
             }
         });
     }, [])
-
+    
+    useEffect(() => {
+        router.beforePopState(({ as }) => {
+            $(".modal").modal("hide")
+            return true;
+        });
+        
+        return () => {
+            router.beforePopState(() => true);
+        };
+    }, [router]);
+    
     useEffect(() => {
         $('.modal').on('hidden.bs.modal', function (e) {
             setCopytext("COPY");
           })
         },[]);
-        
+
     return (
         reviewdata && (
             <>

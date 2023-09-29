@@ -5,12 +5,13 @@ import '@/styles/store.css';
 import Link from 'next/link';
 import Head from 'next/head';
 import moment from "moment";
+import { useRouter } from 'next/router'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
 
 export default function Store({ data }) {
-    ;
+    const router = useRouter()
     const [storedata, setStoredata] = useState(data);
     const [activetab, setActivetab] = useState("all");
     const [copytext, setCopytext] = useState("COPY")
@@ -44,11 +45,22 @@ export default function Store({ data }) {
     }
     
     useEffect(() => {
+        router.beforePopState(({ as }) => {
+            $(".modal").modal("hide")
+            return true;
+        });
+        
+        return () => {
+            router.beforePopState(() => true);
+        };
+    }, [router]);
+
+    useEffect(() => {
     $('.modal').on('hidden.bs.modal', function (e) {
         setCopytext("COPY");
       })
     },[]);
-    
+
     return (
         <>
             {data && (<>
