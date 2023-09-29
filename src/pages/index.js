@@ -201,19 +201,21 @@ export default function Home({ page }) {
                     <div className="row">
                         <h1 className="text-center">Get your desired <strong>Products / </strong> <strong><span>Reviews</span></strong> & more</h1>
                         <div className="col-lg-9 search-box">
-                        <Search
-                                fluid
-                                loading={loading}
-                                input={{ fluid: true }}
-                                placeholder="Search for product or review..."
-                                onResultSelect={(e, data) =>{
-                                    setValue(data.result.title);window.location.replace(data.result.slug);
+                            <div className="search-border">
+                                <Search
+                                    fluid
+                                    loading={loading}
+                                    input={{ fluid: true }}
+                                    placeholder="Search for product or review..."
+                                    onResultSelect={(e, data) =>{
+                                        setValue(data.result.title);window.location.replace(data.result.slug);
 
-                                }}
-                                onSearchChange={handleSearchChange}
-                                results={results}
-                                value={value}
-                            />
+                                    }}
+                                    onSearchChange={handleSearchChange}
+                                    results={results}
+                                    value={value}
+                                />
+                            </div>            
                         </div>
                     </div>
                 </div>

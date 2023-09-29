@@ -55,6 +55,7 @@ export function Header() {
           <Search
                                 fluid
                                 loading={loading}
+                                size="small"
                                 input={{ fluid: true }}
                                 placeholder="Search for stores..."
                                 onResultSelect={(e, data) =>{

@@ -278,38 +278,35 @@
 }
 .search-box{
     background-color: #ffffff;
-    padding-bottom: 5rem;
     border-radius: 4px;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
 }
-.search-box form{
-    display: flex;
-    margin: auto;
-    width: 95%;
-    height: 5rem;
-    border-bottom: 2px solid  #e2e2e5;
+.search-box .search-border{
+    border-bottom: 1px solid #9f9f9f;
+    padding-bottom: 1rem;
 }
-.search-box form input{
+.search-box input{
     margin: auto;
     width: 90%;
     height: 100%;
-    border: none;
-    border-radius: 0px;
     font-size: 1.4rem;
-    display: -webkit-box;
-    outline: none;
-    border: none;
+    outline: none !important;
+    border: none !important;
 }
-.search-box form button{
+.search-box i{
     margin: auto;
     width: 10%;
     height: 100%;
-    border: none;
+    border: none !important;
     outline: none;
     border-radius: 0px;
     background-color: transparent;
     color: #222;
     font-size: 1.5rem;
     font-weight: 600;
+    cursor: pointer;
 }
 @media(max-width:768px){
     .search-product h1{
@@ -318,7 +315,7 @@
     .search-box form input{
         font-size: 1.1rem;
     }
-    .search-box form button{
+    .search-box form i{
         font-size: 1.2rem;
     }
 }
@@ -410,6 +407,10 @@
     color: #111111;
     font-weight: 500;
     font-size: 1rem;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .week-items span:hover{
     color: #142b6f;
