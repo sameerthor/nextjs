@@ -13,6 +13,7 @@ export default function Store({ data }) {
     ;
     const [storedata, setStoredata] = useState(data);
     const [activetab, setActivetab] = useState("all");
+    const [copytext, setCopytext] = useState("COPY")
     const [dealModaldata, setDealModaldata] = useState({});
     const [year, setYear] = useState(new Date().getFullYear());
     const [couponModaldata, setCouponModaldata] = useState({});
@@ -41,9 +42,13 @@ export default function Store({ data }) {
             });
         }
     }
-
-
-
+    
+    useEffect(() => {
+    $('.modal').on('hidden.bs.modal', function (e) {
+        setCopytext("COPY");
+      })
+    },[]);
+    
     return (
         <>
             {data && (<>
@@ -113,7 +118,7 @@ export default function Store({ data }) {
                                     <div className="col col-lg-3 col-md-3 col-sm-12 mx-auto">
                                         {
                                             item.is_deal == '0' ?
-                                                <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => setCouponModaldata(item)} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                                                <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => {setCouponModaldata(item),window.open(storedata.store.aff_url && storedata.store.aff_url,'_blank')}} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
                                                 :
                                                 <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(storedata.store.aff_url) }} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
 
@@ -271,8 +276,8 @@ export default function Store({ data }) {
                                 <h5 className="modal-info text-center">Select The Coupon Code & Hit Copy Button to Copy Your Code</h5>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code); alert('Coupon Code Copied to Clipboard Successfully!') }}
-                                >COPY</button>
+                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code);setCopytext("COPIED!") }}
+                                >{copytext}</button>
                                 <button type="button" onClick={(e) => window.location.href = storedata.store.aff_url && storedata.store.aff_url} className="btn btn-warning text-white">Visit Store</button>
                             </div>
                         </div>

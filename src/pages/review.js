@@ -14,6 +14,7 @@ export default function Reviews({ data }) {
     const [reviewdata, setReviewdata] = useState(data);
     const [dealModaldata, setDealModaldata] = useState({});
     const [year, setYear] = useState(new Date().getFullYear());
+    const [copytext, setCopytext] = useState("COPY")
     const [couponModaldata, setCouponModaldata] = useState({});
 
     const changeView = ((index) => {
@@ -97,7 +98,12 @@ export default function Reviews({ data }) {
         });
     }, [])
 
-
+    useEffect(() => {
+        $('.modal').on('hidden.bs.modal', function (e) {
+            setCopytext("COPY");
+          })
+        },[]);
+        
     return (
         reviewdata && (
             <>
@@ -313,8 +319,8 @@ export default function Reviews({ data }) {
                                 <h5 className="modal-info text-center">Select The Coupon Code & Hit Copy Button to Copy Your Code</h5>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code); alert('Coupon Code Copied to Clipboard Successfully!') }}
-                                >COPY</button>
+                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code);setCopytext("COPIED!") }}
+                                >{copytext}</button>
                                 <button type="button" onClick={(e) => window.location.href = couponModaldata.aff_url && couponModaldata.aff_url} className="btn btn-warning text-white">Visit Store</button>
                             </div>
                         </div>
