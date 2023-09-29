@@ -198,7 +198,7 @@ export default function Blog({ data }) {
                         {data.reviews.map((item)=>
                             <div class="col-lg-2 col-md-4 col-xs-6 product-box">
                                 <div class="product-item">
-                                    <Link href={`/${item.slug}`}><img class="review-logo" src={`${publicRuntimeConfig.imageUrl}images/${item.review_logo}`} alt=""/></Link>
+                                    <Link href={`/${item.slug}`}><img class="review-logo" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt=""/></Link>
                                     <Link href={`/${item.slug}`} class="review-title">{item.render_name}</Link>
                                 </div>
                             </div>

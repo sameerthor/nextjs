@@ -8,6 +8,8 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css"
 import Image from 'next/image'
 import dynamic from "next/dynamic";
+import { Search } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
 import Link from 'next/link';
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
@@ -33,7 +35,33 @@ const Responsive = {
 
 export default function Home({ page }) {
     const [homeData, setHomeData] = useState(page);
-
+    const [loading, setLoading] = useState(false);
+    const [searchdata, setSearchdata] = useState([]);
+    const [results, setResults] = useState([]);
+    const [value, setValue] = useState('');
+  
+    useEffect(() => {
+      fetch(`${publicRuntimeConfig.apiBaseUrl}api/search-reviews`)
+        .then(results => results.json())
+        .then(data => {
+        setSearchdata(data);
+        });
+    }, []);
+  
+    const handleSearchChange = (e, query) => {
+      setLoading(true);
+      var keyword = query.value;
+      setValue(keyword);
+      const filtered = searchdata.filter(entry => entry.title.toLowerCase().includes(keyword.toLowerCase()));
+  
+      if (filtered.length > 0) {
+          setResults(filtered.slice(0, 25));
+      } else {
+          setResults([]);
+      }
+      setLoading(false);
+  }
+  
     return (
         <>
             <Head>
@@ -173,10 +201,19 @@ export default function Home({ page }) {
                     <div className="row">
                         <h1 className="text-center">Get your desired <strong>Products / </strong> <strong><span>Reviews</span></strong> & more</h1>
                         <div className="col-lg-9 search-box">
-                            <form action="">
-                                <input type="text" placeholder="search for product or review ..." />
-                                <button><i className="fa fa-search" aria-hidden="true"></i></button>
-                            </form>
+                        <Search
+                                fluid
+                                loading={loading}
+                                input={{ fluid: true }}
+                                placeholder="Search for product or review..."
+                                onResultSelect={(e, data) =>{
+                                    setValue(data.result.title);window.location.replace(data.result.slug);
+
+                                }}
+                                onSearchChange={handleSearchChange}
+                                results={results}
+                                value={value}
+                            />
                         </div>
                     </div>
                 </div>
