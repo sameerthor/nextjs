@@ -164,7 +164,7 @@ export default function Store({ data }) {
                         )
                         }
                         <div className="container col-lg-12 col-md-12 col-sm-12 mx-auto shadow-sm best-coupons">
-                            <h3>Best Clytia Love Coupon Codes</h3>
+                            <h3>Best {data.store.name} Coupon Codes</h3>
                             <span className="d-block d-md-none last-update">Updated on {moment().format('YYYY-MM-DD')}</span>
                             <table>
                                 <thead>
