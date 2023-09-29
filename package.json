@@ -24,8 +24,7 @@
     "react-owl-carousel": "^2.3.3",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4",
-    "style-loader": "^3.3.3",
-    "swr": "^2.2.2"
+    "style-loader": "^3.3.3"
   },
   "devDependencies": {
     "@types/react": "18.2.21",
