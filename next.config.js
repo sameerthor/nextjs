@@ -61,7 +61,17 @@ const nextConfig = {
     }
     return config;
   }
-
+  ,
+  rewrites: async () => [
+    {
+      source: '/sitemap.xml',
+      destination: '/sitemap',
+    },
+    {
+      source: '/sitemap-:slug.xml',
+      destination: '/sitemap/:slug',
+    },
+  ],
 }
 
 module.exports = nextConfig;
