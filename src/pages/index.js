@@ -88,7 +88,7 @@ export default function Home({ page }) {
 
             <section>
                 <div className="container-fluid my-2">
-                    <h1 className="text-center fw-bold">Top <span className="text-success">Reviews</span></h1>
+                    <h1 className="text-center fw-bold top-heading">Top <span className="text-success">Reviews</span></h1>
                     <div className="row mt-5">
                         {homeData.home_slides && (
                             <OwlCarousel className='owl-theme' responsive={Responsive} loop margin={15} nav>
