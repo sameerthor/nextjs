@@ -64,11 +64,11 @@ const nextConfig = {
   ,
   rewrites: async () => [
     {
-      source: '/sitemap.xml',
+      source: '/scooprevsitemap.xml',
       destination: '/sitemap',
     },
     {
-      source: '/sitemap-:slug.xml',
+      source: '/scooprevsitemap-:slug.xml',
       destination: '/sitemap/:slug',
     },
   ],

@@ -63,7 +63,6 @@ export function Footer() {
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
               <h3>NEED HELP?</h3>
-              <a href={`${publicRuntimeConfig.webUrl}/sitemap.xml`} target='_blank'>Sitemap</a><br></br>
               <a href="#">Privacy Policy</a>
             </div>
           </div>
