@@ -12,26 +12,21 @@ export function Header() {
 
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
-  const [searchdata, setSearchdata] = useState([]);
   const [results, setResults] = useState([]);
   const [value, setValue] = useState('');
 
-  useEffect(() => {
-    fetch(`${publicRuntimeConfig.apiBaseUrl}api/search-stores`)
-      .then(results => results.json())
-      .then(data => {
-      setSearchdata(data);
-      });
-  }, []);
+ 
 
-  const handleSearchChange = (e, query) => {
+  const handleSearchChange = async (e, query) => {
     setLoading(true);
     var keyword = query.value;
     setValue(keyword);
-    const filtered = searchdata.filter(entry => entry.title.toLowerCase().includes(keyword.toLowerCase()));
+    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/search-stores?q=${keyword}`);
+    const data = await response.json();
+    const filtered = data
 
     if (filtered.length > 0) {
-        setResults(filtered.slice(0, 25));
+        setResults(filtered);
     } else {
         setResults([]);
     }
@@ -55,6 +50,7 @@ export function Header() {
           <Search
                                 fluid
                                 loading={loading}
+                                size="small"
                                 input={{ fluid: true }}
                                 placeholder="Search for stores..."
                                 onResultSelect={(e, data) =>{

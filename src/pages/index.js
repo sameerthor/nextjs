@@ -36,26 +36,20 @@ const Responsive = {
 export default function Home({ page }) {
     const [homeData, setHomeData] = useState(page);
     const [loading, setLoading] = useState(false);
-    const [searchdata, setSearchdata] = useState([]);
     const [results, setResults] = useState([]);
     const [value, setValue] = useState('');
   
-    useEffect(() => {
-      fetch(`${publicRuntimeConfig.apiBaseUrl}api/search-reviews`)
-        .then(results => results.json())
-        .then(data => {
-        setSearchdata(data);
-        });
-    }, []);
+    
   
-    const handleSearchChange = (e, query) => {
+    const handleSearchChange = async(e, query) => {
       setLoading(true);
       var keyword = query.value;
       setValue(keyword);
-      const filtered = searchdata.filter(entry => entry.title.toLowerCase().includes(keyword.toLowerCase()));
-  
+      const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/search-reviews?q=${keyword}`);
+      const data = await response.json();
+      const filtered = data
       if (filtered.length > 0) {
-          setResults(filtered.slice(0, 25));
+          setResults(filtered);
       } else {
           setResults([]);
       }

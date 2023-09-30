@@ -4,14 +4,18 @@ import Header from './components/header';
 import Head from 'next/head';
 import Footer from './components/footer';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
 
 
 export default function Reviews({ data }) {
+    const router = useRouter()
     const [reviewdata, setReviewdata] = useState(data);
     const [dealModaldata, setDealModaldata] = useState({});
+    const [year, setYear] = useState(new Date().getFullYear());
+    const [copytext, setCopytext] = useState("COPY")
     const [couponModaldata, setCouponModaldata] = useState({});
 
     const changeView = ((index) => {
@@ -94,7 +98,23 @@ export default function Reviews({ data }) {
             }
         });
     }, [])
-
+    
+    useEffect(() => {
+        router.beforePopState(({ as }) => {
+            $(".modal").modal("hide")
+            return true;
+        });
+        
+        return () => {
+            router.beforePopState(() => true);
+        };
+    }, [router]);
+    
+    useEffect(() => {
+        $('.modal').on('hidden.bs.modal', function (e) {
+            setCopytext("COPY");
+          })
+        },[]);
 
     return (
         reviewdata && (
@@ -102,18 +122,18 @@ export default function Reviews({ data }) {
                 <Head>
                     <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}`} />
                     <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
-                    <title>{data.review.seo_title} { new Date().getFullYear() }</title>
+                    <title>{`${data.review.seo_title} ${year}`}</title>
                     <meta name="description" content={`${data.review.seo_desc}`} />
                     <meta name="keywords" content={`${data.review.seo_keywords}`} />
 
                     <meta name="twitter:card" content="summary" />
                     <meta name="twitter:site" content="@" />
-                    <meta name="twitter:title" content={`${data.review.seo_title} ${new Date().getFullYear()}`} />
+                    <meta name="twitter:title" content={`${data.review.seo_title} ${year}`} />
                     <meta name="twitter:description" content={`${data.review.seo_desc}`} />
                     <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}${data.review.slug}`} />
 
                     <meta property="fb:app_id" content={`${data.meta.fbapp_id.value}`} />
-                    <meta property="og:title" content={`${data.review.seo_title} ${new Date().getFullYear()}`} />
+                    <meta property="og:title" content={`${data.review.seo_title} ${year}`} />
                     <meta property="og:type" content="website" />
                     <meta property="og:url" content={`${publicRuntimeConfig.webUrl}${data.review.slug}`} />
                     <meta property="og:image" content={`${publicRuntimeConfig.imageUrl}${data.review.review_logo}`} />
@@ -161,7 +181,7 @@ export default function Reviews({ data }) {
                                                 <div className="col-lg-9 col-md-8 col-sm-12 ">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
-                                                            <a href="#">{reviewdata.review.render_name}<br/><span className="discount-tag">{item.type_text}% off</span></a>
+                                                            <a href="#">{reviewdata.review.render_name}<><br/><span className="discount-tag">{item.type_text!=""?item.type_text:25}% off</span></></a>
                                                         </div>
                                                         <div className="coupon-content">
                                                             <a href="#">{item.title}</a>
@@ -187,7 +207,7 @@ export default function Reviews({ data }) {
                                                 <div className="col-lg-9 col-md-8 col-sm-9">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
-                                                        <a href="#">{reviewdata.review.render_name}<br/><span className="discount-tag">{item.type_text}% off</span></a>
+                                                        <a href="#">{reviewdata.review.render_name}<><br/><span className="discount-tag">{item.type_text!=""?item.type_text:30}% off</span></></a>
                                                         </div>
                                                         <div className="coupon-content">
                                                             <a href="#">{item.title}</a>
@@ -200,7 +220,7 @@ export default function Reviews({ data }) {
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-3 col-md-4 col-sm-5  btns">
-                                                    <button onClick={(e) => setCouponModaldata(item)} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
+                                                    <button onClick={(e) => {setCouponModaldata(item),window.open(item.aff_url && item.aff_url) }} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
                                                     <span className="badge"><i className="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
                                                 </div>
                                             </div></div>);
@@ -311,8 +331,8 @@ export default function Reviews({ data }) {
                                 <h5 className="modal-info text-center">Select The Coupon Code & Hit Copy Button to Copy Your Code</h5>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code); alert('Coupon Code Copied to Clipboard Successfully!') }}
-                                >COPY</button>
+                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code);setCopytext("COPIED!") }}
+                                >{copytext}</button>
                                 <button type="button" onClick={(e) => window.location.href = couponModaldata.aff_url && couponModaldata.aff_url} className="btn btn-warning text-white">Visit Store</button>
                             </div>
                         </div>

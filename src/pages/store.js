@@ -5,15 +5,18 @@ import '@/styles/store.css';
 import Link from 'next/link';
 import Head from 'next/head';
 import moment from "moment";
+import { useRouter } from 'next/router'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
 
 export default function Store({ data }) {
-    ;
+    const router = useRouter()
     const [storedata, setStoredata] = useState(data);
     const [activetab, setActivetab] = useState("all");
+    const [copytext, setCopytext] = useState("COPY")
     const [dealModaldata, setDealModaldata] = useState({});
+    const [year, setYear] = useState(new Date().getFullYear());
     const [couponModaldata, setCouponModaldata] = useState({});
 
     useEffect(() => {
@@ -40,8 +43,23 @@ export default function Store({ data }) {
             });
         }
     }
+    
+    useEffect(() => {
+        router.beforePopState(({ as }) => {
+            $(".modal").modal("hide")
+            return true;
+        });
+        
+        return () => {
+            router.beforePopState(() => true);
+        };
+    }, [router]);
 
-
+    useEffect(() => {
+    $('.modal').on('hidden.bs.modal', function (e) {
+        setCopytext("COPY");
+      })
+    },[]);
 
     return (
         <>
@@ -49,12 +67,12 @@ export default function Store({ data }) {
                 <Head>
                     <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}`} />
                     <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
-                    <title>{data.store.seo_title}{new Date().getFullYear()}</title>
+                    <title>{`${data.store.seo_title} ${year}`}</title>
                     <meta name="description" content={`${data.store.seo_desc}`} />
                     <meta name="keywords" content={`${data.store.seo_keywords}`} />
                     <meta name="twitter:card" content="summary" />
                     <meta name="twitter:site" content="@" />
-                    <meta name="twitter:title" content={`${data.store.seo_title} ${new Date().getFullYear()}`} />
+                    <meta name="twitter:title" content={`${data.store.seo_title} ${year}`} />
                     <meta name="twitter:description" content={`${data.store.seo_desc}`} />
                     <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}${data.store.slug}`} />
 
@@ -112,7 +130,7 @@ export default function Store({ data }) {
                                     <div className="col col-lg-3 col-md-3 col-sm-12 mx-auto">
                                         {
                                             item.is_deal == '0' ?
-                                                <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => setCouponModaldata(item)} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                                                <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => {setCouponModaldata(item),window.open(storedata.store.aff_url && storedata.store.aff_url,'_blank')}} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
                                                 :
                                                 <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(storedata.store.aff_url) }} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
 
@@ -146,15 +164,15 @@ export default function Store({ data }) {
                         )
                         }
                         <div className="container col-lg-12 col-md-12 col-sm-12 mx-auto shadow-sm best-coupons">
-                            <h3>Best Clytia Love Coupon Codes</h3>
-                            <span class="d-block d-md-none last-update">Updated on {moment().format('YYYY-MM-DD')}</span>
+                            <h3>Best {data.store.name} Coupon Codes</h3>
+                            <span className="d-block d-md-none last-update">Updated on {moment().format('YYYY-MM-DD')}</span>
                             <table>
                                 <thead>
                                     <tr>
                                         <th>Discount</th>
                                         <th>Description</th>
                                         <th>Status</th>
-                                        <th class="">Updated</th>
+                                        <th className="">Updated</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -166,7 +184,7 @@ export default function Store({ data }) {
                                                     {/* <td className='description'>{item.title}</td> */}
                                                     <td>{storedata.store.name} Coupon & Discount Code</td>
                                                     <td><strong>Active</strong></td>
-                                                    <td class="">{moment().format('YYYY-MM-DD')}</td>
+                                                    <td className="">{moment().format('YYYY-MM-DD')}</td>
                                                 </tr>);
                                     }
                                     )}
@@ -180,20 +198,20 @@ export default function Store({ data }) {
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto shadow-sm coupon-details">
                         <div className="about-coupons">
                             <h2>About {storedata.store.name} Coupons</h2>
-                            <div class="store-info"
+                            <div className="store-info"
                                 dangerouslySetInnerHTML={{ __html: storedata.store.desc.match(/^[^<]*/)[0] }}
                             />
                         </div>
                         {
                             storedata.faqs.length > 0 &&
                             <>
-                                <h2 class="faq-title">{storedata.store.name} <span>FAQs</span></h2>
+                                <h2 className="faq-title">{storedata.store.name} <span>FAQs</span></h2>
 
                                 <div className="fnq">
                                     {
                                         storedata.faqs && storedata.faqs.map((item) =>
                                             <div key={item.id}>
-                                                <h3 class="faq-question">{item.faq_question}</h3>
+                                                <h3 className="faq-question">{item.faq_question}</h3>
 
                                                 <div className="faq-answer"
                                                     dangerouslySetInnerHTML={{ __html: item.faq_answer }}
@@ -270,46 +288,46 @@ export default function Store({ data }) {
                                 <h5 className="modal-info text-center">Select The Coupon Code & Hit Copy Button to Copy Your Code</h5>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code); alert('Coupon Code Copied to Clipboard Successfully!') }}
-                                >COPY</button>
+                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code);setCopytext("COPIED!") }}
+                                >{copytext}</button>
                                 <button type="button" onClick={(e) => window.location.href = storedata.store.aff_url && storedata.store.aff_url} className="btn btn-warning text-white">Visit Store</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="itWorked" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content feedback-content">
-                            <div class="modal-body logout-body text-center">
+                <div className="modal fade" id="itWorked" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content feedback-content">
+                            <div className="modal-body logout-body text-center">
                                 <img src="./assets/smile.svg" alt="smile-img"/>
                                 <h2>Thank You!</h2>
-                                <p class="feedback-msg">Your feedback is important to us!</p>
-                                <a type="button" class="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
+                                <p className="feedback-msg">Your feedback is important to us!</p>
+                                <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="itDidNotWork" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content feedback-content">
-                            <div class="modal-body logout-body text-center">
+                <div className="modal fade" id="itDidNotWork" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content feedback-content">
+                            <div className="modal-body logout-body text-center">
                                 <img src="./assets/sad.png" alt="smile-img"/>
                                 <h2>Did'nt Worked?</h2>
-                                <p class="bg-warning text-white">Please let us know your concern in comment section.<br/>Our team will verify this coupon on immidiate effect.</p>
-                                <p class="feedback-msg">Your feedback is important to us!</p>
-                                <a type="button" class="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
+                                <p className="bg-warning text-white">Please let us know your concern in comment section.<br/>Our team will verify this coupon on immidiate effect.</p>
+                                <p className="feedback-msg">Your feedback is important to us!</p>
+                                <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="saveCoupon" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content feedback-content">
-                            <div class="modal-body logout-body text-center">
+                <div className="modal fade" id="saveCoupon" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content feedback-content">
+                            <div className="modal-body logout-body text-center">
                                 <img src="./assets/star.svg" alt="smile-img"/>
                                 <h2>Thank You!</h2>
                                 <p>We Saved this coupon for you.</p>
-                                <a type="button" class="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
+                                <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
                             </div>
                         </div>
                     </div>

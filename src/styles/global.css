@@ -279,3 +279,6 @@ nav{
         margin-bottom: 1rem;
     }
 }
+.search i{
+opacity: 1 !important;
+}
