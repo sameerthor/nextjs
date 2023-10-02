@@ -9,7 +9,6 @@ import "owl.carousel/dist/assets/owl.theme.default.css"
 import Image from 'next/image'
 import dynamic from "next/dynamic";
 import { Search } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css'
 import Link from 'next/link';
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()

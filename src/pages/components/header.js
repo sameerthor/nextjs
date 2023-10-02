@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react';
 import { Search } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 

@@ -1,9 +1,8 @@
-import Head from 'next/head'
 import { GoogleAnalytics } from "nextjs-google-analytics";
 import 'bootstrap/dist/css/bootstrap.css'
+import 'semantic-ui-css/semantic.min.css'
 import '@/styles/global.css'
 import '../../public/css/font-awesome/css/font-awesome.min.css';
-import Script from 'next/script'
 import { useEffect } from "react"
 import { Montserrat } from 'next/font/google'
 
