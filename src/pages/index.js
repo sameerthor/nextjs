@@ -4,8 +4,6 @@ import Head from 'next/head';
 import Header from './components/header';
 import Footer from './components/footer';
 import '@/styles/home.css'
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css"
 import Image from 'next/image'
 import dynamic from "next/dynamic";
 import { Search } from 'semantic-ui-react'
