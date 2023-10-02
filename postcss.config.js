@@ -22,7 +22,7 @@ module.exports = {
           defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
           safelist: {
             standard: ['html', 'body', 'btn'],
-            deep: [/^col/, /^navbar/, /^nav/,/^modal/,/^search/,/^owl-carousel/,/^owl-theme/,/^owl-loaded/,/^owl-drag/,/^ui/,/^small/,/^fluid/,/^search/]
+            deep: [/^col/, /^navbar/, /^nav/,/^modal/,/^search/,/^owl-carousel/,/^owl-theme/,/^owl-loaded/,/^owl-drag/,/^ui/,/^small/,/^fluid/,/^search/,/^visible/]
           }        
         }
       ],
