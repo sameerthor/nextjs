@@ -23,7 +23,7 @@ import cliniqueImage from '../../public/assets/clinique.webp';
 import legoImage from '../../public/assets/lego.webp';
 import samsClubImage from '../../public/assets/sams-club.webp';
 import BathnBodyImage from '../../public/assets/Bath-n-Body-Works.webp';
-import ebayImage from '../../public/assets/ebay.webp';
+import ebayImage from '../../public/assets/Ebay.webp';
 import fruitBuqet from '../../public/assets/Fruit-Bouquet.webp';
 import SallyImage from '../../public/assets/Sally.webp';
 import ultrabeauty from '../../public/assets/ulta-beauty.webp';
