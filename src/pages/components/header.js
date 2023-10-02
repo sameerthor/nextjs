@@ -42,7 +42,7 @@ export function Header() {
           <button className="navbar-toggler mr-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <Link
+          <Link prefetch={false}
             className="navbarbrand mx-auto"
             href='/'
           >Scoop<span>Review</span></Link>
@@ -64,7 +64,7 @@ export function Header() {
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
               <li className="nav-item">
-                <Link
+                <Link prefetch={false}
                   className={pathname === '/reviews' ? 'text-blue nav-link' : 'text-black nav-link'}
                   href='/reviews'
                 >
@@ -72,7 +72,7 @@ export function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
+                <Link prefetch={false}
                   className={pathname === '/blogs' ? 'text-blue nav-link' : 'text-black nav-link'}
                   href='/blogs'
                   shallow={true}
@@ -81,7 +81,7 @@ export function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
+                <Link prefetch={false}
                   className={pathname === '/categories' ? 'text-blue nav-link' : 'text-black nav-link'}
                   href='/categories'
                 >

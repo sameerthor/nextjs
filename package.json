@@ -17,13 +17,16 @@
     "next": "13.4.16",
     "next-remove-imports": "^1.0.12",
     "next-sitemap": "^4.2.3",
+    "nextjs-google-analytics": "^2.3.3",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^9.1.4",
+    "preact": "^10.18.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-owl-carousel": "^2.3.3",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4",
+    "sharp": "^0.32.6",
     "style-loader": "^3.3.3"
   },
   "devDependencies": {

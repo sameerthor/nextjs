@@ -24,7 +24,7 @@ export function Footer() {
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
               <h3>NAVIGATIONS</h3>
-              <Link
+              <Link prefetch={false}
                   className={pathname === '/' ? 'text-blue' : 'text-black'}
                   href='/'
                   shallow={true}
@@ -32,7 +32,7 @@ export function Footer() {
                   Home
                 </Link><br></br>
               <a href="./about.html">About</a><br></br>
-              <Link
+              <Link prefetch={false}
                   className={pathname === '/blogs' ? 'text-blue' : 'text-black'}
                   href='/blogs'
                   shallow={true}
@@ -42,19 +42,19 @@ export function Footer() {
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
               <h3>QUICK LINKS</h3>
-              <Link
+              <Link prefetch={false}
                   className={pathname === '/reviews' ? 'text-blue' : 'text-black '}
                   href='/reviews'
                 >
                   Reviews
                 </Link><br></br>
-              <Link
+              <Link prefetch={false}
                 className={pathname === '/coupons' ? 'text-blue' : 'text-black'}
                 href='/coupons'
               >
                 Coupons
               </Link><br></br>
-              <Link
+              <Link prefetch={false}
                   className={pathname === '/categories' ? 'text-blue' : 'text-black'}
                   href='/categories'
                 >
