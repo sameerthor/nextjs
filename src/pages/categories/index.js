@@ -1,5 +1,5 @@
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 import '@/styles/categories.css';
 import Head from 'next/head';
 import Link from 'next/link';

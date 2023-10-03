@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from 'next/head';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 import '@/styles/blogs.css'
 import Link from 'next/link';
 import getConfig from 'next/config'

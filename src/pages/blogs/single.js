@@ -1,5 +1,5 @@
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 import { useEffect } from "react";
 import '@/styles/blog.css';
 import Head from 'next/head';

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import '@/styles/review.css';
-import Header from './components/header';
+import Header from '../components/header';
 import Head from 'next/head';
-import Footer from './components/footer';
+import Footer from '../components/footer';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import getConfig from 'next/config'
