@@ -11,6 +11,7 @@ const { publicRuntimeConfig } = getConfig()
 
 
 export default function Store({ data }) {
+    console.log(data);
     const router = useRouter()
     const [storedata, setStoredata] = useState(data);
     const [activetab, setActivetab] = useState("all");
@@ -92,8 +93,11 @@ export default function Store({ data }) {
                 <Header />
                 <div className="container-fluid deal-bg">
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto">
-                        <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href={storedata.store.slug}>{storedata.store.name}</Link></p>
-                    </div>
+                        <div className='d-flex'>
+                        <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href={storedata.store.slug}>{storedata.store.name}</Link></p>
+                        <p className='ms-auto'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
+                        </div>
+                     </div>
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto deal-box">
                      <h1>{data.store.seo_title} {moment().format('YYYY')}</h1>
                         <p className="verified"><span className="check"><i className="fa fa-check-circle-o" aria-hidden="true"></i></span>Last
