@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import Header from './components/header';
-import Footer from './components/footer';
-import 'semantic-ui-css/semantic.min.css'
+import Header from '../components/header';
+import Footer from '../components/footer';
 import '@/styles/special.css';
 import Head from 'next/head';
 import Link from 'next/link';

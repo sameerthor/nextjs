@@ -17,9 +17,9 @@ export async function getServerSideProps({res,req})  {
     var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
   const urlList = alphabet
-    .map((v) => `${publicRuntimeConfig.webUrl}sitemap-${v}.xml`);
-    urlList.push(`${publicRuntimeConfig.webUrl}sitemap-core.xml`);
-    urlList.push(`${publicRuntimeConfig.webUrl}sitemap-categories.xml`);
+    .map((v) => `${publicRuntimeConfig.webUrl}scooprevsitemap-${v}.xml`);
+    urlList.push(`${publicRuntimeConfig.webUrl}scooprevsitemap-core.xml`);
+    urlList.push(`${publicRuntimeConfig.webUrl}scooprevsitemap-categories.xml`);
 
 
 const sitemap = createSitemap(urlList);

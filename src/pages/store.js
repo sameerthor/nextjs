@@ -1,5 +1,5 @@
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from '../components/header';
+import Footer from '../components/footer';
 import { useState, useEffect } from "react";
 import '@/styles/store.css';
 import Link from 'next/link';

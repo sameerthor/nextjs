@@ -3,32 +3,7 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: false,
-  plugins: [
-    "postcss-flexbugs-fixes",
-    [
-      "postcss-preset-env",
-      {
-        "autoprefixer": {
-          "flexbox": "no-2009"
-        },
-        "stage": 3,
-        "features": {
-          "custom-properties": false
-        }
-      }
-    ],
-    [
-      '@fullhuman/postcss-purgecss',
-      {
-        content: [
-            './pages/**/*.{js,jsx,ts,tsx}',
-            './components/**/*.{js,jsx,ts,tsx}'
-        ],
-        defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-        safelist: ["html", "body"]
-      }
-    ],
-  ],
+  swcMinify:true,
   images: {
     domains: ['localhost','scoopreview.com'],
   },
@@ -59,16 +34,24 @@ const nextConfig = {
 
       if (hasFound) break
     }
+      Object.assign(config.resolve.alias, {
+        "react/jsx-runtime.js": "preact/compat/jsx-runtime",
+        react: "preact/compat",
+        "react-dom/test-utils": "preact/test-utils",
+        "react-dom": "preact/compat",
+      });
+    
+    
     return config;
   }
   ,
   rewrites: async () => [
     {
-      source: '/sitemap.xml',
+      source: '/scooprevsitemap.xml',
       destination: '/sitemap',
     },
     {
-      source: '/sitemap-:slug.xml',
+      source: '/scooprevsitemap-:slug.xml',
       destination: '/sitemap/:slug',
     },
   ],

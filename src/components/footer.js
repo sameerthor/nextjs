@@ -8,8 +8,9 @@ export function Footer() {
   const pathname = usePathname();
 
   return (
-    <>
-      <div className=" container-fluid footer-box">
+
+    <footer>
+      <div className="container-fluid footer-box">
         <div className="container col-lg-11 col-md-11 col-sm-11">
           <div className="row">
             <div className="col-lg-5 col-md-12 col-sm-12 about-scoop footer-itmes mx-auto">
@@ -24,46 +25,45 @@ export function Footer() {
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
               <h3>NAVIGATIONS</h3>
-              <Link
-                  className={pathname === '/' ? 'text-blue' : 'text-black'}
-                  href='/'
-                  shallow={true}
-                >
-                  Home
-                </Link><br></br>
+              <Link prefetch={false}
+                className={pathname === '/' ? 'text-blue' : 'text-black'}
+                href='/'
+                shallow={true}
+              >
+                Home
+              </Link><br></br>
               <a href="./about.html">About</a><br></br>
-              <Link
-                  className={pathname === '/blogs' ? 'text-blue' : 'text-black'}
-                  href='/blogs'
-                  shallow={true}
-                >
-                  Blogs
-                </Link>
+              <Link prefetch={false}
+                className={pathname === '/blogs' ? 'text-blue' : 'text-black'}
+                href='/blogs'
+                shallow={true}
+              >
+                Blogs
+              </Link>
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
               <h3>QUICK LINKS</h3>
-              <Link
-                  className={pathname === '/reviews' ? 'text-blue' : 'text-black '}
-                  href='/reviews'
-                >
-                  Reviews
-                </Link><br></br>
-              <Link
+              <Link prefetch={false}
+                className={pathname === '/reviews' ? 'text-blue' : 'text-black '}
+                href='/reviews'
+              >
+                Reviews
+              </Link><br></br>
+              <Link prefetch={false}
                 className={pathname === '/coupons' ? 'text-blue' : 'text-black'}
                 href='/coupons'
               >
                 Coupons
               </Link><br></br>
-              <Link
-                  className={pathname === '/categories' ? 'text-blue' : 'text-black'}
-                  href='/categories'
-                >
-                  Categories
-                </Link>
+              <Link prefetch={false}
+                className={pathname === '/categories' ? 'text-blue' : 'text-black'}
+                href='/categories'
+              >
+                Categories
+              </Link>
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
               <h3>NEED HELP?</h3>
-              <a href={`${publicRuntimeConfig.webUrl}/sitemap.xml`} target='_blank'>Sitemap</a><br></br>
               <a href="#">Privacy Policy</a>
             </div>
           </div>
@@ -79,7 +79,7 @@ export function Footer() {
           <p className="copyright-para">ScoopReview earns affiliate commisions on qualifying purchases as an amazon associate. "Amazon, and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
           <p>Copyright &copy; 2023 ScoopReview. All Right Reserved</p>
         </div>
-      </div> </>
+      </div></footer>
   )
 
 }
