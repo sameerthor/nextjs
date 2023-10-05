@@ -52,12 +52,15 @@
 }
 /* ********************** */
 .blog-section{
-    margin-bottom: 2rem;
+   margin-bottom: .1rem;
 }
 .contents{
     background-color: #fcfcfc;
     border: none;
     padding: 0px !important;
+}
+#headingOne span{
+    background-color: #fff !important;
 }
 @media(max-width:550px){
     #unfold a{
@@ -94,6 +97,7 @@
     /* padding: .5rem; */
     font-weight: 600;
 }
+
 /* **************Blog-Content*************** */
 .blog-content{
     margin-bottom: 3.2rem;
@@ -171,16 +175,13 @@
         margin-bottom: 1rem;
         margin-top: 2rem;
         color: #000;
-        border: 2px solid red;
     }
     .write-blog h3{
         font-size: 1.34rem;
-        border: 2px solid black;
         
     }
     .write-blog h4{
         font-size: 1.15rem;
-        border: 2px solid pink;
     }
     .write-blog ol li{
         font-size: 1.1rem;
@@ -289,7 +290,11 @@ ul{
 }
 @media(max-width:768px){
     .article-item img{
-        max-width: 80%;
+        max-width: 100%;
+    }
+    .article-box .article-item a h3{
+        margin: 0.8rem 0rem .4rem 0rem;
+       font-size: 1.1rem;
     }
 }
 /* *********************Related reviews*********************** */
@@ -326,12 +331,16 @@ ul{
 .product-item .review-title{
     text-transform: capitalize;
     text-align: center;
-    display: block;
     margin: auto;
     font-size: 1rem;
     color: #000;
     font-weight: 500;
     padding: .5rem 0rem;
+    border: 2px solid red;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 /* ***************Related Coupons***************** */
 .latest-deal h2 {

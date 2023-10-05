@@ -214,7 +214,7 @@ export default function Coupons({page}) {
             <div className="container-fluid">
                 <div className="container col-lg-10 col-md-10 col-sm-10 popular-stores">
                     <h2>Popular Stores</h2>
-                    <div className="row">
+                    <div className="row row-cols-2">
                         {
                             couponsdata.pstores && couponsdata.pstores.map((item) =>
                                 <div className="col-lg-3 col-md-4 col-sm-6 store-box" key={item.id}>
@@ -228,7 +228,6 @@ export default function Coupons({page}) {
                                     </div>
                                 </div>
                             )
-
                         }
                     </div>
                 </div>

@@ -92,10 +92,13 @@ export default function Store({ data }) {
                 <Header />
                 <div className="container-fluid deal-bg">
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto">
-                        <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href={storedata.store.slug}>{storedata.store.name}</Link></p>
+                        <div className='d-flex'>
+                            <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href={storedata.store.slug}>{storedata.store.name}</Link></p>
+                            <p className='ms-auto d-none d-md-block'><Link href={'#'}>Category</Link></p>
+                        </div>
                     </div>
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto deal-box">
-                        <h1>{data.store.seo_title} {moment().format('YYYY')}</h1>
+                     <h1>{data.store.seo_title} {moment().format('YYYY')}</h1>
                         <p className="verified"><span className="check"><i className="fa fa-check-circle-o" aria-hidden="true"></i></span>Last
                             verified on <span>{moment().format('Do MMMM YYYY')}</span></p>
                         <div className="toggle-btn">
@@ -106,11 +109,11 @@ export default function Store({ data }) {
                         {storedata.coupon_h2 && storedata.coupon_h2.map((item) =>
                             <div className="container col-lg-12 col-md-12 col-sm-12 mx-auto coupon-box" key={item.id}>
                                 <div className="row row-cols-1 row-cols-lg-2">
-                                    <div className="col col-lg-9 col-md-9 col-sm-12 mx-auto duo">
+                                    <div className="col col-lg-9 col-md-9 col-sm-12 mx-auto">
                                         <div className="d-flex">
                                             <div className="image">
                                                 <img src={`${publicRuntimeConfig.imageUrl}images/${storedata.store.store_logo}`} alt="" />
-                                                <p className="discount">{item.type_text}% <strong>off</strong></p>
+                                                <p className="discount d-block text-center">{item.type_text}% <strong>off</strong></p>
                                             </div>
                                             <div className="content">
                                                 <a id="store" href=""><h3>{item.title}</h3></a>
@@ -241,14 +244,16 @@ export default function Store({ data }) {
                 <div className="container-fluid">
                     <div className="container col-sm-11 col-md-8 col-lg-8 mx-auto shadow-sm popular"> 
                         <h3>Popular Stores</h3>
-                        <div className="row row-cols-2">
+                        <div className="row row-cols-2 row-cols-md-3  gx-4">
                             {
                                 storedata.pstores && storedata.pstores.map((item) =>
-                                    <div className="col-md-4 popular-store" key={item.id}>
-                                        <Link href={`/${item.slug}`}>
-                                            <img src={`${publicRuntimeConfig.imageUrl}images/${item.store_logo}`} alt={item.name} />
-                                        </Link>
-                                        <p className="text-center">{item.name}</p>
+                                    <div className="col ppl-str" key={item.id}>
+                                        <div className='ppl-box'>
+                                            <Link href={`/${item.slug}`}>
+                                                <img src={`${publicRuntimeConfig.imageUrl}images/${item.store_logo}`} alt={item.name} />
+                                            </Link>
+                                            <p className="text-center">{item.name}</p>
+                                        </div>
                                     </div>
                                 )
                             }

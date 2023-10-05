@@ -85,31 +85,6 @@ body h2{
     }
 }
 
-/* @media(min-width:1000px) and (max-width:1400px){
-    #bg-image{
-        height: 26rem;
-    }
-}
-@media(min-width:750px) and (max-width:1000px){
-    #bg-image{
-        height: 20rem;
-    }
-}
-@media(min-width:500px) and (max-width:750px){
-    #bg-image{
-        height: 15rem;
-    }
-}
-@media(min-width:300px) and (max-width:500px){
-    #bg-image{
-        height: 18rem;
-    }
-}
-@media(max-width:300px){
-    #bg-image{
-        height: 16rem;
-    }
-} */
 .trust-content{
     padding-bottom: 1rem;
 }
@@ -176,10 +151,10 @@ body h2{
 .popular-stores .store-items .store-img{
     display: block;
     margin:auto;
-    height: 100px;
-    max-width: 90%;
+    max-width: 60%;
+    max-height: 100%;
     object-fit: contain;
-    /* aspect-ratio: 2/3; */
+    aspect-ratio: 5/2;
 }
 .popular-stores .store-items .store-name{
     display: block;

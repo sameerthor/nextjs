@@ -157,7 +157,7 @@ export default function Reviews({ data }) {
                                     <div id="accordion" className="">
                                         <div className="card">
                                             <div className="" id="headingOne">
-                                                <span className=" p-5">
+                                                <span className="">
                                                     <button data-bs-toggle="collapse" className="btn font-weight-bold" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                         Contents [show]
                                                     </button>

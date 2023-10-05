@@ -129,7 +129,7 @@ export default function Blog({ data }) {
                                     <div id="accordion" className="">
                                         <div className="card">
                                             <div className="card-header" id="headingOne">
-                                                <span className="bg-light">
+                                                <span>
                                                     <button data-bs-toggle="collapse" className="btn font-weight-bold" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                         Contents [show]
                                                     </button>
