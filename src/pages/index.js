@@ -205,7 +205,7 @@ export default function Home({ page }) {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid search-product">
+            {/* <div className="container-fluid search-product">
                 <div className="container">
                     <div className="row">
                         <h1 className="text-center">Get your desired <strong>Products / </strong> <strong><span>Reviews</span></strong> & more</h1>
@@ -228,7 +228,7 @@ export default function Home({ page }) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="container-fluid">
                 <div className="container col-lg-10 col-md-10 col-sm-10 review-box">
                     <div className="row">

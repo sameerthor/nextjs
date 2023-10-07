@@ -1,36 +1,17 @@
 'use client';
 import Link from 'next/link';
+import dynamic from "next/dynamic";
 import { usePathname } from 'next/navigation'
-import { useState, useEffect } from 'react';
-import { Search } from 'semantic-ui-react'
-import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
+
+const Search = dynamic(() => import("./search"), {
+  ssr: false,
+});
 
 
 export function Header() {
 
   const pathname = usePathname();
-  const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState([]);
-  const [value, setValue] = useState('');
-
- 
-
-  const handleSearchChange = async (e, query) => {
-    setLoading(true);
-    var keyword = query.value;
-    setValue(keyword);
-    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/search-stores?q=${keyword}`);
-    const data = await response.json();
-    const filtered = data
-
-    if (filtered.length > 0) {
-        setResults(filtered);
-    } else {
-        setResults([]);
-    }
-    setLoading(false);
-}
+  
 
   return (
 
@@ -46,20 +27,8 @@ export function Header() {
             href='/'
           >Scoop<span>Review</span></Link>
           <form id="searchform" role="search">
-          <Search
-                                fluid
-                                loading={loading}
-                                size="small"
-                                input={{ fluid: true }}
-                                placeholder="Search for stores..."
-                                onResultSelect={(e, data) =>{
-                                    setValue(data.result.title);window.location.replace(data.result.slug);
-
-                                }}
-                                onSearchChange={handleSearchChange}
-                                results={results}
-                                value={value}
-                            />      </form>
+               <Search/>
+               </form>
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
               <li className="nav-item">
