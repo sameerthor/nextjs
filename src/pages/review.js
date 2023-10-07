@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import '@/styles/review.css';
 import Header from '../components/header';
 import Head from 'next/head';
+import Image from 'next/image';
 import Footer from '../components/footer';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
@@ -284,7 +285,8 @@ export default function Reviews({ data }) {
                                 if(index<6)
                                 return ( <div className="col-lg-2 col-md-4 col-sm-4  coupons" key={item.id}>
                                     <div>
-                                        <Link href={`/${item.slug}`}> <img className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt="" /></Link>
+                                        <Link href={`/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
+                                                    style={{ width: '100%', height: 'auto' }} className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt="" /></Link>
                                     </div>
                                     <div className="text-center">
                                         <Link href={`/${item.slug}`}><span>{item.render_name}</span></Link>
