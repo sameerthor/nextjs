@@ -44,23 +44,33 @@ export default function Store({ data }) {
             });
         }
     }
-    
+
     useEffect(() => {
         router.beforePopState(({ as }) => {
             $(".modal").modal("hide")
             return true;
         });
-        
+
         return () => {
             router.beforePopState(() => true);
         };
     }, [router]);
 
     useEffect(() => {
-    $('.modal').on('hidden.bs.modal', function (e) {
-        setCopytext("COPY");
-      })
-    },[]);
+        $('.modal').on('hidden.bs.modal', function (e) {
+            setCopytext("COPY");
+        })
+    }, []);
+    
+    const changeView = ((index) => {
+        setStoredata((prevState) => {
+            prevState.coupon_h2[index].is_more = (!storedata.coupon_h2[index].is_more);
+            return ({
+                ...prevState
+            })
+        });
+
+    });
 
     return (
         <>
@@ -94,12 +104,12 @@ export default function Store({ data }) {
                 <div className="container-fluid deal-bg">
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto">
                         <div className='d-flex'>
-                        <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <a href={`${storedata.store.web_url}`}>{storedata.store.name}</a></p>
-                        <p className='ms-auto'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
+                            <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <a href={`${storedata.store.web_url}`}>{storedata.store.name}</a></p>
+                            <p className='ms-auto'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
                         </div>
-                     </div>
+                    </div>
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto deal-box">
-                     <h1>{data.store.seo_title} {moment().format('YYYY')}</h1>
+                        <h1>{data.store.seo_title} {moment().format('YYYY')}</h1>
                         <p className="verified"><span className="check"><i className="fa fa-check-circle-o" aria-hidden="true"></i></span>Last
                             verified on <span>{moment().format('Do MMMM YYYY')}</span></p>
                         <div className="toggle-btn">
@@ -107,7 +117,7 @@ export default function Store({ data }) {
                             <button onClick={() => changeTab('coupons')} className={activetab == 'coupons' ? 'selected coupons' : 'coupons'}>Coupons <span>{data.coupon_h2.filter(element => element.is_deal === 0).length}</span></button>
                             <button onClick={() => changeTab('deals')} className={activetab == 'deals' ? 'selected deals' : 'deals'}>Deals <span>{data.coupon_h2.filter(element => element.is_deal !== 0).length}</span></button>
                         </div>
-                        {storedata.coupon_h2 && storedata.coupon_h2.map((item) =>
+                        {storedata.coupon_h2 && storedata.coupon_h2.map((item,index) =>
                             <div className="container col-lg-12 col-md-12 col-sm-12 mx-auto coupon-box" key={item.id}>
                                 <div className="row row-cols-1 row-cols-lg-2">
                                     <div className="col col-lg-9 col-md-9 col-sm-12 mx-auto">
@@ -127,14 +137,14 @@ export default function Store({ data }) {
                                                     item.descp.replace(/<\/?[^>]+(>|$)/g, "").length > 30 ? <>{
                                                         item.is_more === false ? item.descp.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 30) : item.descp.replace(/<\/?[^>]+(>|$)/g, "")}... <span onClick={() => changeView(index)} className='less_more'>{item.is_more === false ? 'less' : 'more'}</span>
                                                     </> : item.descp.replace(/<\/?[^>]+(>|$)/g, "")
-                                                    }</p>
+                                                }</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col col-lg-3 col-md-3 col-sm-12 mx-auto">
                                         {
                                             item.is_deal == '0' ?
-                                                <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => {setCouponModaldata(item),window.open(storedata.store.aff_url && storedata.store.aff_url,'_blank')}} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                                                <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setCouponModaldata(item), window.open(storedata.store.aff_url && storedata.store.aff_url, '_blank') }} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
                                                 :
                                                 <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(storedata.store.aff_url) }} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
 
@@ -147,12 +157,16 @@ export default function Store({ data }) {
                                                     <span className="star" data-bs-toggle="tooltip modal" data-bs-target="#saveCoupon" data-bs-placement="top" title="Save this coupon"><i className="fa fa-star-o" aria-hidden="true"></i></span>
                                                 </span>
                                             </div>
-                                            <p className="success mt-2"> {item.percent}% success</p>        
+                                            <p className="success mt-2"> {item.percent}% success</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <p id="msg"><span id="lock"><i className="fa fa-lock" aria-hidden="true"></i></span><span id="excl">Exclusive:</span> This coupon can only be found at our website.</p>
+                                    {
+                                        item.is_deal != '0' ?
+                                            ''
+                                            : <p id="msg"><span id="lock"><i className="fa fa-lock" aria-hidden="true"></i></span><span id="excl">Exclusive:</span> This coupon can only be found at our website.</p>
+                                    }
                                     <div className="impression d-flex">
                                         <div>
                                             <span><i className="fa fa-wifi" aria-hidden="true"></i>{item.used} Used - {item.today_used} Today</span>
@@ -243,7 +257,7 @@ export default function Store({ data }) {
                     </div>
                 </div>
                 <div className="container-fluid">
-                    <div className="container col-sm-11 col-md-8 col-lg-8 mx-auto shadow-sm popular"> 
+                    <div className="container col-sm-11 col-md-8 col-lg-8 mx-auto shadow-sm popular">
                         <h3>Popular Stores</h3>
                         <div className="row row-cols-2 row-cols-md-3  gx-4">
                             {
@@ -294,7 +308,7 @@ export default function Store({ data }) {
                                 <h5 className="modal-info text-center">Select The Coupon Code & Hit Copy Button to Copy Your Code</h5>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code);setCopytext("COPIED!") }}
+                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code); setCopytext("COPIED!") }}
                                 >{copytext}</button>
                                 <button type="button" onClick={(e) => window.location.href = storedata.store.aff_url && storedata.store.aff_url} className="btn btn-warning text-white">Visit Store</button>
                             </div>
@@ -305,7 +319,7 @@ export default function Store({ data }) {
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
-                                <img src="./assets/smile.svg" alt="smile-img"/>
+                                <img src="./assets/smile.svg" alt="smile-img" />
                                 <h2>Thank You!</h2>
                                 <p className="feedback-msg">Your feedback is important to us!</p>
                                 <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
@@ -317,9 +331,9 @@ export default function Store({ data }) {
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
-                                <img src="./assets/sad.png" alt="smile-img"/>
+                                <img src="./assets/sad.png" alt="smile-img" />
                                 <h2>Did'nt Worked?</h2>
-                                <p className="bg-warning text-white">Please let us know your concern in comment section.<br/>Our team will verify this coupon on immidiate effect.</p>
+                                <p className="bg-warning text-white">Please let us know your concern in comment section.<br />Our team will verify this coupon on immidiate effect.</p>
                                 <p className="feedback-msg">Your feedback is important to us!</p>
                                 <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
                             </div>
@@ -330,7 +344,7 @@ export default function Store({ data }) {
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
-                                <img src="./assets/star.svg" alt="smile-img"/>
+                                <img src="./assets/star.svg" alt="smile-img" />
                                 <h2>Thank You!</h2>
                                 <p>We Saved this coupon for you.</p>
                                 <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
