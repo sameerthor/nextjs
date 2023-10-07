@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import '@/styles/store.css';
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image';
 import moment from "moment";
 import { useRouter } from 'next/router'
 import getConfig from 'next/config'
@@ -123,7 +124,8 @@ export default function Store({ data }) {
                                     <div className="col col-lg-9 col-md-9 col-sm-12 mx-auto">
                                         <div className="d-flex">
                                             <div className="image">
-                                                <img src={`${publicRuntimeConfig.imageUrl}images/${storedata.store.store_logo}`} alt="" />
+                                                <Image width={0} height={0} sizes="100vw"
+                                                    style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/${storedata.store.store_logo}`} alt="" />
                                                 <p className="discount d-block text-center">{item.type_text}% <strong>off</strong></p>
                                             </div>
                                             <div className="content">
@@ -265,7 +267,8 @@ export default function Store({ data }) {
                                     <div className="col ppl-str" key={item.id}>
                                         <div className='ppl-box'>
                                             <Link href={`/${item.slug}`}>
-                                                <img src={`${publicRuntimeConfig.imageUrl}images/${item.store_logo}`} alt={item.name} />
+                                                <Image width={0} height={0} sizes="100vw"
+                                                    style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/${item.store_logo}`} alt={item.name} />
                                             </Link>
                                             <p className="text-center">{item.name}</p>
                                         </div>
@@ -319,7 +322,8 @@ export default function Store({ data }) {
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
-                                <img src="./assets/smile.svg" alt="smile-img" />
+                                <Image width={0} height={0} sizes="100vw"
+                                                    style={{ width: '100%', height: 'auto' }} src="./assets/smile.svg" alt="smile-img" />
                                 <h2>Thank You!</h2>
                                 <p className="feedback-msg">Your feedback is important to us!</p>
                                 <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
@@ -331,7 +335,8 @@ export default function Store({ data }) {
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
-                                <img src="./assets/sad.png" alt="smile-img" />
+                                <Image width={0} height={0} sizes="100vw"
+                                                    style={{ width: '100%', height: 'auto' }} src="./assets/sad.png" alt="smile-img" />
                                 <h2>Did'nt Worked?</h2>
                                 <p className="bg-warning text-white">Please let us know your concern in comment section.<br />Our team will verify this coupon on immidiate effect.</p>
                                 <p className="feedback-msg">Your feedback is important to us!</p>
@@ -344,7 +349,8 @@ export default function Store({ data }) {
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
-                                <img src="./assets/star.svg" alt="smile-img" />
+                                <Image width={0} height={0} sizes="100vw"
+                                                    style={{ width: '100%', height: 'auto' }} src="./assets/star.svg" alt="smile-img" />
                                 <h2>Thank You!</h2>
                                 <p>We Saved this coupon for you.</p>
                                 <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
