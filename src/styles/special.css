@@ -54,7 +54,7 @@
  @media(max-width:600px){
     .coupon-search .input input{
        padding: .25rem;
-       font-size: .9rem;
+       font-size: .85rem;
      }
      .coupon-search .input i{
         max-width: 20% !important;
