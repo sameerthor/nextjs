@@ -9,6 +9,30 @@ body{
     font-size: 1.1rem;
     margin-bottom: .5rem;
 }
+.deal-bg .cat-name a{
+    font-weight: 600 !important;
+    color: #177761 !important;
+    letter-spacing: .4px !important;
+    text-transform: capitalize !important;
+    font-size: 1.2rem !important;
+}
+@media(max-width:768px){
+    .deal-bg .cat-name a{
+       display: none !important;
+    }
+}
+.deal-bg .cat-coupon-name a{
+    font-weight: 600 !important;
+    color: #177761 !important;
+    letter-spacing: .3px !important;
+    text-transform: capitalize !important;
+    font-size: 1.1rem !important;
+}
+@media(min-width:768px){
+    .deal-bg .cat-coupon-name a{
+       display: none;
+    }
+}
 /* ***************************Coupons and deals*************************** */
 .deal-bg{
     background-color: #fcfcfc;
@@ -28,6 +52,7 @@ body{
     text-align: center;
     font-weight: 600;
     color: #212529;
+    margin-top: 0;
 }
 @media(max-width:500px){
     .deal-box h1{
