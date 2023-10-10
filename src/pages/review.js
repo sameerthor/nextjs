@@ -19,6 +19,36 @@ export default function Reviews({ data }) {
     const [copytext, setCopytext] = useState("COPY")
     const [couponModaldata, setCouponModaldata] = useState({});
 
+
+    const idJsonObject = {
+        "@context": "https://schema.org/",
+        "@type": "Store",
+        "name": data ? `${data.review.seo_title.trim()}` : '',
+        "description": data ? `${data.review.seo_desc}` : '',
+        "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.review.slug}` : ''),
+        "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": getRandomInt(4, 8),
+            "bestRating": "10",
+            "ratingCount": getRandomInt(10, 100)
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "bestRating": "10",
+            "worstRating": "1",
+            "ratingValue": getRandomInt(4, 8),
+            "reviewCount": getRandomInt(10, 100)
+        },
+        "author": {
+            "@type": "Person",
+            "name": "ScoopReview"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ScoopReview"
+        }
+    };
+
     const changeView = ((index) => {
         setReviewdata((prevState) => {
             prevState.pcoupons_above[index].is_more = (!reviewdata.pcoupons_above[index].is_more);
@@ -33,6 +63,7 @@ export default function Reviews({ data }) {
     useEffect(() => {
         setReviewdata(data)
     }, [data]);
+
 
 
 
@@ -99,23 +130,30 @@ export default function Reviews({ data }) {
             }
         });
     }, [])
-    
+
     useEffect(() => {
         router.beforePopState(({ as }) => {
             $(".modal").modal("hide")
             return true;
         });
-        
+
         return () => {
             router.beforePopState(() => true);
         };
     }, [router]);
-    
+
     useEffect(() => {
         $('.modal').on('hidden.bs.modal', function (e) {
             setCopytext("COPY");
-          })
-        },[]);
+        })
+    }, []);
+
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+    }
 
     return (
         reviewdata && (
@@ -142,7 +180,11 @@ export default function Reviews({ data }) {
                     <meta property="og:description" content={`${data.review.seo_desc}`} />
                     <meta property="article:section" content={`${data.review.name}`} />
 
-                    <link rel="canonical" href={`${publicRuntimeConfig.webUrl}${data.review.slug}`} />    </Head>
+                    <link rel="canonical" href={`${publicRuntimeConfig.webUrl}${data.review.slug}`} />
+                    <script type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }} />
+                </Head>
+
                 <Header />
                 <div className="container-fluid">
                     <div className="container review-title mx-auto col-10">
@@ -182,7 +224,7 @@ export default function Reviews({ data }) {
                                                 <div className="col-lg-9 col-md-8 col-sm-12 ">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
-                                                            <a href="#">{reviewdata.review.render_name}<><br/><span className="discount-tag">{item.type_text!=""?item.type_text:25}% off</span></></a>
+                                                            <a href="#">{reviewdata.review.render_name}<><br /><span className="discount-tag">{item.type_text != "" ? item.type_text : 25}% off</span></></a>
                                                         </div>
                                                         <div className="coupon-content">
                                                             <a href="#">{item.title}</a>
@@ -196,7 +238,7 @@ export default function Reviews({ data }) {
                                                 </div>
                                                 <div className="col-lg-3 col-md-4 col-sm-12  btns">
                                                     <button data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-target="#dealPopup">Get Deal</button>
-                                                    <span className="badge"><i className="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
+                                                    <span className="badge"><i className="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>
                                                 </div>
                                                 <div>
 
@@ -208,7 +250,7 @@ export default function Reviews({ data }) {
                                                 <div className="col-lg-9 col-md-8 col-sm-9">
                                                     <div className="d-flex content-box">
                                                         <div className="coupon-name">
-                                                        <a href="#">{reviewdata.review.render_name}<><br/><span className="discount-tag">{item.type_text!=""?item.type_text:30}% off</span></></a>
+                                                            <a href="#">{reviewdata.review.render_name}<><br /><span className="discount-tag">{item.type_text != "" ? item.type_text : 30}% off</span></></a>
                                                         </div>
                                                         <div className="coupon-content">
                                                             <a href="#">{item.title}</a>
@@ -221,8 +263,8 @@ export default function Reviews({ data }) {
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-3 col-md-4 col-sm-5  btns">
-                                                    <button onClick={(e) => {setCouponModaldata(item),window.open(item.aff_url && item.aff_url) }} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
-                                                    <span className="badge"><i className="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>    
+                                                    <button onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code</button>
+                                                    <span className="badge"><i className="fa fa-check-circle-o" aria-hidden="true"></i>Verified</span>
                                                 </div>
                                             </div></div>);
                                 }
@@ -266,7 +308,7 @@ export default function Reviews({ data }) {
                         <h3>Related Reviews</h3>
                         <div className="row">
                             {reviewdata.rreviews.map((item) =>
-                          <div className="col-lg-4 col-md-6 col-sm-12  review-item" key={item.id}>
+                                <div className="col-lg-4 col-md-6 col-sm-12  review-item" key={item.id}>
                                     <div className="border">
                                         <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i>{item.render_name}</Link>
                                     </div>
@@ -280,20 +322,19 @@ export default function Reviews({ data }) {
                     <div className="container col-sm-10 col-md-10 col-lg-10">
                         <div className="row row-cols-2">
 
-                            {reviewdata.previews.map((item,index) =>
-                                {
-                                if(index<6)
-                                return ( <div className="col-lg-2 col-md-4 col-sm-4  coupons" key={item.id}>
-                                    <div>
-                                        <Link href={`/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
-                                                    style={{ width: '100%', height: 'auto' }} className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt="" /></Link>
+                            {reviewdata.previews.map((item, index) => {
+                                if (index < 6)
+                                    return (<div className="col-lg-2 col-md-4 col-sm-4  coupons" key={item.id}>
+                                        <div>
+                                            <Link href={`/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
+                                                style={{ width: '100%', height: 'auto' }} className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" /></Link>
+                                        </div>
+                                        <div className="text-center">
+                                            <Link href={`/${item.slug}`}><span>{item.render_name}</span></Link>
+                                        </div>
                                     </div>
-                                    <div className="text-center">
-                                        <Link href={`/${item.slug}`}><span>{item.render_name}</span></Link>
-                                    </div>
-                                </div>
-                                )
-                                }
+                                    )
+                            }
                             )}
                         </div>
                     </div>
@@ -333,7 +374,7 @@ export default function Reviews({ data }) {
                                 <h5 className="modal-info text-center">Select The Coupon Code & Hit Copy Button to Copy Your Code</h5>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code);setCopytext("COPIED!") }}
+                                <button type="button" className="btn btn-secondary" onClick={(e) => { navigator.clipboard.writeText(couponModaldata.coupon_code && couponModaldata.coupon_code); setCopytext("COPIED!") }}
                                 >{copytext}</button>
                                 <button type="button" onClick={(e) => window.location.href = couponModaldata.aff_url && couponModaldata.aff_url} className="btn btn-warning text-white">Visit Store</button>
                             </div>

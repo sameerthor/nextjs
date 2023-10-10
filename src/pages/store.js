@@ -20,6 +20,44 @@ export default function Store({ data }) {
     const [year, setYear] = useState(new Date().getFullYear());
     const [couponModaldata, setCouponModaldata] = useState({});
 
+
+    const idJsonObject = {
+
+        "@context": "http://schema.org",
+        "@type": "Store",
+        "name": data ? `${data.store.seo_title.trim()}` : '',
+        "logo": `${publicRuntimeConfig.imageUrl}images/${data ?data.store.store_logo:''}`,
+        "image": `${publicRuntimeConfig.imageUrl}images/${data ?data.store.store_logo:''}`,
+        "description": data ? `${data.store.seo_desc}` : '',
+        "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.store.slug}` : ''),
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "bestRating": "10",
+            "worstRating": "1",
+            "ratingValue": getRandomInt(4,8),
+            "reviewCount": getRandomInt(10,100)
+        },
+        "brand": {
+            "@type": "Brand",
+            "name": "ScoopReview"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.store.slug}` : ''),
+            "priceCurrency": "USD",
+            "seller": {
+                "@type": "Organization",
+                "name": (data ? `${data.store.seo_title.trim()} ${year}` : '')
+            }
+        }
+    };
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+    }
+
     useEffect(() => {
         setStoredata(data);
         setActivetab("all");
@@ -61,7 +99,7 @@ export default function Store({ data }) {
             setCopytext("COPY");
         })
     }, []);
-    
+
     const changeView = ((index) => {
         setStoredata((prevState) => {
             prevState.coupon_h2[index].is_more = (!storedata.coupon_h2[index].is_more);
@@ -97,20 +135,21 @@ export default function Store({ data }) {
                     <meta property="article:section" content={`${data.store.name}`} />
                     <meta property="article:modified_time" content={`${new Date(data.store.updated_at).toISOString()}`} />
                     <meta property="og:updated_time" content={`${new Date(data.store.updated_at).toISOString()}`} />
-
                     <link rel="canonical" href={`${publicRuntimeConfig.webUrl}${data.store.slug}`} />
+                    <script type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }} />
                 </Head>
                 <Header />
                 <div className="container-fluid deal-bg">
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto">
                         <div className='d-flex'>
-                        <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <a href={`${storedata.store.web_url}`}>{storedata.store.name}</a></p>
-                        <p className='ms-auto cat-name'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
+                            <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <a href={`${storedata.store.web_url}`}>{storedata.store.name}</a></p>
+                            <p className='ms-auto cat-name'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
                         </div>
                     </div>
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto deal-box">
-                     <p className='ms-auto cat-coupon-name'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>  
-                     <h1>{data.store.seo_title} {moment().format('YYYY')}</h1>
+                        <p className='ms-auto cat-coupon-name'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
+                        <h1>{data.store.seo_title} {moment().format('YYYY')}</h1>
                         <p className="verified"><span className="check"><i className="fa fa-check-circle-o" aria-hidden="true"></i></span>Last
                             verified on <span>{moment().format('Do MMMM YYYY')}</span></p>
                         <div className="toggle-btn">
@@ -118,7 +157,7 @@ export default function Store({ data }) {
                             <button onClick={() => changeTab('coupons')} className={activetab == 'coupons' ? 'selected coupons' : 'coupons'}>Coupons <span>{data.coupon_h2.filter(element => element.is_deal === 0).length}</span></button>
                             <button onClick={() => changeTab('deals')} className={activetab == 'deals' ? 'selected deals' : 'deals'}>Deals <span>{data.coupon_h2.filter(element => element.is_deal !== 0).length}</span></button>
                         </div>
-                        {storedata.coupon_h2 && storedata.coupon_h2.map((item,index) =>
+                        {storedata.coupon_h2 && storedata.coupon_h2.map((item, index) =>
                             <div className="container col-lg-12 col-md-12 col-sm-12 mx-auto coupon-box" key={item.id}>
                                 <div className="row row-cols-1 row-cols-lg-2">
                                     <div className="col col-lg-9 col-md-9 col-sm-12 mx-auto">
@@ -323,7 +362,7 @@ export default function Store({ data }) {
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
                                 <Image width={0} height={0} sizes="100vw"
-                                                    style={{ width: '100%', height: 'auto' }} src="./assets/smile.svg" alt="smile-img" />
+                                    style={{ width: '100%', height: 'auto' }} src="./assets/smile.svg" alt="smile-img" />
                                 <h2>Thank You!</h2>
                                 <p className="feedback-msg">Your feedback is important to us!</p>
                                 <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
@@ -336,7 +375,7 @@ export default function Store({ data }) {
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
                                 <Image width={0} height={0} sizes="100vw"
-                                                    style={{ width: '100%', height: 'auto' }} src="./assets/sad.png" alt="smile-img" />
+                                    style={{ width: '100%', height: 'auto' }} src="./assets/sad.png" alt="smile-img" />
                                 <h2>Did'nt Worked?</h2>
                                 <p className="bg-warning text-white">Please let us know your concern in comment section.<br />Our team will verify this coupon on immidiate effect.</p>
                                 <p className="feedback-msg">Your feedback is important to us!</p>
@@ -350,7 +389,7 @@ export default function Store({ data }) {
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
                                 <Image width={0} height={0} sizes="100vw"
-                                                    style={{ width: '100%', height: 'auto' }} src="./assets/star.svg" alt="smile-img" />
+                                    style={{ width: '100%', height: 'auto' }} src="./assets/star.svg" alt="smile-img" />
                                 <h2>Thank You!</h2>
                                 <p>We Saved this coupon for you.</p>
                                 <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
