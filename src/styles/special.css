@@ -19,13 +19,22 @@
     color: #a5a5a5;
     padding: .5rem 0rem;
     border-radius: 4px;
+    display: flex !important;
+    align-items: center !important;
 }
 .coupon-search .input input{
     border-radius: 0px;
     background-color: #cfd6e2;
     border: none;
-    outline: none;
-    max-width: 90%;
+    outline: none !important;
+    width: 100%;
+    padding: .5rem .8rem;
+    font-size: 1.2rem;
+ }
+ .coupon-search .input i{
+   display: inline-block;
+   height: 100%;
+   width: 16% !important;
  }
   ::placeholder{
     color: black;
@@ -43,15 +52,14 @@
    color: #fff;
  }
  @media(max-width:600px){
-    .coupon-search .input{
-        padding: .36rem 0rem;
-    }
-    .coupon-search .input .search{
-        padding: 0rem 2rem;
-    }
-    .coupon-search{
-        margin-top: 1rem;
-    }
+    .coupon-search .input input{
+       padding: .25rem;
+       font-size: .85rem;
+     }
+     .coupon-search .input i{
+        max-width: 20% !important;
+        padding: 0 !important;
+      }
  }
 /* **********************Blog-Navigation*************************** */
 .navigation-box{
