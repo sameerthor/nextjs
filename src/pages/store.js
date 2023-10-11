@@ -49,7 +49,14 @@ export default function Store({ data }) {
                 "@type": "Organization",
                 "name": (data ? `${data.store.seo_title.trim()} ${year}` : '')
             }
-        }
+        },
+        "breadcrumb": { 
+            "@type": "BreadcrumbList",
+             "itemListElement": 
+             [{ "@type": "ListItem", "position": 1, "item": { "@id": publicRuntimeConfig.webUrl, "name": "ScoopReview" } }, 
+             { "@type": "ListItem", "position": 2, "item": { "@id": `${publicRuntimeConfig.webUrl}coupons`, "name": "Deals" } }, 
+             { "@type": "ListItem", "position": 3, "item": { "@id": `${publicRuntimeConfig.webUrl}${data ?data.store.web_url:''}`, "name": data ? `${data.store.name.trim()}` : '' } },
+             ] }
     };
 
     function getRandomInt(min, max) {
