@@ -136,8 +136,8 @@ export default function Store({ data }) {
                                                     {item.is_deal == '0' && <span id="noexp">No Expires</span>}
                                                 </div>
                                                 <p>{
-                                                    item.descp.replace(/<\/?[^>]+(>|$)/g, "").length > 30 ? <>{
-                                                        item.is_more === false ? item.descp.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 30) : item.descp.replace(/<\/?[^>]+(>|$)/g, "")}... <span onClick={() => changeView(index)} className='less_more'>{item.is_more === false ? 'less' : 'more'}</span>
+                                                    item.descp.replace(/<\/?[^>]+(>|$)/g, "").length > 50 ? <>{
+                                                        item.is_more === false ? item.descp.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 50) : item.descp.replace(/<\/?[^>]+(>|$)/g, "")}... <span onClick={() => changeView(index)} className='less_more'>{item.is_more === false ? 'more' : 'less'}</span>
                                                     </> : item.descp.replace(/<\/?[^>]+(>|$)/g, "")
                                                 }</p>
                                             </div>
@@ -246,11 +246,11 @@ export default function Store({ data }) {
                 </div>
                 <div className="container-fluid">
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto shadow-sm related-store">
-                        <h3>Related Store</h3>
-                        <div className="row">
+                        <div className="row store-box">
+                        <h3 className='text-center mb-4'>Related Store</h3>
                             {
                                 storedata.rstores && storedata.rstores.map((item) =>
-                                    <div className="col-lg-3 col-md-6 col-sm-6 store-item" key={item.id}>
+                                    <div className="col-lg-4 col-md-6 col-sm-6 store-item" key={item.id}>
                                         <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i> {item.name}</Link>
                                     </div>
                                 )
@@ -258,7 +258,7 @@ export default function Store({ data }) {
                         </div>
                     </div>
                 </div>
-                <div className="container-fluid">
+                {/* <div className="container-fluid">
                     <div className="container col-sm-11 col-md-8 col-lg-8 mx-auto shadow-sm popular">
                         <h3>Popular Stores</h3>
                         <div className="row row-cols-2 row-cols-md-3  gx-4">
@@ -277,7 +277,7 @@ export default function Store({ data }) {
                             }
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="modal fade" id="dealPopup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -335,8 +335,8 @@ export default function Store({ data }) {
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
-                                <Image width={0} height={0} sizes="100vw"
-                                                    style={{ width: '100%', height: 'auto' }} src="./assets/sad.png" alt="smile-img" />
+                                {/* <Image width={0} height={0} sizes="100vw"
+                                                    style={{ width: '100%', height: 'auto' }} src="./assets/sad.png" alt="smile-img" /> */}
                                 <h2>Did'nt Worked?</h2>
                                 <p className="bg-warning text-white">Please let us know your concern in comment section.<br />Our team will verify this coupon on immidiate effect.</p>
                                 <p className="feedback-msg">Your feedback is important to us!</p>

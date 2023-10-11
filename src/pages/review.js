@@ -275,7 +275,7 @@ export default function Reviews({ data }) {
                         </div>
                     </div>
                 </div>
-                <div className="container-fluid  popular-store" id="popularStores">
+                {/* <div className="container-fluid  popular-store" id="popularStores">
                     <h1 className="text-center">Popular Stores</h1>
                     <div className="container col-sm-10 col-md-10 col-lg-10">
                         <div className="row row-cols-2">
@@ -297,8 +297,7 @@ export default function Reviews({ data }) {
                             )}
                         </div>
                     </div>
-
-                </div>
+                </div> */}
                 <Footer />
                 <div className="modal fade" id="dealPopup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
