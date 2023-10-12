@@ -296,7 +296,7 @@ export default function Store({ data }) {
                         <div className="row">
                             {
                                 storedata.rstores && storedata.rstores.map((item) =>
-                                    <div className="col-lg-3 col-md-6 col-sm-6 store-item" key={item.id}>
+                                    <div className="col-lg-4 col-md-6 col-sm-6 store-item" key={item.id}>
                                         <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i> {item.name}</Link>
                                     </div>
                                 )
