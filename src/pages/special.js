@@ -66,7 +66,7 @@ export default function Special({ data }) {
                                 input={{ fluid: true }}
                                 placeholder={`Search ${data.category}`}
                                 onResultSelect={(e, data) =>{
-                                    setValue(data.result.title);window.location.replace(data.result.aff_url);
+                                    setValue(data.result.title);window.location.replace(data.result.slug);
 
                                 }}
                                 onSearchChange={handleSearchChange}
@@ -87,10 +87,10 @@ export default function Special({ data }) {
                             {data.special.map((item) =>
                                 <div className="col-lg-3 col-md-6 col-sm-12 latest-box" key={item.id}>
                                     <div className="latest-items shadow">
-                                        <a className="shadow-sm" target='_blank' href={`${item.aff_url}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.store_logo}`} alt="" /></a>
-                                        <a href={`${item.aff_url}`} target='_blank'> <h3>{item.title}</h3></a>
+                                        <Link className="shadow-sm" target='_blank' href={`${item.slug}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.store_logo}`} alt="" /></Link>
+                                        <Link href={`${item.slug}`} target='_blank'> <h3>{item.title}</h3></Link>
                                         <p>{item.descp}</p>
-                                        <a target='_blank' href={`${item.aff_url}`}>Get Deal <span><i className="fa fa-arrow-right" aria-hidden="true"></i></span></a>
+                                        <Link target='_blank' href={`${item.slug}`}>Get Deal <span><i className="fa fa-arrow-right" aria-hidden="true"></i></span></Link>
                                     </div>
                                 </div>
                             )}

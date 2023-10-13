@@ -369,7 +369,7 @@ export default function Store({ data }) {
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
                                 <Image width={0} height={0} sizes="100vw"
-                                    style={{ width: '100%', height: 'auto' }} src="./assets/smile.svg" alt="smile-img" />
+                                    style={{ width: '100%', height: 'auto' }} src="/assets/smile.svg" alt="smile-img" />
                                 <h2>Thank You!</h2>
                                 <p className="feedback-msg">Your feedback is important to us!</p>
                                 <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
@@ -396,7 +396,7 @@ export default function Store({ data }) {
                         <div className="modal-content feedback-content">
                             <div className="modal-body logout-body text-center">
                                 <Image width={0} height={0} sizes="100vw"
-                                    style={{ width: '100%', height: 'auto' }} src="./assets/star.svg" alt="smile-img" />
+                                    style={{ width: '100%', height: 'auto' }} src="/assets/star.svg" alt="smile-img" />
                                 <h2>Thank You!</h2>
                                 <p>We Saved this coupon for you.</p>
                                 <a type="button" className="btn btn-secondary dismiss" data-bs-dismiss="modal">Close</a>
