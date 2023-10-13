@@ -6,7 +6,7 @@ import Footer from '../components/footer';
 import '@/styles/home.css'
 import Image from 'next/image'
 import dynamic from "next/dynamic";
-import { Search } from 'semantic-ui-react'
+import Script from "next/script";
 import Link from 'next/link';
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
@@ -50,27 +50,18 @@ const Responsive = {
 
 export default function Home({ page }) {
     const [homeData, setHomeData] = useState(page);
-    const [loading, setLoading] = useState(false);
-    const [results, setResults] = useState([]);
-    const [value, setValue] = useState('');
-  
-    
-  
-    const handleSearchChange = async(e, query) => {
-      setLoading(true);
-      var keyword = query.value;
-      setValue(keyword);
-      const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/search-reviews?q=${keyword}`);
-      const data = await response.json();
-      const filtered = data
-      if (filtered.length > 0) {
-          setResults(filtered);
-      } else {
-          setResults([]);
-      }
-      setLoading(false);
-  }
-  
+ 
+    const idJsonObject = {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": page.meta.site_title.value,
+        "description":page.meta.site_desc.value,
+        "url": publicRuntimeConfig.webUrl,
+        "sameAs": [page.meta.social_fb.value,
+        page.meta.social_tw.value,
+        page.meta.social_ln.value]
+    };
+
     return (
         <>
             <Head>
@@ -92,6 +83,8 @@ export default function Home({ page }) {
                 <meta property="og:site_name" content={`${page.meta.site_title.value}`} />
                 <meta property="og:description" content={`${page.meta.site_desc.value}`} />
                 <link rel="canonical" href={`${publicRuntimeConfig.webUrl}`} />
+                <script type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }} />
             </Head>
             <Header />
 
@@ -299,11 +292,11 @@ export default function Home({ page }) {
                     <div className="row">
                         <h2>Top Reviews of the Week</h2>
                         {homeData.top_reviews && (
-                            homeData.top_reviews.map((item,index) =>
+                            homeData.top_reviews.map((item, index) =>
                                 <div className="col-lg-2 col-md-2 col-sm-5 col-xs-5 week-items" key={index}>
                                     <div className="week-image">
                                         <Link prefetch={false} href={`${item.slug}`}> <Image width={0} height={0} sizes="100vw"
-                                            style={{ width: '100%', height: '100%' }} src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt="" /></Link>
+                                            style={{ width: '100%', height: '100%' }} src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" /></Link>
                                     </div>
                                     <Link prefetch={false} href={`${item.slug}`}> <span className="week-title d-block text-center">{item.render_name}</span></Link>
                                 </div>
