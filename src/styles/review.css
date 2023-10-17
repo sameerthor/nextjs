@@ -465,7 +465,7 @@
     color: #000000;
     font-size: 2rem;
   }
-  .popular-store .container .row img{
+  .popular-store img{
     margin:  .5rem auto .5rem auto;
     display: block;
     width: 100%; 

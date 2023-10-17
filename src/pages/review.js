@@ -335,7 +335,7 @@ return (
                                 return (<div className="col-lg-4 col-md-6 col-sm-12  coupons" key={item.id}>
                                     <div>
                                         <Link href={`/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
-                                            style={{ width: '100%', height: 'auto' }} className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" /></Link>
+                                         className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" /></Link>
                                     </div>
                                     <div className="text-center">
                                         <Link href={`/${item.slug}`}><span>{item.render_name}</span></Link>
