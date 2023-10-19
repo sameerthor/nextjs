@@ -288,18 +288,17 @@ return (
                         )}
                     </div>
                 </div>
-            </div>
-            <div className="container-fluid  popular-store" id="popularStores">
-                <h1 className="text-center">Popular Stores</h1>
-                <div className="container col-sm-10 col-md-10 col-lg-10">
-                    <div className="row row-cols-2">
+                <div className="container-fluid  popular-store" id="popularStores">
+                    <h1 className="text-center">Popular Stores</h1>
+                    <div className="container col-sm-10 col-md-10 col-lg-10">
+                        <div className="row row-cols-2">
 
                         {reviewdata.previews.map((item, index) => {
-                            if (index < 6)
-                                return (<div className="col-lg-2 col-md-4 col-sm-4  coupons" key={item.id}>
+                            if (index < 3)
+                                return (<div className="col-lg-4 col-md-6 col-sm-12  coupons" key={item.id}>
                                     <div>
                                         <Link href={`/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
-                                            style={{ width: '100%', height: 'auto' }} className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" /></Link>
+                                         className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" /></Link>
                                     </div>
                                     <div className="text-center">
                                         <Link href={`/${item.slug}`}><span>{item.render_name}</span></Link>
@@ -310,24 +309,24 @@ return (
                         )}
                     </div>
                 </div>
-
-            </div>
-            <Footer />
-            <div className="modal fade" id="dealPopup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title text-center" id="exampleModalLabel">{dealModaldata.title && dealModaldata.title}</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body text-center">
-                            <span id="showCode">Deal Activated</span>
-                        </div>
-                        <div>
-                            <h5 className="modal-info text-center">No Coupon Code Required</h5>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" onClick={(e) => window.open(dealModaldata.aff_url && dealModaldata.aff_url)} className="btn btn-warning text-white">Visit Store</button>
+                </div>
+                <Footer />
+                <div className="modal fade" id="dealPopup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title text-center" id="exampleModalLabel">{dealModaldata.title && dealModaldata.title}</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body text-center">
+                                <span id="showCode">Deal Activated</span>
+                            </div>
+                            <div>
+                                <h5 className="modal-info text-center">No Coupon Code Required</h5>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" onClick={(e) => window.open(dealModaldata.aff_url && dealModaldata.aff_url)} className="btn btn-warning text-white">Visit Store</button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -219,7 +219,7 @@ export default function Coupons({page}) {
                             couponsdata.pstores && couponsdata.pstores.map((item) =>
                                 <div className="col-lg-3 col-md-4 col-sm-6 store-box" key={item.id}>
                                     <div className="justify-content-center align-items-center store-items shadow">
-                                        <div>
+                                        <div className="image-box">
                                             <Link href={`/${item.slug}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.store_logo}`} class="store-img" alt="image"/></Link>
                                         </div>
                                        <div>
