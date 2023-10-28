@@ -1,0 +1,177 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body a{
+    text-decoration: none;
+}
+body ul li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.navigation{
+    margin-top: 1.6rem;
+}
+.navigation a{
+    text-decoration: none;
+    color: #212529;
+    font-weight: 500;
+    font-size: .95rem;
+}
+.letter-box{
+    margin-bottom: 1rem;
+}
+.letter-box .main-heading {
+   margin-bottom: 1rem;
+   padding: .2rem;
+ }
+.letter-box .main-heading h1{
+   font-weight: 600;
+   color: #000;
+   font-size: 1.4rem;
+   letter-spacing: .4px;
+}
+.letter-box .letters{
+    background-color: #fff;
+    margin: 1rem auto;
+    padding: 1rem .8rem;
+    margin: 10px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,.15);
+    border-radius: 2px;
+    background: #fff;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: left;
+ }
+ .letter-box .letters a{
+        background-color: #fff;
+        padding: .45rem;
+        text-transform: uppercase;
+        border: 1px solid #dad5d5;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        width: 2.4rem;
+        height: 2.4rem;
+        text-align: center;
+        font-size: 1.25rem;
+        margin: 1rem;
+        position: relative;
+        overflow: hidden;
+        color: #747474;
+        text-decoration: none;
+        font-weight: 500;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: .2s ease;
+ }
+ .letter-box .letters .number{
+    font-size: 1.2rem;
+    padding: 0rem;
+ }
+ .letter-box .letters a:hover{
+    background-color: #247e6a;
+    color: #fff;
+ }
+ .letter-box .alpha-box{
+    background-color: #fff;
+    margin: 1rem auto;
+    padding: 1rem .8rem;
+    margin: 10px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,.15);
+    border-radius: 2px;
+    background: #fff;
+    margin-top: 4rem;
+ }
+ .letter-box .alpha-box .alpha-header{
+   border-bottom: 1px solid #747474;
+   display: flex;
+   justify-content: space-between;
+   margin: .5rem 1rem 2rem 1rem;
+   padding-bottom: 1.8rem;
+   align-items: center;
+ }
+ .letter-box .alpha-box .alpha-header a{
+    text-decoration: none;
+    color: #747474;
+    font-weight: 600;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+  .letter-box .alpha-box .alpha-header a:hover{
+   color: #000;
+  }
+  .letter-box .alpha-box .alpha-header a i{
+   padding: .4rem;
+  }
+  .letter-box .alpha-box .alpha-header .title{
+   font-size: 1.85rem;
+   color: #000;
+   text-transform: uppercase;
+  }
+  .letter-box .alpha-box .alpha-content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: .5rem 1rem 2rem 1rem;
+    justify-content: left;
+  }
+  .letter-box .alpha-box .alpha-content .order{
+    margin-bottom: .5rem ;
+    display: inline-block;
+    color: #747474;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    letter-spacing: .3px;
+  }
+  @media(min-width:991px){
+    .letter-box .alpha-box .alpha-content .order{
+        flex-basis: calc(100%/3);
+      }
+  }
+  @media(min-width:768px) and (max-width:991px){
+    .letter-box .alpha-box .alpha-content .order{
+        flex-basis: calc(100%/2);
+      }
+  }
+  @media(max-width:768px){
+    .letter-box .alpha-box .alpha-content .order{
+        flex-basis: 100%;
+      }
+  }
+  .letter-box .alpha-box .alpha-content .order:hover{
+   color: #000;
+  }
+ /* @media(min-width:991px){
+    .container .alpha-box .alpha-content .order:nth-of-type(3n){
+        border: 2px solid red;
+        margin-right: 0rem;
+    
+      }
+ } */
+  .letter-box .alpha-box .alpha-content .order span{
+   padding-right: .4rem;
+   text-transform: uppercase;
+  }
+ @media(max-width:768px){
+    /* .letter-box{
+       max-width: 95%; 
+    } */
+    /* .letter-box .alpha-box .alpha-content .order{
+        margin-left: 0px;
+    
+      } */
+      .letter-box .alpha-box .alpha-content{
+        text-align: center;
+        justify-content: center;
+      }
+      .letter-box .letters{
+       justify-content: center;
+     }
+ }

@@ -31,6 +31,14 @@ export function Header() {
                </form>
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+            <li className="nav-item">
+                <Link prefetch={false}
+                  className={pathname === './pages/a-z-store.js' ? 'text-blue nav-link' : 'text-black nav-link'}
+                  href='/a-z-store'
+                >
+                  STORE
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link prefetch={false}
                   className={pathname === '/reviews' ? 'text-blue nav-link' : 'text-black nav-link'}
