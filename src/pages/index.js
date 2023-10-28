@@ -51,16 +51,6 @@ const Responsive = {
 export default function Home({ page }) {
     const [homeData, setHomeData] = useState(page);
  
-    const idJsonObject = {
-        "@context": "http://schema.org",
-        "@type": "WebSite",
-        "name": page.meta.site_title.value,
-        "description":page.meta.site_desc.value,
-        "url": publicRuntimeConfig.webUrl,
-        "sameAs": [page.meta.social_fb.value,
-        page.meta.social_tw.value,
-        page.meta.social_ln.value]
-    };
 
     return (
         <>
@@ -83,8 +73,7 @@ export default function Home({ page }) {
                 <meta property="og:site_name" content={`${page.meta.site_title.value}`} />
                 <meta property="og:description" content={`${page.meta.site_desc.value}`} />
                 <link rel="canonical" href={`${publicRuntimeConfig.webUrl}`} />
-                <script type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }} />
+                
             </Head>
             <Header />
 
