@@ -129,6 +129,8 @@ body ul li{
     margin-bottom: 2rem;
     font-size: 1.05rem;
     letter-spacing: .3px;
+      user-select: none;
+  
   }
   @media(min-width:991px){
     .letter-box .alpha-box .alpha-content .order{

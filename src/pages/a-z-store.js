@@ -1,13 +1,15 @@
 import Head from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import AlphabeticalStores from '../components/alphabetical-stores';
 import '@/styles/a-z-store.css'
 import Link from 'next/link';
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-export default function Reviews({ data }) {
+export default function azStores({ data }) {
 
 
 
@@ -39,72 +41,29 @@ export default function Reviews({ data }) {
                     <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/a-z-stores">Stores</Link></p>
                 </div>
             </div>
-            <div class="container letter-box col-lg-9 col-md-12 col-xs-12">
-                <div class="main-heading">
+            <div className="container letter-box col-lg-9 col-md-12 col-xs-12">
+                <div className="main-heading">
                     <h1>Store A-Z</h1>
                 </div>
-                <div class="letters">
-                    <a href="#">A</a>
-                    <a href="#">b</a>
-                    <a href="#">c</a>
-                    <a href="#">d</a>
-                    <a href="#">e</a>
-                    <a href="#">f</a>
-                    <a href="#">g</a>
-                    <a href="#">h</a>
-                    <a href="#">i</a>
-                    <a href="#">j</a>
-                    <a href="#">k</a>
-                    <a href="#">l</a>
-                    <a href="#">m</a>
-                    <a href="#">n</a>
-                    <a href="#">o</a>
-                    <a href="#">p</a>
-                    <a href="#">q</a>
-                    <a href="#">r</a>
-                    <a href="#">s</a>
-                    <a href="#">t</a>
-                    <a href="#">u</a>
-                    <a href="#">v</a>
-                    <a href="#">w</a>
-                    <a href="#">x</a>
-                    <a href="#">y</a>
-                    <a href="#">z</a>
-                    <a href="#" className='number'>0-9</a>
+                <div className="letters">
+                    {alphabet.split("").map((c) => {
+                        return (
+                            <a href={`#${c}box`}>{c}</a>
+                        );
+                    })}
+
+                    <a href="#0-9box" className='number'>0-9</a>
                 </div>
-                <div class="alpha-box">
-                    <div class="alpha-header">
-                        <span class="title">A</span>
-                        <a href="">Load More<i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
-                    </div>
-                    <div class="alpha-content">
-                        <a href="" class="order"><span>a -</span>lorem ipsusm doller </a>
-                        <a href="" class="order"><span>a -</span>lorem ipsusm doller sit</a>
-                        <a href="" class="order"><span>a -</span>lorem ipsusm doller </a>
-                        <a href="" class="order"><span>a -</span>lorem ipsusm doller sit</a>
-                        <a href="" class="order"><span>a -</span>lorem ipsusm doller sit</a>
-                        <a href="" class="order"><span>a -</span>lorem ipsusm doller sit</a>
-                        <a href="" class="order"><span>a -</span>lorem ipsusm doller sit</a>
-                        <a href="" class="order"><span>a -</span>lorem ipsusm doller sit</a>
-                        <a href="" class="order"><span>a -</span>lorem ipsusm doller sit</a>
-                    </div>
-                </div>
-                <div class="alpha-box">
-                    <div class="alpha-header">
-                        <span class="title">b</span>
-                        <a href="">Load More<i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
-                    </div>
-                    <div class="alpha-content">
-                            <a href="" class="order"><span>b -</span>Blorem ipsusm doller sit</a>
-                            <a href="" class="order"><span>b -</span>Blorem ipsusm doller sit</a>
-                            <a href="" class="order"><span>b -</span>Blorem ipsusm doller sit</a>
-                            <a href="" class="order"><span>b -</span>Blorem ipsusm doller sit</a>
-                            <a href="" class="order"><span>b -</span>Blorem ipsusm doller sit</a>
-                            <a href="" class="order"><span>b -</span>Blorem ipsusm doller sit</a>
-                            <a href="" class="order"><span>b -</span>Blorem ipsusm doller sit</a>
-                            <a href="" class="order"><span>b -</span>Blorem ipsusm doller sit</a>
-                    </div>
-                </div>
+                {alphabet.split("").map((c) => {
+                    return (
+                        <>
+                            <><AlphabeticalStores alpha={c} /></>
+
+                        </>
+                    );
+                })}
+                <><AlphabeticalStores alpha='0-9' /></>
+
             </div>
             <Footer />
         </>
@@ -114,7 +73,7 @@ export default function Reviews({ data }) {
 export async function getStaticProps() {
 
 
-    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/reviews`);
+    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/a-z-store`);
     const data = await response.json();
     return {
         props: {
