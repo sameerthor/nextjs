@@ -23,16 +23,16 @@ export default function azStores({ data }) {
             <meta name="twitter:site" content="@" />
             <meta name="twitter:title" content={`${data.metas.seo_title}`} />
             <meta name="twitter:description" content={data.metas.seo_descp == null ? "" : `${data.metas.seo_descp}`} />
-            <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}reviews`} />
+            <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}a-z-store`} />
             <meta property="fb:app_id" content={`${data.meta.fbapp_id.value}`} />
             <meta property="og:title" content={`${data.metas.seo_title}`} />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content={`${publicRuntimeConfig.webUrl}reviews`} />
+            <meta property="og:url" content={`${publicRuntimeConfig.webUrl}a-z-store`} />
             <meta property="og:image" content={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_logo.value}`} />
             <meta property="og:site_name" content={`${data.meta.site_title.value}`} />
             <meta property="og:description" content={data.metas.seo_descp == null ? "" : `${data.metas.seo_descp}`} />
 
-            <link rel="canonical" href={`${publicRuntimeConfig.webUrl}reviews`} />
+            <link rel="canonical" href={`${publicRuntimeConfig.webUrl}a-z-store`} />
         </Head>
 
             <Header />
