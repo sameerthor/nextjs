@@ -3,17 +3,15 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: false,
-  swcMinify:true,
+  swcMinify: true,
   images: {
-    domains: ['localhost','scoopreview.com'],
-    images: {
-      unoptimized: true,
-    }  
+    domains: ['localhost', 'scoopreview.com'],
+    unoptimized: true,
   },
   publicRuntimeConfig: {
     apiBaseUrl: 'https://admin.scoopreview.com/scoop/public/',
-    imageUrl:'https://scoopreview.com/',
-    webUrl:'https://scoopreview.com/'
+    imageUrl: 'https://scoopreview.com/',
+    webUrl: 'https://scoopreview.com/'
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(
@@ -37,14 +35,14 @@ const nextConfig = {
 
       if (hasFound) break
     }
-      Object.assign(config.resolve.alias, {
-        "react/jsx-runtime.js": "preact/compat/jsx-runtime",
-        react: "preact/compat",
-        "react-dom/test-utils": "preact/test-utils",
-        "react-dom": "preact/compat",
-      });
-    
-    
+    Object.assign(config.resolve.alias, {
+      "react/jsx-runtime.js": "preact/compat/jsx-runtime",
+      react: "preact/compat",
+      "react-dom/test-utils": "preact/test-utils",
+      "react-dom": "preact/compat",
+    });
+
+
     return config;
   }
   ,
