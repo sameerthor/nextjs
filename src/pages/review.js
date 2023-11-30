@@ -27,10 +27,23 @@ export default function Reviews({ data }) {
         "@context": "https://schema.org/",
         "@type": "Product",
         "name": data ? `${data.review.seo_title.trim()}` : '',
-        "brand": data ? data.review.render_name : "",
+        "brand": {
+            "@type": "Brand",
+            "name": data ? data.review.render_name : ""},
         "description": data ? `${data.review.seo_desc}` : '',
         "image": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
         "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
+        "review": [{
+            "@type": "Review",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "author": {
+              "@type": "Person",
+              "name": "ScoopReview"
+            }
+           }],
         "breadcrumb": {
             "@type": "BreadcrumbList",
             "itemListElement":
