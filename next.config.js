@@ -6,7 +6,6 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ['localhost', 'scoopreview.com'],
-    unoptimized: true,
   },
   publicRuntimeConfig: {
     apiBaseUrl: 'https://admin.scoopreview.com/scoop/public/',
