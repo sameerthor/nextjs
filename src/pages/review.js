@@ -26,6 +26,10 @@ export default function Reviews({ data }) {
         "name": data ? `${data.review.seo_title.trim()}` : '',
         "description": data ? `${data.review.seo_desc}` : '',
         "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.review.slug}` : ''),
+        "address":{
+            "@type": "PostalAddress",
+            "streetAddress": data ? `${data.review.seo_title.trim()}` : ''
+        },
         "author": {
             "@type": "Person",
             "name": "ScoopReview"

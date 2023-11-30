@@ -33,6 +33,10 @@ export default function Store({ data }) {
             "@type": "Brand",
             "name": "ScoopReview"
         },
+        "address":{
+            "@type": "PostalAddress",
+            "streetAddress": data ? `${data.store.seo_title.trim()}` : ''
+        },
         "offers": {
             "@type": "Offer",
             "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.store.slug}` : ''),
