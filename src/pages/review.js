@@ -18,7 +18,10 @@ export default function Reviews({ data }) {
     const [year, setYear] = useState(new Date().getFullYear());
     const [copytext, setCopytext] = useState("COPY")
     const [couponModaldata, setCouponModaldata] = useState({});
-
+    if(data==null)
+    {
+     return '';
+    }
 
     const idJsonObject = {
         "@context": "https://schema.org/",
