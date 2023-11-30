@@ -28,7 +28,7 @@ export default function Store({ data }) {
         "logo": `${publicRuntimeConfig.imageUrl}images/${data ? data.store.store_logo : ''}`,
         "image": `${publicRuntimeConfig.imageUrl}images/${data ? data.store.store_logo : ''}`,
         "description": data ? `${data.store.seo_desc}` : '',
-        "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.store.slug}` : ''),
+        "url": publicRuntimeConfig.webUrl  + (data ? `${data.store.slug}` : ''),
         "brand": {
             "@type": "Brand",
             "name": "ScoopReview"
@@ -36,7 +36,7 @@ export default function Store({ data }) {
         "event": {
             "@type": "SaleEvent",
             "name": data ? `${data.store.seo_title.trim()}` : '',
-            "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.store.slug}` : ''),
+            "url": publicRuntimeConfig.webUrl  + (data ? `${data.store.slug}` : ''),
             "image":`${publicRuntimeConfig.imageUrl}images/${data ? data.store.store_logo : ''}`,
             "startDate": "2023-10-30",
             "endDate": "2023-12-30",
@@ -51,7 +51,7 @@ export default function Store({ data }) {
         },
         "offers": {
             "@type": "Offer",
-            "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.store.slug}` : ''),
+            "url": publicRuntimeConfig.webUrl  + (data ? `${data.store.slug}` : ''),
             "priceCurrency": "USD",
             "seller": {
                 "@type": "Organization",
