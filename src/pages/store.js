@@ -25,15 +25,27 @@ export default function Store({ data }) {
         "@context": "http://schema.org",
         "@type": "Store",
         "name": data ? `${data.store.seo_title.trim()}` : '',
-        "logo": `${publicRuntimeConfig.imageUrl}images/${data ?data.store.store_logo:''}`,
-        "image": `${publicRuntimeConfig.imageUrl}images/${data ?data.store.store_logo:''}`,
+        "logo": `${publicRuntimeConfig.imageUrl}images/${data ? data.store.store_logo : ''}`,
+        "image": `${publicRuntimeConfig.imageUrl}images/${data ? data.store.store_logo : ''}`,
         "description": data ? `${data.store.seo_desc}` : '',
         "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.store.slug}` : ''),
         "brand": {
             "@type": "Brand",
             "name": "ScoopReview"
         },
-        "address":{
+        "event": {
+            "@type": "SaleEvent",
+            "name": data ? `${data.store.seo_title.trim()}` : '',
+            "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.store.slug}` : ''),
+            "image":`${publicRuntimeConfig.imageUrl}images/${data ? data.store.store_logo : ''}`,
+            "startDate": "2023-10-30",
+            "endDate": "2023-12-30",
+            "location": {
+                "@type": "Place", "name": data ? `${data.store.seo_title.trim()}` : '',
+                "address": { "@type": "PostalAddress", "streetAddress": data ? `${data.store.seo_title.trim()}` : '' }
+            }
+        },
+        "address": {
             "@type": "PostalAddress",
             "streetAddress": data ? `${data.store.seo_title.trim()}` : ''
         },
@@ -46,16 +58,17 @@ export default function Store({ data }) {
                 "name": (data ? `${data.store.seo_title.trim()} ${year}` : '')
             }
         },
-        "breadcrumb": { 
+        "breadcrumb": {
             "@type": "BreadcrumbList",
-             "itemListElement": 
-             [{ "@type": "ListItem", "position": 1, "item": { "@id": publicRuntimeConfig.webUrl, "name": "ScoopReview" } }, 
-             { "@type": "ListItem", "position": 2, "item": { "@id": `${publicRuntimeConfig.webUrl}coupons`, "name": "Deals" } }, 
-             { "@type": "ListItem", "position": 3, "item": { "@id": `${publicRuntimeConfig.webUrl}${data ?data.store.web_url:''}`, "name": data ? `${data.store.name.trim()}` : '' } },
-             ] }
+            "itemListElement":
+                [{ "@type": "ListItem", "position": 1, "item": { "@id": publicRuntimeConfig.webUrl, "name": "ScoopReview" } },
+                { "@type": "ListItem", "position": 2, "item": { "@id": `${publicRuntimeConfig.webUrl}coupons`, "name": "Deals" } },
+                { "@type": "ListItem", "position": 3, "item": { "@id": `${publicRuntimeConfig.webUrl}${data ? data.store.web_url : ''}`, "name": data ? `${data.store.name.trim()}` : '' } },
+                ]
+        }
     };
 
-   
+
     function getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -290,7 +303,7 @@ export default function Store({ data }) {
                 <div className="container-fluid">
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto shadow-sm related-store">
                         <div className="row store-box">
-                        <h3 className='text-center mb-4'>Related Store</h3>
+                            <h3 className='text-center mb-4'>Related Store</h3>
                             {
                                 storedata.rstores && storedata.rstores.map((item) =>
                                     <div className="col-lg-4 col-md-6 col-sm-6 store-item" key={item.id}>
