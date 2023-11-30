@@ -31,12 +31,6 @@ export default function Reviews({ data }) {
         "description": data ? `${data.review.seo_desc}` : '',
         "image": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
         "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
-        "offers": {
-            "@type": "Offer", "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
-            "availability": "https://schema.org/InStock",
-            "priceCurrency": "",
-            "price": ""
-        },
         "breadcrumb": {
             "@type": "BreadcrumbList",
             "itemListElement":
