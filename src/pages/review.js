@@ -20,7 +20,30 @@ export default function Reviews({ data }) {
     const [couponModaldata, setCouponModaldata] = useState({});
 
 
-    
+    const idJsonObject = {
+        "@context": "https://schema.org/",
+        "@type": "Store",
+        "name": data ? `${data.review.seo_title.trim()}` : '',
+        "description": data ? `${data.review.seo_desc}` : '',
+        "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.review.slug}` : ''),
+        "author": {
+            "@type": "Person",
+            "name": "ScoopReview"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ScoopReview"
+        },
+        "breadcrumb": { 
+            "@type": "BreadcrumbList",
+             "itemListElement": 
+             [{ "@type": "ListItem", "position": 1, "item": { "@id": publicRuntimeConfig.webUrl, "name": "ScoopReview" } }, 
+             { "@type": "ListItem", "position": 2, "item": { "@id": `${publicRuntimeConfig.webUrl}reviews`, "name": "Reviews" } }, 
+             { "@type": "ListItem", "position": 3, "item": { "@id": `${publicRuntimeConfig.webUrl}${data ?reviewdata.review.slug:''}`, "name": data ? `${reviewdata.review.render_name.trim()}}` : '' } },
+             ] }
+
+
+};    
 
 const changeView = ((index) => {
     setReviewdata((prevState) => {
@@ -154,7 +177,8 @@ return (
                 <meta property="article:section" content={`${data.review.name}`} />
 
                 <link rel="canonical" href={`${publicRuntimeConfig.webUrl}${data.review.slug}`} />
-         
+                <script type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }} />
             </Head>
 
             <Header />

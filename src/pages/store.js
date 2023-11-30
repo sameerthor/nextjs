@@ -20,6 +20,36 @@ export default function Store({ data }) {
     const [year, setYear] = useState(new Date().getFullYear());
     const [couponModaldata, setCouponModaldata] = useState({});
 
+    const idJsonObject = {
+
+        "@context": "http://schema.org",
+        "@type": "Store",
+        "name": data ? `${data.store.seo_title.trim()}` : '',
+        "logo": `${publicRuntimeConfig.imageUrl}images/${data ?data.store.store_logo:''}`,
+        "image": `${publicRuntimeConfig.imageUrl}images/${data ?data.store.store_logo:''}`,
+        "description": data ? `${data.store.seo_desc}` : '',
+        "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.store.slug}` : ''),
+        "brand": {
+            "@type": "Brand",
+            "name": "ScoopReview"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": publicRuntimeConfig.webUrl + "/" + (data ? `${data.store.slug}` : ''),
+            "priceCurrency": "USD",
+            "seller": {
+                "@type": "Organization",
+                "name": (data ? `${data.store.seo_title.trim()} ${year}` : '')
+            }
+        },
+        "breadcrumb": { 
+            "@type": "BreadcrumbList",
+             "itemListElement": 
+             [{ "@type": "ListItem", "position": 1, "item": { "@id": publicRuntimeConfig.webUrl, "name": "ScoopReview" } }, 
+             { "@type": "ListItem", "position": 2, "item": { "@id": `${publicRuntimeConfig.webUrl}coupons`, "name": "Deals" } }, 
+             { "@type": "ListItem", "position": 3, "item": { "@id": `${publicRuntimeConfig.webUrl}${data ?data.store.web_url:''}`, "name": data ? `${data.store.name.trim()}` : '' } },
+             ] }
+    };
 
    
     function getRandomInt(min, max) {
@@ -106,7 +136,8 @@ export default function Store({ data }) {
                     <meta property="article:modified_time" content={`${new Date(data.store.updated_at).toISOString()}`} />
                     <meta property="og:updated_time" content={`${new Date(data.store.updated_at).toISOString()}`} />
                     <link rel="canonical" href={`${publicRuntimeConfig.webUrl}${data.store.slug}`} />
-                    
+                    <script type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }} />
                 </Head>
                 <Header />
                 <div className="container-fluid deal-bg">
