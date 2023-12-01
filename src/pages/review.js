@@ -18,9 +18,8 @@ export default function Reviews({ data }) {
     const [year, setYear] = useState(new Date().getFullYear());
     const [copytext, setCopytext] = useState("COPY")
     const [couponModaldata, setCouponModaldata] = useState({});
-    if(data==null)
-    {
-     return '';
+    if (data == null) {
+        return '';
     }
 
     const idJsonObject = {
@@ -29,21 +28,50 @@ export default function Reviews({ data }) {
         "name": data ? `${data.review.seo_title.trim()}` : '',
         "brand": {
             "@type": "Brand",
-            "name": data ? data.review.render_name : ""},
+            "name": data ? data.review.render_name : ""
+        },
         "description": data ? `${data.review.seo_desc}` : '',
         "image": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
         "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
         "review": [{
             "@type": "Review",
             "reviewRating": {
-              "@type": "Rating",
-              "ratingValue": "5"
+                "@type": "Rating",
+                "ratingValue": "5"
             },
             "author": {
-              "@type": "Organisation",
-              "name": "ScoopReview"
+                "@type": "Organisation",
+                "name": "ScoopReview"
             }
-           }],
+        }],
+        "article": {
+            "@type": "Article",
+            "mainEntityOfPage":
+            {
+                "@type": "WebPage",
+                "@id": `${publicRuntimeConfig.webUrl}${data.review.slug}`
+            },
+            "headline": data ? `${data.review.seo_title.trim()}` : '',
+            "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
+            "thumbnailUrl": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
+            "image": {
+                "@type": "ImageObject", "url": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
+                "height": 2400, "width": 2000
+            }, "datePublished": "2022-11-07T21:29:32.000Z",
+            "dateModified": "2022-11-07T21:29:32.000Z",
+            "author": { "@type": "Organisation", "name": "ScoopReview" },
+            "creator": ["ScoopReview"],
+            "keywords": data ? data.review.seo_keywords.split(',') : '',
+            "publisher": {
+                "@type": "Organization", "name": "ScoopReview",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": data ? `${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}` : '',
+                    "width": 54, "height": 54
+                }
+            },
+            "description": data ? `${data.review.seo_desc}` : ''
+        },
         "breadcrumb": {
             "@type": "BreadcrumbList",
             "itemListElement":
