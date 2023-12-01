@@ -40,7 +40,7 @@ export default function Reviews({ data }) {
               "ratingValue": "5"
             },
             "author": {
-              "@type": "Person",
+              "@type": "Organisation",
               "name": "ScoopReview"
             }
            }],
