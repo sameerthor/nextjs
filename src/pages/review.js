@@ -22,67 +22,67 @@ export default function Reviews({ data }) {
         return '';
     }
 
-    const idJsonObject = {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": data ? `${data.review.seo_title.trim()}` : '',
-        "brand": {
-            "@type": "Brand",
-            "name": data ? data.review.render_name : ""
-        },
-        "description": data ? `${data.review.seo_desc}` : '',
-        "image": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
-        "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
-        "review": [{
-            "@type": "Review",
-            "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5"
-            },
-            "author": {
-                "@type": "Organisation",
-                "name": "ScoopReview"
-            }
-        }],
-        "article": {
-            "@type": "Article",
-            "mainEntityOfPage":
-            {
-                "@type": "WebPage",
-                "@id": `${publicRuntimeConfig.webUrl}${data.review.slug}`
-            },
-            "headline": data ? `${data.review.seo_title.trim()}` : '',
-            "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
-            "thumbnailUrl": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
-            "image": {
-                "@type": "ImageObject", "url": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
-                "height": 2400, "width": 2000
-            }, "datePublished": "2022-11-07T21:29:32.000Z",
-            "dateModified": "2022-11-07T21:29:32.000Z",
-            "author": { "@type": "Organisation", "name": "ScoopReview" },
-            "creator": ["ScoopReview"],
-            "keywords": data ? data.review.seo_keywords.split(',') : '',
-            "publisher": {
-                "@type": "Organization", "name": "ScoopReview",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": data ? `${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}` : '',
-                    "width": 54, "height": 54
-                }
-            },
-            "description": data ? `${data.review.seo_desc}` : ''
-        },
-        "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement":
-                [{ "@type": "ListItem", "position": 1, "item": { "@id": publicRuntimeConfig.webUrl, "name": "ScoopReview" } },
-                { "@type": "ListItem", "position": 2, "item": { "@id": `${publicRuntimeConfig.webUrl}reviews`, "name": "Reviews" } },
-                { "@type": "ListItem", "position": 3, "item": { "@id": `${publicRuntimeConfig.webUrl}${data ? reviewdata.review.slug : ''}`, "name": data ? `${reviewdata.review.render_name.trim()}}` : '' } },
-                ]
-        }
+    // const idJsonObject = {
+    //     "@context": "https://schema.org/",
+    //     "@type": "Product",
+    //     "name": data ? `${data.review.seo_title.trim()}` : '',
+    //     "brand": {
+    //         "@type": "Brand",
+    //         "name": data ? data.review.render_name : ""
+    //     },
+    //     "description": data ? `${data.review.seo_desc}` : '',
+    //     "image": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
+    //     "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
+    //     "review": [{
+    //         "@type": "Review",
+    //         "reviewRating": {
+    //             "@type": "Rating",
+    //             "ratingValue": "5"
+    //         },
+    //         "author": {
+    //             "@type": "Organisation",
+    //             "name": "ScoopReview"
+    //         }
+    //     }],
+    //     "article": {
+    //         "@type": "Article",
+    //         "mainEntityOfPage":
+    //         {
+    //             "@type": "WebPage",
+    //             "@id": `${publicRuntimeConfig.webUrl}${data.review.slug}`
+    //         },
+    //         "headline": data ? `${data.review.seo_title.trim()}` : '',
+    //         "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
+    //         "thumbnailUrl": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
+    //         "image": {
+    //             "@type": "ImageObject", "url": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
+    //             "height": 2400, "width": 2000
+    //         }, "datePublished": "2022-11-07T21:29:32.000Z",
+    //         "dateModified": "2022-11-07T21:29:32.000Z",
+    //         "author": { "@type": "Organisation", "name": "ScoopReview" },
+    //         "creator": ["ScoopReview"],
+    //         "keywords": data ? data.review.seo_keywords.split(',') : '',
+    //         "publisher": {
+    //             "@type": "Organization", "name": "ScoopReview",
+    //             "logo": {
+    //                 "@type": "ImageObject",
+    //                 "url": data ? `${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}` : '',
+    //                 "width": 54, "height": 54
+    //             }
+    //         },
+    //         "description": data ? `${data.review.seo_desc}` : ''
+    //     },
+    //     "breadcrumb": {
+    //         "@type": "BreadcrumbList",
+    //         "itemListElement":
+    //             [{ "@type": "ListItem", "position": 1, "item": { "@id": publicRuntimeConfig.webUrl, "name": "ScoopReview" } },
+    //             { "@type": "ListItem", "position": 2, "item": { "@id": `${publicRuntimeConfig.webUrl}reviews`, "name": "Reviews" } },
+    //             { "@type": "ListItem", "position": 3, "item": { "@id": `${publicRuntimeConfig.webUrl}${data ? reviewdata.review.slug : ''}`, "name": data ? `${reviewdata.review.render_name.trim()}}` : '' } },
+    //             ]
+    //     }
 
 
-    };
+    // };
 
     const changeView = ((index) => {
         setReviewdata((prevState) => {
@@ -216,8 +216,8 @@ export default function Reviews({ data }) {
                     <meta property="article:section" content={`${data.review.name}`} />
 
                     <link rel="canonical" href={`${publicRuntimeConfig.webUrl}${data.review.slug}`} />
-                    <script type="application/ld+json"
-                        dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }} />
+                   {/* <script type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }} /> */}
                 </Head>
 
                 <Header />
