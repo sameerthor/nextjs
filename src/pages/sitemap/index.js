@@ -8,7 +8,7 @@ const toUrl = (url) =>
   
 const createSitemap = (urlList) => 
   `<?xml version="1.0" encoding="UTF-8"?>
-    <sitemapindex xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${urlList.map((url) => toUrl(url)).join("")}
     </sitemapindex>`;
 
