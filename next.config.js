@@ -49,11 +49,11 @@ const nextConfig = {
   rewrites: async () => [
     {
       source: '/scooprevsitemap.xml',
-      destination: '/sitemap',
+      destination: '/sitemap-stores',
     },
     {
       source: '/scooprevsitemap-:slug.xml',
-      destination: '/sitemap/:slug',
+      destination: '/sitemap-stores/:slug',
     },
   ],
 }
