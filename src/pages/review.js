@@ -231,7 +231,7 @@ export default function Reviews({ data }) {
                         <div className="row">
                             <div className="col-lg-11 col-md-12 col-sm-11  review-box">
                                 <h1>{reviewdata.review.render_name}<span>Review</span></h1>
-                                <div className="contents">
+                                <div className="contents reviewContents">
                                     <div id="accordion" className="">
                                         <div className="card">
                                             <div className="" id="headingOne">

@@ -226,7 +226,7 @@
 }
 .review-box .btns span i{
     margin-right: .5rem;
-    color: #0066da;
+    color: #34a853;
     font-weight: 700;
     font-size: 1rem;
 }
@@ -516,4 +516,11 @@
         margin:  auto;
         width: 80%;
     }
+}
+.reviewContents{
+    display: none;
+}
+#relatedReviews{
+    padding-left: 0;
+    padding-right: 0;
 }
