@@ -223,14 +223,14 @@ export default function Reviews({ data }) {
                 <Header />
                 <div className="container-fluid">
                     <div className="container review-title mx-auto col-10">
-                        <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link><Link href="/reviews" prefetch={false}> Reviews <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link><Link href={`/${reviewdata.review.slug}`}> {reviewdata.review.render_name} Review</Link></p>
+                        <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link>{reviewdata.review.slug.includes("coupon")?'':<Link href="/reviews" prefetch={false}> Reviews <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link>}<Link href={`/${reviewdata.review.slug}`}> {reviewdata.review.render_name} Review</Link></p>
                     </div>
                 </div>
                 <div className="container-fluid">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-11 col-md-12 col-sm-11  review-box">
-                                <h1>{reviewdata.review.render_name}<span>Review</span></h1>
+                                <h1>{reviewdata.review.render_name}<span>{reviewdata.review.slug.includes("coupon")?' Coupons, Promo Codes and Offers':'Review'}</span></h1>
                                 <div className="contents">
                                     <div id="accordion" className="">
                                         <div className="card">
