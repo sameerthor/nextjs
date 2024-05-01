@@ -229,6 +229,8 @@ nav {
 
 .social {
     padding: 1rem 0rem;
+    display: flex;
+    flex-direction: row;
 }
 
 .social a {
@@ -238,6 +240,11 @@ nav {
     color: #fff;
     padding: .4rem;
     color: #fff;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .social a i {
