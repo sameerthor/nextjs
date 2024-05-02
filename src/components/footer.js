@@ -49,12 +49,12 @@ export function Footer() {
               >
                 Reviews
               </Link><br></br>
-              <Link prefetch={false}
+              {/* <Link prefetch={false}
                 className={pathname === '/coupons' ? 'text-blue' : 'text-black'}
                 href='/coupons'
               >
                 Coupons
-              </Link><br></br>
+              </Link><br></br> */}
               <Link prefetch={false}
                 className={pathname === '/categories' ? 'text-blue' : 'text-black'}
                 href='/categories'

@@ -223,7 +223,7 @@ export default function Reviews({ data }) {
                 <Header />
                 <div className="container-fluid">
                     <div className="container review-title mx-auto col-10">
-                        <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link>{reviewdata.review.slug.includes("coupon")?'':<Link href="/reviews" prefetch={false}> Reviews <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link>}<Link href={`/${reviewdata.review.slug}`}> {reviewdata.review.render_name} Review</Link></p>
+                        <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link>{reviewdata.review.slug.includes("coupon")?'':<Link href="/reviews" prefetch={false}> Reviews <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link>}<Link href={`/${reviewdata.review.slug}`}> {reviewdata.review.render_name} {reviewdata.review.slug.includes("coupon")?'Coupons':'Review'}</Link></p>
                     </div>
                 </div>
                 <div className="container-fluid">
