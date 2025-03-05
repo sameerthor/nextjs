@@ -49,13 +49,13 @@ export function Header() {
                   BLOGS
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link prefetch={false}
                   className={pathname === '/categories' ? 'text-blue nav-link' : 'text-black nav-link'}
                   href='/categories'
                 >
                   CATEGORIES
-                </Link>              </li>
+                </Link>              </li> */}
             </ul>
           </div>
         </div>
