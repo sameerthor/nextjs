@@ -12,8 +12,7 @@ const { publicRuntimeConfig } = getConfig()
 
 
 export default function Store({ data }) {
-    console.log(data)
-    return '';
+    
     const router = useRouter()
     const [storedata, setStoredata] = useState(data);
     const [activetab, setActivetab] = useState("all");
