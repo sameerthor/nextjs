@@ -12,6 +12,7 @@ const { publicRuntimeConfig } = getConfig()
 
 
 export default function Reviews({ data }) {
+    
     const router = useRouter()
     const [reviewdata, setReviewdata] = useState(data);
     const [dealModaldata, setDealModaldata] = useState({});
@@ -334,7 +335,7 @@ export default function Reviews({ data }) {
                 </div>
                 <div className="container-fluid">
                     <div className="container text-center">
-                        <p className="fw-bolder"> You may also like - <Link href={`/${reviewdata.previews[6].slug}`} className="btn btn-primary">{reviewdata.previews[6].render_name}</Link></p>
+                        <p className="fw-bolder"> You may also like - <Link href={`/${reviewdata.previews[4].slug}`} className="btn btn-primary">{reviewdata.previews[4].render_name}</Link></p>
                     </div>
                 </div>
 

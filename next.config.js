@@ -9,7 +9,7 @@ const nextConfig = {
     unoptimized: true,
   },
   publicRuntimeConfig: {
-    apiBaseUrl: 'https://admin.scoopreview.com/scoop/public/',
+    apiBaseUrl: 'https://admin.scoopreview.com/',
     imageUrl: 'https://scoopreview.com/',
     webUrl: 'https://scoopreview.com/'
   },
