@@ -15,20 +15,20 @@ export default function Reviews({ data }) {
         <><Head>
             <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}`} />
             <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
-            <title>{data.metas.seo_title}</title>
-            <meta name="description" content={data.metas.seo_descp == null ? "" : `${data.metas.seo_descp}`} />
+            <title>{data.meta.seo_title}</title>
+            <meta name="description" content={data.meta.seo_descp == null ? "" : `${data.meta.seo_descp}`} />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@" />
-            <meta name="twitter:title" content={`${data.metas.seo_title}`} />
-            <meta name="twitter:description" content={data.metas.seo_descp == null ? "" : `${data.metas.seo_descp}`} />
+            <meta name="twitter:title" content={`${data.meta.seo_title}`} />
+            <meta name="twitter:description" content={data.meta.seo_descp == null ? "" : `${data.meta.seo_descp}`} />
             <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}reviews`} />
             <meta property="fb:app_id" content={`${data.meta.fbapp_id.value}`} />
-            <meta property="og:title" content={`${data.metas.seo_title}`} />
+            <meta property="og:title" content={`${data.meta.seo_title}`} />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={`${publicRuntimeConfig.webUrl}reviews`} />
             <meta property="og:image" content={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_logo.value}`} />
             <meta property="og:site_name" content={`${data.meta.site_title.value}`} />
-            <meta property="og:description" content={data.metas.seo_descp == null ? "" : `${data.metas.seo_descp}`} />
+            <meta property="og:description" content={data.meta.seo_descp == null ? "" : `${data.meta.seo_descp}`} />
 
             <link rel="canonical" href={`${publicRuntimeConfig.webUrl}reviews`} />
         </Head>
