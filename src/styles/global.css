@@ -309,6 +309,7 @@ nav {
     outline: none;
     cursor: pointer;
     color: #fff;
+    z-index: 99;
 }
 
 #scrollToTop i {

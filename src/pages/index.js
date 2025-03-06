@@ -87,10 +87,10 @@ export default function Home({ page }) {
                                     return (
                                         <div className="item mb-4" key={item.id}>
                                             <div className="card border-0 shadow">
-                                                <Link prefetch={false} href={`/review-category/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
+                                                <Link prefetch={false} href={`/categories/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
                                                     style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/banner/${item.thumb}`} alt="image" className="card-img-top" /></Link>
                                                 <div className="card-body">
-                                                    <Link prefetch={false} href={`/review-category/${item.slug}`}> <h4>{item.name}</h4></Link>
+                                                    <Link prefetch={false} href={`/categories/${item.slug}`}> <h4>{item.name}</h4></Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,7 +136,7 @@ export default function Home({ page }) {
                                             return (
                                                 <div className="item mb-4 cust-item mx-auto" key={item.id}>
                                                     <div className="custome card border-0">
-                                                        <a href={`/review-category/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
+                                                        <a href={`/categories/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
                                                             style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/category/${item.thumb}`} alt="image" className="card-img-top" /></a>
                                                     </div>
                                                     <div className="custome-text">
