@@ -32,7 +32,7 @@ export function Footer() {
               >
                 Home
               </Link><br></br>
-              <a href="./about.html">About</a><br></br>
+              <a href="/about">About</a><br></br>
               <Link prefetch={false}
                 className={pathname === '/blogs' ? 'text-blue' : 'text-black'}
                 href='/blogs'
@@ -40,6 +40,8 @@ export function Footer() {
               >
                 Blogs
               </Link>
+              <br></br>
+              <a href="/faqs">Faqs</a><br></br>
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
               <h3>QUICK LINKS</h3>
@@ -49,22 +51,40 @@ export function Footer() {
               >
                 Reviews
               </Link><br></br>
-              {/* <Link prefetch={false}
-                className={pathname === '/coupons' ? 'text-blue' : 'text-black'}
-                href='/coupons'
-              >
-                Coupons
-              </Link><br></br> */}
+             
               <Link prefetch={false}
                 className={pathname === '/categories' ? 'text-blue' : 'text-black'}
                 href='/categories'
               >
                 Categories
+              </Link><br></br>
+              <Link prefetch={false}
+                className={pathname === '/contact' ? 'text-blue' : 'text-black'}
+                href='/contact'
+              >
+                Contact
               </Link>
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
               <h3>NEED HELP?</h3>
-              <a href="#">Privacy Policy</a>
+              <Link prefetch={false}
+                className={pathname === '/privacy-policy' ? 'text-blue' : 'text-black'}
+                href='/privacy-policy'
+              >
+                Privacy Policy
+              </Link><br></br>
+              <Link prefetch={false}
+                className={pathname === '/cookie-policy' ? 'text-blue' : 'text-black'}
+                href='/cookie-policy'
+              >
+                Cookie Policy
+              </Link><br></br>
+              <Link prefetch={false}
+                className={pathname === '/terms-of-use' ? 'text-blue' : 'text-black'}
+                href='/terms-of-use'
+              >
+                Terms of Use
+              </Link>
             </div>
           </div>
         </div>
