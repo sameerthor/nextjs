@@ -45,7 +45,17 @@ const nextConfig = {
 
     return config;
   }
- 
+  ,
+  rewrites: async () => [
+    {
+      source: '/scooprevsitemap.xml',
+      destination: '/sitemap-stores',
+    },
+    {
+      source: '/scooprevsitemap-:slug.xml',
+      destination: '/sitemap-stores/:slug',
+    },
+  ],
 }
 
 module.exports = nextConfig;
