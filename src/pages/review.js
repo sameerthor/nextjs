@@ -222,16 +222,22 @@ export default function Reviews({ data }) {
                 </Head>
 
                 <Header />
-                <div className="container-fluid">
-                    <div className="container review-title mx-auto col-10">
-                        <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link>{reviewdata.review.slug.includes("coupon")?'':<Link href="/reviews" prefetch={false}> Reviews <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link>}<Link href={`/${reviewdata.review.slug}`}> {reviewdata.review.render_name} {reviewdata.review.slug.includes("coupon")?'Coupons':'Review'}</Link></p>
-                    </div>
-                </div>
                 <div className="container-fluid nopadding">
                     <div className="container">
                         <div className="row">
+                        <div class="affiDisc">
+                            <p>Scoopreview may earn a commission when you use coupons on this page. <a href="/affiliate-disclosure">Learn More</a></p>
+                        </div>   
+                        <div className="breadcrumb col-md-11 mx-auto">
+                            <ul>
+                                <li><a href="/">scoopReview.com</a> /</li>
+                                <li>{reviewdata.review.render_name} {reviewdata.review.slug.includes("coupon")?'Coupons':'Review'}</li>
+                            </ul>
+                            <div className="storeCat">
+                                <a href="/category/automotive">Automotive</a>
+                            </div>
+                        </div>
                             <div className="col-md-11 review-box">
-                                <h1>{reviewdata.review.render_name}<span>{reviewdata.review.slug.includes("coupon")?' Coupons, Promo Codes and Offers':'Review'}</span></h1>
                                 <div className="contents reviewContents">
                                     <div id="accordion" className="">
                                         <div className="card">
@@ -253,7 +259,33 @@ export default function Reviews({ data }) {
                                     </div>
                                 </div>
 
-                              
+                                {/* coupon header */}
+                                <div className="contentBox">
+                                    <div className="storeHeader row row-cols-2">
+                                        <div className="header-content col-8 p-0">
+                                        <h1>{reviewdata.review.render_name}<span>{reviewdata.review.slug.includes("coupon")?' Coupons, Promo Codes and Offers':'Review'}</span></h1>
+                                        <h2 class="dealAvl">12 Codes &amp; 0 Deals available</h2>
+                                        </div>
+                                        <aside className="col-4">
+                                            <div className="header-thumb">
+                                                <div className="header-store-thumb">
+                                                    <a rel="nofollow" target="_blank" title="#" href="#">
+                                                        <Image
+                                                            width="100"
+                                                            height={100}
+                                                            src="https://www.scoopreview.com/images/flipkart-logo.png"
+                                                            decoding="async"
+                                                        />
+                                                    </a>
+                                                </div>
+                                                <div className='ratinBox'>
+                                                    {/* rating goes here */}
+                                                </div>
+
+                                            </div>
+                                        </aside>
+                                    </div>
+                                </div>
 
                                 {/* new coupon */}
                                 <div className='listCoupns'>
@@ -330,7 +362,7 @@ export default function Reviews({ data }) {
                                                     </svg>
                                                 </button>
                                                 <div className="termsBox">
-                                                    <p>Expires:03/062025</p>
+                                                    <p>Expires:03/10/2025</p>
                                                 </div>
                                                 </div>
                                             </div>
