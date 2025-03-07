@@ -147,11 +147,16 @@ nav {
 .navbarbrand {
     text-decoration: none;
     font-weight: 900;
-    font-size: 2.8rem;
+    font-size: 1.8rem;
     color: #000;
     letter-spacing: 1px;
 }
-
+header nav.navbar-expand-lg{
+    max-width: 1400px;
+}
+.navbar-expand-lg .navbar-nav .nav-item:last-child a{
+    margin-right: 0px;
+}
 .navbarbrand span {
     color: #247e6a;
 }
@@ -161,14 +166,14 @@ nav {
 }
 
 #searchform {
-    height: 3.3rem;
+    height: 2.8rem;
     width: 40%;
     margin-left: 3.5rem;
 }
 
 #searchform input {
     display: inline-block;
-    height: 3.6rem;
+    height: 2.8rem;
     width: 100%;
     border: 1px solid #e2e2e3;
     outline: none;
@@ -387,8 +392,13 @@ nav {
         margin: auto;
         text-align: center;
         align-items: center;
-        font-size: 2.3rem;
+        font-size: 1.8rem;
     }
+}
+header .navbar .navbar-toggler{
+    padding: 0;
+    border: none;
+    box-shadow: none;
 }
 
 @media(max-width:410px) {
@@ -403,3 +413,16 @@ nav {
     }
 } 
 
+@media (min-width:991px) {
+    .flexDiv{
+        display: flex;
+        justify-content: space-between;
+    }
+    header .navbar-expand-lg .colllpableBox{
+        max-width: fit-content;
+    }
+}
+.row{
+    max-width: 100%;
+    margin: auto;
+}

@@ -17,19 +17,19 @@ export function Header() {
 
     <header>
       <nav className="container-fluid navbar navbar-expand-lg bg-body-light" id="top">
-        <div className="container-fluid col sm-8">
+        <div className="container-fluid flexDiv">
 
           <button className="navbar-toggler mr-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <Link prefetch={false}
-            className="navbarbrand mx-auto"
+            className="navbarbrand"
             href='/'
           >Scoop<span>Review</span></Link>
           <form id="searchform" role="search">
                <Search/>
                </form>
-          <div className="collapse navbar-collapse" id="navbarScroll">
+          <div className="collapse navbar-collapse colllpableBox" id="navbarScroll">
             <ul className="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
             
               <li className="nav-item">
