@@ -14,7 +14,7 @@ export function Footer() {
         <div className="container col-lg-11 col-md-11 col-sm-11">
           <div className="row">
             <div className="col-lg-5 col-md-12 col-sm-12 about-scoop footer-itmes mx-auto">
-              <h4>ScoopReview</h4>
+              <h4>Scoop<span>Review</span></h4>
               <p>At ScoopReview, we want to be your one-stop-shop for wide, in-depth product reviews of the top brands on the market while pointing you to the best prices on the internet.</p>
               <div className="social">
                 <a href="#"><span><i className="fa fa-facebook-square" aria-hidden="true"></i></span></a>

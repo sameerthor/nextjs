@@ -426,3 +426,9 @@ header .navbar .navbar-toggler{
     max-width: 100%;
     margin: auto;
 }
+header{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+}
+footer h4 span{
+    color: #247e6a;
+}
