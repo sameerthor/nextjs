@@ -63,6 +63,12 @@ export function Footer() {
                 href='/contact'
               >
                 Contact
+              </Link><br></br>
+              <Link prefetch={false}
+                className={pathname === '/affiliate-disclosure' ? 'text-blue' : 'text-black'}
+                href='//affiliate-disclosure'
+              >
+                Affiliate Disclosure
               </Link>
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">

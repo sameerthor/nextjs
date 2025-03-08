@@ -326,9 +326,7 @@ header nav.navbar-expand-lg{
     background-color: #1e9f83;
 }
 
-.text-blue {
-    color: #c6e3f6 !important;
-}
+
 
 .search i {
     opacity: 1 !important;
@@ -431,4 +429,7 @@ header{
 }
 footer h4 span{
     color: #247e6a;
+}
+.text-blue{
+    color: #247e6a !important;
 }
