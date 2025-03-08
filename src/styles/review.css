@@ -290,10 +290,12 @@
     letter-spacing: .3px;
 }
 .write-review img{
-    margin: .5rem auto;
+    margin: auto;
     display: block;
-    max-width: 80%;
+    max-width: 100%;
     object-fit: contain;
+    width: 600px;
+    height: auto;
 }
 .write-review h2{
     font-size: 1.62rem;
@@ -315,6 +317,7 @@
     list-style-type: disc;
     font-weight: 500;
     margin: 1rem auto;
+    padding-left: 25px;
 }
 .write-review ol li{
    margin: .6rem auto;
@@ -325,12 +328,12 @@
     list-style-type: disc;
     font-weight: 500;
     margin: 1rem auto;
+    padding-left: 25px;
 }
 .write-review ul li{
    margin: .6rem auto;
    font-size: 1.16rem;
    color: #2b2b33;
-   margin-left: 2%;
 }
 .write-review i{
     font-weight: 600;
@@ -966,4 +969,16 @@ table {
 }
 .offerToday table tbody tr:hover {
    background-color: transparent;
+ }
+ @media(max-width:550px){
+   .offerToday table thead tr th:nth-of-type(1){
+        display: table;
+     }
+   .offerToday table tbody tr td:nth-of-type(1){
+        display: table;
+     }
+     .review-item a{
+        text-align: left;
+        font-size: 1rem;
+     }
  }
