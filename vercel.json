@@ -1,0 +1,23 @@
+{
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/index"
+      },
+      {
+        "source": "/:path*",
+        "destination": "/:path*"
+      },
+      {
+        "source": "/",
+        "has": [{ "type": "host", "value": "*.scoopreview.com" }],
+        "destination": "/subdomain-route/[dynamic]"
+      },
+      {
+        "source": "/:path*",
+        "has": [{ "type": "host", "value": "*.scoopreview.com" }],
+        "destination": "/subdomain-route/[dynamic]"
+      }
+    ]
+  }
+  
