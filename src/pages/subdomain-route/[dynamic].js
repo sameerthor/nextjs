@@ -1,13 +1,16 @@
 import { useRouter } from "next/router";
-import { LRUCache } from 'lru-cache'; // ✅ Correct import for v6
-import getConfig from 'next/config';
+import LRUCache from "lru-cache"; // ✅ Default import for v6
+import getConfig from "next/config";
 
 const { publicRuntimeConfig } = getConfig();
 
-// Setup LRU cache
-const cache = new LRUCache({ max: 100, maxAge: 60 * 60 * 1000 }); // Cache for 1 hour (Use maxAge instead of ttl in v6)
+// Setup LRU cache (use maxAge instead of ttl in v6)
+const cache = new LRUCache({
+  max: 100, 
+  maxAge: 60 * 60 * 1000 // Cache for 1 hour
+});
 
-export async function getServerSideProps({ req, params }) {
+export async function getServerSideProps({ params }) {
   const subdomain = params.dynamic;
   const cacheKey = `subdomain:${subdomain}`;
 
