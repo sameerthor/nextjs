@@ -11,8 +11,9 @@ const inter = Montserrat({ subsets: ['vietnamese'] })
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
-    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+    window.bootstrap = require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
+ 
   return <>
     <style jsx global>{`
     html {

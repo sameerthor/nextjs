@@ -6,21 +6,48 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 import moment from "moment";
+import dynamic from "next/dynamic";
 import { useRouter } from 'next/router'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
-
+const RatingBox = dynamic(() => import('@/components/ratingbox'),
+    {
+        ssr: true,
+    });
 
 export default function Store({ data }) {
-    
+
     const router = useRouter()
     const [storedata, setStoredata] = useState(data);
+    console.log("test", storedata);
     const [activetab, setActivetab] = useState("all");
     const [copytext, setCopytext] = useState("COPY")
     const [dealModaldata, setDealModaldata] = useState({});
     const [year, setYear] = useState(new Date().getFullYear());
     const [couponModaldata, setCouponModaldata] = useState({});
 
+    const getHeading = (title) => {
+        if (!title) return "";
+
+        // Check for percentage discount (e.g., "40% OFF")
+        const percentMatch = title.match(/(\d+)%/);
+        if (percentMatch) {
+            return `${percentMatch[1]}% <br /> OFF`;
+        }
+
+        // Check for dollar discount (e.g., "$40 OFF")
+        const dollarMatch = title.match(/\$(\d+)/);
+        if (dollarMatch) {
+            return `$${dollarMatch[1]} <br /> OFF`;
+        }
+
+        // Check for "Free Shipping"
+        if (/free shipping/i.test(title)) {
+            return "Free  <br /> Shipping";
+        }
+
+        return "";
+    };
     // const idJsonObject = {
 
     //     "@context": "http://schema.org",
@@ -163,177 +190,175 @@ export default function Store({ data }) {
                             <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <a href={`${storedata.store.web_url}`}>{storedata.store.name}</a></p>
                             <p className='ms-auto cat-name'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
                         </div>
-                    </div>
-                    <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto deal-box">
-                        <p className='ms-auto cat-coupon-name'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
-                        <h1>{data.store.seo_title} {moment().format('YYYY')}</h1>
-                        <p className="verified"><span className="check"><i className="fa fa-check-circle-o" aria-hidden="true"></i></span>Last
-                            verified on <span>{moment().format('Do MMMM YYYY')}</span></p>
-                        <div className="toggle-btn">
-                            <button onClick={() => changeTab('all')} className={activetab == 'all' ? 'selected all' : 'all'}>All <span>{data.coupon_h2.length}</span></button>
-                            <button onClick={() => changeTab('coupons')} className={activetab == 'coupons' ? 'selected coupons' : 'coupons'}>Coupons <span>{data.coupon_h2.filter(element => element.is_deal === 0).length}</span></button>
-                            <button onClick={() => changeTab('deals')} className={activetab == 'deals' ? 'selected deals' : 'deals'}>Deals <span>{data.coupon_h2.filter(element => element.is_deal !== 0).length}</span></button>
-                        </div>
-                        {storedata.coupon_h2 && storedata.coupon_h2.map((item, index) =>
-                            <div className="container col-lg-12 col-md-12 col-sm-12 mx-auto coupon-box" key={item.id}>
-                                <div className="row row-cols-1 row-cols-lg-2">
-                                    <div className="col col-lg-9 col-md-9 col-sm-12 mx-auto">
-                                        <div className="d-flex">
-                                            <div className="image">
-                                                <Image width={0} height={0} sizes="100vw"
-                                                    style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/${storedata.store.store_logo}`} alt="" />
-                                                <p className="discount d-block text-center">{item.type_text}% <strong>off</strong></p>
-                                            </div>
-                                            <div className="content">
-                                                <a id="store" href=""><h3>{item.title}</h3></a>
-                                                <div className="d-flex">
-                                                    <span id="code">{item.is_deal == '0' ? 'Code' : 'Deal'}</span>
+                        <>
+                            <div className="contentBox">
+                                <div className="storeHeader row row-cols-2">
+                                    <div className="header-content col-8 p-0">
+                                        <h1>
+                                            {storedata.store.h1keyword}
+                                        </h1>
+                                        <h2 className="dealAvl" id="12_Codes_&_0_Deals_available">
+                                            {`${storedata.ecoupons.filter(c => c.is_deal === 0).length} Codes & ${storedata.ecoupons.filter(c => c.is_deal === 1).length} Deals available`.replace(/^0 Codes & | & 0 Deals|^0 Codes$|^0 Deals$/, '')}
+                                        </h2>
+                                    </div>
+                                    <aside className="col-4">
+                                        <div className="header-thumb">
+                                            <div className="header-store-thumb">
+                                                <a rel="nofollow" target="_blank" title="#" href="#">
+                                                    <img
+                                                        loading="lazy"
+                                                        width={100}
+                                                        height={100}
+                                                        decoding="async"
+                                                        data-nimg={1}
+                                                        src={`${publicRuntimeConfig.imageUrl}` + 'images/' + storedata.store.store_logo}
+                                                    />
+                                                </a>
+                                                <RatingBox key={'store_' + storedata.store.id} store={storedata} />
 
-                                                    {item.is_deal == '0' && <span id="noexp">No Expires</span>}
-                                                </div>
-                                                <p>{
-                                                    item.descp.replace(/<\/?[^>]+(>|$)/g, "").length > 50 ? <>{
-                                                        item.is_more === false ? item.descp.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 50) : item.descp.replace(/<\/?[^>]+(>|$)/g, "")}... <span onClick={() => changeView(index)} className='less_more'>{item.is_more === false ? 'more' : 'less'}</span>
-                                                    </> : item.descp.replace(/<\/?[^>]+(>|$)/g, "")
-                                                }</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="col col-lg-3 col-md-3 col-sm-12 mx-auto">
-                                        {
-                                            item.is_deal == '0' ?
-                                                <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setCouponModaldata(item), window.open(storedata.store.aff_url && storedata.store.aff_url, '_blank') }} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
-                                                :
-                                                <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(storedata.store.aff_url) }} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
-
-                                        }
-                                        <div className="icon-success">
-                                            <div className="" id="icons">
-                                                <span className="face">
-                                                    <span className="smile" data-bs-toggle="tooltip modal" data-bs-target="#itWorked" data-bs-placement="top" title="This Worked!"><i className="fa fa-smile-o" aria-hidden="true"></i></span>
-                                                    <span className="sad" data-bs-toggle="tooltip modal" data-bs-target="#itDidNotWork" data-bs-placement="top" title="It didn't Work"><i className="fa fa-frown-o" aria-hidden="true"></i></span>
-                                                    <span className="star" data-bs-toggle="tooltip modal" data-bs-target="#saveCoupon" data-bs-placement="top" title="Save this coupon"><i className="fa fa-star-o" aria-hidden="true"></i></span>
-                                                </span>
-                                            </div>
-                                            <p className="success mt-2"> {item.percent}% success</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    {
-                                        item.is_deal != '0' ?
-                                            ''
-                                            : <p id="msg"><span id="lock"><i className="fa fa-lock" aria-hidden="true"></i></span><span id="excl">Exclusive:</span> This coupon can only be found at our website.</p>
-                                    }
-                                    <div className="impression d-flex">
-                                        <div>
-                                            <span><i className="fa fa-wifi" aria-hidden="true"></i>{item.used} Used - {item.today_used} Today</span>
-                                            <button type="button" className="modal-btn" data-bs-toggle="modal" data-bs-target="#shareCoupon" data-bs-whatever="@mdo"><span><i className="fa fa-share-alt" aria-hidden="true"></i><span id="hide">share</span></span></button>
-                                        </div>
-                                        <div className="ms-auto">
-                                            <button type="button" className="modal-btn" data-bs-toggle="modal" data-bs-target="#sendEmail" data-bs-whatever="@mdo"><span><i className="fa fa-envelope-o" aria-hidden="true"></i><span id="hide">Email</span></span></button>
-                                            <button type="button" className="modal-btn" data-bs-toggle="modal" data-bs-target="#newComment" data-bs-whatever="@mdo"><span><i className="fa fa-comments-o" aria-hidden="true"></i><span id="hide">0 Comments</span></span></button>
-                                        </div>
-                                    </div>
+                                    </aside>
                                 </div>
                             </div>
-                        )
-                        }
-                        <div className="container col-lg-12 col-md-12 col-sm-12 mx-auto shadow-sm best-coupons">
-                            <h3>Best {data.store.name} Coupon Codes</h3>
-                            <span className="d-block d-md-none last-update">Updated on {moment().format('YYYY-MM-DD')}</span>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Discount</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                        <th className="">Updated</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {data.coupon_h2 && data.coupon_h2.map((item, index) => {
-                                        if (index <= 2)
-                                            return (
-                                                <tr key={item.id}>
-                                                    <td> {item.type_text}% OFF</td>
-                                                    {/* <td className='description'>{item.title}</td> */}
-                                                    <td>{storedata.store.name} Coupon & Discount Code</td>
-                                                    <td><strong>Active</strong></td>
-                                                    <td className="">{moment().format('YYYY-MM-DD')}</td>
-                                                </tr>);
-                                    }
-                                    )}
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div className="container-fluid">
-                    <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto shadow-sm coupon-details">
-                        <div className="about-coupons">
-                            <h2>About {storedata.store.name} Coupons</h2>
-                            <div className="store-info"
-                                dangerouslySetInnerHTML={{ __html: storedata.store.desc.match(/^[^<]*/)[0] }}
-                            />
-                        </div>
-                        {
-                            storedata.faqs.length > 0 &&
-                            <>
-                                <h2 className="faq-title">{storedata.store.name} <span>FAQs</span></h2>
-
-                                <div className="fnq">
-                                    {
-                                        storedata.faqs && storedata.faqs.map((item) =>
-                                            <div key={item.id}>
-                                                <h3 className="faq-question">{item.faq_question}</h3>
-
-                                                <div className="faq-answer"
-                                                    dangerouslySetInnerHTML={{ __html: item.faq_answer }}
-                                                />
+                            <div className="listCoupns">
+                                {storedata.ecoupons.map((item) =>
+                                    <div className="coupon-item">
+                                        <div className="discountBox">
+                                            <div className="offBox">
+                                                {<div
+                                                    dangerouslySetInnerHTML={{ __html: getHeading(item.title) }}
+                                                />}
                                             </div>
+                                            <div className="isValid">
+                                                <span>Verified</span>
+                                                <span>
+                                                    <svg
+                                                        data-bbox="27.999 25 143.499 149.925"
+                                                        viewBox="27.999 25 143.499 149.925"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        data-type="shape"
+                                                        role="img"
+                                                        aria-label="Verified"
+                                                    >
+                                                        <g>
+                                                            <path
+                                                                d="M91.301 122.708 71.46 102.867l5.891-5.892 13.95 13.95 30.842-30.842 5.891 5.892-36.733 36.733Zm79.233-6.141-8.608-16.717 8.608-16.558a8.471 8.471 0 0 0 .55-6.542 8.457 8.457 0 0 0-4.283-4.975l-16.792-8.458-2.775-18.467a8.469 8.469 0 0 0-3.408-5.617c-1.858-1.341-4.142-1.891-6.375-1.491l-18.55 3.025-13.1-13.317h-.008c-3.209-3.267-8.875-3.267-12.092 0L80.468 40.808 62.05 37.742c-2.242-.4-4.533.15-6.383 1.491a8.47 8.47 0 0 0-3.408 5.617l-2.85 18.583-16.717 8.342a8.471 8.471 0 0 0-4.275 4.975 8.449 8.449 0 0 0 .541 6.533l8.609 16.709-8.6 16.566a8.416 8.416 0 0 0-.55 6.534 8.448 8.448 0 0 0 4.283 4.983l16.783 8.45 2.776 18.467a8.451 8.451 0 0 0 3.408 5.616 8.475 8.475 0 0 0 6.375 1.5l18.558-3.033 13.1 13.317a8.433 8.433 0 0 0 6.05 2.533c2.292 0 4.433-.9 6.05-2.533l13.233-13.359 18.417 3.075a8.41 8.41 0 0 0 6.375-1.5 8.45 8.45 0 0 0 3.408-5.616l2.859-18.575 16.716-8.342a8.462 8.462 0 0 0 4.275-4.983c.7-2.184.509-4.5-.55-6.525Z"
+                                                                fillRule="evenodd"
+                                                            />
+                                                        </g>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="coupnBox">
+                                            <div className="coupondesc">
+                                                <div>
+                                                    <div className="svgBox">
+                                                        <svg
+                                                            width={14}
+                                                            height={14}
+                                                            viewBox="0 0 14 14"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                            <path
+                                                                d="M13.2735 6.60866L7.38683 0.721994C7.14016 0.475327 6.80016 0.335327 6.44683 0.335327H1.66683C0.933496 0.335327 0.333496 0.935327 0.333496 1.66866V6.44866C0.333496 6.80199 0.473496 7.14199 0.726829 7.38866L6.6135 13.2753C7.1335 13.7953 7.98016 13.7953 8.50016 13.2753L13.2802 8.49533C13.8002 7.97533 13.8002 7.13533 13.2735 6.60866ZM3.3335 4.33533C2.78016 4.33533 2.3335 3.88866 2.3335 3.33533C2.3335 2.78199 2.78016 2.33533 3.3335 2.33533C3.88683 2.33533 4.3335 2.78199 4.3335 3.33533C4.3335 3.88866 3.88683 4.33533 3.3335 4.33533Z"
+                                                                fill="#1A1A1A"
+                                                            />
+                                                        </svg>
+                                                        <span>{item.is_deal == "1" ? "deal" : "code"}</span>
+                                                    </div>
+                                                    <p>
+                                                        <a href="#">
+                                                            {item.title}
+                                                        </a>
+                                                    </p>
+                                                    <div className="couponBtndesc">
+                                                        <button data-bs-toggle="modal" data-bs-target="#dealPopup">
+                                                            Get Deal
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                                <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div className="termsBox">
+                                                    <a href="#">Terms &amp; Conditions</a>
+                                                    <div
+                                                        dangerouslySetInnerHTML={{ __html: item.term_condition }}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="couponBtn">
+                                                {
+                                                    item.is_deal == '0' ?
+                                                        <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setCouponModaldata(item), window.open(storedata.store.aff_url && storedata.store.aff_url, '_blank') }} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                                                        :
+                                                        <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(storedata.store.aff_url) }} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
 
-                                        )}
-                                </div>
-                            </>
-                        }
-                    </div>
-                </div>
-                <div className="container-fluid">
-                    <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto shadow-sm related-store">
-                        <div className="row store-box">
-                            <h3 className='text-center mb-4'>Related Store</h3>
-                            {
-                                storedata.rstores && storedata.rstores.map((item) =>
-                                    <div className="col-lg-4 col-md-6 col-sm-6 store-item" key={item.id}>
-                                        <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i> {item.name}</Link>
-                                    </div>
-                                )
-                            }
-                        </div>
-                    </div>
-                </div>
-                {/* <div className="container-fluid">
-                    <div className="container col-sm-11 col-md-8 col-lg-8 mx-auto shadow-sm popular">
-                        <h3>Popular Stores</h3>
-                        <div className="row row-cols-2 row-cols-md-3  gx-4">
-                            {
-                                storedata.pstores && storedata.pstores.map((item) =>
-                                    <div className="col ppl-str" key={item.id}>
-                                        <div className='ppl-box'>
-                                            <Link href={`/${item.slug}`}>
-                                                <Image width={0} height={0} sizes="100vw"
-                                                    style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/${item.store_logo}`} alt={item.name} />
-                                            </Link>
-                                            <p className="text-center">{item.name}</p>
+                                                }
+                                                <div className="termsBox">
+                                                    {
+                                                        item.expiry_date != null && <p>Expires:{moment.unix(timestamp).format("MM/DD/YYYY")}</p>
+                                                    }
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                )
-                            }
+                                )}
+                            </div>
+                           
+                        </>
+                        <div className='offerToday'>
+                 <h3>Today's {storedata.store.name} Offer</h3>
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>🛍️ Total Offers</td>
+                                                            <td className="text-right font-medium">{storedata.ecoupons && storedata.ecoupons.length}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>🏷️ Active Coupon Codes</td>
+                                                            <td className="text-right font-medium">{storedata.ecoupons.filter(x => x.is_deal == '0').length}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>🛒 Free Shipping</td>
+                                                            <td className="text-right font-medium">{storedata.ecoupons.filter(x => x.title.toLowerCase().includes("shipping")).length}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>🔥 Best Offer</td>
+                                                            <td className="text-right font-medium">Flat {storedata.ecoupons && storedata.ecoupons[0].title}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            
+                 </div>
+                    </div>
+             
+                </div>
+                <div className="container-fluid">
+                    <div className="container">
+                        <div className="row review">
+                            <div className="col-lg-11 col-md-12 col-sm-11 write-review">
+                                <div
+                                    dangerouslySetInnerHTML={{ __html: storedata.store.desc }}
+                                />
+                                <div id="fAq">
+                                    {storedata.faqs.map((item) => {
+                                        return (<>
+                                            <div className="faq_block">
+                                                <h3 className="faq_question">{item.faq_question}</h3>
+                                                <p className="faq_answer">{item.faq_answer}</p>
+                                            </div>
+                                        </>);
+                                    })
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
                 <div className="modal fade" id="dealPopup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
