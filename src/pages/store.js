@@ -9,6 +9,7 @@ import moment from "moment";
 import dynamic from "next/dynamic";
 import { useRouter } from 'next/router'
 import getConfig from 'next/config'
+import { Item } from 'semantic-ui-react';
 const { publicRuntimeConfig } = getConfig()
 const RatingBox = dynamic(() => import('@/components/ratingbox'),
     {
@@ -48,6 +49,15 @@ export default function Store({ data }) {
 
         return "";
     };
+    const [visibleCommentBoxes, setVisibleCommentBoxes] = useState({});
+
+    const toggleCommentBox = (index) => {
+        setVisibleCommentBoxes((prev) => ({
+            ...prev,
+            [index]: !prev[index],
+        }));
+    };
+    
     // const idJsonObject = {
 
     //     "@context": "http://schema.org",
@@ -186,9 +196,18 @@ export default function Store({ data }) {
                 <Header />
                 <div className="container-fluid deal-bg">
                     <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto">
-                        <div className='d-flex'>
+                        {/* <div className='d-flex'>
                             <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <a href={`${storedata.store.web_url}`}>{storedata.store.name}</a></p>
                             <p className='ms-auto cat-name'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
+                        </div> */}
+                        <div className="breadcrumb col-md-12">
+                            <ul>
+                                <li><a href="/">scoopReview.com</a> <i className="fa fa-angle-double-right" aria-hidden="true"></i></li>
+                                <li>{storedata.store.name}</li>
+                            </ul>
+                            <div className="storeCat">
+                                <a href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</a>
+                            </div>
                         </div>
                         <>
                             <div className="contentBox">
@@ -201,7 +220,7 @@ export default function Store({ data }) {
                                             {`${storedata.ecoupons.filter(c => c.is_deal === 0).length} Codes & ${storedata.ecoupons.filter(c => c.is_deal === 1).length} Deals available`.replace(/^0 Codes & | & 0 Deals|^0 Codes$|^0 Deals$/, '')}
                                         </h2>
                                     </div>
-                                    <aside className="col-4">
+                                    <aside className="col-4 p-0">
                                         <div className="header-thumb">
                                             <div className="header-store-thumb">
                                                 <a rel="nofollow" target="_blank" title="#" href="#">
@@ -222,90 +241,99 @@ export default function Store({ data }) {
                                 </div>
                             </div>
                             <div className="listCoupns">
-                                {storedata.ecoupons.map((item) =>
-                                    <div className="coupon-item">
-                                        <div className="discountBox">
-                                            <div className="offBox">
-                                                {<div
-                                                    dangerouslySetInnerHTML={{ __html: getHeading(item.title) }}
-                                                />}
-                                            </div>
-                                            <div className="isValid">
-                                                <span>Verified</span>
-                                                <span>
-                                                    <svg
-                                                        data-bbox="27.999 25 143.499 149.925"
-                                                        viewBox="27.999 25 143.499 149.925"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        data-type="shape"
-                                                        role="img"
-                                                        aria-label="Verified"
-                                                    >
-                                                        <g>
-                                                            <path
-                                                                d="M91.301 122.708 71.46 102.867l5.891-5.892 13.95 13.95 30.842-30.842 5.891 5.892-36.733 36.733Zm79.233-6.141-8.608-16.717 8.608-16.558a8.471 8.471 0 0 0 .55-6.542 8.457 8.457 0 0 0-4.283-4.975l-16.792-8.458-2.775-18.467a8.469 8.469 0 0 0-3.408-5.617c-1.858-1.341-4.142-1.891-6.375-1.491l-18.55 3.025-13.1-13.317h-.008c-3.209-3.267-8.875-3.267-12.092 0L80.468 40.808 62.05 37.742c-2.242-.4-4.533.15-6.383 1.491a8.47 8.47 0 0 0-3.408 5.617l-2.85 18.583-16.717 8.342a8.471 8.471 0 0 0-4.275 4.975 8.449 8.449 0 0 0 .541 6.533l8.609 16.709-8.6 16.566a8.416 8.416 0 0 0-.55 6.534 8.448 8.448 0 0 0 4.283 4.983l16.783 8.45 2.776 18.467a8.451 8.451 0 0 0 3.408 5.616 8.475 8.475 0 0 0 6.375 1.5l18.558-3.033 13.1 13.317a8.433 8.433 0 0 0 6.05 2.533c2.292 0 4.433-.9 6.05-2.533l13.233-13.359 18.417 3.075a8.41 8.41 0 0 0 6.375-1.5 8.45 8.45 0 0 0 3.408-5.616l2.859-18.575 16.716-8.342a8.462 8.462 0 0 0 4.275-4.983c.7-2.184.509-4.5-.55-6.525Z"
-                                                                fillRule="evenodd"
-                                                            />
-                                                        </g>
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div className="coupnBox">
-                                            <div className="coupondesc">
-                                                <div>
-                                                    <div className="svgBox">
+                                {storedata.ecoupons.map((item, index) =>
+                                    <div class="hugecouponBox" key={index}>
+                                       <div className="coupon-item">
+                                            <div className="discountBox">
+                                                <div className="offBox">
+                                                    {<div
+                                                        dangerouslySetInnerHTML={{ __html: getHeading(item.title) }}
+                                                    />}
+                                                </div>
+                                                <div className="isValid">
+                                                    <span>Verified</span>
+                                                    <span>
                                                         <svg
-                                                            width={14}
-                                                            height={14}
-                                                            viewBox="0 0 14 14"
-                                                            fill="none"
+                                                            data-bbox="27.999 25 143.499 149.925"
+                                                            viewBox="27.999 25 143.499 149.925"
                                                             xmlns="http://www.w3.org/2000/svg"
+                                                            data-type="shape"
+                                                            role="img"
+                                                            aria-label="Verified"
                                                         >
-                                                            <path
-                                                                d="M13.2735 6.60866L7.38683 0.721994C7.14016 0.475327 6.80016 0.335327 6.44683 0.335327H1.66683C0.933496 0.335327 0.333496 0.935327 0.333496 1.66866V6.44866C0.333496 6.80199 0.473496 7.14199 0.726829 7.38866L6.6135 13.2753C7.1335 13.7953 7.98016 13.7953 8.50016 13.2753L13.2802 8.49533C13.8002 7.97533 13.8002 7.13533 13.2735 6.60866ZM3.3335 4.33533C2.78016 4.33533 2.3335 3.88866 2.3335 3.33533C2.3335 2.78199 2.78016 2.33533 3.3335 2.33533C3.88683 2.33533 4.3335 2.78199 4.3335 3.33533C4.3335 3.88866 3.88683 4.33533 3.3335 4.33533Z"
-                                                                fill="#1A1A1A"
-                                                            />
+                                                            <g>
+                                                                <path
+                                                                    d="M91.301 122.708 71.46 102.867l5.891-5.892 13.95 13.95 30.842-30.842 5.891 5.892-36.733 36.733Zm79.233-6.141-8.608-16.717 8.608-16.558a8.471 8.471 0 0 0 .55-6.542 8.457 8.457 0 0 0-4.283-4.975l-16.792-8.458-2.775-18.467a8.469 8.469 0 0 0-3.408-5.617c-1.858-1.341-4.142-1.891-6.375-1.491l-18.55 3.025-13.1-13.317h-.008c-3.209-3.267-8.875-3.267-12.092 0L80.468 40.808 62.05 37.742c-2.242-.4-4.533.15-6.383 1.491a8.47 8.47 0 0 0-3.408 5.617l-2.85 18.583-16.717 8.342a8.471 8.471 0 0 0-4.275 4.975 8.449 8.449 0 0 0 .541 6.533l8.609 16.709-8.6 16.566a8.416 8.416 0 0 0-.55 6.534 8.448 8.448 0 0 0 4.283 4.983l16.783 8.45 2.776 18.467a8.451 8.451 0 0 0 3.408 5.616 8.475 8.475 0 0 0 6.375 1.5l18.558-3.033 13.1 13.317a8.433 8.433 0 0 0 6.05 2.533c2.292 0 4.433-.9 6.05-2.533l13.233-13.359 18.417 3.075a8.41 8.41 0 0 0 6.375-1.5 8.45 8.45 0 0 0 3.408-5.616l2.859-18.575 16.716-8.342a8.462 8.462 0 0 0 4.275-4.983c.7-2.184.509-4.5-.55-6.525Z"
+                                                                    fillRule="evenodd"
+                                                                />
+                                                            </g>
                                                         </svg>
-                                                        <span>{item.is_deal == "1" ? "deal" : "code"}</span>
-                                                    </div>
-                                                    <p>
-                                                        <a href="#">
-                                                            {item.title}
-                                                        </a>
-                                                    </p>
-                                                    <div className="couponBtndesc">
-                                                        <button data-bs-toggle="modal" data-bs-target="#dealPopup">
-                                                            Get Deal
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                                                <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
-                                                            </svg>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div className="termsBox">
-                                                    <a href="#">Terms &amp; Conditions</a>
-                                                    <div
-                                                        dangerouslySetInnerHTML={{ __html: item.term_condition }}
-                                                    />
+                                                    </span>
                                                 </div>
                                             </div>
-                                            <div className="couponBtn">
-                                                {
-                                                    item.is_deal == '0' ?
-                                                        <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setCouponModaldata(item), window.open(storedata.store.aff_url && storedata.store.aff_url, '_blank') }} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
-                                                        :
-                                                        <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(storedata.store.aff_url) }} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
-
-                                                }
-                                                <div className="termsBox">
+                                            <div className="coupnBox">
+                                                <div className="coupondesc">
+                                                    <div>
+                                                        <div className="svgBox">
+                                                            <svg
+                                                                width={14}
+                                                                height={14}
+                                                                viewBox="0 0 14 14"
+                                                                fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                            >
+                                                                <path
+                                                                    d="M13.2735 6.60866L7.38683 0.721994C7.14016 0.475327 6.80016 0.335327 6.44683 0.335327H1.66683C0.933496 0.335327 0.333496 0.935327 0.333496 1.66866V6.44866C0.333496 6.80199 0.473496 7.14199 0.726829 7.38866L6.6135 13.2753C7.1335 13.7953 7.98016 13.7953 8.50016 13.2753L13.2802 8.49533C13.8002 7.97533 13.8002 7.13533 13.2735 6.60866ZM3.3335 4.33533C2.78016 4.33533 2.3335 3.88866 2.3335 3.33533C2.3335 2.78199 2.78016 2.33533 3.3335 2.33533C3.88683 2.33533 4.3335 2.78199 4.3335 3.33533C4.3335 3.88866 3.88683 4.33533 3.3335 4.33533Z"
+                                                                    fill="#1A1A1A"
+                                                                />
+                                                            </svg>
+                                                            <span>{item.is_deal == "1" ? "deal" : "code"}</span>
+                                                        </div>
+                                                        <p>
+                                                            <a href="#">
+                                                                {item.title}
+                                                            </a>
+                                                        </p>
+                                                        <div className="couponBtndesc">
+                                                            <button data-bs-toggle="modal" data-bs-target="#dealPopup">
+                                                                Get Deal
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                                    <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className="termsBox">
+                                                    <a href="#" onClick={toggleCommentBox}>
+                                                             {visibleCommentBoxes[index] ? "Hide Terms & Conditions" : "Terms & Conditions"}
+                                                     </a>
+                                                    </div>
+                                                </div>
+                                                <div className="couponBtn">
                                                     {
-                                                        item.expiry_date != null && <p>Expires:{moment.unix(timestamp).format("MM/DD/YYYY")}</p>
+                                                        item.is_deal == '0' ?
+                                                            <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setCouponModaldata(item), window.open(storedata.store.aff_url && storedata.store.aff_url, '_blank') }} data-bs-target="#codePopup" type="button">GET CODE<i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                                                            :
+                                                            <button className="submit d-flex" data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(storedata.store.aff_url) }} data-bs-target="#dealPopup" type="button">GET DEAL <i className="fa fa-shopping-cart" aria-hidden="true"></i></button>
+
                                                     }
+                                                    <div className="termsBox">
+                                                        {
+                                                            item.expiry_date != null && <p>Expires:{moment.unix(timestamp).format("MM/DD/YYYY")}</p>
+                                                        }
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        {visibleCommentBoxes[index] && (
+                                        <div className='tNcBox'>
+                                            <div
+                                                    dangerouslySetInnerHTML={{ __html: item.term_condition }}
+                                                />
+                                        </div>
+                                         )}
                                     </div>
+                                    
                                 )}
                             </div>
                            
