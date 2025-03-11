@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
-import LRU from "lru-cache";
+import { LRUCache } from 'lru-cache'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
 // Setup LRU cache
-const cache = new LRU({ max: 100, ttl: 60 * 60 * 1000 }); // Cache for 1 hour
+const cache = new LRUCache({ max: 100, ttl: 60 * 60 * 1000 }); // Cache for 1 hour
 
 export async function getServerSideProps({ req, params }) {
   const subdomain = params.dynamic;
