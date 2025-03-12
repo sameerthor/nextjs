@@ -41,31 +41,7 @@ export default function Store({ data }) {
 
     const router = useRouter()
     const [storedata, setStoredata] = useState(data);
-    let per = getHeading(storedata.ecoupons[0].title); 
-    const store_names = storedata.rstores.filter(f => f.id !== storedata.store.id).slice(0, 2).map(item => `<a href="/${item.slug}">${item.name}</a>`)
-
-    storedata.store.desc = storedata.store.desc.replaceAll("%%storename%%", storedata.store.name);
-    storedata.store.desc = storedata.store.desc.replaceAll("%pe­rcentage% off", per);
-    storedata.store.desc = storedata.store.desc.replaceAll("%percentage% off", per);
-    storedata.store.desc = storedata.store.desc.replaceAll("%pe­rcentage% Off", per);
-    storedata.store.desc = storedata.store.desc.replaceAll("%percentage% Off", per);
-    storedata.store.desc = storedata.store.desc.replaceAll("%pe­rcentage% OFF", per);
-    storedata.store.desc = storedata.store.desc.replaceAll("%percentage% OFF", per);
-    storedata.store.desc = storedata.store.desc.replaceAll("%pe­rcentage%", per);
-    storedata.store.desc = storedata.store.desc.replaceAll("%percentage%", per);
-    storedata.store.desc = storedata.store.desc.replace(/XXX/, storedata.ecoupons.filter(x => x.is_deal != '1').length > 0 ? storedata.ecoupons.filter(x => x.is_deal != '1')[0].coupon_code : "");
-    storedata.store.desc = storedata.store.desc.replace(/XX/, storedata.ecoupons.length);
-    storedata.store.desc = storedata.store.desc.replace('XXX', storedata.ecoupons.filter(x => x.is_deal != '1').length > 0 ? storedata.ecoupons.filter(x => x.is_deal != '1')[0].coupon_code : "");
-    storedata.store.desc = storedata.store.desc.replace('XX', storedata.ecoupons.length);
-    storedata.store.desc = storedata.store.desc.replaceAll("%%currentmonth%%", moment().format('MMMM'));
-    storedata.store.desc = storedata.store.desc.replaceAll("%%curre­ntmonth%%", moment().format('MMMM'));
-    storedata.store.desc = storedata.store.desc.replaceAll("%%currentyear%%", moment().format('YYYY'));
-    storedata.store.desc = storedata.store.desc.replaceAll("currentyear%%", moment().format('YYYY'));
-    storedata.store.desc = storedata.store.desc.replaceAll(/%%categorystore%% and %%categorystore%%|%categorystore%, %categorystore%, and %categorystore%|%categorystore%, %categorystore%|%categorystore% and %categorystore%|%%categorystore%%, %%categorystore%%|%categorystore%, %categorystore%, %categorystore%|%categorystore% %categorystore%, %categorystore%|%categorystore% %categorystore% %categorystore%|%categorystore% %categorystore% and %categorystore%/gi, store_names.join(", "));
-    storedata.faqs.forEach(faq => {
-        faq.faq_answer = faq.faq_answer.replace('XXX', storedata.ecoupons.filter(x => x.is_deal != '1').length > 0 ? storedata.ecoupons.filter(x => x.is_deal != '1')[0].coupon_code : "");
-        faq.faq_answer = faq.faq_answer.replace('XX', storedata.ecoupons.length);
-    });
+   
 
     const [activetab, setActivetab] = useState("all");
     const [copytext, setCopytext] = useState("COPY")
@@ -82,7 +58,35 @@ export default function Store({ data }) {
             [index]: !prev[index],
         }));
     };
-
+    
+    if(data)
+    {
+        let per = getHeading(storedata.ecoupons[0].title); 
+        const store_names = storedata.rstores.filter(f => f.id !== storedata.store.id).slice(0, 2).map(item => `<a href="/${item.slug}">${item.name}</a>`)
+    
+        storedata.store.desc = storedata.store.desc.replaceAll("%%storename%%", storedata.store.name);
+        storedata.store.desc = storedata.store.desc.replaceAll("%pe­rcentage% off", per);
+        storedata.store.desc = storedata.store.desc.replaceAll("%percentage% off", per);
+        storedata.store.desc = storedata.store.desc.replaceAll("%pe­rcentage% Off", per);
+        storedata.store.desc = storedata.store.desc.replaceAll("%percentage% Off", per);
+        storedata.store.desc = storedata.store.desc.replaceAll("%pe­rcentage% OFF", per);
+        storedata.store.desc = storedata.store.desc.replaceAll("%percentage% OFF", per);
+        storedata.store.desc = storedata.store.desc.replaceAll("%pe­rcentage%", per);
+        storedata.store.desc = storedata.store.desc.replaceAll("%percentage%", per);
+        storedata.store.desc = storedata.store.desc.replace(/XXX/, storedata.ecoupons.filter(x => x.is_deal != '1').length > 0 ? storedata.ecoupons.filter(x => x.is_deal != '1')[0].coupon_code : "");
+        storedata.store.desc = storedata.store.desc.replace(/XX/, storedata.ecoupons.length);
+        storedata.store.desc = storedata.store.desc.replace('XXX', storedata.ecoupons.filter(x => x.is_deal != '1').length > 0 ? storedata.ecoupons.filter(x => x.is_deal != '1')[0].coupon_code : "");
+        storedata.store.desc = storedata.store.desc.replace('XX', storedata.ecoupons.length);
+        storedata.store.desc = storedata.store.desc.replaceAll("%%currentmonth%%", moment().format('MMMM'));
+        storedata.store.desc = storedata.store.desc.replaceAll("%%curre­ntmonth%%", moment().format('MMMM'));
+        storedata.store.desc = storedata.store.desc.replaceAll("%%currentyear%%", moment().format('YYYY'));
+        storedata.store.desc = storedata.store.desc.replaceAll("currentyear%%", moment().format('YYYY'));
+        storedata.store.desc = storedata.store.desc.replaceAll(/%%categorystore%% and %%categorystore%%|%categorystore%, %categorystore%, and %categorystore%|%categorystore%, %categorystore%|%categorystore% and %categorystore%|%%categorystore%%, %%categorystore%%|%categorystore%, %categorystore%, %categorystore%|%categorystore% %categorystore%, %categorystore%|%categorystore% %categorystore% %categorystore%|%categorystore% %categorystore% and %categorystore%/gi, store_names.join(", "));
+        storedata.faqs.forEach(faq => {
+            faq.faq_answer = faq.faq_answer.replace('XXX', storedata.ecoupons.filter(x => x.is_deal != '1').length > 0 ? storedata.ecoupons.filter(x => x.is_deal != '1')[0].coupon_code : "");
+            faq.faq_answer = faq.faq_answer.replace('XX', storedata.ecoupons.length);
+        });
+    }    
     // const idJsonObject = {
 
     //     "@context": "http://schema.org",
