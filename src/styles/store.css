@@ -976,4 +976,36 @@ body{
 
 .contactBox{
     margin-top: 1rem;
+    margin-bottom: 1.6rem;
+}
+.contactBox h3{
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: .5rem;
+}
+.storeDtl .container{
+    padding: 0;
+}
+.storeDtl  .faqsHeading{
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: .5rem;
+}
+.storeDtl  .abtStore{
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: .5rem;
+}
+.tableContainer h3{
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: .5rem;
 }

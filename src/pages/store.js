@@ -382,7 +382,19 @@ export default function Store({ data }) {
 
 
                         </>
-
+                        {/* store discription */}
+                        <div className="storeDtl">
+                            <div className="container">
+                               < h3 className='abtStore'>About {storedata.store.name}</h3>
+                                <div className="review">
+                                    <div className="write-review">
+                                    <div
+                                            dangerouslySetInnerHTML={{ __html: storedata.store.desc }}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                         <div className='offerToday'>
                             <h3>Today's {storedata.store.name} Offer</h3>
                             <table>
@@ -407,8 +419,35 @@ export default function Store({ data }) {
                             </table>
 
                         </div>
+                        {/* contact us */}
+                        <div className='contactBox'>
+                            <h3>Contact {storedata.store.name}</h3>
+                            <p>Los Gatos, California, at 121 Albright Way. US 122622</p>
+                        </div>
+                        {/* faq */}
+                        <div className="storeDtl">
+                            <div className="container">
+                                <h3 className='faqsHeading'>FAQs for {storedata.store.name}</h3>
+                                <div className="review">
+                                    <div className="write-review">
+                                        <div id="fAq">
+                                            {storedata.faqs.map((item) => {
+                                                return (<>
+                                                    <div className="faq_block">
+                                                        <h3 className="faq_question">{item.faq_question}</h3>
+                                                        <p className="faq_answer">{item.faq_answer}</p>
+                                                    </div>
+                                                </>);
+                                            })
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         {/* coupon summary */}
                         <div className="tableContainer">
+                            <h3>Coupon Summary for  {storedata.store.name}</h3>
                             <table border="1" cellspacing="0" cellpadding="0">
                                 <tbody>
                                 <tr>
@@ -482,37 +521,10 @@ export default function Store({ data }) {
                                 </tbody>
                             </table>
                         </div>
-                        {/* contact us */}
-                        <div className='contactBox'>
-                            <h3>Contact this Store</h3>
-                            <p>Los Gatos, California, at 121 Albright Way. US 122622</p>
-                        </div>
 
                     </div>
 
-                </div>
-                <div className="storeDtl">
-                    <div className="container">
-                        <div className="review">
-                            <div className="write-review">
-                                <div
-                                    dangerouslySetInnerHTML={{ __html: storedata.store.desc }}
-                                />
-                                <div id="fAq">
-                                    {storedata.faqs.map((item) => {
-                                        return (<>
-                                            <div className="faq_block">
-                                                <h3 className="faq_question">{item.faq_question}</h3>
-                                                <p className="faq_answer">{item.faq_answer}</p>
-                                            </div>
-                                        </>);
-                                    })
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>           
                
                 
               <div className='commentSection'>
