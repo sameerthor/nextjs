@@ -272,7 +272,7 @@ export default function Reviews({ data }) {
                         <div className="row blogBox">
                             <div className="col-md-8 p-0">
                                 <div className="blogContent">
-                                    <h1>{reviewdata.review.render_name}<span>{reviewdata.review.slug.includes("coupon")?' Coupons, Promo Codes and Offers':'Review'}</span></h1>
+                                    <h1 className='blogTitle'>{reviewdata.review.render_name}<span>{reviewdata.review.slug.includes("coupon")?' Coupons, Promo Codes and Offers':'Review'}</span></h1>
                                     <div className="autorbox">
                                         <div className="authorImg">
                                             <img
@@ -526,9 +526,9 @@ export default function Reviews({ data }) {
                                             <h3>Related Reviews</h3>
                                             <div className="row">
                                                 {reviewdata.rreviews.map((item) =>
-                                                    <div className="col-lg-4 col-md-6 col-sm-12  review-item" key={item.id}>
+                                                    <div className="col-lg-4 col-md-6 col-sm-6  review-item" key={item.id}>
                                                         <div className="border">
-                                                            <Link className="text-center" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i>{item.render_name}</Link>
+                                                            <Link className="" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i>{item.render_name}</Link>
                                                         </div>
                                                     </div>
                                                 )}
