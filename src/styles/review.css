@@ -538,8 +538,9 @@
     padding: 12px;
     margin-bottom: 1rem;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
     border: 1px solid #ccc;
+    border-bottom: none;
     padding: 0;
 }
 .listCoupns .coupon-item .discountBox{
@@ -571,7 +572,7 @@
     align-items: center;
     padding: .5rem;
     background-color: #18702c34;
-    border-radius: 0 0 0 8px;
+    border-radius: 0;
     border-top: 2px solid #18702c34;
     height: 30px;
 }
@@ -647,20 +648,33 @@
   .listCoupns .coupon-item .coupnBox .coupondesc p {
    margin-right: 3rem;
    margin-left: .5rem;
+   margin-bottom: 0;
   }
   .listCoupns .coupon-item .coupnBox .coupondesc p a{
     color: #222222;
     font-weight: 600;
     padding-left: 1rem;
-    font-size: 1.55rem;
+    font-size: 1.4rem;
     display: -webkit-box;
     line-clamp: 1;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    line-height: 1.4;
+    line-height: 1.1;
     padding-left: 0;
+    margin-bottom: 0;
   }
+  .coupon-item .couponDesc {
+    color: #2e2e2e;
+    font-size: .88rem;
+    font-weight: 500;
+    line-height: 1.4;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    margin-top: .5rem;
+}
   .listCoupns .coupon-item .coupnBox .termsBox{
     border-top: 2px dashed #efefef;
     height: 30px;

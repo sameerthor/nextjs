@@ -219,13 +219,13 @@ export default function Store({ data }) {
                     {/* <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }} /> */}
                 </Head>
                 <Header />
-                <div className="container-fluid deal-bg">
-                    <div className="container col-lg-8 col-md-8 col-sm-11 mx-auto">
+                <div className="deal-bg">
+                    <div className="container">
                         {/* <div className='d-flex'>
                             <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <a href={`${storedata.store.web_url}`}>{storedata.store.name}</a></p>
                             <p className='ms-auto cat-name'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
                         </div> */}
-                        <div className="breadcrumb col-md-12">
+                        <div className="breadcrumb">
                             <ul>
                                 <li><a href="/">scoopReview.com</a> <i className="fa fa-angle-double-right" aria-hidden="true"></i></li>
                                 <li>{storedata.store.name}</li>
@@ -310,6 +310,7 @@ export default function Store({ data }) {
                                                             <p>
                                                                 <a href="#">{item.title}</a>
                                                             </p>
+                                                            <p class="couponDesc">Receive up to 10% Off on LED Driving Lights.</p>
 
                                                             <div className="couponBtndesc">
                                                                 <button data-bs-toggle="modal" data-bs-target="#dealPopup">
@@ -408,10 +409,10 @@ export default function Store({ data }) {
                     </div>
 
                 </div>
-                <div className="container-fluid">
+                <div className="storeDtl">
                     <div className="container">
-                        <div className="row review">
-                            <div className="col-lg-11 col-md-12 col-sm-11 write-review">
+                        <div className="review">
+                            <div className="write-review">
                                 <div
                                     dangerouslySetInnerHTML={{ __html: storedata.store.desc }}
                                 />
