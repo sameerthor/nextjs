@@ -286,9 +286,6 @@ export default function Reviews({ data }) {
                                         <span className="authorName">Freida McFadden</span>
                                     </div>
 
-                                    <div className="firstImage">
-                                        <img src="https://m.media-amazon.com/images/G/31/amazonservices/Blog/12_Profitable_product_to_sell_online_Blog-06.jpg" alt="" />
-                                    </div>
 
                                     <div className="review-box">
                                         <div className="contents reviewContents">
