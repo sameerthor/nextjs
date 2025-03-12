@@ -178,7 +178,7 @@ export default function Blog({ data }) {
                     <div class="container col-lg-10 col-md-10 col-sm-10 related-article ">
                         <h2>Related Articles</h2>
                         <div class="row">
-                        {data.blogs.map((item)=>
+                        {data.blogs && data.blogs.map((item)=>
                             <div class="col-lg-3 col-md-6 col-sm-12 article-box">
                                 <div class="article-item">
                                     <Link href={`/${item.slug}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.image}`} alt=""/></Link>
@@ -195,7 +195,7 @@ export default function Blog({ data }) {
                     <div class="container col-lg-10 col-md-10 col-sm-10">
                         <h2>Product Review based on your interset</h2>
                         <div class="row row-cols-2">
-                        {data.reviews.map((item)=>
+                        {data.re data.reviews.map((item)=>
                             <div class="col-lg-2 col-md-4 col-xs-6 product-box">
                                 <div class="product-item">
                                     <Link href={`/${item.slug}`}><img class="review-logo" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo")?"images/"+item.review_logo:item.review_logo}`} alt=""/></Link>

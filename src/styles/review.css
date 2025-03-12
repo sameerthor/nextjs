@@ -1,9 +1,7 @@
 .review-title{
     margin: 1rem auto;
 }
-.offerToday{
-    display: none !important;
-}
+
 .review-title a{
     text-decoration: none;
     color: #222222;
