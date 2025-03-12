@@ -482,6 +482,11 @@ export default function Store({ data }) {
                                 </tbody>
                             </table>
                         </div>
+                        {/* contact us */}
+                        <div className='contactBox'>
+                            <h3>Contact this Store</h3>
+                            <p>Los Gatos, California, at 121 Albright Way. US 122622</p>
+                        </div>
 
                     </div>
 
