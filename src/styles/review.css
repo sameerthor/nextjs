@@ -459,9 +459,9 @@
  /* ****************************Popular Store********************************* */
  .popular-store{
     background-color: #f9fbfc;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-    margin-top: 4rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
   }
   .popular-store h1{
     margin-bottom: 1.6rem;
@@ -1169,7 +1169,7 @@ table {
  }
  .blogContent .blogcontentData ul li{
     list-style-type: disc;
-    color: #6b7280;
+    color: #1a1a1b;
     font-size: .95rem;
     font-weight: 500;
     margin-bottom: .5rem;
@@ -1181,7 +1181,7 @@ table {
  }
  .blogContent .blogcontentData ol li{
     list-style-type: number;
-    color: #6b7280;
+    color: #1a1a1b;
     font-size: .95rem;
     font-weight: 500;
     margin-bottom: .5rem;
@@ -1206,7 +1206,7 @@ table {
     }
     
  }
-  /* table */
+ 
  .table-section{
     overflow: auto;
     margin-top: 1.6rem;
@@ -1261,7 +1261,7 @@ table {
        }
   }
 
-  /* ====================Comment Box================ */
+ 
 .commentbox{
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -1396,6 +1396,7 @@ table {
    outline: none;
    background-color: #fff;
    font-weight: 600;
+   margin-right: .5rem;
 }
 .newsLetterBox  button {
     border: none;
@@ -1485,3 +1486,41 @@ table {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.blogContent .blogcontentData div {
+    color: #1a1a1b;
+    font-size: .95rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    text-align: left;
+}
+.blogContent a {
+    color: #4242f4;
+}
+.blogContent .youMayAlso a {
+    color: #fff;
+}
+.blogContent .related-review .border {
+   padding:  .5rem;
+   display: inline-flex;
+   justify-content: left;
+   width: 100%;
+}
+.blogContent .related-review .border a {
+    color: #000;
+    font-size: .95rem;
+    text-align: left;
+ }
+ .blogContent .related-review .border a:hover {
+   text-decoration: underline;
+ }
+ @media(max-width:560px){
+    .related-review h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    .popular-store h1 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+ }
