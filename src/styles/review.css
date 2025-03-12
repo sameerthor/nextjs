@@ -58,19 +58,7 @@
     font-weight: 600;
     outline: none;
 }
-#headingOne button{
-    border: none;
-    padding: .7rem .85rem;
-    border-radius: 0px;
-    font-weight: 600;
-    margin-right: 50%;
-    min-width: 12rem;
-    display: block;
-    font-size: 1.1rem;
-    text-align-last: center;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-}
+
 .review-box button:hover{
     border: 2px solid #ece7e7;
     outline: none;
@@ -91,13 +79,8 @@
     border: none !important;
     padding: 0px !important;
 }
-#headingOne{
-    background-color: #fcfcfc;
-    padding: 0rem !important;
-}
-#collapseOne{
-    background-color: #fcfcfc;
-}
+
+
 #tableofcontents li a u{
     text-decoration: underline;
     font-weight: 700;
@@ -492,12 +475,10 @@
   .less_more:hover{
     color: rgb(159, 159, 246);
   }
-#accordion .card-body{ 
-    margin-left: 7%;
-}
 #accordion .card{
     border: none;
 }
+
 @media(max-width:768px){
     .coupon-content{
         width: 100%;
@@ -664,7 +645,8 @@
     padding-left: 0;
     margin-bottom: 0;
   }
-  .coupon-item .couponDesc {
+  .coupon-item .couponPara {
+    display: -webkit-box;
     color: #2e2e2e;
     font-size: .88rem;
     font-weight: 500;
@@ -743,7 +725,7 @@
         margin-bottom: .5rem;
     }
     .listCoupns .coupon-item .offBox {
-        height: 130px;
+        height: 150px;
     }
     .container {
        padding: 0;
@@ -1278,7 +1260,6 @@ table {
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-family: 'Montserrat', sans-serif;
-    margin-top: 5rem;
 }
 .comment h3{
     font-weight: 600;
@@ -1355,7 +1336,7 @@ table {
 }
 .commentbox{
      border: 1px solid #D9D7D7;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
 }
 @media(max-width:600px){
     .comment h3{

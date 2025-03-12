@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from 'next/router'
 import getConfig from 'next/config'
 import { Item } from 'semantic-ui-react';
+
 const { publicRuntimeConfig } = getConfig()
 const RatingBox = dynamic(() => import('@/components/ratingbox'),
     {
@@ -52,12 +53,6 @@ export default function Store({ data }) {
 
     const [visibleCommentBoxes, setVisibleCommentBoxes] = useState({});
 
-    const toggleCommentBox = (index) => {
-        setVisibleCommentBoxes((prev) => ({
-            ...prev,
-            [index]: !prev[index],
-        }));
-    };
     
     if(data)
     {
@@ -229,6 +224,7 @@ export default function Store({ data }) {
                             <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <a href={`${storedata.store.web_url}`}>{storedata.store.name}</a></p>
                             <p className='ms-auto cat-name'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
                         </div> */}
+                        <div className="affiDisc"><p>scoopreview may earn a commission when you use coupons on this page. <a href="/affiliate-disclosure">Learn More</a></p></div>
                         <div className="breadcrumb">
                             <ul>
                                 <li><a href="/">scoopReview.com</a> <i className="fa fa-angle-double-right" aria-hidden="true"></i></li>
@@ -248,6 +244,7 @@ export default function Store({ data }) {
                                         <h2 className="dealAvl" id="12_Codes_&_0_Deals_available">
                                             {`${storedata.ecoupons.filter(c => c.is_deal === 0).length} Codes & ${storedata.ecoupons.filter(c => c.is_deal === 1).length} Deals available`.replace(/^0 Codes & | & 0 Deals|^0 Codes$|^0 Deals$/, '')}
                                         </h2>
+                                        <div class="topdisc"><p>20% Off at this store</p></div>
                                     </div>
                                     <aside className="col-4 p-0">
                                         <div className="header-thumb">
@@ -314,7 +311,7 @@ export default function Store({ data }) {
                                                             <p>
                                                                 <a href="#">{item.title}</a>
                                                             </p>
-                                                            <p class="couponDesc">Receive up to 10% Off on LED Driving Lights.</p>
+                                                            <p class="couponPara">Receive up to 10% Off on LED Driving Lights.</p>
 
                                                             <div className="couponBtndesc">
                                                                 <button data-bs-toggle="modal" data-bs-target="#dealPopup">
@@ -410,6 +407,82 @@ export default function Store({ data }) {
                             </table>
 
                         </div>
+                        {/* coupon summary */}
+                        <div className="tableContainer">
+                            <table border="1" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                <tr>
+                                    <td width="20%"><strong>Deal</strong></td>
+                                    <td width="60%"><strong>Title</strong></td>
+                                    <td width="20%"><strong>Coupon</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>20% Off</td>
+                                    <td>
+                                    <p>Get up to 20% Off on Domino's pizza, pasta, and chicken.</p>
+                                    </td>
+                                    <td>Hot Deal ️‍🔥</td>
+                                </tr>
+                                <tr>
+                                    <td>Best Deal</td>
+                                    <td>
+                                    <p>Mix &amp; Match Deal: Choose any 2 or more items for $6.99 each.</p>
+                                    </td>
+                                    <td>Hot Deal ️‍🔥</td>
+                                </tr>
+                                <tr>
+                                    <td>30% Off</td>
+                                    <td>
+                                    <p>Grab up to 30% Off on Large Pizzas with our verified code.</p>
+                                    </td>
+                                    <td>Hot Deal ️‍🔥</td>
+                                </tr>
+                                <tr>
+                                    <td>Best Deal</td>
+                                    <td>
+                                    <p>Get $12 Off on your purchase of Pizza and Chicken from Domino's.</p>
+                                    </td>
+                                    <td>Hot Deal ️‍🔥</td>
+                                </tr>
+                                <tr>
+                                    <td>Best Deal</td>
+                                    <td>
+                                    <p>Carryout Deal: Buy all pizzas with 1 topping or Dips &amp; Twists combos or 8-piece wings for $7.99 each (carryout only).</p>
+                                    </td>
+                                    <td>Hot Deal ️‍🔥</td>
+                                </tr>
+                                <tr>
+                                    <td>Best Deal</td>
+                                    <td>
+                                    <p>Enjoy Perfect Combo Deal for just $19.99.</p>
+                                    </td>
+                                    <td>Hot Deal ️‍🔥</td>
+                                </tr>
+                                <tr>
+                                    <td>10% Off</td>
+                                    <td>
+                                    <p>Get 10% Off on Pizza Delivery with Domino's promo code.</p>
+                                    </td>
+                                    <td>Hot Deal ️‍🔥</td>
+                                </tr>
+                                <tr>
+                                    <td>15% Off</td>
+                                    <td>
+                                    <p>Save 15% Off on New York Style Pizza.</p>
+                                    </td>
+                                    <td>Hot Deal ️‍🔥</td>
+                                </tr>
+                                <tr>
+                                    <td>Best Deal</td>
+                                    <td>
+                                    <p>Limited-Time Offer! Buy Large 3-topping pizza for $10.99 each.</p>
+                                    </td>
+                                    <td>Hot Deal ️‍🔥</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
 
                 </div>
@@ -435,6 +508,107 @@ export default function Store({ data }) {
                         </div>
                     </div>
                 </div>
+               
+                
+              <div className='commentSection'>
+                    <div className='container'>
+                        <div id="accordion">
+                        <div className="card">
+                            <div className="" id="headingOne">
+                                <span>
+                                    <button data-bs-toggle="collapse" id="commentBtn" data-bs-target="#collapseComment" aria-expanded="true" aria-controls="collapseOne">
+                                        Show Comment
+                                    </button>
+                                </span>
+                            </div>
+
+                            <div id="collapseComment" className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div className="card-body">
+                                    <div className="commentbox">
+                                    <div className="row comment mx-auto">
+                                        <h3>Let other know how much you saved</h3>
+                                        <p>
+                                            Your email address will not be published. Required fields are
+                                            marked <span>*</span>
+                                        </p>
+                                    </div>
+                                    <div className="row input mx-auto">
+                                        <form className="d-block" role="post">
+                                            <textarea
+                                                name=""
+                                                className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                rows={10}
+                                                placeholder="Input your thought ..."
+                                                required=""
+                                                defaultValue={""}
+                                            />
+                                            <label htmlFor="name" className="d-block">
+                                                <i className="fa-regular fa-user" /> Name <span>*</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                placeholder="Name"
+                                                required=""
+                                                className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                            />
+                                            <label htmlFor="email" className="d-block">
+                                                <i className="fa-regular fa-envelope" /> Email <span>*</span>
+                                            </label>
+                                            <input
+                                                type="email"
+                                                className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                placeholder="Enter your email address"
+                                                required=""
+                                            />
+                                            <label htmlFor="url" className="d-block">
+                                                <i className="fa-solid fa-globe" /> Website
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                placeholder="website url"
+                                            />
+                                            <button type="submit" onclick="">
+                                                Post Comment
+                                            </button>
+                                        </form>
+                                    </div>
+                                    </div>
+                                    {/* user comment */}
+                                    <div className="comment-section">
+                                        <div className="comment">
+                                            <div className="avatar">J</div>
+                                            <div className="comment-content">
+                                                <div className="comment-header">
+                                                    <span className="comment-author">John Doe</span>
+                                                    <span className="comment-time">2 hours ago</span>
+                                                </div>
+                                                <p className="comment-text">This modern comment section is stylish and interactive!</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="comment">
+                                            <div className="avatar">J</div>
+                                            <div className="comment-content">
+                                                <div className="comment-header">
+                                                    <span className="comment-author">Jane Smith</span>
+                                                    <span className="comment-time">1 hour ago</span>
+                                                </div>
+                                                <p className="comment-text">I love how smooth and responsive it is!</p>
+                                            </div>
+                                        </div>
+
+                                        <form class="comment-form">
+                                            <input type="text" className="comment-input" placeholder="Reply a comment..."/>
+                                            <button type="submit" className="comment-btn">Post</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
                 <div className="modal fade" id="dealPopup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">

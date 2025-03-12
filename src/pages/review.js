@@ -469,30 +469,6 @@ export default function Reviews({ data }) {
                                             )}            
 
                                         </div>
-                                        {/* today's offer */}
-                                        <div className="offerToday">
-                                            <h3>Today's {/* */}Nilight{/* */} Offer</h3>
-                                            <table>
-                                                <tbody>
-                                                <tr>
-                                                    <td>🛍️ Total Offers</td>
-                                                    <td className="text-right font-medium">12</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>🏷️ Active Coupon Codes</td>
-                                                    <td className="text-right font-medium">12</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>🛒 Free Shipping</td>
-                                                    <td className="text-right font-medium">1</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>🔥 Best Offer</td>
-                                                    <td className="text-right font-medium">Flat {/* */}10% Off</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
                                     </div> 
 
                                     <div className="blogcontentData">
