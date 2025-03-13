@@ -14,8 +14,14 @@ const exampleFunction = ({page}) => {
                 <Header />
                 <div className="container-fluid">
                     <div className="container col-lg-9 col-md-9 col-sm-9 navigation">
-                        <div className="row">
-                            <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href={`/categories/${page.category.slug}`}>{page.category.name}</Link></p>
+                        <div className="row breadcrumbBox">
+                            <div className="breadcrumb">
+                                <ul>
+                                    <li><a href="/">scoopreview.com</a> /</li>
+                                    <li> <a href='#'>Review category</a> /</li>
+                                    <li>Review  Name</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

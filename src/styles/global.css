@@ -439,3 +439,19 @@ footer h4 span{
 .text-blue{
     color: #247e6a !important;
 }
+
+.breadcrumbBox .breadcrumb ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+}
+.breadcrumbBox .breadcrumb ul li {
+    margin-right: .5rem;
+    font-size: .75rem;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+.breadcrumbBox .breadcrumb ul li a{
+    font-size: .75rem;
+}
