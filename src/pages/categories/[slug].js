@@ -30,6 +30,14 @@ const exampleFunction = ({page}) => {
                                     </div>
                                 </div>
                             )} 
+                                    {page.stores.map((item) =>
+
+<div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
+    <div className="shadow categories-box">
+        <Link href={`/${item.slug}`}>{item.render_name}</Link>
+    </div>
+</div>
+)} 
                         </div>
                     </div>
                 </div>
