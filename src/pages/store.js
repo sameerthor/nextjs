@@ -55,7 +55,7 @@ export default function Store({ data }) {
 
 
     if (data) {
-        let per = getHeading(storedata.ecoupons[0].title).replace(/(<|&lt;)br\s*\/*(>|&gt;)/g, '');
+        var per = getHeading(storedata.ecoupons[0].title).replace(/(<|&lt;)br\s*\/*(>|&gt;)/g, '');
         const store_names = storedata.rstores.filter(f => f.id !== storedata.store.id).slice(0, 2).map(item => `<a href="/${item.slug}">${item.name}</a>`)
 
         storedata.store.desc = storedata.store.desc.replaceAll("%%storename%%", storedata.store.name);
@@ -243,7 +243,7 @@ export default function Store({ data }) {
                                         <h2 className="dealAvl" id="12_Codes_&_0_Deals_available">
                                             {`${storedata.ecoupons.filter(c => c.is_deal === 0).length} Codes & ${storedata.ecoupons.filter(c => c.is_deal === 1).length} Deals available`.replace(/^0 Codes & | & 0 Deals|^0 Codes$|^0 Deals$/, '')}
                                         </h2>
-                                        <div class="topdisc"><p>20% Off at this store</p></div>
+                                        <div class="topdisc"><p>{per} at this {storedata.store.name}</p></div>
                                     </div>
                                     <aside className="col-4 p-0">
                                         <div className="header-thumb">
@@ -304,7 +304,7 @@ export default function Store({ data }) {
                                                                 <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                     <path d="M13.2735 6.60866L7.38683 0.721994C7.14016 0.475327 6.80016 0.335327 6.44683 0.335327H1.66683C0.933496 0.335327 0.333496 0.935327 0.333496 1.66866V6.44866C0.333496 6.80199 0.473496 7.14199 0.726829 7.38866L6.6135 13.2753C7.1335 13.7953 7.98016 13.7953 8.50016 13.2753L13.2802 8.49533C13.8002 7.97533 13.8002 7.13533 13.2735 6.60866ZM3.3335 4.33533C2.78016 4.33533 2.3335 3.88866 2.3335 3.33533C2.3335 2.78199 2.78016 2.33533 3.3335 2.33533C3.88683 2.33533 4.3335 2.78199 4.3335 3.33533C4.3335 3.88866 3.88683 4.33533 3.3335 4.33533Z" fill="#1A1A1A" />
                                                                 </svg>
-                                                                <span>{item.is_deal === "1" ? "deal" : "code"}</span>
+                                                                <span>{item.is_deal == "1" ? "deal" : "code"}</span>
                                                             </div>
 
                                                             <p>
@@ -419,10 +419,12 @@ export default function Store({ data }) {
 
                         </div>
                         {/* contact us */}
-                        <div className='contactBox'>
-                            <h3>Contact {storedata.store.name}</h3>
-                            <p>Los Gatos, California, at 121 Albright Way. US 122622</p>
-                        </div>
+                        {storedata.store.contact &&
+                            <div className='contactBox'>
+                                <h3>Contact {storedata.store.name}</h3>
+                                <p>{storedata.store.contact}</p>
+                            </div>
+                        }
                         {/* faq */}
                         <div className="storeDtl">
                             <div className="container">
@@ -454,69 +456,15 @@ export default function Store({ data }) {
                                         <td width="60%"><strong>Title</strong></td>
                                         <td width="20%"><strong>Coupon</strong></td>
                                     </tr>
-                                    <tr>
-                                        <td>20% Off</td>
-                                        <td>
-                                            <p>Get up to 20% Off on Domino's pizza, pasta, and chicken.</p>
-                                        </td>
-                                        <td>Hot Deal ️‍🔥</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Best Deal</td>
-                                        <td>
-                                            <p>Mix &amp; Match Deal: Choose any 2 or more items for $6.99 each.</p>
-                                        </td>
-                                        <td>Hot Deal ️‍🔥</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30% Off</td>
-                                        <td>
-                                            <p>Grab up to 30% Off on Large Pizzas with our verified code.</p>
-                                        </td>
-                                        <td>Hot Deal ️‍🔥</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Best Deal</td>
-                                        <td>
-                                            <p>Get $12 Off on your purchase of Pizza and Chicken from Domino's.</p>
-                                        </td>
-                                        <td>Hot Deal ️‍🔥</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Best Deal</td>
-                                        <td>
-                                            <p>Carryout Deal: Buy all pizzas with 1 topping or Dips &amp; Twists combos or 8-piece wings for $7.99 each (carryout only).</p>
-                                        </td>
-                                        <td>Hot Deal ️‍🔥</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Best Deal</td>
-                                        <td>
-                                            <p>Enjoy Perfect Combo Deal for just $19.99.</p>
-                                        </td>
-                                        <td>Hot Deal ️‍🔥</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10% Off</td>
-                                        <td>
-                                            <p>Get 10% Off on Pizza Delivery with Domino's promo code.</p>
-                                        </td>
-                                        <td>Hot Deal ️‍🔥</td>
-                                    </tr>
-                                    <tr>
-                                        <td>15% Off</td>
-                                        <td>
-                                            <p>Save 15% Off on New York Style Pizza.</p>
-                                        </td>
-                                        <td>Hot Deal ️‍🔥</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Best Deal</td>
-                                        <td>
-                                            <p>Limited-Time Offer! Buy Large 3-topping pizza for $10.99 each.</p>
-                                        </td>
-                                        <td>Hot Deal ️‍🔥</td>
-                                    </tr>
+                                    {storedata.ecoupons.map((item) =>
+                                        <tr>
+                                            <td>{getHeading(item.title).replace(/(<|&lt;)br\s*\/*(>|&gt;)/g, '')}</td>
+                                            <td>
+                                                <p>{item.descp}</p>
+                                            </td>
+                                            <td>{item.is_deal == 1 ? "Hot Deal ️‍🔥" : item.coupon_code}</td>
+                                        </tr>
+                                    )}
                                 </tbody>
                             </table>
                         </div>
