@@ -42,7 +42,7 @@ export default function Store({ data }) {
     const router = useRouter()
     const [storedata, setStoredata] = useState(data);
    
-
+    console.log(storedata);
     const [activetab, setActivetab] = useState("all");
     const [copytext, setCopytext] = useState("COPY")
     const [dealModaldata, setDealModaldata] = useState({});
@@ -61,7 +61,7 @@ export default function Store({ data }) {
     
     if(data)
     {
-        let per = getHeading(storedata.ecoupons[0].title); 
+        let per = getHeading(storedata.ecoupons[0].title).replace(/(<|&lt;)br\s*\/*(>|&gt;)/g,''); 
         const store_names = storedata.rstores.filter(f => f.id !== storedata.store.id).slice(0, 2).map(item => `<a href="/${item.slug}">${item.name}</a>`)
     
         storedata.store.desc = storedata.store.desc.replaceAll("%%storename%%", storedata.store.name);
@@ -200,12 +200,12 @@ export default function Store({ data }) {
                 <Head>
                     <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}`} />
                     <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
-                    <title>{`${data.store.seo_title} ${year}`}</title>
+                    <title>{`${data.store.seo_title}`}</title>
                     <meta name="description" content={`${data.store.seo_desc}`} />
                     <meta name="keywords" content={`${data.store.seo_keywords}`} />
                     <meta name="twitter:card" content="summary" />
                     <meta name="twitter:site" content="@" />
-                    <meta name="twitter:title" content={`${data.store.seo_title} ${year}`} />
+                    <meta name="twitter:title" content={`${data.store.seo_title}`} />
                     <meta name="twitter:description" content={`${data.store.seo_desc}`} />
                     <meta name="twitter:url" content={`${publicRuntimeConfig.webUrl}${data.store.slug}`} />
 
@@ -314,7 +314,7 @@ export default function Store({ data }) {
                                                             <p>
                                                                 <a href="#">{item.title}</a>
                                                             </p>
-                                                            <p class="couponDesc">Receive up to 10% Off on LED Driving Lights.</p>
+                                                            <p class="couponDesc">{item.descp}</p>
 
                                                             <div className="couponBtndesc">
                                                                 <button data-bs-toggle="modal" data-bs-target="#dealPopup">
@@ -334,7 +334,7 @@ export default function Store({ data }) {
                                                     </div>
 
                                                     <div className="couponBtn">
-                                                        {item.is_deal === "0" ? (
+                                                        {item.is_deal == "0" ? (
                                                             <button
                                                                 className="submit d-flex"
                                                                 data-bs-toggle="modal"
@@ -424,7 +424,7 @@ export default function Store({ data }) {
                                     {storedata.faqs.map((item) => {
                                         return (<>
                                             <div className="faq_block">
-                                                <h3 className="faq_question">{item.faq_question}</h3>
+                                                <h3 className="faq_question">{item.faq_question} ?</h3>
                                                 <p className="faq_answer">{item.faq_answer}</p>
                                             </div>
                                         </>);
