@@ -30,42 +30,22 @@ export default function Categories({ page }) {
             <link rel="canonical" href={`${publicRuntimeConfig.webUrl}categories`} />
         </Head>
                     <Header />
-                    {/* <div className="container-fluid">
-                        <div className="container col-lg-9 col-md-9 col-sm-9 navigation">
-                            <div className="row">
-                                <p><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/categories">Categories</Link></p>
-                            </div>
-                        </div>
-                    </div> */}
-                    {/* <div className="container-fluid categories">
-                        <div className="container col-lg-9 col-md-9 col-sm-9">
-                            <div className="row">
-                                {page.categories.map((item) =>
-
-                                    <div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
-                                        <div className="shadow categories-box">
-                                            <Link href={`/categories/${item.slug}`}>{item.name}</Link>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    </div> */}
-                     <section className='categorySection'>
+                    <section className='categorySection'>
                         <div className='container'>
                             <div className="row">
                                 <div className="breadcrumb">
                                     <ul>
                                         <li><a href="/">scoopreview.com</a> /</li>
-                                        <li>category</li>
+                                        <li>review-category</li>
                                     </ul>
                                 </div>
                             </div>
                             <div className="row row-cols-2">
-                                <div className="col-sm-4 category-box">
-                                    <div className="category-item catType">
+                                {page.categories.map((item) =>
+                                <div className="col-lg-2 col-md-3 col-sm-4 category-box" key={item.id}>
+                                    <div className="category-item">
                                         <div className="cat-img">
-                                            <a href="/categories/coupon-category">
+                                            <a href={`/categories/${item.slug}`}>
                                                 <img 
                                                 alt="Accessories" 
                                                 loading="lazy" 
@@ -73,42 +53,23 @@ export default function Categories({ page }) {
                                                 height="100" 
                                                 decoding="async" 
                                                 data-nimg="1"  
-                                                src="../assets/coupons.png" 
+                                                src="../assets/batteries.png" 
                                                 />
                                             </a>
                                         </div>
                                         <div className="category-title">
-                                            <a href="/categories/coupon-category">
-                                                Coupon Category
+                                            <a href={`/categories/${item.slug}`}>
+                                            {item.name}
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-4 category-box">
-                                    <div className="category-item catType">
-                                        <div className="cat-img">
-                                            <a href="/categories/review-category">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/review.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/categories/review-category">
-                                                Review Category
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div> 
+                                )} 
+
                             </div>
                         </div>
                     </section>
+                   
                     <Footer />
                 </>
     )

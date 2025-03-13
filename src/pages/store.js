@@ -472,27 +472,6 @@ export default function Store({ data }) {
                     </div>
 
                 </div>
-                <div className="storeDtl">
-                    <div className="container">
-                        <div className="review">
-                            <div className="write-review">
-                                <div dangerouslySetInnerHTML={{ __html: storedata.store.desc }} />
-
-                                {/* Only render FAQ section if there are FAQs available */}
-                                {storedata.faqs && storedata.faqs.length > 0 && (
-                                    <div id="fAq">
-                                        {storedata.faqs.map((item, index) => (
-                                            <div key={index} className="faq_block">
-                                                <h3 className="faq_question">{item.faq_question}?</h3>
-                                                <p className="faq_answer">{item.faq_answer}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
                 <div className='commentSection'>
