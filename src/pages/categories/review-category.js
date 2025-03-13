@@ -40,7 +40,7 @@ export default function Categories({ page }) {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="row">
+                            <div className="row row-cols-2">
                                 <div className="col-lg-2 col-md-3 col-sm-4 category-box">
                                     <div className="category-item">
                                         <div className="cat-img">

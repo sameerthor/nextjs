@@ -1216,3 +1216,6 @@
 .stars svg path{
     fill: #fbc000;
 }
+.catType{
+    padding-top: 1rem;
+}
