@@ -10,38 +10,39 @@ import dynamic from "next/dynamic";
 import { useRouter } from 'next/router'
 import getConfig from 'next/config'
 import { Item } from 'semantic-ui-react';
+
 const { publicRuntimeConfig } = getConfig()
 const RatingBox = dynamic(() => import('@/components/ratingbox'),
     {
         ssr: true,
     });
-    const getHeading = (title) => {
-        if (!title) return "";
+const getHeading = (title) => {
+    if (!title) return "";
 
-        // Check for percentage discount (e.g., "40% OFF")
-        const percentMatch = title.match(/(\d+)%/);
-        if (percentMatch) {
-            return `${percentMatch[1]}% <br /> OFF`;
-        }
+    // Check for percentage discount (e.g., "40% OFF")
+    const percentMatch = title.match(/(\d+)%/);
+    if (percentMatch) {
+        return `${percentMatch[1]}% <br /> OFF`;
+    }
 
-        // Check for dollar discount (e.g., "$40 OFF")
-        const dollarMatch = title.match(/\$(\d+)/);
-        if (dollarMatch) {
-            return `$${dollarMatch[1]} <br /> OFF`;
-        }
+    // Check for dollar discount (e.g., "$40 OFF")
+    const dollarMatch = title.match(/\$(\d+)/);
+    if (dollarMatch) {
+        return `$${dollarMatch[1]} <br /> OFF`;
+    }
 
-        // Check for "Free Shipping"
-        if (/free shipping/i.test(title)) {
-            return "Free  <br /> Shipping";
-        }
+    // Check for "Free Shipping"
+    if (/free shipping/i.test(title)) {
+        return "Free  <br /> Shipping";
+    }
 
-        return "";
-    };
+    return "";
+};
 export default function Store({ data }) {
 
     const router = useRouter()
     const [storedata, setStoredata] = useState(data);
-   
+
     console.log(storedata);
     const [activetab, setActivetab] = useState("all");
     const [copytext, setCopytext] = useState("COPY")
@@ -52,18 +53,11 @@ export default function Store({ data }) {
 
     const [visibleCommentBoxes, setVisibleCommentBoxes] = useState({});
 
-    const toggleCommentBox = (index) => {
-        setVisibleCommentBoxes((prev) => ({
-            ...prev,
-            [index]: !prev[index],
-        }));
-    };
-    
-    if(data)
-    {
-        let per = getHeading(storedata.ecoupons[0].title).replace(/(<|&lt;)br\s*\/*(>|&gt;)/g,''); 
+
+    if (data) {
+        let per = getHeading(storedata.ecoupons[0].title).replace(/(<|&lt;)br\s*\/*(>|&gt;)/g, '');
         const store_names = storedata.rstores.filter(f => f.id !== storedata.store.id).slice(0, 2).map(item => `<a href="/${item.slug}">${item.name}</a>`)
-    
+
         storedata.store.desc = storedata.store.desc.replaceAll("%%storename%%", storedata.store.name);
         storedata.store.desc = storedata.store.desc.replaceAll("%pe­rcentage% off", per);
         storedata.store.desc = storedata.store.desc.replaceAll("%percentage% off", per);
@@ -86,7 +80,7 @@ export default function Store({ data }) {
             faq.faq_answer = faq.faq_answer.replace('XXX', storedata.ecoupons.filter(x => x.is_deal != '1').length > 0 ? storedata.ecoupons.filter(x => x.is_deal != '1')[0].coupon_code : "");
             faq.faq_answer = faq.faq_answer.replace('XX', storedata.ecoupons.length);
         });
-    }    
+    }
     // const idJsonObject = {
 
     //     "@context": "http://schema.org",
@@ -229,6 +223,7 @@ export default function Store({ data }) {
                             <p className='me-auto'><Link href="/">ScoopReview <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <Link href="/coupons">Deals <span><i className="fa fa-angle-double-right" aria-hidden="true"></i></span></Link> <a href={`${storedata.store.web_url}`}>{storedata.store.name}</a></p>
                             <p className='ms-auto cat-name'><Link href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</Link></p>
                         </div> */}
+                        <div className="affiDisc"><p>scoopreview may earn a commission when you use coupons on this page. <a href="/affiliate-disclosure">Learn More</a></p></div>
                         <div className="breadcrumb">
                             <ul>
                                 <li><a href="/">scoopReview.com</a> <i className="fa fa-angle-double-right" aria-hidden="true"></i></li>
@@ -248,6 +243,7 @@ export default function Store({ data }) {
                                         <h2 className="dealAvl" id="12_Codes_&_0_Deals_available">
                                             {`${storedata.ecoupons.filter(c => c.is_deal === 0).length} Codes & ${storedata.ecoupons.filter(c => c.is_deal === 1).length} Deals available`.replace(/^0 Codes & | & 0 Deals|^0 Codes$|^0 Deals$/, '')}
                                         </h2>
+                                        <div class="topdisc"><p>20% Off at this store</p></div>
                                     </div>
                                     <aside className="col-4 p-0">
                                         <div className="header-thumb">
@@ -385,7 +381,19 @@ export default function Store({ data }) {
 
 
                         </>
-
+                        {/* store discription */}
+                        <div className="storeDtl">
+                            <div className="container">
+                                < h3 className='abtStore'>About {storedata.store.name}</h3>
+                                <div className="review">
+                                    <div className="write-review">
+                                        <div
+                                            dangerouslySetInnerHTML={{ __html: storedata.store.desc }}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className='offerToday'>
                             <h3>Today's {storedata.store.name} Offer</h3>
                             <table>
@@ -410,6 +418,109 @@ export default function Store({ data }) {
                             </table>
 
                         </div>
+                        {/* contact us */}
+                        <div className='contactBox'>
+                            <h3>Contact {storedata.store.name}</h3>
+                            <p>Los Gatos, California, at 121 Albright Way. US 122622</p>
+                        </div>
+                        {/* faq */}
+                        <div className="storeDtl">
+                            <div className="container">
+                                <h3 className='faqsHeading'>FAQs for {storedata.store.name}</h3>
+                                <div className="review">
+                                    <div className="write-review">
+                                        <div id="fAq">
+                                            {storedata.faqs.map((item) => {
+                                                return (<>
+                                                    <div className="faq_block">
+                                                        <h3 className="faq_question">{item.faq_question}</h3>
+                                                        <p className="faq_answer">{item.faq_answer}</p>
+                                                    </div>
+                                                </>);
+                                            })
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* coupon summary */}
+                        <div className="tableContainer">
+                            <h3>Coupon Summary for  {storedata.store.name}</h3>
+                            <table border="1" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td width="20%"><strong>Deal</strong></td>
+                                        <td width="60%"><strong>Title</strong></td>
+                                        <td width="20%"><strong>Coupon</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>20% Off</td>
+                                        <td>
+                                            <p>Get up to 20% Off on Domino's pizza, pasta, and chicken.</p>
+                                        </td>
+                                        <td>Hot Deal ️‍🔥</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Deal</td>
+                                        <td>
+                                            <p>Mix &amp; Match Deal: Choose any 2 or more items for $6.99 each.</p>
+                                        </td>
+                                        <td>Hot Deal ️‍🔥</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30% Off</td>
+                                        <td>
+                                            <p>Grab up to 30% Off on Large Pizzas with our verified code.</p>
+                                        </td>
+                                        <td>Hot Deal ️‍🔥</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Deal</td>
+                                        <td>
+                                            <p>Get $12 Off on your purchase of Pizza and Chicken from Domino's.</p>
+                                        </td>
+                                        <td>Hot Deal ️‍🔥</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Deal</td>
+                                        <td>
+                                            <p>Carryout Deal: Buy all pizzas with 1 topping or Dips &amp; Twists combos or 8-piece wings for $7.99 each (carryout only).</p>
+                                        </td>
+                                        <td>Hot Deal ️‍🔥</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Deal</td>
+                                        <td>
+                                            <p>Enjoy Perfect Combo Deal for just $19.99.</p>
+                                        </td>
+                                        <td>Hot Deal ️‍🔥</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10% Off</td>
+                                        <td>
+                                            <p>Get 10% Off on Pizza Delivery with Domino's promo code.</p>
+                                        </td>
+                                        <td>Hot Deal ️‍🔥</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15% Off</td>
+                                        <td>
+                                            <p>Save 15% Off on New York Style Pizza.</p>
+                                        </td>
+                                        <td>Hot Deal ️‍🔥</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Deal</td>
+                                        <td>
+                                            <p>Limited-Time Offer! Buy Large 3-topping pizza for $10.99 each.</p>
+                                        </td>
+                                        <td>Hot Deal ️‍🔥</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
 
                 </div>
@@ -417,19 +528,119 @@ export default function Store({ data }) {
                     <div className="container">
                         <div className="review">
                             <div className="write-review">
-                                <div
-                                    dangerouslySetInnerHTML={{ __html: storedata.store.desc }}
-                                />
-                                <div id="fAq">
-                                    {storedata.faqs.map((item) => {
-                                        return (<>
-                                            <div className="faq_block">
-                                                <h3 className="faq_question">{item.faq_question} ?</h3>
+                                <div dangerouslySetInnerHTML={{ __html: storedata.store.desc }} />
+
+                                {/* Only render FAQ section if there are FAQs available */}
+                                {storedata.faqs && storedata.faqs.length > 0 && (
+                                    <div id="fAq">
+                                        {storedata.faqs.map((item, index) => (
+                                            <div key={index} className="faq_block">
+                                                <h3 className="faq_question">{item.faq_question}?</h3>
                                                 <p className="faq_answer">{item.faq_answer}</p>
                                             </div>
-                                        </>);
-                                    })
-                                    }
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className='commentSection'>
+                    <div className='container'>
+                        <div id="accordion">
+                            <div className="card">
+                                <div className="" id="headingOne">
+                                    <span>
+                                        <button data-bs-toggle="collapse" id="commentBtn" data-bs-target="#collapseComment" aria-expanded="true" aria-controls="collapseOne">
+                                            Show Comment
+                                        </button>
+                                    </span>
+                                </div>
+
+                                <div id="collapseComment" className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div className="card-body">
+                                        <div className="commentbox">
+                                            <div className="row comment mx-auto">
+                                                <h3>Let other know how much you saved</h3>
+                                                <p>
+                                                    Your email address will not be published. Required fields are
+                                                    marked <span>*</span>
+                                                </p>
+                                            </div>
+                                            <div className="row input mx-auto">
+                                                <form className="d-block" role="post">
+                                                    <textarea
+                                                        name=""
+                                                        className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                        rows={10}
+                                                        placeholder="Input your thought ..."
+                                                        required=""
+                                                        defaultValue={""}
+                                                    />
+                                                    <label htmlFor="name" className="d-block">
+                                                        <i className="fa-regular fa-user" /> Name <span>*</span>
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        placeholder="Name"
+                                                        required=""
+                                                        className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                    />
+                                                    <label htmlFor="email" className="d-block">
+                                                        <i className="fa-regular fa-envelope" /> Email <span>*</span>
+                                                    </label>
+                                                    <input
+                                                        type="email"
+                                                        className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                        placeholder="Enter your email address"
+                                                        required=""
+                                                    />
+                                                    <label htmlFor="url" className="d-block">
+                                                        <i className="fa-solid fa-globe" /> Website
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                        placeholder="website url"
+                                                    />
+                                                    <button type="submit" onclick="">
+                                                        Post Comment
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        {/* user comment */}
+                                        <div className="comment-section">
+                                            <div className="comment">
+                                                <div className="avatar">J</div>
+                                                <div className="comment-content">
+                                                    <div className="comment-header">
+                                                        <span className="comment-author">John Doe</span>
+                                                        <span className="comment-time">2 hours ago</span>
+                                                    </div>
+                                                    <p className="comment-text">This modern comment section is stylish and interactive!</p>
+                                                </div>
+                                            </div>
+
+                                            <div className="comment">
+                                                <div className="avatar">J</div>
+                                                <div className="comment-content">
+                                                    <div className="comment-header">
+                                                        <span className="comment-author">Jane Smith</span>
+                                                        <span className="comment-time">1 hour ago</span>
+                                                    </div>
+                                                    <p className="comment-text">I love how smooth and responsive it is!</p>
+                                                </div>
+                                            </div>
+
+                                            <form class="comment-form">
+                                                <input type="text" className="comment-input" placeholder="Reply a comment..." />
+                                                <button type="submit" className="comment-btn">Post</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

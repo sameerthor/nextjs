@@ -35,10 +35,15 @@ body{
 }
 /* ***************************Coupons and deals*************************** */
 .deal-bg{
-    background-color: #fcfcfc;
-    margin-top: .9rem;
-    padding-top: .5rem;
     margin-bottom: 2rem;
+}
+.deal-bg .container .affiDisc  p a {
+   font-size: .65rem;
+}
+@media (max-width: 600px) {
+    .deal-bg .container .affiDisc  p a {
+        font-size: .46rem;
+    }
 }
 .deal-box{
     border: 1px solid #e2e2e3;
@@ -551,13 +556,16 @@ body{
         display: none;
      }
  }
+ .tableContainer{
+   margin-top: 1rem;
+}
  @media(max-width:550px){
-    table thead tr th:nth-of-type(1){
-        display: none;
-     }
-    table tbody tr td:nth-of-type(1){
-        display: none;
-     }
+    .tableContainer table td{
+        padding: .2rem;
+    }
+   .tableContainer  table td {
+        min-width: 80px;
+    }
  }
 
  /* **************************Popular Store********************************** */
@@ -810,4 +818,194 @@ body{
 }
 .deal-bg .listCoupns .coupon-item{
     margin-bottom: 1rem
+}
+@media(max-width:768px){
+    .deal-bg .container{
+        padding: 0 .5rem;
+    }
+    .storeDtl .container{
+       padding: 0 .5rem;
+    }
+}
+.storeHeader .topdisc p {
+    color: #6b7280;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.commentSection .container{
+    max-width: 800px;
+}
+
+.commentSection{
+    padding-bottom: 2rem;
+}
+
+.commentSection #commentBtn  {
+    border: none;
+    outline: none;
+    background-color: #247e6a;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4rem;
+    padding: .5rem 1rem;
+}
+.commentSection #collapseComment .card-body{
+    padding: 0;
+    margin-top: 1rem;
+}
+/* user comment */
+
+.comment-section {
+    max-width: 800px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    overflow: hidden;
+}
+.comment {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #247e6a, #73b8a9);
+    color: white;
+    font-weight: 700;
+    font-size: 1.8em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.comment-content {
+    flex: 1;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 15px 20px;
+    position: relative;
+}
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.comment-author {
+    font-weight: 600;
+    color: #374151;
+}
+.comment-time {
+    font-size: 0.85em;
+    color: #9ca3af;
+}
+.comment-text {
+    line-height: 1.8;
+    color: #4b5563;
+}
+.comment-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+.comment-input {
+    flex: 1;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    background: #f3f4f6;
+    transition: background 0.3s;
+    font-size: 1em;
+}
+.comment-input:focus {
+    background: #e5e7eb;
+}
+.comment-btn {
+    background: linear-gradient(135deg, #247e6a, #73b8a9);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    font-size: 1em;
+}
+.commentSection .comment p{
+    text-align: left;
+    font-weight: 500;
+ }
+.comment-btn:hover {
+    box-shadow: 0 8px 20px rgba(106, 90, 205, 0.4);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media(max-width:560px){
+    .comment-section{
+        padding: 20px 5px;
+    }
+    .commentSection .container{
+        padding: 0 .5rem;
+    }
+    .commentSection .comment-content{
+        padding: 10px 8px
+    }
+    .commentSection .comment{
+        gap: 5px;
+    }
+    .commentSection .comment .avatar{
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+}
+
+.contactBox{
+    margin-top: 1rem;
+    margin-bottom: 1.6rem;
+}
+.contactBox h3{
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: .5rem;
+}
+.storeDtl .container{
+    padding: 0;
+}
+.storeDtl  .faqsHeading{
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: .5rem;
+}
+.storeDtl  .abtStore{
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: .5rem;
+}
+.tableContainer h3{
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: .5rem;
 }
