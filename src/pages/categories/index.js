@@ -37,7 +37,7 @@ export default function Categories({ page }) {
                             </div>
                         </div>
                     </div> */}
-                    {/* <div className="container-fluid categories">
+                    <div className="container-fluid categories">
                         <div className="container col-lg-9 col-md-9 col-sm-9">
                             <div className="row">
                                 {page.categories.map((item) =>
@@ -50,7 +50,7 @@ export default function Categories({ page }) {
                                 )}
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                      <section className='categorySection'>
                         <div className='container'>
                             <div className="row">

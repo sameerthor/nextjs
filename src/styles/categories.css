@@ -86,7 +86,9 @@
         font-size: .8rem;
     }
 }
-/* subcat */
+
+
+
 .top-bar-store-bg {
     margin-top: 5px;
     background-color: #ffffff;
@@ -269,8 +271,9 @@
     justify-content: center;
 }
 .storeItem .grabDeal {
-    -spacing: .5px;
+    letter-spacing: .5px;
     font-size: .95rem;
+    margin-bottom: 0;
 }
 .storeItem .grabDeal a {
     display: flex;
@@ -317,8 +320,7 @@
     color: #fff;
 }
 
-/* new cat */
-/* breadcrumb */
+
 .breadcrumb{
     display: flex;
     flex-direction: row;    
@@ -1218,4 +1220,16 @@
 }
 .catType{
     padding-top: 1rem;
+}
+.stars svg {
+    width: 14px;
+    margin: 0 .1rem;
+}
+ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+.flexverify svg{
+    fill: #247e6a;
+    width: 16px;
 }

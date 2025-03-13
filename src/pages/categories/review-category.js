@@ -41,10 +41,11 @@ export default function Categories({ page }) {
                                 </div>
                             </div>
                             <div className="row row-cols-2">
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
+                                {page.categories.map((item) =>
+                                <div className="col-lg-2 col-md-3 col-sm-4 category-box" key={item.id}>
                                     <div className="category-item">
                                         <div className="cat-img">
-                                            <a href="/category/accessories">
+                                            <a href={`/categories/${item.slug}`}>
                                                 <img 
                                                 alt="Accessories" 
                                                 loading="lazy" 
@@ -57,121 +58,13 @@ export default function Categories({ page }) {
                                             </a>
                                         </div>
                                         <div className="category-title">
-                                            <a href="/category/accessories">
-                                                Accessories
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div> <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/category/accessories">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/batteries.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/category/accessories">
-                                                Accessories
+                                            <a href={`/categories/${item.slug}`}>
+                                            {item.name}
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/category/accessories">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/batteries.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/category/accessories">
-                                                Accessories
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/category/accessories">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/batteries.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/category/accessories">
-                                                Accessories
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/category/accessories">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/batteries.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/category/accessories">
-                                                Accessories
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/category/accessories">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/batteries.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/category/accessories">
-                                                Accessories
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                                )} 
 
                             </div>
                         </div>

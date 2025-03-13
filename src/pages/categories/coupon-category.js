@@ -44,7 +44,7 @@ export default function Categories({ page }) {
                                 <div className="col-lg-2 col-md-3 col-sm-4 category-box">
                                     <div className="category-item">
                                         <div className="cat-img">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 <img 
                                                 alt="Accessories" 
                                                 loading="lazy" 
@@ -57,7 +57,7 @@ export default function Categories({ page }) {
                                             </a>
                                         </div>
                                         <div className="category-title">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 Accessories <span>45 Codes | 33 Deals</span>
                                             </a>
                                         </div>
@@ -66,7 +66,7 @@ export default function Categories({ page }) {
                                 <div className="col-lg-2 col-md-3 col-sm-4 category-box">
                                     <div className="category-item">
                                         <div className="cat-img">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 <img 
                                                 alt="Accessories" 
                                                 loading="lazy" 
@@ -79,7 +79,7 @@ export default function Categories({ page }) {
                                             </a>
                                         </div>
                                         <div className="category-title">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 Accessories <span>45 Codes | 33 Deals</span>
                                             </a>
                                         </div>
@@ -88,7 +88,7 @@ export default function Categories({ page }) {
                                 <div className="col-lg-2 col-md-3 col-sm-4 category-box">
                                     <div className="category-item">
                                         <div className="cat-img">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 <img 
                                                 alt="Accessories" 
                                                 loading="lazy" 
@@ -101,7 +101,7 @@ export default function Categories({ page }) {
                                             </a>
                                         </div>
                                         <div className="category-title">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 Accessories <span>45 Codes | 33 Deals</span>
                                             </a>
                                         </div>
@@ -110,7 +110,7 @@ export default function Categories({ page }) {
                                 <div className="col-lg-2 col-md-3 col-sm-4 category-box">
                                     <div className="category-item">
                                         <div className="cat-img">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 <img 
                                                 alt="Accessories" 
                                                 loading="lazy" 
@@ -123,7 +123,7 @@ export default function Categories({ page }) {
                                             </a>
                                         </div>
                                         <div className="category-title">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 Accessories <span>45 Codes | 33 Deals</span>
                                             </a>
                                         </div>
@@ -132,7 +132,7 @@ export default function Categories({ page }) {
                                 <div className="col-lg-2 col-md-3 col-sm-4 category-box">
                                     <div className="category-item">
                                         <div className="cat-img">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 <img 
                                                 alt="Accessories" 
                                                 loading="lazy" 
@@ -145,7 +145,7 @@ export default function Categories({ page }) {
                                             </a>
                                         </div>
                                         <div className="category-title">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 Accessories <span>45 Codes | 33 Deals</span>
                                             </a>
                                         </div>
@@ -154,7 +154,7 @@ export default function Categories({ page }) {
                                 <div className="col-lg-2 col-md-3 col-sm-4 category-box">
                                     <div className="category-item">
                                         <div className="cat-img">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 <img 
                                                 alt="Accessories" 
                                                 loading="lazy" 
@@ -167,7 +167,7 @@ export default function Categories({ page }) {
                                             </a>
                                         </div>
                                         <div className="category-title">
-                                            <a href="/category/accessories">
+                                            <a href="/coupon-category/coupon-category-dtl">
                                                 Accessories <span>45 Codes | 33 Deals</span>
                                             </a>
                                         </div>
