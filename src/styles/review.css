@@ -936,6 +936,7 @@
 /* today offer */
 .offerToday  {
    margin-top: 2rem;
+   margin-bottom: 2rem;
 }
  .offerToday h3 {
     font-weight: 600;

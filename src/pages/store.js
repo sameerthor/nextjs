@@ -435,7 +435,7 @@ export default function Store({ data }) {
                                             {storedata.faqs.map((item) => {
                                                 return (<>
                                                     <div className="faq_block">
-                                                        <h3 className="faq_question">{item.faq_question}</h3>
+                                                        <h3 className="faq_question">{item.faq_question}?</h3>
                                                         <p className="faq_answer">{item.faq_answer}</p>
                                                     </div>
                                                 </>);
@@ -472,7 +472,6 @@ export default function Store({ data }) {
                     </div>
 
                 </div>
-
 
                 <div className='commentSection'>
                     <div className='container'>
