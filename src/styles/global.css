@@ -6,6 +6,9 @@ body {
     min-width: 345px;
     overflow-x: hidden;
 }
+a{
+    text-decoration: none;
+}
 
 .visible.transition {
     display: block !important;
