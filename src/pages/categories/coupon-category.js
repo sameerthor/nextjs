@@ -41,138 +41,33 @@ export default function Categories({ page }) {
                                 </div>
                             </div>
                             <div className="row row-cols-2">
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/coupons.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                Accessories <span>45 Codes | 33 Deals</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/coupons.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                Accessories <span>45 Codes | 33 Deals</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/coupons.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                Accessories <span>45 Codes | 33 Deals</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/coupons.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                Accessories <span>45 Codes | 33 Deals</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/coupons.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                Accessories <span>45 Codes | 33 Deals</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box">
-                                    <div className="category-item">
-                                        <div className="cat-img">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/coupons.png" 
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="category-title">
-                                            <a href="/coupon-category/coupon-category-dtl">
-                                                Accessories <span>45 Codes | 33 Deals</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                            {page.categories.map(category => (
+                <div key={category.id} className="col-lg-2 col-md-3 col-sm-4 category-box">
+                    <div className="category-item">
+                        <div className="cat-img">
+                            <a href={`/coupon-category/${category.slug}`}>
+                                <img 
+                                    alt={category.name} 
+                                    loading="lazy" 
+                                    width="100" 
+                                    height="100" 
+                                    decoding="async" 
+                                    data-nimg="1"
+                                    src={category.image || "../assets/coupons.png"} 
+                                />
+                            </a>
+                        </div>
+                        <div className="category-title">
+                            <a href={`/coupon-category/${category.slug}`}>
+                                {category.name} 
+                                <span>
+                                    {category.code_coupons_count} Codes | {category.deal_coupons_count} Deals
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            ))}
                             </div>
                         </div>
                     </section>
@@ -185,7 +80,7 @@ export default function Categories({ page }) {
 export async function getStaticProps() {
 
 
-    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/categories`);
+    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/store-categories`);
     const data = await response.json();
     return {
         props: {
