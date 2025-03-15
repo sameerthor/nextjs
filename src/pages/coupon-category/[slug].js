@@ -139,7 +139,7 @@ const exampleFunction = ({ page }) => {
                                                     </div>
                                                 </div>
                                                 <div className="storeData">
-                                                    <a className="storeName" href={`/store/${store.slug}`}>
+                                                    <a className="storeName" href={`/${store.slug}`}>
                                                         <p>{coupon.title}</p>
                                                     </a>
                                                 </div>
@@ -155,7 +155,7 @@ const exampleFunction = ({ page }) => {
                                                         </p>
                                                     </div>
                                                     <p className="grabDeal">
-                                                        <a href={`/store/${store.slug}`}>
+                                                        <a href={`/${store.slug}`}>
                                                             {coupon.is_deal === "1" ? "Get Deal" : "Show Code"}
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-tag" viewBox="0 0 16 16">
                                                                 <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0"></path>

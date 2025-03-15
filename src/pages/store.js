@@ -230,7 +230,7 @@ export default function Store({ data }) {
                                 <li>{storedata.store.name}</li>
                             </ul>
                             <div className="storeCat">
-                                <a href={`categories/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</a>
+                                <a href={`coupon-category/${Object.keys(data.allcat)[0]}`}>{data.allcat[Object.keys(data.allcat)[0]]}</a>
                             </div>
                         </div>
                         <>
