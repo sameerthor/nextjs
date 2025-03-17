@@ -1454,12 +1454,19 @@ table {
 .recentPost .authorImg img{
     object-fit: contain;
     border-radius: 50%;
+    display: block;
+    width: 2.9rem;
+    height: 2.9rem;
 }
 .recentPost .authorImg{
     margin-right: .5rem;
     border: 1px solid #247e6a;
     border-radius: 50%;
-    padding: .15rem;
+    width: 3rem;
+    height: 3rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 .recentPost .recentTitle{
     font-weight: 600;
