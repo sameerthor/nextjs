@@ -62,7 +62,7 @@ export default function Categories({ page }) {
                                 </div>
                             </div>
                             <div className="row row-cols-2">
-                                <div className="col-sm-4 category-box">
+                                {/* <div className="col-sm-4 category-box">
                                     <div className="category-item catType">
                                         <div className="cat-img">
                                             <a href="/categories/coupon-category">
@@ -83,7 +83,7 @@ export default function Categories({ page }) {
                                             </a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="col-sm-4 category-box">
                                     <div className="category-item catType">
                                         <div className="cat-img">

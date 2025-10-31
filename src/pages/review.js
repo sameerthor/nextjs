@@ -613,9 +613,9 @@ export default function Reviews({ data }) {
 
                                     {/* Newsletter Box */}
                                     <div className="newsLetterBox">
-                                        <h4 className="sidebarHeading">Daily Discount Update</h4>
+                                        <h4 className="sidebarHeading">Daily Review Update</h4>
                                         <p>
-                                            Unlock exclusive discounts, personalized deals, and early access to limited-time offers by subscribing to our daily newsletter. Join a community of savvy shoppers and never miss out on savings again. Sign up now to start saving and make every purchase count!
+                                            Unlock exclusive deals, personalized offers, and early access to limited-time products by subscribing to our daily newsletter. Join a community of savvy shoppers and never miss out on savings again. Sign up now to start saving and make every purchase count!
                                         </p>
 
                                         <form onSubmit={handleSubmit}>
