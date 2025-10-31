@@ -11,7 +11,7 @@ const { publicRuntimeConfig } = getConfig()
 
 
 export default function Reviews({ data }) {
-
+    console.log(data);
     const router = useRouter()
     const [reviewdata, setReviewdata] = useState(data);
     const [email, setEmail] = useState("");
@@ -263,7 +263,11 @@ export default function Reviews({ data }) {
                                 <div className="searchBlog">
                                     <div className="dateCat">
                                         <span className="date">10 APR 2024</span>
-                                        <span className="catg">Fashin</span>
+                                        {Object.entries(reviewdata.allcat).map(([slug, name]) => (
+                                            <a key={slug} href={`/categories/${slug}`} className="catg">
+                                                {name}
+                                            </a>
+                                        ))}
                                     </div>
                                     <div className="searchBox">
                                         <form action="#noWhere">
@@ -295,7 +299,7 @@ export default function Reviews({ data }) {
                         <div className="row blogBox">
                             <div className="col-md-8 p-0">
                                 <div className="blogContent">
-                                    <h1 className='blogTitle'>{reviewdata.review.render_name}<span>{reviewdata.review.slug.includes("coupon") ? ' Coupons, Promo Codes and Offers' : 'Review'}</span></h1>
+                                    <h1 className='blogTitle'>{reviewdata.review.name}</h1>
                                     <div className="autorbox">
                                         <div className="authorImg">
                                             <img
