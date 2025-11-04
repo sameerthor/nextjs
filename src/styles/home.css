@@ -206,10 +206,7 @@ footer .row{
     margin-bottom: 2.2rem;
     margin-left: .8rem;
 }
-.row{
-    align-items: center;
-    justify-content: space-around;
-}
+
 .featured-items img{
     width: 100%;
 }
@@ -345,6 +342,7 @@ footer .row{
     color: #111111;
     font-size: 1.2rem;
     display: -webkit-box;
+    line-clamp: 1;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -354,6 +352,7 @@ footer .row{
     font-size: .88rem;
     margin-left: .4rem;
     display: -webkit-box;
+    line-clamp: 1;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -394,6 +393,7 @@ footer .row{
     font-weight: 500;
     font-size: 1rem;
     display: -webkit-box !important;
+    line-clamp: 1;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -473,6 +473,7 @@ footer .row{
     font-weight: 600;
     font-size: 1.4rem;
     display: -webkit-box;
+    line-clamp: 1;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -482,6 +483,7 @@ footer .row{
     text-align: justify;
     color: #222222;
     display: -webkit-box;
+    line-clamp: 1;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;

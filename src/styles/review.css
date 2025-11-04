@@ -318,6 +318,7 @@
    margin: .6rem auto;
    font-size: 1.16rem;
    color: #2b2b33;
+
 }
 .write-review i{
     font-weight: 600;
@@ -1150,11 +1151,15 @@ table {
     font-weight: 700;
  }
  .blogContent .blogcontentData h2{
-    font-size: 1.4rem;
-    margin-bottom: .5rem;
-    color: #2e2e2e;
-    font-weight: 600;
+   color: #111;
+    font-family: CabinetGrotesk, sans-serif;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 115%;
+    margin: 40px 0 24px;
  }
+  
  .blogContent .blogcontentData img{
     max-width: 100%;
     display: block;
@@ -1175,6 +1180,11 @@ table {
     margin-bottom: .5rem;
     line-height: 1.4;
     text-align: left;
+    color: #111;
+    font-family: Frank Ruhl Libre, serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 29px;
  }
  .blogContent .blogcontentData ul {
     padding-left: 1rem;
@@ -1187,6 +1197,11 @@ table {
     margin-bottom: .5rem;
     line-height: 1.4;
     text-align: left;
+     color: #111;
+    font-family: Frank Ruhl Libre, serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 29px;
  }
  .blogContent .blogcontentData ol {
     padding-left: 1rem;
@@ -1493,12 +1508,18 @@ table {
     overflow: hidden;
 }
 .blogContent .blogcontentData div {
-    color: #1a1a1b;
-    font-size: .95rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-    text-align: left;
+    color: #111;
+    font-family: Frank Ruhl Libre, serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 29px;
+}
+.blogContent .blogcontentData p {
+    color: #111;
+    font-family: Frank Ruhl Libre, serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 29px;
 }
 .blogContent a {
     color: #4242f4;
@@ -1530,3 +1551,131 @@ table {
         margin-bottom: 1rem;
     }
  }
+ /* new */
+ .reviewHeader{
+    padding-top: 2rem;
+    font-family: var(--font-frank);
+ }
+ .headerTags{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: .5rem;
+ }
+ .headerTags .catg{
+    background-color: #cad6cc;
+    border-radius: 48px;
+    color: #111;
+    padding: 6px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+ }
+  .headerTags .catg:hover{
+    text-decoration: underline;
+ }
+  .headerTags .date{
+   font-weight: 400;
+   font-size: 1rem;
+ }
+ .reviewHeader .container{
+    max-width: 800px;
+ }
+  .reviewHeader .container h1{
+   color: #111;
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 64px;
+    margin: 0;
+    padding: 24px 0;
+    text-align: center;
+    font-family: var(--font-cabinet);
+ }
+ .reviewHeader .author{
+    color: #111;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+ }
+ .blog-details-page .sidebar{
+    position: sticky;
+    top: 10px;
+    max-height: 90vh;
+    overflow: auto;
+ }
+ .blogContent .blogcontentData h3{
+   color: #111;
+    font-family: CabinetGrotesk, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 115%;
+    margin: 40px 0 24px;
+ }
+
+    .interestedBox .section-title {
+    font-size: 2rem;
+    color: #111;
+    margin-bottom: 2rem;
+    }
+    .interestedBox .row{
+        margin-bottom: 2rem;
+    }
+
+    .interestedBox .tag {
+    background-color: #a694c4;
+    color: #111;
+    font-size: 0.9rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: 500;
+    }
+
+    .interestedBox .date {
+    color: #444;
+    font-size: 0.95rem;
+    }
+
+    .interestedBox .post-title {
+    font-size: 1.5rem;
+    color: #000;
+    transition: color 0.3s ease;
+    }
+        .interestedBox .post-title a{
+    font-size: 1.5rem;
+    color: #111;
+    transition: color 0.3s ease;
+    }
+
+    .interestedBox .post-title:hover {
+    color: #6c4fc2;
+    cursor: pointer;
+    }
+
+    .interestedBox img {
+    width: 100%;
+    border-radius: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 150px;
+    }
+
+    .interestedBox img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 767px) {
+    .interestedBox .section-title {
+        font-size: 1.6rem;
+    }
+
+    .interestedBox .post-title {
+        font-size: 1.3rem;
+    }
+
+    .interestedBox .row {
+        margin-bottom: 2rem;
+    }
+    }

@@ -245,31 +245,75 @@ export default function Reviews({ data }) {
                 </Head>
 
                 <Header />
-                <section className='reviewHeader'>
+                <section className="blog-details-page">
                     <div className="container">
-                        <div className="headerTags">
-                             {Object.entries(reviewdata.allcat).map(([slug, name]) => (
-                                <a key={slug} href={`/categories/${slug}`} className="catg">
-                                    {name}
-                                </a>
-                            ))}
-                            <div className='date'>
-                               April 10, 2025
-                            </div>
-                           
+                        <div class="affiDisc">
+                            <p>Scoopreview may earn a commission when you use coupons on this page. <a href="/affiliate-disclosure">Learn More</a></p>
                         </div>
-                        <h1>{reviewdata.review.name}</h1>
-                        <div className='author'>
-                            Written by <strong>Mashma M</strong>
+                        <div className="breadcrumb">
+                            <ul>
+                                <li><a href="/">scoopReview.com</a> /</li>
+                                <li>{reviewdata.review.render_name} {reviewdata.review.slug.includes("coupon") ? 'Coupons' : 'Review'}</li>
+                            </ul>
                         </div>
                     </div>
-                </section>
-                <section className="blog-details-page">
-                    
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12 p-0">
+                                <div className="searchBlog">
+                                    <div className="dateCat">
+                                        <span className="date">10 APR 2024</span>
+                                        {Object.entries(reviewdata.allcat).map(([slug, name]) => (
+                                            <a key={slug} href={`/categories/${slug}`} className="catg">
+                                                {name}
+                                            </a>
+                                        ))}
+                                    </div>
+                                    <div className="searchBox">
+                                        <form action="#noWhere">
+                                            <input
+                                                type="search"
+                                                searchMode="search"
+                                                className="form-control"
+                                                placeholder="Search blog"
+                                            />
+                                            <button type="submit">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="16"
+                                                    height="16"
+                                                    fill="currentColor"
+                                                    className="bi bi-search"
+                                                    viewBox="0 0 16 16"
+                                                >
+                                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className="container">
                         <div className="row blogBox">
                             <div className="col-md-8 p-0">
                                 <div className="blogContent">
+                                    <h1 className='blogTitle'>{reviewdata.review.name}</h1>
+                                    <div className="autorbox">
+                                        <div className="authorImg">
+                                            <img
+                                                src="https://secure.gravatar.com/avatar/ec0a6ac9bd172932148a187240330fd8?s=450&d=mm&r=g"
+                                                width="38"
+                                                height="38"
+                                                alt="Blog Author"
+                                                title="Blog Author"
+                                            />
+                                        </div>
+                                        <span className="authorName">Freida McFadden </span>
+                                    </div>
+
+
                                     <div className="review-box">
                                         <div className="contents reviewContents">
                                             <div id="accordion" className="">
@@ -474,41 +518,11 @@ export default function Reviews({ data }) {
                                     </div>
 
 
-                                    {/* <div className="youMayAlso">
+                                    <div className="youMayAlso">
                                         <div className="container text-center">
                                             <p className="fw-bolder"> You may also like - <Link href={`/${reviewdata.previews[4].slug}`} className="btn btn-primary">{reviewdata.previews[4].render_name}</Link></p>
                                         </div>
-                                    </div> */}
-                                    <section className="interestedBox">
-                                        <div>
-                                            <h2 className="section-title mb-5 fw-bold">
-                                            You may also be interested in
-                                            </h2>
-                                            {reviewdata.previews.map((item, index) => {
-                                            if (index < 3)
-                                                return (<div className="row  mb-5" key={item.id}>
-                                                <div className="col-md-5">
-                                                    <Link href={`/${item.slug}`}> 
-                                                        <Image width={0} height={0} sizes="100vw" className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" />
-                                                    </Link>
-                                                </div>
-                                                <div className="col-md-7 mt-3 mt-md-0">
-                                                    <div className="d-flex align-items-center mb-2">
-                                                    <span className="tag me-2">Reviews</span>
-            
-                                                    </div>
-                                                    <h4 className="post-title fw-bold"><Link href={`/${item.slug}`}><span>{item.render_name}</span></Link></h4>
-                                                </div>
-                                            </div>
-                                                        )
-                                        }
-                                        )}
-                                        
-
-                                            
-                                        </div>         
-                                    </section>
-
+                                    </div>
 
                                     <div id="relatedReviews">
                                         <div className="related-review">
@@ -523,7 +537,7 @@ export default function Reviews({ data }) {
                                                 )}
                                             </div>
                                         </div>
-                                        {/* <div className="popular-store" id="popularStores">
+                                        <div className="popular-store" id="popularStores">
                                             <h1 className="text-left">Popular Stores</h1>
                                             <div className="row row-cols-2">
 
@@ -542,9 +556,9 @@ export default function Reviews({ data }) {
                                                 }
                                                 )}
                                             </div>
-                                        </div> */}
+                                        </div>
                                     </div>
-{/* 
+
                                     <div className="commentbox">
                                         <div className="row comment mx-auto">
                                             <h3>Leave a Reply</h3>
@@ -595,14 +609,14 @@ export default function Reviews({ data }) {
                                                 <button type="submit">Post Comment</button>
                                             </form>
                                         </div>
-                                    </div> */}
+                                    </div>
                                 </div>
                             </div>
                             <div className="col-md-4 p-0">
                                 <div className="sidebar">
 
                                     {/* Newsletter Box */}
-                                    {/* <div className="newsLetterBox">
+                                    <div className="newsLetterBox">
                                         <h4 className="sidebarHeading">Daily Review Update</h4>
                                         <p>
                                             Unlock exclusive deals, personalized offers, and early access to limited-time products by subscribing to our daily newsletter. Join a community of savvy shoppers and never miss out on savings again. Sign up now to start saving and make every purchase count!
@@ -640,7 +654,7 @@ export default function Reviews({ data }) {
 
                                             {message && <p className="message">{message}</p>}
                                         </form>
-                                    </div> */}
+                                    </div>
 
                                     {/* Recent Posts */}
                                     <div className="recentPost">

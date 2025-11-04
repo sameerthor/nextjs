@@ -276,7 +276,7 @@ export default function Home({ page }) {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid week-review">
+            {/* <div className="container-fluid week-review">
                 <div className="container col-lg-10 col-md-10 col-sm-10 week-box">
                     <div className="row">
                         <h2>Top Reviews of the Week</h2>
@@ -293,7 +293,7 @@ export default function Home({ page }) {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
             <div className="container-fluid">
                 <div className="container  col-lg-10 col-md-10 col-sm-10 blog-box">
@@ -311,11 +311,11 @@ export default function Home({ page }) {
                                             </div>
                                             <h2 className="blog-title"><a href={`/${item.slug}`}>{item.title.substring(0, 35)}....</a></h2>
                                             <p className="blog-desc">{item.content.replace(/(<([^>]+)>)/ig, '').substring(0, 200)}....</p>
-                                            <p className="author">By <a href={`/${item.slug}`}>Tanay Saxena</a> | <span className="time">{item.time} min read</span></p>
-                                            <div className="icons d-flex">
+                                            <p className="author">By <a href={`/${item.slug}`}>Tanay Saxena</a> <span className="time"></span></p>
+                                            {/* <div className="icons d-flex">
                                                 <span className="me-auto shadow-sm"><i className="fa fa-thumbs-up" aria-hidden="true"></i> Likes {item.like}</span>
                                                 <span className="ms-auto shadow-sm"><i className="fa fa-share-alt" aria-hidden="true"></i> Shares {item.share}</span>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 );

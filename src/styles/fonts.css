@@ -1,0 +1,125 @@
+/* Cabinet Grotesk - Thin */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabinet Grotesk - ExtraLight */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Extralight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabinet Grotesk - Light */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabinet Grotesk - Regular */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabinet Grotesk - Medium */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabinet Grotesk - Bold */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabinet Grotesk - ExtraBold */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabinet Grotesk - Black */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+/* Frank Ruhl Libre - Light */
+@font-face {
+  font-family: 'Frank Ruhl Libre';
+  src: url('/fonts/FrankRuhlLibre/FrankRuhlLibre-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Frank Ruhl Libre - Regular */
+@font-face {
+  font-family: 'Frank Ruhl Libre';
+  src: url('/fonts/FrankRuhlLibre/FrankRuhlLibre-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Frank Ruhl Libre - Medium */
+@font-face {
+  font-family: 'Frank Ruhl Libre';
+  src: url('/fonts/FrankRuhlLibre/FrankRuhlLibre-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Frank Ruhl Libre - Bold */
+@font-face {
+  font-family: 'Frank Ruhl Libre';
+  src: url('/fonts/FrankRuhlLibre/FrankRuhlLibre-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Frank Ruhl Libre - ExtraBold */
+@font-face {
+  font-family: 'Frank Ruhl Libre';
+  src: url('/fonts/FrankRuhlLibre/FrankRuhlLibre-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Frank Ruhl Libre - Black */
+@font-face {
+  font-family: 'Frank Ruhl Libre';
+  src: url('/fonts/FrankRuhlLibre/FrankRuhlLibre-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

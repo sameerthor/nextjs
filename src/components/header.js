@@ -34,19 +34,19 @@ export function Header() {
             
               <li className="nav-item">
                 <Link prefetch={false}
-                  className={pathname === '/reviews' ? 'text-blue nav-link' : 'text-black nav-link'}
-                  href='/reviews'
+                  className={pathname === '/categories/vitamins-supplements' ? 'text-blue nav-link' : 'text-black nav-link'}
+                  href='/categories/vitamins-supplements'
                 >
-                  REVIEWS
+                  supplements
                 </Link>
               </li>
               <li className="nav-item">
                 <Link prefetch={false}
-                  className={pathname === '/blogs' ? 'text-blue nav-link' : 'text-black nav-link'}
-                  href='/blogs'
+                  className={pathname === '/categories/healthcare' ? 'text-blue nav-link' : 'text-black nav-link'}
+                  href='/categories/healthcare'
                   shallow={true}
                 >
-                  BLOGS
+                  Healthcare
                 </Link>
               </li>
               <li className="nav-item">
