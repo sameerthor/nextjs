@@ -12,6 +12,7 @@ import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 const OwlCarousel = dynamic(() => import("react-owl-carousel"), {
     ssr: false,
+    autoplay: true,
 });
 
 // Images Import //
@@ -43,7 +44,21 @@ const Responsive = {
         items: 4
     },
     1160: {
-        items: 5
+        items: 1
+    }
+}
+const Spotlight = {
+    0: {
+        items: 4
+    },
+    600: {
+        items: 3
+    },
+    800: {
+        items: 2
+    },
+    1160: {
+        items: 1
     }
 }
 
@@ -77,31 +92,224 @@ export default function Home({ page }) {
             </Head>
             <Header />
 
-            <section>
-                <div className="container-fluid my-2">
-                    <h1 className="text-center fw-bold top-heading">Top <span className="text-success">Reviews</span></h1>
-                    <div className="row mt-5">
-                        {homeData.home_slides && (
-                            <OwlCarousel className='owl-theme' responsive={Responsive} loop margin={15} nav>
-                                {homeData.home_slides.map((item) => {
-                                    return (
-                                        <div className="item mb-4" key={item.id}>
-                                            <div className="card border-0 shadow">
-                                                <Link prefetch={false} href={`/categories/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
-                                                    style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/banner/${item.thumb}`} alt="image" className="card-img-top" /></Link>
-                                                <div className="card-body">
-                                                    <Link prefetch={false} href={`/categories/${item.slug}`}> <h4>{item.name}</h4></Link>
-                                                </div>
-                                            </div>
+            <section className="homeCarousel">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <OwlCarousel className='owl-theme' responsive={Responsive} loop margin={15} autoplay={true}  autoplayTimeout={3000} autoplayHoverPause={true} smartSpeed={2000} nav>
+                                <div className="item">
+                                   <a href="/clinique-review" className="carouselItme">
+                                        <div className="imgBox">
+                                            <Image
+                                                src={('https://scoopreview.com/images/review-logo/ikaria-beauty-review.webp')}
+                                                width={400}
+                                                height={300}
+                                            />
                                         </div>
-                                    );
-                                })}
+                                        <div className="cat">
+                                            Health And Wellness
+                                        </div>
+                                        <div className="desc">
+                                            Clinique has grown over the years while remaining faithful to its basic ideas, developing products with scientific support that deliver substantial effects without causing
+                                        </div>
+                                        <div className="date">
+                                          January 22, 2024
+                                        </div>
+                                   </a>
+                                </div>
+                                <div className="item">
+                                   <a href="/fitphyt-discount-code" className="carouselItme">
+                                        <div className="imgBox">
+                                            <Image
+                                                src={('https://scoopreview.com/wp-content/uploads/2019/09/Fitphyt-Coupons.jpg')}
+                                                width={400}
+                                                height={300}
+                                            />
+                                        </div>
+                                        <div className="cat">
+                                            Lifestyle
+                                        </div>
+                                        <div className="desc">
+                                            Fitphyt is known to offer branded quality leggings that are super comfortable and extremely resistant. The fabric is fantastic that allows you to wear them on any occasion. 
+                                        </div>
+                                        <div className="date">
+                                          January 10, 2024
+                                        </div>
+                                   </a>
+                                </div>
+                                <div className="item">
+                                   <a href="/fruit-bouquets-review" className="carouselItme">
+                                        <div className="imgBox">
+                                            <Image
+                                                src={('https://scoopreview.com/wp-content/uploads/2022/04/Fluttering-Fruit-Arrangement-Review.jpg')}
+                                                width={400}
+                                                height={300}
+                                            />
+                                        </div>
+                                        <div className="cat">
+                                            Food & Drinks
+                                        </div>
+                                        <div className="desc">
+                                            Fruit Bouquets is a brand that offers an endless collection of beautifully presented fruits and flowers.
+                                        </div>
+                                        <div className="date">
+                                          March 10, 2024
+                                        </div>
+                                   </a>
+                                </div>
+                                
                             </OwlCarousel>
-                        )}
+                        </div>
+                        <div className="col-md-6">
+                            <h2 class="section-title">Latest Finds</h2>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <a className="latestFinds" href="/anact-review">
+                                        <div className="imgBox">
+                                            <Image
+                                                src={'/images/anact.webp'}
+                                                width={300}
+                                                height={200}
+                                            />
+                                        </div>
+                                        <div className="desc">
+                                                Anact Reviews : Best Hemp-Based Towel And Face Masks
+                                        </div>
+                                        <div className="date">
+                                                September 12, 2025
+                                        </div>
+                                    </a>
+                                </div>
+                                <div className="col-md-6">
+                                    <a className="latestFinds" href="/affirmicious-review">
+                                        <div className="imgBox">
+                                            <Image
+                                                src={'/images/affirmicious.webp'}
+                                                width={300}
+                                                height={200}
+                                            />
+                                        </div>
+                                        <div className="desc">
+                                                Affirmicious Reviews | Best Astrology And Zodiac Positive Affirmations
+                                        </div>
+                                        <div className="date">
+                                                October 14, 2025
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <a className="latestFinds" href="/indochino-review">
+                                        <div className="imgBox">
+                                            <Image
+                                                src={'/images/indochino.avif'}
+                                                width={300}
+                                                height={200}
+                                            />
+                                        </div>
+                                        <div className="desc">
+                                               Indochino Review | Best Custom Suits, Shirts, Chinos, And More
+                                        </div>
+                                        <div className="date">
+                                                September 14, 2025
+                                        </div>
+                                    </a>
+                                </div>
+                                <div className="col-md-6">
+                                    <a className="latestFinds" href="/vellen-hair-review">
+                                        <div className="imgBox">
+                                            <Image
+                                                src={'/images/vellen-hair.webp'}
+                                                width={300}
+                                                height={200}
+                                            />
+                                        </div>
+                                        <div className="desc">
+                                               Vellen-Hair Reviews | Best Hair Highlighting Comb Set
+                                        </div>
+                                        <div className="date">
+                                                November 14, 2025
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-            <div className="container-fluid">
+            <section className="spotlight">
+                <div className="container">
+                    <h2 class="section-title text-center">Handpicked for You</h2>
+                    <div className="row">
+                        <div className="col-md-3">
+                            <a className="latestFinds" href="/well-care-botanicals-review">
+                                <div className="imgBox">
+                                    <Image
+                                        src={'/images/wellcare.avif'}
+                                        width={300}
+                                        height={200}
+                                    />
+                                </div>
+                                <div className="desc">
+                                        Well Care Botanicals Review - Quick Summary
+                                        Their CBD works on the brain as an antidepressant, so it also acts as a pain reliever.
+
+                                </div>
+                               
+                            </a>
+                        </div>
+                        <div className="col-md-3">
+                            <a className="latestFinds" href="/brown-and-ginger-review">
+                                <div className="imgBox">
+                                    <Image
+                                        src={'/images/brown.webp'}
+                                        width={300}
+                                        height={200}
+                                    />
+                                </div>
+                                <div className="desc">
+                                        Brown and Ginger Review - Quick Summary
+                                       Premium decor pieces to add ambiance to your home 
+                                </div>
+                               
+                            </a>
+                        </div>
+                        <div className="col-md-3">
+                            <a className="latestFinds" href="/brown-and-ginger-review">
+                                <div className="imgBox">
+                                    <Image
+                                        src={'/images/batanaful.jpeg'}
+                                        width={300}
+                                        height={200}
+                                    />
+                                </div>
+                                <div className="desc">
+                                       Batanaful Review
+                                      Batanaful products are beneficial for achieving our hair and skin goals without the use of any harsh chemicals.
+                                </div>
+                               
+                            </a>
+                        </div>
+                        <div className="col-md-3">
+                            <a className="latestFinds" href="/preloved-review">
+                                <div className="imgBox">
+                                    <Image
+                                        src={'/images/preloved.avif'}
+                                        width={300}
+                                        height={200}
+                                    />
+                                </div>
+                                <div className="desc">
+                                       Preloved Reviews
+                                      Speak with a vendor. To confirm pricing and make arrangements for pickup or delivery, contact the vendor directly.
+                                </div>
+                               
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* <div className="container-fluid">
                 <div className="container col-lg-10 col-md-10 col-sm-10 why-scoop">
                     <h1 className="text-center">Why ScoopReview</h1>
                     <p className="text-center">We're one of the trusted sources for honest and in-depth brand reviews.</p>
@@ -123,8 +331,8 @@ export default function Home({ page }) {
                     <p>Customer satisfaction is our topmost priority. We ensure that our customers are happy with their purchase from the beginning to the end. For that, we have ratings on every brand's review and deals. However, if you are not getting the discounts we have promised, you can contact us at hello@scoopreview.com so that we can resolve your problem.</p>
                     <h3 className="text-center">Happy Shoping! <span><i className="fa fa-smile-o" aria-hidden="true"></i></span></h3>
                 </div>
-            </div>
-            <div className="container-fluid">
+            </div> */}
+            {/* <div className="container-fluid">
                 <div className="container col-lg-10">
                     <section>
                         <div className="container-fluid my-2">
@@ -155,7 +363,7 @@ export default function Home({ page }) {
                         </div>
                     </section>
                 </div>
-            </div>
+            </div> */}
             <div className="container-fluid mt-5 feature-box">
                 <div className="container col-lg-10 col-md-12 col-sm-10">
                     <h1>Featured</h1>

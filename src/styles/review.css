@@ -1073,7 +1073,7 @@ table {
         flex-direction: column-reverse;
     }
     .blog-details-page{
-        padding: 6rem .8rem;
+        padding: 0 .8rem;
     }
     .blog-details-page .searchBlog .searchBox{
         width: 100%;
@@ -1679,3 +1679,14 @@ table {
         margin-bottom: 2rem;
     }
     }
+@media(max-width:600px){
+    .reviewHeader .container h1{
+        font-size: 1.6rem;
+        line-height: 1.4;
+    }
+    .blogContent .blogcontentData h3{
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.4;
+    }
+}
