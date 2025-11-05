@@ -617,6 +617,9 @@ footer .row{
     max-width: 100%;
     object-fit: cover;
     margin-bottom: 1rem;
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem;
 }
 .latestFinds .desc{
     color: #1b1b1b;
