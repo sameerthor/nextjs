@@ -635,3 +635,10 @@ footer .row{
     text-align: center;
     text-transform: uppercase;
 }
+.latestFinds .name{
+    color: #cfac9f;
+    font-weight: 400;
+    font-size: .85rem;
+    text-transform: uppercase;
+    text-align: center;
+}

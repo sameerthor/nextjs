@@ -304,6 +304,72 @@ export default function Home({ page }) {
                     </div>
                 </div>
             </section>
+            <section className="spotlight">
+                <div className="container">
+                    <h2 class="section-title text-center">Discovered for you</h2>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <a className="latestFinds" href="/hanky-panky-review">
+                                <div className="imgBox">
+                                    <Image
+                                        src="/images/hanky-panky.webp"
+                                        width={300}
+                                        height={200}
+                                        alt="wellcare"
+                                    />
+                                </div>
+                                <div className="name">
+                                    Hanky Panky Review
+                                </div>
+                                <div className="desc">
+                                       This store offers a wide range of fashionable thongs, Underwear, lingerie & sleepwear proudly made in the U.S.A. Hanky Panky brings you beautiful lingerie that looks sexy and always feels comfortable.
+
+                                </div>
+                               
+                            </a>
+                        </div>
+                        <div className="col-md-4">
+                            <a className="latestFinds" href="/palladio-beauty-review">
+                                <div className="imgBox">
+                                    <Image
+                                        src="/images/palladio.jpg"
+                                        width={300}
+                                        height={200}
+                                        alt="wellcare"
+                                    />
+                                </div>
+                                <div className="name">
+                                    Palladio Beauty Review
+                                </div>
+                                <div className="desc">
+                                      Palladio Beauty provides the most unique botanical and vitamin-infused cosmetics. The brand focuses on delivering products to nourish your skin and make you look flawless. 
+                                </div>
+                               
+                            </a>
+                        </div>
+                        <div className="col-md-4">
+                            <a className="latestFinds" href="/zapaka-review">
+                                <div className="imgBox">
+                                    <Image
+                                        src="/images/zapaka.webp"
+                                        width={300}
+                                        height={200}
+                                        alt="wellcare"
+                                    />
+                                </div>
+                                <div className="name">
+                                    Zapaka Review
+                                </div>
+                                <div className="desc">
+                                      Zapaka is one of the rapidly growing vintage clothing brands. The brand offers a vast range of dresses and accessories that are gaining massive popularity in the market. 
+                                </div>
+                               
+                            </a>
+                        </div>
+                       
+                    </div>
+                </div>
+            </section>
             {/* <div className="container-fluid">
                 <div className="container col-lg-10 col-md-10 col-sm-10 why-scoop">
                     <h1 className="text-center">Why ScoopReview</h1>
