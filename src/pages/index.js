@@ -315,7 +315,7 @@ export default function Home({ page }) {
                                         src="/images/hanky-panky.webp"
                                         width={300}
                                         height={200}
-                                        alt="wellcare"
+                                        alt="hanky-panky"
                                     />
                                 </div>
                                 <div className="name">
@@ -335,7 +335,7 @@ export default function Home({ page }) {
                                         src="/images/palladio.jpg"
                                         width={300}
                                         height={200}
-                                        alt="wellcare"
+                                        alt="palladio"
                                     />
                                 </div>
                                 <div className="name">
@@ -366,6 +366,63 @@ export default function Home({ page }) {
                                
                             </a>
                         </div>
+                         <div className="col-md-4">
+                            <a className="latestFinds" href="/zapaka-review">
+                                <div className="imgBox">
+                                    <Image
+                                        src="/images/goodcleanlove.webp"
+                                        width={300}
+                                        height={200}
+                                        alt="goodcleanlove"
+                                    />
+                                </div>
+                                <div className="name">
+                                    Good Clean Love Review
+                                </div>
+                                <div className="desc">
+                                      Good personal hygiene is the key to having a healthy and clean body. These products help to clean your external body and keep it safe from various harmful substances. 
+                                </div>
+                               
+                            </a>
+                        </div>
+                        <div className="col-md-4">
+                            <a className="latestFinds" href="/moozii-review">
+                                <div className="imgBox">
+                                    <Image
+                                        src="/images/moozii.webp"
+                                        width={300}
+                                        height={200}
+                                        alt="moozii"
+                                    />
+                                </div>
+                                <div className="name">
+                                   MOOZII Reviews
+                                </div>
+                                <div className="desc">
+                                     MOOZII offers the best quality of sustainable feminine care products for every woman but at low-cost prices.
+                                </div>
+                               
+                            </a>
+                        </div>
+                        <div className="col-md-4">
+                            <a className="latestFinds" href="/belly-bandits-review">
+                                <div className="imgBox">
+                                    <Image
+                                        src="/images/bellibandit.webp"
+                                        width={300}
+                                        height={200}
+                                        alt="bellibandit"
+                                    />
+                                </div>
+                                <div className="name">
+                                   Belly Bandits Reviews
+                                </div>
+                                <div className="desc">
+                                     Belly Bandit is an online store offering a range of maternity, nursing, prenatal and postnatal products. It's a US-Based brand, providing F.D.A. registered medical device brand in the maternity care products category.
+                                </div>
+                            </a>
+                        </div>
+                       
                        
                     </div>
                 </div>
@@ -425,7 +482,7 @@ export default function Home({ page }) {
                     </section>
                 </div>
             </div> */}
-            <div className="container-fluid mt-5 feature-box">
+            {/* <div className="container-fluid mt-5 feature-box">
                 <div className="container col-lg-10 col-md-12 col-sm-10">
                     <h1>Featured</h1>
                     <div className="row">
@@ -455,7 +512,7 @@ export default function Home({ page }) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             {/* <div className="container-fluid search-product">
                 <div className="container">
                     <div className="row">
@@ -480,8 +537,8 @@ export default function Home({ page }) {
                     </div>
                 </div>
             </div> */}
-            <div className="container-fluid">
-                <div className="container col-lg-10 col-md-10 col-sm-10 review-box">
+            <section>
+                <div className="container review-box">
                     <div className="row">
                         <h2>Best Product Reviews</h2>
                         <div className="col-lg-6 col-md-6 col-sm-5 review-item">
@@ -504,7 +561,7 @@ export default function Home({ page }) {
                         </div>
                     </div>
                 </div>
-                <div className="container col-lg-10 col-md-10 col-sm-10 review-box">
+                <div className="container review-box">
                     <div className="row">
                         <div className="col-lg-3 col-md-6 col-sm-5 review-item">
                             <div className="shadow item-box">
@@ -544,7 +601,7 @@ export default function Home({ page }) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             {/* <div className="container-fluid week-review">
                 <div className="container col-lg-10 col-md-10 col-sm-10 week-box">
                     <div className="row">
@@ -564,8 +621,8 @@ export default function Home({ page }) {
                 </div>
             </div> */}
 
-            <div className="container-fluid">
-                <div className="container  col-lg-10 col-md-10 col-sm-10 blog-box">
+            <section>
+                <div className="container blog-box">
                     <div className="row">
                         <h1>Latest Blogs</h1>
                         {homeData.blogs && (
@@ -594,10 +651,10 @@ export default function Home({ page }) {
                     </div>
 
                 </div>
-            </div>
+            </section>
 
-            <div className="container-fluid">
-                <div className="container col-lg-10 col-md-10 col-sm-10">
+            <section>
+                <div className="container">
                     <div className="row learn d-sm-none d-md-flex">
                         <div className="col-lg-3 col-md-6 use-coupons">
                             <div className="d-flex use-items">
@@ -649,7 +706,7 @@ export default function Home({ page }) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             <Footer />
         </>
     )
