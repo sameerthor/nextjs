@@ -154,9 +154,10 @@ export default function Home({ page }) {
                                     <a className="latestFinds" href="/anact-review">
                                         <div className="imgBox">
                                             <Image
-                                                src={'./images/anact.webp'}
+                                                src='/images/anact.webp'
                                                 width={300}
                                                 height={200}
+                                                alt="anact"
                                             />
                                         </div>
                                         <div className="desc">
@@ -171,9 +172,10 @@ export default function Home({ page }) {
                                     <a className="latestFinds" href="/affirmicious-review">
                                         <div className="imgBox">
                                             <Image
-                                                src={'./images/affirmicious.webp'}
+                                                src='/images/affirmicious.webp'
                                                 width={300}
                                                 height={200}
+                                                alt="affirmicious"
                                             />
                                         </div>
                                         <div className="desc">
@@ -189,9 +191,10 @@ export default function Home({ page }) {
                                     <a className="latestFinds" href="/indochino-review">
                                         <div className="imgBox">
                                             <Image
-                                                src={'./images/indochino.avif'}
+                                                src='/images/indochino.avif'
                                                 width={300}
                                                 height={200}
+                                                alt="indochino"
                                             />
                                         </div>
                                         <div className="desc">
@@ -206,9 +209,10 @@ export default function Home({ page }) {
                                     <a className="latestFinds" href="/vellen-hair-review">
                                         <div className="imgBox">
                                             <Image
-                                                src={'./images/vellen-hair.webp'}
+                                                src='/images/vellen-hair.webp'
                                                 width={300}
                                                 height={200}
+                                                alt="vellen"
                                             />
                                         </div>
                                         <div className="desc">
@@ -232,9 +236,10 @@ export default function Home({ page }) {
                             <a className="latestFinds" href="/well-care-botanicals-review">
                                 <div className="imgBox">
                                     <Image
-                                        src={'./images/wellcare.avif'}
+                                        src='/images/wellcare.avif'
                                         width={300}
                                         height={200}
+                                        alt="wellcare"
                                     />
                                 </div>
                                 <div className="desc">
@@ -249,9 +254,10 @@ export default function Home({ page }) {
                             <a className="latestFinds" href="/brown-and-ginger-review">
                                 <div className="imgBox">
                                     <Image
-                                        src={'./images/brown.webp'}
+                                        src='/images/brown.webp'
                                         width={300}
                                         height={200}
+                                        alt="brown"
                                     />
                                 </div>
                                 <div className="desc">
@@ -265,9 +271,10 @@ export default function Home({ page }) {
                             <a className="latestFinds" href="/brown-and-ginger-review">
                                 <div className="imgBox">
                                     <Image
-                                        src={'./images/batanaful.jpeg'}
+                                        src='/images/batanaful.jpeg'
                                         width={300}
                                         height={200}
+                                        alt="batanaful"
                                     />
                                 </div>
                                 <div className="desc">
@@ -281,9 +288,10 @@ export default function Home({ page }) {
                             <a className="latestFinds" href="/preloved-review">
                                 <div className="imgBox">
                                     <Image
-                                        src={'../images/preloved.avif'}
+                                        src='/images/preloved.avif'
                                         width={300}
                                         height={200}
+                                        alt="preloved"
                                     />
                                 </div>
                                 <div className="desc">
