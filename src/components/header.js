@@ -51,6 +51,33 @@ export function Header() {
               </li>
               <li className="nav-item">
                 <Link prefetch={false}
+                  className={pathname === '/categories/lifestyle' ? 'text-blue nav-link' : 'text-black nav-link'}
+                  href='/categories/lifestyle'
+                  shallow={true}
+                >
+                  lifestyle
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link prefetch={false}
+                  className={pathname === '/categories/software' ? 'text-blue nav-link' : 'text-black nav-link'}
+                  href='/categories/software'
+                  shallow={true}
+                >
+                  software
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link prefetch={false}
+                  className={pathname === '/categories/technology' ? 'text-blue nav-link' : 'text-black nav-link'}
+                  href='/categories/technology'
+                  shallow={true}
+                >
+                  technology
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link prefetch={false}
                   className={pathname === '/categories' ? 'text-blue nav-link' : 'text-black nav-link'}
                   href='/categories'
                 >
