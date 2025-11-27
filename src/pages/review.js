@@ -110,7 +110,7 @@ export default function Reviews({ data }) {
 
     const changeView = ((index) => {
         setReviewdata((prevState) => {
-            prevState.pcoupons_above[index].is_more = (!reviewdata.pcoupons_above[index].is_more);
+            prevState.coupons[index].is_more = (!reviewdata.coupons[index].is_more);
             return ({
                 ...prevState
             })
@@ -294,7 +294,7 @@ export default function Reviews({ data }) {
 
                                         {/* new coupon */}
                                         <div className='listCoupns'>
-                                            {reviewdata.pcoupons_above.map((item, index) => {
+                                            {reviewdata.coupons.map((item, index) => {
                                                 if (item.is_deal == 1)
                                                     return (<div className="coupon-item" key={item.id}>
                                                         <div className="discountBox">
