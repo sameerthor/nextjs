@@ -110,7 +110,7 @@ export default function Reviews({ data }) {
 
     const changeView = ((index) => {
         setReviewdata((prevState) => {
-            prevState.pcoupons_above[index].is_more = (!reviewdata.pcoupons_above[index].is_more);
+            prevState.coupons[index].is_more = (!reviewdata.coupons[index].is_more);
             return ({
                 ...prevState
             })
@@ -248,15 +248,15 @@ export default function Reviews({ data }) {
                 <section className='reviewHeader'>
                     <div className="container">
                         <div className="headerTags">
-                             {Object.entries(reviewdata.allcat).map(([slug, name]) => (
+                            {Object.entries(reviewdata.allcat).map(([slug, name]) => (
                                 <a key={slug} href={`/categories/${slug}`} className="catg">
                                     {name}
                                 </a>
                             ))}
                             <div className='date'>
-                               April 10, 2025
+                                April 10, 2025
                             </div>
-                           
+
                         </div>
                         <h1>{reviewdata.review.name}</h1>
                         <div className='author'>
@@ -265,7 +265,7 @@ export default function Reviews({ data }) {
                     </div>
                 </section>
                 <section className="blog-details-page">
-                    
+
                     <div className="container">
                         <div className="row blogBox">
                             <div className="col-md-8 p-0">
@@ -294,7 +294,7 @@ export default function Reviews({ data }) {
 
                                         {/* new coupon */}
                                         <div className='listCoupns'>
-                                            {reviewdata.pcoupons_above.map((item, index) => {
+                                            {reviewdata.coupons.map((item, index) => {
                                                 if (item.is_deal == 1)
                                                     return (<div className="coupon-item" key={item.id}>
                                                         <div className="discountBox">
@@ -375,9 +375,12 @@ export default function Reviews({ data }) {
                                                 else
                                                     return (<div className="coupon-item" key={item.id}>
                                                         <div className="discountBox">
-                                                            <div className="offBox">
-                                                                50% <br /> OFF
-                                                            </div>
+                                                            <div
+                                                                className="offBox"
+                                                                dangerouslySetInnerHTML={{
+                                                                    __html: item.type_text.slice(0, -1) + "<br/>" + item.type_text.slice(-1)
+                                                                }}
+                                                            />
                                                             <div className="isValid">
                                                                 <span>
                                                                     Verified
@@ -442,7 +445,7 @@ export default function Reviews({ data }) {
                                                                     </svg>
                                                                 </button>
                                                                 <div className="termsBox">
-                                                                    <p>Expires:03/062025</p>
+                                                                    <p>Expires:03/11/2026</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -482,31 +485,31 @@ export default function Reviews({ data }) {
                                     <section className="interestedBox">
                                         <div>
                                             <h2 className="section-title mb-5 fw-bold">
-                                            You may also be interested in
+                                                You may also be interested in
                                             </h2>
                                             {reviewdata.previews.map((item, index) => {
-                                            if (index < 3)
-                                                return (<div className="row  mb-5" key={item.id}>
-                                                <div className="col-md-5">
-                                                    <Link href={`/${item.slug}`}> 
-                                                        <Image width={0} height={0} sizes="100vw" className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" />
-                                                    </Link>
-                                                </div>
-                                                <div className="col-md-7 mt-3 mt-md-0">
-                                                    <div className="d-flex align-items-center mb-2">
-                                                    <span className="tag me-2">Reviews</span>
-            
-                                                    </div>
-                                                    <h4 className="post-title fw-bold"><Link href={`/${item.slug}`}><span>{item.render_name}</span></Link></h4>
-                                                </div>
-                                            </div>
-                                                        )
-                                        }
-                                        )}
-                                        
+                                                if (index < 3)
+                                                    return (<div className="row  mb-5" key={item.id}>
+                                                        <div className="col-md-5">
+                                                            <Link href={`/${item.slug}`}>
+                                                                <Image width={0} height={0} sizes="100vw" className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" />
+                                                            </Link>
+                                                        </div>
+                                                        <div className="col-md-7 mt-3 mt-md-0">
+                                                            <div className="d-flex align-items-center mb-2">
+                                                                <span className="tag me-2">Reviews</span>
 
-                                            
-                                        </div>         
+                                                            </div>
+                                                            <h4 className="post-title fw-bold"><Link href={`/${item.slug}`}><span>{item.render_name}</span></Link></h4>
+                                                        </div>
+                                                    </div>
+                                                    )
+                                            }
+                                            )}
+
+
+
+                                        </div>
                                     </section>
 
 
@@ -544,7 +547,7 @@ export default function Reviews({ data }) {
                                             </div>
                                         </div> */}
                                     </div>
-{/* 
+                                    {/* 
                                     <div className="commentbox">
                                         <div className="row comment mx-auto">
                                             <h3>Leave a Reply</h3>
