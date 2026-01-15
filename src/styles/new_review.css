@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Frank+Ruhl+Libre:wght@300..900&display=swap');
+
+body{
+    background-color: #f2ede7;
+}
+section {
+    font-family: "Cormorant Garamond", serif;
+}
+header{
+    background-color: #fff;
+}
+.reviewHeader .container {
+    max-width: 1000px;
+}
+.reviewHeader .container h1{
+    font-family: "Cormorant Garamond", serif;
+    font-size: 42px;
+}
+.reviewHeader .author{
+    margin-bottom: 1rem;
+}
+.reviewHeader .headerTags a{
+    color: #000;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+}
+.container{
+    max-width: 1000px;
+}
+.review-box{
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+.listCoupns .review_logo{
+width: 200px;
+display: flex;
+align-items: center;
+}
+.listCoupns .review_logo img{
+    object-fit: contain;
+    width: 200px;
+ 
+    max-width: 100%;
+}
+.coupnBox .couponBtn{
+    width:400px;
+    padding: 1rem;
+    border-left: 1px dashed #d1d1d1;
+    text-align: center;
+
+}
+.listCoupns .coupon-item .coupnBox .couponBtn button, .listCoupns .coupon-item .coupnBox .couponBtndesc button{
+    width: 100%;
+    margin-right: 0;
+    
+}
+.listCoupns .coupon-item .coupnBox .coupondesc p a{
+    font-family: "Cormorant Garamond", serif;
+    padding-right: 1rem;
+  }
+  @media(max-width: 600px){
+    .reviewHeader .container h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
+  }

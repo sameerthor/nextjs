@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import '@/styles/review.css';
+import '@/styles/new_review.css';
 import Header from '../components/header';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -45,67 +46,7 @@ export default function Reviews({ data }) {
         }
     };
 
-    // const idJsonObject = {
-    //     "@context": "https://schema.org/",
-    //     "@type": "Product",
-    //     "name": data ? `${data.review.seo_title.trim()}` : '',
-    //     "brand": {
-    //         "@type": "Brand",
-    //         "name": data ? data.review.render_name : ""
-    //     },
-    //     "description": data ? `${data.review.seo_desc}` : '',
-    //     "image": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
-    //     "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
-    //     "review": [{
-    //         "@type": "Review",
-    //         "reviewRating": {
-    //             "@type": "Rating",
-    //             "ratingValue": "5"
-    //         },
-    //         "author": {
-    //             "@type": "Organisation",
-    //             "name": "ScoopReview"
-    //         }
-    //     }],
-    //     "article": {
-    //         "@type": "Article",
-    //         "mainEntityOfPage":
-    //         {
-    //             "@type": "WebPage",
-    //             "@id": `${publicRuntimeConfig.webUrl}${data.review.slug}`
-    //         },
-    //         "headline": data ? `${data.review.seo_title.trim()}` : '',
-    //         "url": `${publicRuntimeConfig.webUrl}${data.review.slug}`,
-    //         "thumbnailUrl": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
-    //         "image": {
-    //             "@type": "ImageObject", "url": data ? `${publicRuntimeConfig.imageUrl}${data.review.review_logo}` : '',
-    //             "height": 2400, "width": 2000
-    //         }, "datePublished": "2022-11-07T21:29:32.000Z",
-    //         "dateModified": "2022-11-07T21:29:32.000Z",
-    //         "author": { "@type": "Organisation", "name": "ScoopReview" },
-    //         "creator": ["ScoopReview"],
-    //         "keywords": data ? data.review.seo_keywords.split(',') : '',
-    //         "publisher": {
-    //             "@type": "Organization", "name": "ScoopReview",
-    //             "logo": {
-    //                 "@type": "ImageObject",
-    //                 "url": data ? `${publicRuntimeConfig.imageUrl}images/${data.meta.site_ico.value}` : '',
-    //                 "width": 54, "height": 54
-    //             }
-    //         },
-    //         "description": data ? `${data.review.seo_desc}` : ''
-    //     },
-    //     "breadcrumb": {
-    //         "@type": "BreadcrumbList",
-    //         "itemListElement":
-    //             [{ "@type": "ListItem", "position": 1, "item": { "@id": publicRuntimeConfig.webUrl, "name": "ScoopReview" } },
-    //             { "@type": "ListItem", "position": 2, "item": { "@id": `${publicRuntimeConfig.webUrl}reviews`, "name": "Reviews" } },
-    //             { "@type": "ListItem", "position": 3, "item": { "@id": `${publicRuntimeConfig.webUrl}${data ? reviewdata.review.slug : ''}`, "name": data ? `${reviewdata.review.render_name.trim()}}` : '' } },
-    //             ]
-    //     }
-
-
-    // };
+    
 
 
     const changeView = ((index) => {
@@ -213,6 +154,21 @@ export default function Reviews({ data }) {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
     }
+    const getReviewImage = (review) => {
+    if (
+        review &&
+        typeof review.review_logo === "string" &&
+        review.review_logo.trim() !== ""
+    ) {
+        if (review.review_logo.startsWith("/wp-content/")) {
+            return `${publicRuntimeConfig.imageUrl}${review.review_logo}`;
+        }
+
+        return `${publicRuntimeConfig.imageUrl}images/${review.review_logo}`;
+    }
+
+    return "/images/no-image.png";
+};
 
     return (
         reviewdata && (
@@ -247,28 +203,36 @@ export default function Reviews({ data }) {
                 <Header />
                 <section className='reviewHeader'>
                     <div className="container">
+                        
+                        <h1>
+                            {reviewdata?.review?.name?.replace(
+                                /\b(19|20)\d{2}\b/g,
+                                new Date().getFullYear()
+                            )}
+                        </h1>
+
+                        <div className='author'>
+                            Written by <strong>Mashma M</strong>
+                        </div>
                         <div className="headerTags">
                             {Object.entries(reviewdata.allcat).map(([slug, name]) => (
                                 <a key={slug} href={`/categories/${slug}`} className="catg">
-                                    {name}
+
+                                    <div className='date'>
+                                       {name}   |   April 10, 2025
+                                    </div>
                                 </a>
                             ))}
-                            <div className='date'>
-                                April 10, 2025
-                            </div>
+                            
 
-                        </div>
-                        <h1>{reviewdata.review.name}</h1>
-                        <div className='author'>
-                            Written by <strong>Mashma M</strong>
                         </div>
                     </div>
                 </section>
                 <section className="blog-details-page">
 
                     <div className="container">
-                        <div className="row blogBox">
-                            <div className="col-md-8 p-0">
+                        <div className="blogBox">
+                            <div>
                                 <div className="blogContent">
                                     <div className="review-box">
                                         <div className="contents reviewContents">
@@ -297,37 +261,17 @@ export default function Reviews({ data }) {
                                             {reviewdata.coupons.map((item, index) => {
                                                 if (item.is_deal == 1)
                                                     return (<div className="coupon-item" key={item.id}>
-                                                        <div className="discountBox">
-                                                            <div className="offBox">
-                                                                {item.type_text != "" ? item.type_text : 25}% <br /> OFF
-                                                            </div>
-                                                            <div className="isValid">
-                                                                <span>
-                                                                    Verified
-                                                                </span>
-                                                                <span>
-                                                                    <svg
-                                                                        data-bbox="27.999 25 143.499 149.925"
-                                                                        viewBox="27.999 25 143.499 149.925"
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        data-type="shape"
-                                                                        role="img"
-                                                                        aria-label="Verified"
-                                                                    >
-                                                                        <g>
-                                                                            <path
-                                                                                d="M91.301 122.708 71.46 102.867l5.891-5.892 13.95 13.95 30.842-30.842 5.891 5.892-36.733 36.733Zm79.233-6.141-8.608-16.717 8.608-16.558a8.471 8.471 0 0 0 .55-6.542 8.457 8.457 0 0 0-4.283-4.975l-16.792-8.458-2.775-18.467a8.469 8.469 0 0 0-3.408-5.617c-1.858-1.341-4.142-1.891-6.375-1.491l-18.55 3.025-13.1-13.317h-.008c-3.209-3.267-8.875-3.267-12.092 0L80.468 40.808 62.05 37.742c-2.242-.4-4.533.15-6.383 1.491a8.47 8.47 0 0 0-3.408 5.617l-2.85 18.583-16.717 8.342a8.471 8.471 0 0 0-4.275 4.975 8.449 8.449 0 0 0 .541 6.533l8.609 16.709-8.6 16.566a8.416 8.416 0 0 0-.55 6.534 8.448 8.448 0 0 0 4.283 4.983l16.783 8.45 2.776 18.467a8.451 8.451 0 0 0 3.408 5.616 8.475 8.475 0 0 0 6.375 1.5l18.558-3.033 13.1 13.317a8.433 8.433 0 0 0 6.05 2.533c2.292 0 4.433-.9 6.05-2.533l13.233-13.359 18.417 3.075a8.41 8.41 0 0 0 6.375-1.5 8.45 8.45 0 0 0 3.408-5.616l2.859-18.575 16.716-8.342a8.462 8.462 0 0 0 4.275-4.983c.7-2.184.509-4.5-.55-6.525Z"
-                                                                                fillRule="evenodd"
-                                                                            />
-                                                                        </g>
-                                                                    </svg>
-                                                                </span>
-                                                            </div>
+                                                        <div className="review_logo">
+                                                                <img
+                                                                    className="d-flex"
+                                                                    src={getReviewImage(item.review || reviewdata.review)}  
+                                                                    alt={item.review?.render_name || item.review?.name}
+                                                                />
                                                         </div>
                                                         <div className="coupnBox">
                                                             <div className="coupondesc">
                                                                 <div>
-                                                                    <div className="svgBox">
+                                                                    {/* <div className="svgBox">
                                                                         <svg
                                                                             width="14"
                                                                             height="14"
@@ -341,73 +285,44 @@ export default function Reviews({ data }) {
                                                                             ></path>
                                                                         </svg>
                                                                         <span>deal</span>
-                                                                    </div>
+                                                                    </div> */}
                                                                     <p>
                                                                         <a href="#" onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }}>
                                                                             {item.title}
+                                                                            
                                                                         </a>
                                                                     </p>
-                                                                    <div className="couponBtndesc">
-                                                                        <button data-bs-toggle="modal" onClick={(e) => { setDealModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-target="#dealPopup">Get Deal
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                                                                <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
+                                                                    
                                                                 </div>
-                                                                <div className="termsBox">
-                                                                    <a href="#">Terms & Conditions</a>
-                                                                </div>
+                                                                
                                                             </div>
                                                             <div className="couponBtn">
+                                                                <div className="offBox">
+                                                                    {item.type_text != "" ? item.type_text : 25}%  OFF
+                                                                </div>
                                                                 <button onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-toggle="modal" data-bs-target="#dealPopup">
                                                                     Get Deal
                                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                                                                         <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
                                                                     </svg>
                                                                 </button>
-                                                                <div className="termsBox">
-                                                                    <p>Expires:03/10/2025</p>
-                                                                </div>
+                                                        
                                                             </div>
                                                         </div>
                                                     </div>);
                                                 else
                                                     return (<div className="coupon-item" key={item.id}>
-                                                        <div className="discountBox">
-                                                            <div
-                                                                className="offBox"
-                                                                dangerouslySetInnerHTML={{
-                                                                    __html: item.type_text.slice(0, -1) + "<br/>" + item.type_text.slice(-1)
-                                                                }}
-                                                            />
-                                                            <div className="isValid">
-                                                                <span>
-                                                                    Verified
-                                                                </span>
-                                                                <span>
-                                                                    <svg
-                                                                        data-bbox="27.999 25 143.499 149.925"
-                                                                        viewBox="27.999 25 143.499 149.925"
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        data-type="shape"
-                                                                        role="img"
-                                                                        aria-label="Verified"
-                                                                    >
-                                                                        <g>
-                                                                            <path
-                                                                                d="M91.301 122.708 71.46 102.867l5.891-5.892 13.95 13.95 30.842-30.842 5.891 5.892-36.733 36.733Zm79.233-6.141-8.608-16.717 8.608-16.558a8.471 8.471 0 0 0 .55-6.542 8.457 8.457 0 0 0-4.283-4.975l-16.792-8.458-2.775-18.467a8.469 8.469 0 0 0-3.408-5.617c-1.858-1.341-4.142-1.891-6.375-1.491l-18.55 3.025-13.1-13.317h-.008c-3.209-3.267-8.875-3.267-12.092 0L80.468 40.808 62.05 37.742c-2.242-.4-4.533.15-6.383 1.491a8.47 8.47 0 0 0-3.408 5.617l-2.85 18.583-16.717 8.342a8.471 8.471 0 0 0-4.275 4.975 8.449 8.449 0 0 0 .541 6.533l8.609 16.709-8.6 16.566a8.416 8.416 0 0 0-.55 6.534 8.448 8.448 0 0 0 4.283 4.983l16.783 8.45 2.776 18.467a8.451 8.451 0 0 0 3.408 5.616 8.475 8.475 0 0 0 6.375 1.5l18.558-3.033 13.1 13.317a8.433 8.433 0 0 0 6.05 2.533c2.292 0 4.433-.9 6.05-2.533l13.233-13.359 18.417 3.075a8.41 8.41 0 0 0 6.375-1.5 8.45 8.45 0 0 0 3.408-5.616l2.859-18.575 16.716-8.342a8.462 8.462 0 0 0 4.275-4.983c.7-2.184.509-4.5-.55-6.525Z"
-                                                                                fillRule="evenodd"
-                                                                            />
-                                                                        </g>
-                                                                    </svg>
-                                                                </span>
-                                                            </div>
+                                                        <div className="review_logo">
+                                                                <img
+                                                                    className="d-flex"
+                                                                    src={getReviewImage(item.review || reviewdata.review)}  
+                                                                    alt={item.review?.render_name || item.review?.name}
+                                                                />
                                                         </div>
                                                         <div className="coupnBox">
                                                             <div className="coupondesc">
                                                                 <div>
-                                                                    <div className="svgBox">
+                                                                    {/* <div className="svgBox">
                                                                         <svg
                                                                             width="14"
                                                                             height="14"
@@ -421,38 +336,32 @@ export default function Reviews({ data }) {
                                                                             ></path>
                                                                         </svg>
                                                                         <span>code</span>
-                                                                    </div>
+                                                                    </div> */}
                                                                     <p>
                                                                         <a href="#" onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }}>{item.title}</a>
                                                                     </p>
-                                                                    <div className="couponBtndesc">
-                                                                        <button onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-toggle="modal" data-bs-target="#codePopup">
-                                                                            Get Code
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                                                                <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="termsBox">
-                                                                    <a href="#">Terms & Conditions</a>
+                                                                    
                                                                 </div>
                                                             </div>
                                                             <div className="couponBtn">
+                                                                <div className="offBox">
+                                                                    {item.type_text != "" ? item.type_text : 25}%  OFF
+                                                                </div>
                                                                 <button onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code
                                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                                                                         <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
                                                                     </svg>
                                                                 </button>
-                                                                <div className="termsBox">
-                                                                    <p>Expires:03/11/2026</p>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>);
-
                                             }
                                             )}
+
+                                        </div>
+                                        {/* veryNew */}
+                                        <div className='dw_coupon'>
 
                                         </div>
                                     </div>
@@ -487,25 +396,26 @@ export default function Reviews({ data }) {
                                             <h2 className="section-title mb-5 fw-bold">
                                                 You may also be interested in
                                             </h2>
-                                            {reviewdata.previews.map((item, index) => {
+                                            <div className="row">                                            {reviewdata.previews.map((item, index) => {
                                                 if (index < 3)
-                                                    return (<div className="row  mb-5" key={item.id}>
-                                                        <div className="col-md-5">
+                                                    return (<div className="col-md-4 mb-3" key={item.id}>
+                                                        <div>
                                                             <Link href={`/${item.slug}`}>
                                                                 <Image width={0} height={0} sizes="100vw" className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" />
                                                             </Link>
-                                                        </div>
-                                                        <div className="col-md-7 mt-3 mt-md-0">
-                                                            <div className="d-flex align-items-center mb-2">
+                                                            <div className="d-flex align-items-center mb-2 mt-3">
                                                                 <span className="tag me-2">Reviews</span>
 
                                                             </div>
                                                             <h4 className="post-title fw-bold"><Link href={`/${item.slug}`}><span>{item.render_name}</span></Link></h4>
                                                         </div>
+                                                    
                                                     </div>
                                                     )
-                                            }
-                                            )}
+                                                }
+                                                )}
+                                            </div>
+
 
 
 
@@ -601,51 +511,10 @@ export default function Reviews({ data }) {
                                     </div> */}
                                 </div>
                             </div>
-                            <div className="col-md-4 p-0">
+                            {/* Recent Posts */}
+                            {/* <div className="col-md-4 p-0">
                                 <div className="sidebar">
-
-                                    {/* Newsletter Box */}
-                                    {/* <div className="newsLetterBox">
-                                        <h4 className="sidebarHeading">Daily Review Update</h4>
-                                        <p>
-                                            Unlock exclusive deals, personalized offers, and early access to limited-time products by subscribing to our daily newsletter. Join a community of savvy shoppers and never miss out on savings again. Sign up now to start saving and make every purchase count!
-                                        </p>
-
-                                        <form onSubmit={handleSubmit}>
-                                            <div className="inputBox">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="16"
-                                                    height="16"
-                                                    fill="currentColor"
-                                                    className="bi bi-envelope"
-                                                    viewBox="0 0 16 16"
-                                                >
-                                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
-                                                </svg>
-                                                <input
-                                                    type="email"
-                                                    className="form-control"
-                                                    placeholder="Your Email"
-                                                    value={email}
-                                                    onChange={(e) => setEmail(e.target.value)}
-                                                    required
-                                                />
-                                            </div>
-
-                                            <div className="consent">
-                                                <small>
-                                                    We care about your data. Read our <a href="#">privacy policy</a> for more information.
-                                                </small>
-                                            </div>
-
-                                            <button type="submit">Subscribe</button>
-
-                                            {message && <p className="message">{message}</p>}
-                                        </form>
-                                    </div> */}
-
-                                    {/* Recent Posts */}
+                                   
                                     <div className="recentPost">
                                         <h4 className="sidebarHeading">Recent Reviews</h4>
                                         {reviewdata.randomReviews.map((review) => (
@@ -668,9 +537,8 @@ export default function Reviews({ data }) {
                                             </a>
                                         ))}
                                     </div>
-
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </section>
@@ -719,4 +587,27 @@ export default function Reviews({ data }) {
                 </div>
             </>)
     )
+}
+export async function getStaticProps({ params }) {
+  try {
+    const res = await fetch(
+      `https://admin.scoopreview.com/${params.slug}/`
+    );
+
+    if (!res.ok) {
+      return { notFound: true };
+    }
+
+    const data = await res.json();
+
+    if (!data) {
+      return { notFound: true };
+    }
+
+    return {
+      props: { data },
+    };
+  } catch (error) {
+    return { notFound: true };
+  }
 }
