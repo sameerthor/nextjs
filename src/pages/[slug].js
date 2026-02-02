@@ -63,7 +63,7 @@ export async function getStaticProps({ params }) {
   }
 
   // 2️⃣ If ScoopReview page EXISTS → render it
-  if (data) {
+  if (data && data.length>0) {
     return {
       props: {
         page: data,
@@ -71,12 +71,10 @@ export async function getStaticProps({ params }) {
       revalidate: 10,
     };
   }
-
   // 3️⃣ NO PAGE FOUND → fallback to WordPress API
   const wpRes = await fetch(
     `https://nowthisreview.com/wp-json/ref/v1/store/${params.slug}`
   );
-
   if (!wpRes.ok) {
     return { notFound: true };
   }
@@ -91,7 +89,7 @@ export async function getStaticProps({ params }) {
   return {
     redirect: {
       destination: wpData.affiliate_url,
-      permanent: false,
+      permanent: true,
     },
   };
 }
