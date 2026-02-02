@@ -103,7 +103,7 @@ export function Footer() {
         <div className="row text-center">
           <a href="#top"><i className="fa fa-angle-up" aria-hidden="true"></i></a>
           <p className="copyright-para">ScoopReview earns affiliate commisions on qualifying purchases as an amazon associate. "Amazon, and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
-          <p>Copyright &copy; 2023 ScoopReview. All Right Reserved</p>
+          <p>Copyright &copy; {new Date().getFullYear()} ScoopReview. All Right Reserved</p>
         </div>
       </div></footer>
   )
