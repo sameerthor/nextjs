@@ -15,7 +15,7 @@ const exampleFunction = ({ page }) => {
     if (page?.type === 'redirect') {
       const timer = setTimeout(() => {
         window.location.href = page.affiliate_url
-      }, 2000) // 2 seconds
+      }, 500) // 1 seconds
 
       return () => clearTimeout(timer)
     }
