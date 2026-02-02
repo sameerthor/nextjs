@@ -9,7 +9,7 @@ import Error from 'next/error'
 const { publicRuntimeConfig } = getConfig()
 
 const exampleFunction = ({ page }) => {
-  if (page==null) {
+  if (page == null) {
     return <Error statusCode={404} />
 
   }
@@ -51,16 +51,50 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
 
+  // 1️⃣ Try ScoopReview API first (unchanged)
+  const response = await fetch(
+    `${publicRuntimeConfig.apiBaseUrl}/api/slug/${params.slug}`
+  );
 
-  const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}/api/slug/${params.slug}`);
-  const data = await response.json();
+  let data = null;
+
+  if (response.ok) {
+    data = await response.json();
+  }
+
+  // 2️⃣ If ScoopReview page EXISTS → render it
+  if (data) {
+    return {
+      props: {
+        page: data,
+      },
+      revalidate: 10,
+    };
+  }
+
+  // 3️⃣ NO PAGE FOUND → fallback to WordPress API
+  const wpRes = await fetch(
+    `https://nowthisreview.com/wp-json/ref/v1/store/${params.slug}`
+  );
+
+  if (!wpRes.ok) {
+    return { notFound: true };
+  }
+
+  const wpData = await wpRes.json();
+
+  if (!wpData?.affiliate_url) {
+    return { notFound: true };
+  }
+
+  // 4️⃣ Redirect to merchant
   return {
-    props: {
-      page: data || null,
+    redirect: {
+      destination: wpData.affiliate_url,
+      permanent: false,
     },
-    revalidate: 10
-
   };
 }
+
 
 export default exampleFunction;
