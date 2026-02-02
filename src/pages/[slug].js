@@ -4,15 +4,42 @@ import Blog from './blogs/single';
 import Store from './store';
 import Special from './special';
 import Error from 'next/error'
+import { useEffect } from 'react'
 
 
 const { publicRuntimeConfig } = getConfig()
 
 const exampleFunction = ({ page }) => {
+
+  useEffect(() => {
+    if (page?.type === 'redirect') {
+      const timer = setTimeout(() => {
+        window.location.href = page.affiliate_url
+      }, 2000) // 2 seconds
+
+      return () => clearTimeout(timer)
+    }
+  }, [page])
+
+  // 🔴 Redirect Page UI
+  if (page?.type === 'redirect') {
+    return (
+      <div style={{ padding: '40px', textAlign: 'center' }}>
+        <h2>Redirecting you to the store…</h2>
+        <p>Please wait a moment.</p>
+        <p>
+          If nothing happens,{' '}
+          <a href={page.affiliate_url}>click here</a>.
+        </p>
+      </div>
+    )
+  }
+
   if (page == null) {
     return <Error statusCode={404} />
 
   }
+
 
   return (
     <>
@@ -63,7 +90,9 @@ export async function getStaticProps({ params }) {
   }
 
   // 2️⃣ If ScoopReview page EXISTS → render it
-  if (data && data.length>0) {
+  if (data &&
+    !Array.isArray(data) &&
+    Object.keys(data).length > 0) {
     return {
       props: {
         page: data,
@@ -87,10 +116,13 @@ export async function getStaticProps({ params }) {
 
   // 4️⃣ Redirect to merchant
   return {
-    redirect: {
-      destination: wpData.affiliate_url,
-      permanent: true,
+    props: {
+      page: {
+        type: 'redirect',
+        affiliate_url: wpData.affiliate_url,
+      },
     },
+    revalidate: 10,
   };
 }
 
