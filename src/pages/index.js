@@ -79,6 +79,25 @@ export default function Home({ page }) {
                 
             </Head>
             <Header />
+            <Script
+                id="impact-script"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                __html: `
+                    (function(i,m,p,a,c,t){
+                    c.ire_o=p;
+                    c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};
+                    t=a.createElement(m);
+                    var z=a.getElementsByTagName(m)[0];
+                    t.async=1;
+                    t.src=i;
+                    z.parentNode.insertBefore(t,z)
+                    })('https://utt.impactcdn.com/P-A7146240-f4bd-4dac-8cb6-05635577dbac1.js','script','impactStat',document,window);
+                    impactStat('transformLinks');
+                    impactStat('trackImpression');
+                `,
+                }}
+            />
 
             <section className="homeCarousel">
                 <div className="container">
