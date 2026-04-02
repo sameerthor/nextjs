@@ -61,6 +61,7 @@ export default function Home({ page }) {
                 <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
                 <title>{page.meta.site_title.value}</title>
                 <meta name="description" content={`${page.meta.site_title.value}`} />
+                <meta name='impact-site-verification' value='dd205839-758b-4f65-9fc9-83726314cdd4'></meta>
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:site" content="@" />
                 <meta name="twitter:title" content={`${page.meta.site_title.value}`} />
