@@ -59,6 +59,7 @@ export default function Home({ page }) {
             <Head>
                 <link rel="icon" type="image/png" href={`${publicRuntimeConfig.imageUrl}images/${page.meta.site_ico.value}`} />
                 <meta name="google-site-verification" content="DvPMmnSda8K2FMzEzjVvgshLLqwbNntXGg3BZKcUPWY" />
+                <meta name="verification" content="c4bbf206204fcaf260f7fe5d6c484cf2" />
                 <title>{page.meta.site_title.value}</title>
                 <meta name="description" content={`${page.meta.site_title.value}`} />
                 <meta name='impact-site-verification' value='dd205839-758b-4f65-9fc9-83726314cdd4'></meta>
