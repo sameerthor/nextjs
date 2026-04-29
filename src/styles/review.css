@@ -392,13 +392,13 @@
 }
 /**************************Realated review*******************************/
 .related-review{
-    margin-top: 3rem;
+   
     padding-top: 1.2rem;
 }
 .related-review h3{
     font-weight: 600;
-    font-size: 2rem;
-    margin-bottom: 2.2rem;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
 }
 .related-review .row{
     margin-bottom: 1rem;
@@ -526,10 +526,9 @@
     flex: 2;
 }
 .listCoupns .coupon-item .offBox{
-    
-    font-size: 2rem;
-   
+    font-size: 20px;
     color: #18702c;
+    font-family: "Montserrat", sans-serif;
 }
 
 .listCoupns .coupon-item .coupnBox{
@@ -614,8 +613,8 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     line-height: 1.1;
-    font-size: 2.4rem;
-    color: #A19983;
+    font-size: 22px;
+    color: #234333;
     font-family: "Cormorant Garamond", serif;
   }
   .coupon-item .couponPara {
@@ -1533,7 +1532,6 @@ table {
  }
  /* new */
  .reviewHeader{
-    padding-top: 2rem;
     font-family: var(--font-frank);
  }
  .headerTags{
@@ -1633,6 +1631,14 @@ table {
     .interestedBox img:hover {
     transform: scale(1.03);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    aside .related-review .review-item{
+        text-align: left;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    aside .related-review .review-item .border{
+        padding: .5rem;
     }
 
     @media (max-width: 767px) {

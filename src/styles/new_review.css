@@ -1,33 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Frank+Ruhl+Libre:wght@300..900&display=swap');
 
-body{
-    background-color: #f2ede7;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 section {
     font-family: "Cormorant Garamond", serif;
 }
 header{
     background-color: #fff;
 }
-.reviewHeader .container {
-    max-width: 1000px;
+section .container {
+    max-width: 1300px;
 }
-.reviewHeader .container h1{
+.reviewHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.reviewHeader .headerTags .date{
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #ababab;
+    text-decoration: none;
+    font-size: .82rem;
+    display: flex;
+    gap: 10px;
+    letter-spacing: .6px;
+}
+.reviewHeader  h1{
     font-family: "Cormorant Garamond", serif;
-    font-size: 42px;
+    font-size: 24px;
+    margin-bottom: 1rem;
 }
 .reviewHeader .author{
     margin-bottom: 1rem;
 }
+
 .reviewHeader .headerTags a{
     color: #000;
     font-family: "Cormorant Garamond", serif;
     font-weight: 800;
     font-size: 1.4rem;
 }
-.container{
-    max-width: 1000px;
-}
+
 .review-box{
     background-color: transparent !important;
     padding: 0 !important;
@@ -59,9 +76,74 @@ align-items: center;
     font-family: "Cormorant Garamond", serif;
     padding-right: 1rem;
   }
+  .cat_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    color: #247e6a;
+    margin-bottom: 1rem;
+
+  }
+    .cat_name::before{
+     content: '';
+    width: 30px;
+    height: 1px;
+    display: block;
+    background-color: #247e6a;
+    margin-right: 15px;
+
+  }
+  .cat_name::after{
+    content: '';
+    width: 30px;
+    height: 1px;
+    display: block;
+    background-color: #247e6a;
+    margin-left: 15px;
+  }
+ 
+    .cat_name a{
+    color: #247e6a;
+    font-size: .85rem;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+   font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+  }
+  .affidis{
+    background-color: #247e6a18;
+    padding: 1rem;
+   
+  }
+ .affidis h2{
+   font-size: 1.6rem;
+   text-align: center;
+   font-weight: 600;
+  }
+   .affidis p{
+   font-size: 1.4rem;
+   text-align: center;
+   line-height: 1.4;
+  }
+  aside{
+   position: sticky;
+   top: 0;
+   height: 100vh;
+   min-height: fit-content;
+   background-color: #fff;
+  }
+  aside .review-item{
+    margin-bottom: .6rem;
+  }
+ @media(min-width: 991px){
+    .d-lg-none{
+        display: none;
+    }
+ }
   @media(max-width: 600px){
     .reviewHeader .container h1 {
-    font-size: 2rem;
+    font-size: 16px;
     line-height: 1.2;
 }
   }

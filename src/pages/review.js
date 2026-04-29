@@ -201,344 +201,369 @@ export default function Reviews({ data }) {
                 </Head>
 
                 <Header />
-                <section className='reviewHeader'>
+                <section  style={{paddingTop: "40px"}}>
                     <div className="container">
-                        
-                        <h1>
-                            {reviewdata?.review?.name?.replace(
-                                /\b(19|20)\d{2}\b/g,
-                                new Date().getFullYear()
-                            )}
-                        </h1>
-
-                        <div className='author'>
-                            Written by <strong>Mashma M</strong>
-                        </div>
-                        <div className="headerTags">
-                            {Object.entries(reviewdata.allcat).map(([slug, name]) => (
-                                <a key={slug} href={`/categories/${slug}`} className="catg">
-
-                                    <div className='date'>
-                                       {name}   |   April 10, 2025
-                                    </div>
-                                </a>
-                            ))}
-                            
-
-                        </div>
-                    </div>
-                </section>
-                <section className="blog-details-page">
-
-                    <div className="container">
-                        <div className="blogBox">
-                            <div>
-                                <div className="blogContent">
-                                    <div className="review-box">
-                                        <div className="contents reviewContents">
-                                            <div id="accordion" className="">
-                                                <div className="card">
-                                                    <div className="" id="headingOne">
-                                                        <span className="">
-                                                            <button data-bs-toggle="collapse" className="btn font-weight-bold" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                Contents [show]
-                                                            </button>
-                                                        </span>
-                                                    </div>
-
-                                                    <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                                        <div className="card-body">
-                                                            <ul className="list-group" id="tableofcontents">
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* new coupon */}
-                                        <div className='listCoupns'>
-                                            {reviewdata.coupons.map((item, index) => {
-                                                if (item.is_deal == 1)
-                                                    return (<div className="coupon-item" key={item.id}>
-                                                        <div className="review_logo">
-                                                                <img
-                                                                    className="d-flex"
-                                                                    src={getReviewImage(item.review || reviewdata.review)}  
-                                                                    alt={item.review?.render_name || item.review?.name}
-                                                                />
-                                                        </div>
-                                                        <div className="coupnBox">
-                                                            <div className="coupondesc">
-                                                                <div>
-                                                                    {/* <div className="svgBox">
-                                                                        <svg
-                                                                            width="14"
-                                                                            height="14"
-                                                                            viewBox="0 0 14 14"
-                                                                            fill="none"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                        >
-                                                                            <path
-                                                                                d="M13.2735 6.60866L7.38683 0.721994C7.14016 0.475327 6.80016 0.335327 6.44683 0.335327H1.66683C0.933496 0.335327 0.333496 0.935327 0.333496 1.66866V6.44866C0.333496 6.80199 0.473496 7.14199 0.726829 7.38866L6.6135 13.2753C7.1335 13.7953 7.98016 13.7953 8.50016 13.2753L13.2802 8.49533C13.8002 7.97533 13.8002 7.13533 13.2735 6.60866ZM3.3335 4.33533C2.78016 4.33533 2.3335 3.88866 2.3335 3.33533C2.3335 2.78199 2.78016 2.33533 3.3335 2.33533C3.88683 2.33533 4.3335 2.78199 4.3335 3.33533C4.3335 3.88866 3.88683 4.33533 3.3335 4.33533Z"
-                                                                                fill="#1A1A1A"
-                                                                            ></path>
-                                                                        </svg>
-                                                                        <span>deal</span>
-                                                                    </div> */}
-                                                                    <p>
-                                                                        <a href="#" onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }}>
-                                                                            {item.title}
-                                                                            
-                                                                        </a>
-                                                                    </p>
-                                                                    
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            <div className="couponBtn">
-                                                                <div className="offBox">
-                                                                    {item.type_text != "" ? item.type_text : 25}%  OFF
-                                                                </div>
-                                                                <button onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-toggle="modal" data-bs-target="#dealPopup">
-                                                                    Get Deal
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                                                        <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
-                                                                    </svg>
-                                                                </button>
-                                                        
-                                                            </div>
-                                                        </div>
-                                                    </div>);
-                                                else
-                                                    return (<div className="coupon-item" key={item.id}>
-                                                        <div className="review_logo">
-                                                                <img
-                                                                    className="d-flex"
-                                                                    src={getReviewImage(item.review || reviewdata.review)}  
-                                                                    alt={item.review?.render_name || item.review?.name}
-                                                                />
-                                                        </div>
-                                                        <div className="coupnBox">
-                                                            <div className="coupondesc">
-                                                                <div>
-                                                                    {/* <div className="svgBox">
-                                                                        <svg
-                                                                            width="14"
-                                                                            height="14"
-                                                                            viewBox="0 0 14 14"
-                                                                            fill="none"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                        >
-                                                                            <path
-                                                                                d="M13.2735 6.60866L7.38683 0.721994C7.14016 0.475327 6.80016 0.335327 6.44683 0.335327H1.66683C0.933496 0.335327 0.333496 0.935327 0.333496 1.66866V6.44866C0.333496 6.80199 0.473496 7.14199 0.726829 7.38866L6.6135 13.2753C7.1335 13.7953 7.98016 13.7953 8.50016 13.2753L13.2802 8.49533C13.8002 7.97533 13.8002 7.13533 13.2735 6.60866ZM3.3335 4.33533C2.78016 4.33533 2.3335 3.88866 2.3335 3.33533C2.3335 2.78199 2.78016 2.33533 3.3335 2.33533C3.88683 2.33533 4.3335 2.78199 4.3335 3.33533C4.3335 3.88866 3.88683 4.33533 3.3335 4.33533Z"
-                                                                                fill="#1A1A1A"
-                                                                            ></path>
-                                                                        </svg>
-                                                                        <span>code</span>
-                                                                    </div> */}
-                                                                    <p>
-                                                                        <a href="#" onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }}>{item.title}</a>
-                                                                    </p>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                            <div className="couponBtn">
-                                                                <div className="offBox">
-                                                                    {item.type_text != "" ? item.type_text : 25}%  OFF
-                                                                </div>
-                                                                <button onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                                                        <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
-                                                                    </svg>
-                                                                </button>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>);
-                                            }
-                                            )}
-
-                                        </div>
-                                        {/* veryNew */}
-                                        <div className='dw_coupon'>
-
-                                        </div>
-                                    </div>
-
-                                    <div className="blogcontentData">
-                                        <div className="write-review">
-                                            <div
-                                                dangerouslySetInnerHTML={{ __html: reviewdata.review.desc }}
-                                            />
-                                            <div id="fAq">
-                                                {reviewdata.faqs.map((item) => {
-                                                    return (<>
-                                                        <div className="faq_block">
-                                                            <h3 className="faq_question">{item.faq_question}</h3>
-                                                            <p className="faq_answer">{item.faq_answer}</p>
-                                                        </div>
-                                                    </>);
-                                                })
-                                                }
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    {/* <div className="youMayAlso">
-                                        <div className="container text-center">
-                                            <p className="fw-bolder"> You may also like - <Link href={`/${reviewdata.previews[4].slug}`} className="btn btn-primary">{reviewdata.previews[4].render_name}</Link></p>
-                                        </div>
-                                    </div> */}
-                                    <section className="interestedBox">
-                                        <div>
-                                            <h2 className="section-title mb-5 fw-bold">
-                                                You may also be interested in
-                                            </h2>
-                                            <div className="row">                                            {reviewdata.previews.map((item, index) => {
-                                                if (index < 3)
-                                                    return (<div className="col-md-4 mb-3" key={item.id}>
-                                                        <div>
-                                                            <Link href={`/${item.slug}`}>
-                                                                <Image width={0} height={0} sizes="100vw" className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" />
-                                                            </Link>
-                                                            <div className="d-flex align-items-center mb-2 mt-3">
-                                                                <span className="tag me-2">Reviews</span>
-
-                                                            </div>
-                                                            <h4 className="post-title fw-bold"><Link href={`/${item.slug}`}><span>{item.render_name}</span></Link></h4>
-                                                        </div>
-                                                    
-                                                    </div>
-                                                    )
-                                                }
-                                                )}
-                                            </div>
-
-
-
-
-                                        </div>
-                                    </section>
-
-
-                                    <div id="relatedReviews">
-                                        <div className="related-review">
-                                            <h3>Related Reviews</h3>
-                                            <div className="row">
-                                                {reviewdata.rreviews.map((item) =>
-                                                    <div className="col-lg-4 col-md-6 col-sm-6  review-item" key={item.id}>
-                                                        <div className="border">
-                                                            <Link className="" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i>{item.render_name}</Link>
-                                                        </div>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        </div>
-                                        {/* <div className="popular-store" id="popularStores">
-                                            <h1 className="text-left">Popular Stores</h1>
-                                            <div className="row row-cols-2">
-
-                                                {reviewdata.previews.map((item, index) => {
-                                                    if (index < 3)
-                                                        return (<div className="col-lg-4 col-md-6 col-sm-12  coupons" key={item.id}>
-                                                            <div>
-                                                                <Link href={`/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
-                                                                    className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" /></Link>
-                                                            </div>
-                                                            <div className="text-center">
-                                                                <Link href={`/${item.slug}`}><span>{item.render_name}</span></Link>
-                                                            </div>
-                                                        </div>
-                                                        )
-                                                }
-                                                )}
-                                            </div>
-                                        </div> */}
-                                    </div>
-                                    {/* 
-                                    <div className="commentbox">
-                                        <div className="row comment mx-auto">
-                                            <h3>Leave a Reply</h3>
-                                            <p>
-                                                Your email address will not be published. Required fields are
-                                                marked <span>*</span>
-                                            </p>
-                                        </div>
-
-                                        <div className="row input mx-auto">
-                                            <form className="d-block" role="post">
-                                                <textarea
-                                                    className="col-sm-12 col-md-10 col-lg-10 d-block"
-                                                    rows="10"
-                                                    placeholder="Input your thought ..."
-                                                    required
-                                                ></textarea>
-
-                                                <label className="d-block">
-                                                    <i className="fa-regular fa-user"></i> Name <span>*</span>
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    placeholder="Name"
-                                                    required
-                                                    className="col-sm-12 col-md-10 col-lg-10 d-block"
-                                                />
-
-                                                <label className="d-block">
-                                                    <i className="fa-regular fa-envelope"></i> Email <span>*</span>
-                                                </label>
-                                                <input
-                                                    type="email"
-                                                    placeholder="Enter your email address"
-                                                    required
-                                                    className="col-sm-12 col-md-10 col-lg-10 d-block"
-                                                />
-
-                                                <label className="d-block">
-                                                    <i className="fa-solid fa-globe"></i> Website
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    placeholder="website url"
-                                                    className="col-sm-12 col-md-10 col-lg-10 d-block"
-                                                />
-
-                                                <button type="submit">Post Comment</button>
-                                            </form>
-                                        </div>
-                                    </div> */}
-                                </div>
-                            </div>
-                            {/* Recent Posts */}
-                            {/* <div className="col-md-4 p-0">
-                                <div className="sidebar">
-                                   
-                                    <div className="recentPost">
-                                        <h4 className="sidebarHeading">Recent Reviews</h4>
-                                        {reviewdata.randomReviews.map((review) => (
-                                            <a key={review.id} href={`/${review.slug}`} className="recentLink">
-                                                <div className="authorImg">
-                                                    <img
-                                                        src={`${publicRuntimeConfig.imageUrl}${review.review_logo}`} // Use dynamic logo from the database
-                                                        width="38"
-                                                        height="38"
-                                                        alt={review.name}
-                                                        title={review.name}
-                                                        onError={(e) => (e.target.src = "/default-logo.png")} // Fallback image if not found
-                                                    />
-                                                </div>
-
-                                                <div>
-                                                    <h2 className="recentTitle">{review.render_name}</h2>
-                                                    <p className="recentDesc">{review.short_desc}</p>
-                                                </div>
-                                            </a>
+                        <div className="row">
+                            <div className="col-lg-9">
+                                <div className='reviewHeader'>
+    
+                                    <div className='cat_name'>
+                                        {Object.entries(reviewdata.allcat).map(([slug, name]) => (
+                                            <Link key={slug} href={`/categories/${slug}`} className="catg">
+                                                {name}  
+                                            </Link>
                                         ))}
                                     </div>
+                                    
+                                    <h1 className='text-center'>
+                                        {reviewdata?.review?.name?.replace(
+                                            /\b(19|20)\d{2}\b/g,
+                                            new Date().getFullYear()
+                                        )}
+                                    </h1>
+
+                                    <div className="headerTags">
+                                        <div className='date'>
+                                            <span>April 10, 2025</span> | <span>By ScoopReview</span>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
-                            </div> */}
+                                <div className="blog-details-page">
+                                    <div>
+                                        <div className="blogBox">
+                                            <div>
+                                                <div className="blogContent">
+                                                    <div className="review-box">
+                                                        <div className="contents reviewContents">
+                                                            <div id="accordion" className="">
+                                                                <div className="card">
+                                                                    <div className="" id="headingOne">
+                                                                        <span className="">
+                                                                            <button data-bs-toggle="collapse" className="btn font-weight-bold" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                                Contents [show]
+                                                                            </button>
+                                                                        </span>
+                                                                    </div>
+
+                                                                    <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                                        <div className="card-body">
+                                                                            <ul className="list-group" id="tableofcontents">
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        {/* new coupon */}
+                                                        <div className='listCoupns'>
+                                                            {reviewdata.coupons.map((item, index) => {
+                                                                if (item.is_deal == 1)
+                                                                    return (<div className="coupon-item" key={item.id}>
+                                                                        <div className="review_logo">
+                                                                                <img
+                                                                                    className="d-flex"
+                                                                                    src={getReviewImage(item.review || reviewdata.review)}  
+                                                                                    alt={item.review?.render_name || item.review?.name}
+                                                                                />
+                                                                        </div>
+                                                                        <div className="coupnBox">
+                                                                            <div className="coupondesc">
+                                                                                <div>
+                                                                                    {/* <div className="svgBox">
+                                                                                        <svg
+                                                                                            width="14"
+                                                                                            height="14"
+                                                                                            viewBox="0 0 14 14"
+                                                                                            fill="none"
+                                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                                        >
+                                                                                            <path
+                                                                                                d="M13.2735 6.60866L7.38683 0.721994C7.14016 0.475327 6.80016 0.335327 6.44683 0.335327H1.66683C0.933496 0.335327 0.333496 0.935327 0.333496 1.66866V6.44866C0.333496 6.80199 0.473496 7.14199 0.726829 7.38866L6.6135 13.2753C7.1335 13.7953 7.98016 13.7953 8.50016 13.2753L13.2802 8.49533C13.8002 7.97533 13.8002 7.13533 13.2735 6.60866ZM3.3335 4.33533C2.78016 4.33533 2.3335 3.88866 2.3335 3.33533C2.3335 2.78199 2.78016 2.33533 3.3335 2.33533C3.88683 2.33533 4.3335 2.78199 4.3335 3.33533C4.3335 3.88866 3.88683 4.33533 3.3335 4.33533Z"
+                                                                                                fill="#1A1A1A"
+                                                                                            ></path>
+                                                                                        </svg>
+                                                                                        <span>deal</span>
+                                                                                    </div> */}
+                                                                                    <p>
+                                                                                        <a href="#" onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }}>
+                                                                                            {item.title}
+                                                                                            
+                                                                                        </a>
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                            <div className="couponBtn">
+                                                                                <div className="offBox">
+                                                                                    {item.type_text != "" ? item.type_text : 25}%  OFF
+                                                                                </div>
+                                                                                <button onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-toggle="modal" data-bs-target="#dealPopup">
+                                                                                    Get Deal
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                                                        <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                                                                                    </svg>
+                                                                                </button>
+                                                                        
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>);
+                                                                else
+                                                                    return (<div className="coupon-item" key={item.id}>
+                                                                        <div className="review_logo">
+                                                                                <img
+                                                                                    className="d-flex"
+                                                                                    src={getReviewImage(item.review || reviewdata.review)}  
+                                                                                    alt={item.review?.render_name || item.review?.name}
+                                                                                />
+                                                                        </div>
+                                                                        <div className="coupnBox">
+                                                                            <div className="coupondesc">
+                                                                                <div>
+                                                                                    {/* <div className="svgBox">
+                                                                                        <svg
+                                                                                            width="14"
+                                                                                            height="14"
+                                                                                            viewBox="0 0 14 14"
+                                                                                            fill="none"
+                                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                                        >
+                                                                                            <path
+                                                                                                d="M13.2735 6.60866L7.38683 0.721994C7.14016 0.475327 6.80016 0.335327 6.44683 0.335327H1.66683C0.933496 0.335327 0.333496 0.935327 0.333496 1.66866V6.44866C0.333496 6.80199 0.473496 7.14199 0.726829 7.38866L6.6135 13.2753C7.1335 13.7953 7.98016 13.7953 8.50016 13.2753L13.2802 8.49533C13.8002 7.97533 13.8002 7.13533 13.2735 6.60866ZM3.3335 4.33533C2.78016 4.33533 2.3335 3.88866 2.3335 3.33533C2.3335 2.78199 2.78016 2.33533 3.3335 2.33533C3.88683 2.33533 4.3335 2.78199 4.3335 3.33533C4.3335 3.88866 3.88683 4.33533 3.3335 4.33533Z"
+                                                                                                fill="#1A1A1A"
+                                                                                            ></path>
+                                                                                        </svg>
+                                                                                        <span>code</span>
+                                                                                    </div> */}
+                                                                                    <p>
+                                                                                        <a href="#" onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }}>{item.title}</a>
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className="couponBtn">
+                                                                                <div className="offBox">
+                                                                                    {item.type_text != "" ? item.type_text : 25}%  OFF
+                                                                                </div>
+                                                                                <button onClick={(e) => { setCouponModaldata(item), window.open(item.aff_url && item.aff_url) }} data-bs-toggle="modal" data-bs-target="#codePopup">Get Code
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                                                        <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                                                                                    </svg>
+                                                                                </button>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>);
+                                                            }
+                                                            )}
+
+                                                        </div>
+                                                        {/* veryNew */}
+                                                        <div className='dw_coupon'>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="blogcontentData">
+                                                        <div className="write-review">
+                                                            <div
+                                                                dangerouslySetInnerHTML={{ __html: reviewdata.review.desc }}
+                                                            />
+                                                            <div id="fAq">
+                                                                {reviewdata.faqs.map((item) => {
+                                                                    return (<>
+                                                                        <div className="faq_block">
+                                                                            <h3 className="faq_question">{item.faq_question}</h3>
+                                                                            <p className="faq_answer">{item.faq_answer}</p>
+                                                                        </div>
+                                                                    </>);
+                                                                })
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    {/* <div className="youMayAlso">
+                                                        <div className="container text-center">
+                                                            <p className="fw-bolder"> You may also like - <Link href={`/${reviewdata.previews[4].slug}`} className="btn btn-primary">{reviewdata.previews[4].render_name}</Link></p>
+                                                        </div>
+                                                    </div> */}
+                                                    <section className="interestedBox">
+                                                        <div>
+                                                            <h2 className="section-title mb-5 fw-bold">
+                                                                You may also be interested in
+                                                            </h2>
+                                                            <div className="row">                                            {reviewdata.previews.map((item, index) => {
+                                                                if (index < 3)
+                                                                    return (<div className="col-md-4 mb-3" key={item.id}>
+                                                                        <div>
+                                                                            <Link href={`/${item.slug}`}>
+                                                                                <Image width={0} height={0} sizes="100vw" className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" />
+                                                                            </Link>
+                                                                            <div className="d-flex align-items-center mb-2 mt-3">
+                                                                                <span className="tag me-2">Reviews</span>
+
+                                                                            </div>
+                                                                            <h4 className="post-title fw-bold"><Link href={`/${item.slug}`}><span>{item.render_name}</span></Link></h4>
+                                                                        </div>
+                                                                    
+                                                                    </div>
+                                                                    )
+                                                                }
+                                                                )}
+                                                            </div>
+
+
+
+
+                                                        </div>
+                                                    </section>
+
+
+                                                    <div id="relatedReviews" className='d-lg-none'>
+                                                        <div className="related-review">
+                                                            <h3>Related Reviews</h3>
+                                                            <div className="row">
+                                                                {reviewdata.rreviews.map((item) =>
+                                                                    <div className="col-lg-4 col-md-6 col-sm-6  review-item" key={item.id}>
+                                                                        <div className="border">
+                                                                            <Link className="" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i>{item.render_name}</Link>
+                                                                        </div>
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                        {/* <div className="popular-store" id="popularStores">
+                                                            <h1 className="text-left">Popular Stores</h1>
+                                                            <div className="row row-cols-2">
+
+                                                                {reviewdata.previews.map((item, index) => {
+                                                                    if (index < 3)
+                                                                        return (<div className="col-lg-4 col-md-6 col-sm-12  coupons" key={item.id}>
+                                                                            <div>
+                                                                                <Link href={`/${item.slug}`}> <Image width={0} height={0} sizes="100vw"
+                                                                                    className="d-flex" src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" /></Link>
+                                                                            </div>
+                                                                            <div className="text-center">
+                                                                                <Link href={`/${item.slug}`}><span>{item.render_name}</span></Link>
+                                                                            </div>
+                                                                        </div>
+                                                                        )
+                                                                }
+                                                                )}
+                                                            </div>
+                                                        </div> */}
+                                                    </div>
+                                                    {/* 
+                                                    <div className="commentbox">
+                                                        <div className="row comment mx-auto">
+                                                            <h3>Leave a Reply</h3>
+                                                            <p>
+                                                                Your email address will not be published. Required fields are
+                                                                marked <span>*</span>
+                                                            </p>
+                                                        </div>
+
+                                                        <div className="row input mx-auto">
+                                                            <form className="d-block" role="post">
+                                                                <textarea
+                                                                    className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                                    rows="10"
+                                                                    placeholder="Input your thought ..."
+                                                                    required
+                                                                ></textarea>
+
+                                                                <label className="d-block">
+                                                                    <i className="fa-regular fa-user"></i> Name <span>*</span>
+                                                                </label>
+                                                                <input
+                                                                    type="text"
+                                                                    placeholder="Name"
+                                                                    required
+                                                                    className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                                />
+
+                                                                <label className="d-block">
+                                                                    <i className="fa-regular fa-envelope"></i> Email <span>*</span>
+                                                                </label>
+                                                                <input
+                                                                    type="email"
+                                                                    placeholder="Enter your email address"
+                                                                    required
+                                                                    className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                                />
+
+                                                                <label className="d-block">
+                                                                    <i className="fa-solid fa-globe"></i> Website
+                                                                </label>
+                                                                <input
+                                                                    type="text"
+                                                                    placeholder="website url"
+                                                                    className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                                                />
+
+                                                                <button type="submit">Post Comment</button>
+                                                            </form>
+                                                        </div>
+                                                    </div> */}
+                                                </div>
+                                            </div>
+                                            {/* Recent Posts */}
+                                            {/* <div className="col-md-4 p-0">
+                                                <div className="sidebar">
+                                                
+                                                    <div className="recentPost">
+                                                        <h4 className="sidebarHeading">Recent Reviews</h4>
+                                                        {reviewdata.randomReviews.map((review) => (
+                                                            <a key={review.id} href={`/${review.slug}`} className="recentLink">
+                                                                <div className="authorImg">
+                                                                    <img
+                                                                        src={`${publicRuntimeConfig.imageUrl}${review.review_logo}`} // Use dynamic logo from the database
+                                                                        width="38"
+                                                                        height="38"
+                                                                        alt={review.name}
+                                                                        title={review.name}
+                                                                        onError={(e) => (e.target.src = "/default-logo.png")} // Fallback image if not found
+                                                                    />
+                                                                </div>
+
+                                                                <div>
+                                                                    <h2 className="recentTitle">{review.render_name}</h2>
+                                                                    <p className="recentDesc">{review.short_desc}</p>
+                                                                </div>
+                                                            </a>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div> */}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <aside className="col-lg-3 d-none d-lg-block">
+                                <div className='affidis'>
+                                    <h2>Affiliate Disclosure:</h2>
+                                    <p>
+                                        We sometimes include affiliate links in our posts. That means if you buy something through one of our links, ScoopReview may earn a small commission—but it won’t cost you anything extra.
+                                    </p>
+                                </div>
+                                <div className="related-review">
+                                    <h3>Related Reviews</h3>
+                                    <div className="row">
+                                        {reviewdata.rreviews.map((item) =>
+                                            <div className="col-lg-12 col-md-6 col-sm-6 px-0 review-item" key={item.id}>
+                                                <div className="border">
+                                                    <Link className="" href={`/${item.slug}`}><i className="fa fa-check-circle-o" aria-hidden="true"></i>{item.render_name}</Link>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </aside>
+
                         </div>
                     </div>
                 </section>

@@ -593,7 +593,7 @@ footer .row{
   align-items: center;
   justify-content: center;
   margin: 20px 0;
-  color: #d87c63; /* warm terracotta color */
+  color: #247e6a; /* warm terracotta color */
   font-family: "Georgia", serif;
   font-size: 28px;
   letter-spacing: 1px;
@@ -604,7 +604,7 @@ footer .row{
 .section-title::after {
   content: "";
   flex: 1;
-  border-bottom: 1px solid #d87c63;
+  border-bottom: 1px solid #247e6a;
   margin: 0 15px;
   opacity: 0.5;
 }
