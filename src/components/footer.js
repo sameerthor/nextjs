@@ -16,12 +16,12 @@ export function Footer() {
             <div className="col-lg-5 col-md-12 col-sm-12 about-scoop footer-itmes mx-auto">
               <h4>Scoop<span>Review</span></h4>
               <p>At ScoopReview, we want to be your one-stop-shop for wide, in-depth product reviews of the top brands on the market while pointing you to the best prices on the internet.</p>
-              <div className="social">
+              {/* <div className="social">
                 <a href="#"><span><i className="fa fa-facebook-square" aria-hidden="true"></i></span></a>
                 <a href="#"><span><i className="fa fa-twitter" aria-hidden="true"></i></span></a>
                 <a href="#"><span><i className="fa fa-instagram" aria-hidden="true"></i></span></a>
                 <a href="#"><span><i className="fa fa-youtube-play" aria-hidden="true"></i></span></a>
-              </div>
+              </div> */}
             </div>
             <div className="col-lg-2 col-md-4 col-sm-12 footer-links mx-auto">
               <h3>NAVIGATIONS</h3>
