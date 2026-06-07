@@ -1,0 +1,57 @@
+Browserslist: browsers data (caniuse-lite) is 16 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+- [33mwarn[39m Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+Warning: Invalid DOM property `class`. Did you mean `className`?
+    at nav
+    at header
+    at Header (webpack-internal:///./src/components/header.js:29:82)
+    at k (file:///C:/Users/admin/Desktop/scoopreview/node_modules/preact/dist/preact.mjs:1:778)
+    at Home (webpack-internal:///./src/pages/index.js:91:17)
+    at k (file:///C:/Users/admin/Desktop/scoopreview/node_modules/preact/dist/preact.mjs:1:778)
+    at App (webpack-internal:///./src/pages/_app.js:40:16)
+    at StyleRegistry (C:\Users\admin\Desktop\scoopreview\node_modules\styled-jsx\dist\index\index.js:449:36)
+    at PathnameContextProviderAdapter (C:\Users\admin\Desktop\scoopreview\node_modules\next\dist\shared\lib\router\adapters.js:84:11)
+    at AppContainer (C:\Users\admin\Desktop\scoopreview\node_modules\next\dist\server\render.js:323:29)
+    at AppContainerWithIsomorphicFiberStructure (C:\Users\admin\Desktop\scoopreview\node_modules\next\dist\server\render.js:359:57)
+    at div
+    at Body (C:\Users\admin\Desktop\scoopreview\node_modules\next\dist\server\render.js:659:21)
+Warning: Invalid DOM property `class`. Did you mean `className`?
+    at nav
+    at header
+    at Header (webpack-internal:///./src/components/header.js:29:82)
+    at k (file:///C:/Users/admin/Desktop/scoopreview/node_modules/preact/dist/preact.mjs:1:778)
+    at Home (webpack-internal:///./src/pages/index.js:91:17)
+    at k (file:///C:/Users/admin/Desktop/scoopreview/node_modules/preact/dist/preact.mjs:1:778)
+    at App (webpack-internal:///./src/pages/_app.js:40:16)
+    at StyleRegistry (C:\Users\admin\Desktop\scoopreview\node_modules\styled-jsx\dist\index\index.js:449:36)
+    at PathnameContextProviderAdapter (C:\Users\admin\Desktop\scoopreview\node_modules\next\dist\shared\lib\router\adapters.js:84:11)
+    at AppContainer (C:\Users\admin\Desktop\scoopreview\node_modules\next\dist\server\render.js:323:29)
+    at AppContainerWithIsomorphicFiberStructure (C:\Users\admin\Desktop\scoopreview\node_modules\next\dist\server\render.js:359:57)
+    at div
+    at Body (C:\Users\admin\Desktop\scoopreview\node_modules\next\dist\server\render.js:659:21)
+Warning: data for page "/" is 236 kB which exceeds the threshold of 128 kB, this amount of data can reduce performance.
+See more info here: https://nextjs.org/docs/messages/large-page-data
+Warning: data for page "/" is 236 kB which exceeds the threshold of 128 kB, this amount of data can reduce performance.
+See more info here: https://nextjs.org/docs/messages/large-page-data
+[1mnull[22m
+[1mnull[22m
+Warning: data for page "/" is 236 kB which exceeds the threshold of 128 kB, this amount of data can reduce performance.
+See more info here: https://nextjs.org/docs/messages/large-page-data
+Warning: data for page "/" is 236 kB which exceeds the threshold of 128 kB, this amount of data can reduce performance.
+See more info here: https://nextjs.org/docs/messages/large-page-data
+Warning: data for page "/" is 236 kB which exceeds the threshold of 128 kB, this amount of data can reduce performance.
+See more info here: https://nextjs.org/docs/messages/large-page-data
+Warning: data for page "/" is 236 kB which exceeds the threshold of 128 kB, this amount of data can reduce performance.
+See more info here: https://nextjs.org/docs/messages/large-page-data
+Warning: A title element received an array with more than 1 element as children. In browsers title Elements can only have Text Nodes as children. If the children being rendered output more than a single text node in aggregate the browser will display markup and comments as text in the title and hydration will likely fail and fall back to client rendering
+    at title
+    at head
+    at Head (webpack-internal:///./node_modules/next/dist/pages/_document.js:258:1)
+    at html
+    at Html (webpack-internal:///./node_modules/next/dist/pages/_document.js:680:119)
+    at Document
+Warning: data for page "/" is 236 kB which exceeds the threshold of 128 kB, this amount of data can reduce performance.
+See more info here: https://nextjs.org/docs/messages/large-page-data
+Warning: data for page "/" is 236 kB which exceeds the threshold of 128 kB, this amount of data can reduce performance.
+See more info here: https://nextjs.org/docs/messages/large-page-data

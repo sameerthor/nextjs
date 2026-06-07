@@ -1,8 +1,8 @@
 
-import { useState, useEffect } from "react";
 import Head from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import BlogSection from '../components/BlogSection'
 import '@/styles/home.css'
 import Image from 'next/image'
 import dynamic from "next/dynamic";
@@ -51,9 +51,6 @@ const Responsive = {
 
 
 export default function Home({ page }) {
-    const [homeData, setHomeData] = useState(page);
- 
-
     return (
         <>
             <Head>
@@ -642,37 +639,7 @@ export default function Home({ page }) {
                 </div>
             </div> */}
 
-            <section>
-                <div className="container blog-box">
-                    <div className="row">
-                        <h1>Latest Blogs</h1>
-                        {homeData.blogs && (
-                            homeData.blogs.map((item) => {
-                                return (
-                                    <div className="col-lg-4 col-md-6 col-sm-12 latest-blog" key={item.id}>
-                                        <div className="blog-items">
-                                            <Link prefetch={false} href={`/${item.slug}`}><Image width={0} height={0} sizes="100vw"
-                                                style={{ width: '100%', height: 'auto' }} src={`${publicRuntimeConfig.imageUrl}images/${item.image}`} alt="" /></Link>
-                                            <div className="d-flex">
-                                                <span className="blog-category me-auto"> {item.category}</span>
-                                            </div>
-                                            <h2 className="blog-title"><a href={`/${item.slug}`}>{item.title.substring(0, 35)}....</a></h2>
-                                            <p className="blog-desc">{item.content.replace(/(<([^>]+)>)/ig, '').substring(0, 200)}....</p>
-                                            <p className="author">By <a href={`/${item.slug}`}>Tanay Saxena</a> <span className="time"></span></p>
-                                            {/* <div className="icons d-flex">
-                                                <span className="me-auto shadow-sm"><i className="fa fa-thumbs-up" aria-hidden="true"></i> Likes {item.like}</span>
-                                                <span className="ms-auto shadow-sm"><i className="fa fa-share-alt" aria-hidden="true"></i> Shares {item.share}</span>
-                                            </div> */}
-                                        </div>
-                                    </div>
-                                );
-
-                            })
-                        )}
-                    </div>
-
-                </div>
-            </section>
+            <BlogSection blogs={page.blogs} imageBaseUrl={publicRuntimeConfig.imageUrl} />
 
             <section>
                 <div className="container">
@@ -744,4 +711,4 @@ export async function getStaticProps() {
         revalidate: 10
     };
 }
-// ignore this line 
+// ignore this line
