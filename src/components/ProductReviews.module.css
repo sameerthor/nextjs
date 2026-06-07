@@ -1,0 +1,200 @@
+.reviewSection {
+  background-color: #fafbfe;
+ 
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 3.5rem;
+  letter-spacing: -0.025em;
+}
+
+/* ==========================================
+   Editorial Showcase Layout Geometry
+   ========================================== */
+.editorialGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (min-width: 1024px) {
+  .editorialGrid {
+    /* Left column gets 45% spatial weight, Right column gets 55% weight */
+    grid-template-columns: 45fr 55fr;
+  }
+}
+
+/* Right-side multi-card layout container box */
+.subGridColumn {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .subGridColumn {
+    /* Split into exactly 2 columns and 2 rows on bigger displays */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+/* Base card layout styles rules */
+.reviewCard {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px rgba(15, 23, 42, 0.08);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f1f5f9;
+}
+
+.imageLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cardImage {
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reviewCard:hover .cardImage {
+  transform: scale(1.04);
+}
+
+.cardBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Badges & Typography styling structures */
+.categoryBadge {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 0.85rem;
+}
+
+.categoryBadge a {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #4f46e5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  background: #f5f3ff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.cardTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cardTitle a:hover {
+  color: #4f46e5;
+}
+
+.cardText {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+}
+
+.readMore {
+  font-weight: 600;
+  color: #4f46e5;
+  text-decoration: none;
+  margin-left: 0.25rem;
+}
+
+.readMore:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   Structural Sizing Variations
+   ========================================== */
+
+/* 1. Giant Left Feature Card View */
+.heroCard {
+  height: 100%;
+}
+
+.heroCard .imageContainer {
+  height: 250px;
+}
+
+@media (min-width: 1024px) {
+  .heroCard .imageContainer {
+    height: 400px; /* Expansive layout look */
+  }
+  .heroCard .cardTitle {
+    font-size: 1.65rem;
+  }
+}
+
+/* 2. 2x2 Right Subgrid Compact Cards View */
+.compactCard .imageContainer {
+  height: 150px;
+}
+
+.compactCard .cardTitle {
+  font-size: 1.1rem;
+}
+
+.compactCard .cardText {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Keeps descriptions clean inside small cards */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 3. Base Bottom Overflow Row Layout Rows (6th item onwards) */
+.regularGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 3.5rem;
+}
+
+.baseCard .imageContainer {
+  height: 180px;
+}

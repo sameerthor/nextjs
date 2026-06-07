@@ -1,84 +1,119 @@
 .blogSection {
-  background-color: #fafafa;
- 
+  padding: 5rem 1.5rem;
+  background-color: #fcfcfd;
 }
 
 .container {
   max-width: 1040px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .heading {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   font-weight: 800;
   color: #111827;
-  margin-bottom: 3rem;
-  text-align: center;
-  letter-spacing: 0;
+  margin-bottom: 3.5rem;
+  letter-spacing: -0.03em;
 }
 
-.blogGrid {
+.noBlogs {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+/* ==========================================
+   Editorial Magazine Showcase Layout Grid
+   ========================================== */
+.editorialShowcase {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
 }
 
+@media (min-width: 1024px) {
+  .editorialShowcase {
+    /* Splits screen: 45% wide feature side, 55% wide multi-card side */
+    grid-template-columns: 45fr 55fr;
+  }
+}
+
+/* Right-side inner grid: exactly 2 columns and 2 rows */
+.subGridColumn {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .subGridColumn {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+/* Base structural styles for all cards */
 .blogCard {
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f5f9;
   display: flex;
   flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .blogCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.07);
 }
 
+/* Core wrappers */
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 220px;
   overflow: hidden;
-  background-color: #f3f4f6;
-}
-
-.imagePlaceholder {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: #6b7280;
-  font-size: 0.95rem;
-  font-weight: 700;
+  background-color: #f1f5f9;
+  display: block;
 }
 
 .cardImage {
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .blogCard:hover .cardImage {
-  transform: scale(1.05);
+  transform: scale(1.04);
+}
+
+.imagePlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  color: #475569;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .cardContent {
-  padding: 1.5rem;
+  padding: .6rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
+/* Typography & Badges */
 .category {
   display: inline-block;
   align-self: flex-start;
-  background: #f3f4f6;
-  color: #4b5563;
+  background: #eff6ff;
+  color: #2563eb;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.25rem 0.75rem;
@@ -89,15 +124,14 @@
 .title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #111827;
+  color: #1e293b;
   line-height: 1.4;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .title a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
 .title a:hover {
@@ -105,58 +139,75 @@
 }
 
 .description {
-  color: #6b7280;
-  font-size: 0.95rem;
+  color: #64748b;
+  font-size: 0.925rem;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
-  display: -webkit-box;
-  line-clamp: 3;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin-bottom: .5rem;
 }
 
 .authorSection {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid #f3f4f6;
+  margin-top: 0;
+  border-top: 1px solid #f1f5f9;
   padding-top: 1rem;
 }
 
 .authorInfo {
-  font-size: 0.875rem;
-  color: #4b5563;
+  font-size: 0.85rem;
+  color: #64748b;
 }
 
 .authorName {
   font-weight: 600;
-  color: #111827;
+  color: #334155;
   text-decoration: none;
 }
 
-.authorName:hover {
-  text-decoration: underline;
+/* ==========================================
+   Layout Modifiers (Fancy Structural Fine-Tuning)
+   ========================================== */
+
+/* 1. Hero Card Variant adjustments */
+
+
+.heroCard .imageWrapper {
+  height: 280px;
 }
 
-.noBlogs {
-  color: #6b7280;
-  font-size: 1rem;
-  margin: 0;
-  text-align: center;
+@media (min-width: 1024px) {
+  .heroCard .imageWrapper {
+    height: 420px; /* Taller epic hero presentation window on desktop viewports */
+  }
+  .heroCard .title {
+    font-size: 1.75rem; /* Larger hero title accentuation */
+  }
 }
 
-@media (max-width: 575px) {
-  .blogSection {
-    padding: 3rem 1rem;
-  }
+/* 2. Compact Cards Inside the 2x2 Sub-Grid Panel */
+.compactCard .imageWrapper {
+  height: 160px;
+}
 
-  .heading {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
+.compactCard .title {
+  font-size: 1.1rem;
+}
 
-  .blogGrid {
-    gap: 1.5rem;
-  }
+.compactCard .description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Truncates shorter inside mini grid for spatial elegance */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* 3. Base Overflow Rows grid layout style (Beyond item 5) */
+.regularGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  
+}
+
+.regularGrid .imageWrapper {
+  height: 200px;
 }

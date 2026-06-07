@@ -55,3 +55,5 @@ Warning: data for page "/" is 236 kB which exceeds the threshold of 128 kB, this
 See more info here: https://nextjs.org/docs/messages/large-page-data
 Warning: data for page "/" is 236 kB which exceeds the threshold of 128 kB, this amount of data can reduce performance.
 See more info here: https://nextjs.org/docs/messages/large-page-data
+- [33mwarn[39m Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+- [33mwarn[39m Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload

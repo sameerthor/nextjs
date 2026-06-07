@@ -1,0 +1,129 @@
+.footerWrapper {
+  background-color: #0f172a; /* Sophisticated deep obsidian background slate */
+  color: #94a3b8;
+  
+}
+
+.mainContainer {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================
+   Structural Main Content Grid Setup
+   ========================================== */
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding: 5rem 0 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .footerGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footerGrid {
+    /* Large brand column with three balanced layout links columns beside it */
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Brand Column Elements */
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.brandLogo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.brandLogo span {
+  color: #247e6a; /* Premium Indigo Brand Highlight Accent */
+}
+
+.brandDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 420px;
+  margin: 0;
+}
+
+/* Link Columns Structural Design Elements */
+.linksColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.columnHeading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f8fafc;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footerLink {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footerLink:hover {
+  color: #ffffff;
+}
+
+/* Interactive Page Tracking Highlighters */
+.activeLink {
+  color: #818cf8;
+  font-weight: 600;
+}
+
+/* ==========================================
+   Legal and Disclaimer Base Bar
+   ========================================== */
+.copyrightBar {
+  border-top: 1px solid #1e293b;
+  padding: 2.5rem 0;
+  background-color: #0b0f19; /* Slightly darker shade variant to add visual separation */
+  text-align: center;
+}
+
+.disclaimerText {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #64748b;
+  max-width: 800px;
+  margin: 0 auto 1.25rem auto;
+}
+
+.copyrightText {
+  font-size: 0.85rem;
+  color: #475569;
+  margin: 0;
+}

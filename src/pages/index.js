@@ -3,6 +3,8 @@ import Head from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import BlogSection from '../components/BlogSection'
+import ProductReviews from '../components/ProductReviews'
+import FeaturesBar from '@/components/FeaturesBar';
 import '@/styles/home.css'
 import Image from 'next/image'
 import dynamic from "next/dynamic";
@@ -16,10 +18,6 @@ const OwlCarousel = dynamic(() => import("react-owl-carousel"), {
 });
 
 // Images Import //
-import appleImage from '../../public/assets/apple.webp'
-import cliniqueImage from '../../public/assets/clinique.webp';
-import legoImage from '../../public/assets/lego.webp';
-import samsClubImage from '../../public/assets/sams-club.webp';
 import BathnBodyImage from '../../public/assets/Bath-n-Body-Works.webp';
 import ebayImage from '../../public/assets/Ebay.webp';
 import fruitBuqet from '../../public/assets/Fruit-Bouquet.webp';
@@ -555,146 +553,13 @@ export default function Home({ page }) {
                     </div>
                 </div>
             </div> */}
-            <section>
-                <div className="container review-box">
-                    <div className="row">
-                        <h2>Best Product Reviews</h2>
-                        <div className="col-lg-6 col-md-6 col-sm-5 review-item">
-                            <div className="item-box shadow">
-                                <Link prefetch={false} href="/bath-and-body-works-review"><Image width={0} height={0} sizes="100vw"
-                                    style={{ width: '100%', height: 'auto' }} src={BathnBodyImage} alt="" /></Link>
-                                <p className="review-category"><Link prefetch={false} href="/review-category/health-and-wellness">Health & Wellness</Link></p>
-                                <h4 className="review-topic"><Link prefetch={false} href="/bath-and-body-works-review">Bath & Body Review</Link></h4>
-                                <p className="review-desc">Bath & Body Works provides you with ample choices for choosing the right skincare products for your body <Link prefetch={false} href="/bath-and-body-works-review">read more</Link> </p>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-sm-5 review-item">
-                            <div className="item-box shadow">
-                                <Link prefetch={false} href="/ebay-review"><Image width={0} height={0} sizes="100vw"
-                                    style={{ width: '100%', height: 'auto' }} src={ebayImage} alt="" /></Link>
-                                <p className="review-category"><Link prefetch={false} href="/review-category/e-commerce">E-Commerce</Link></p>
-                                <h4 className="review-topic"><Link prefetch={false} href="/ebay-review">Ebay Review</Link></h4>
-                                <p className="review-desc">Ebay is a global commerce leader that connects millions of buyers and sellers in more than 190 markets around the world <Link prefetch={false} href="/ebay-review">read more</Link> </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="container review-box">
-                    <div className="row">
-                        <div className="col-lg-3 col-md-6 col-sm-5 review-item">
-                            <div className="shadow item-box">
-                                <Link prefetch={false} href="/fruit-bouquets-review"><Image width={0} height={0} sizes="100vw"
-                                    style={{ width: '100%', height: 'auto' }} src={fruitBuqet} alt="" /></Link>
-                                <p className="review-category"><Link prefetch={false} href="/review-category/food-drinks">Food & Drinks</Link></p>
-                                <h4 className="review-topic"><Link prefetch={false} href="/fruit-bouquets-review">Fruit Bouquets Review</Link></h4>
-                                <p className="review-desc">If you are looking for an alternative to showpieces or high sugar <Link prefetch={false} href="/fruit-bouquets-review">read more</Link> </p>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-5 review-item">
-                            <div className="shadow item-box">
-                                <Link prefetch={false} href="/sally-beauty-review"><Image width={0} height={0} sizes="100vw"
-                                    style={{ width: '100%', height: 'auto' }} src={SallyImage} alt="" /></Link>
-                                <p className="review-category"><Link prefetch={false} href="/review-category/health-and-wellness">Health & Wellness</Link></p>
-                                <h4 className="review-topic"><Link prefetch={false} href="/sally-beauty-review">Sally Beauty Review</Link></h4>
-                                <p className="review-desc">Sally Beauty Supply and Beauty Systems Group has <Link prefetch={false} href="/sally-beauty-review">read more</Link> </p>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-5 review-item">
-                            <div className="shadow item-box">
-                                <Link prefetch={false} href="/ulta-beauty-review"><Image width={0} height={0} sizes="100vw"
-                                    style={{ width: '100%', height: 'auto' }} src={ultrabeauty} alt="" /></Link>
-                                <p className="review-category"><Link prefetch={false} href="/review-category/health-and-wellness">Health & Wellness</Link></p>
-                                <h4 className="review-topic"><Link prefetch={false} href="/ulta-beauty-review">Ulta Beauty Review</Link></h4>
-                                <p className="review-desc">Ulta Beauty acts as your one-stop-shop for exploring <Link prefetch={false} href="/ulta-beauty-review">read more</Link> </p>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-5 review-item">
-                            <div className="shadow item-box">
-                                <Link prefetch={false} href="/annie-selke-review"><Image width={0} height={0} sizes="100vw"
-                                    style={{ width: '100%', height: 'auto' }} src={annieselke} alt="" /></Link>
-                                <p className="review-category"><Link prefetch={false} href="/review-category/home-products">Home Products</Link></p>
-                                <h4 className="review-topic"><Link prefetch={false} href="/annie-selke-review">Annie Selke Review</Link></h4>
-                                <p className="review-desc">Annie Selke is a firm that designs and manufactures bedding <Link prefetch={false} href="/annie-selke-review">read more</Link> </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {/* <div className="container-fluid week-review">
-                <div className="container col-lg-10 col-md-10 col-sm-10 week-box">
-                    <div className="row">
-                        <h2>Top Reviews of the Week</h2>
-                        {homeData.top_reviews && (
-                            homeData.top_reviews.map((item, index) =>
-                                <div className="col-lg-2 col-md-2 col-sm-5 col-xs-5 week-items" key={index}>
-                                    <div className="week-image">
-                                        <Link prefetch={false} href={`${item.slug}`}> <Image width={0} height={0} sizes="100vw"
-                                            style={{ width: '100%', height: '100%' }} src={`${publicRuntimeConfig.imageUrl}${item.review_logo.includes("review-logo") ? "images/" + item.review_logo : item.review_logo}`} alt="" /></Link>
-                                    </div>
-                                    <Link prefetch={false} href={`${item.slug}`}> <span className="week-title d-block text-center">{item.render_name}</span></Link>
-                                </div>
-                            ))}
-                    </div>
-
-                </div>
-            </div> */}
+           
+            <ProductReviews/>
+            
 
             <BlogSection blogs={page.blogs} imageBaseUrl={publicRuntimeConfig.imageUrl} />
 
-            <section>
-                <div className="container">
-                    <div className="row learn d-sm-none d-md-flex">
-                        <div className="col-lg-3 col-md-6 use-coupons">
-                            <div className="d-flex use-items">
-                                <div className="image">
-                                    <Image width={0} height={0} sizes="100vw"
-                                        style={{ width: '100%', height: 'auto' }} src={findIcon} alt="" />
-                                </div>
-                                <div>
-                                    <h4>Find</h4>
-                                    <p>Discover all emerging brands and shop best selling products.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 use-coupons">
-                            <div className="d-flex use-items">
-                                <div className="image">
-                                    <Image width={0} height={0} sizes="100vw"
-                                        style={{ width: '100%', height: 'auto' }} src={reviewIcon} alt="" />
-                                </div>
-                                <div>
-                                    <h4>Review</h4>
-                                    <p>Read our unbiased reviews to make an informed choice.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 use-coupons">
-                            <div className="d-flex use-items">
-                                <div className="image">
-                                    <Image width={0} height={0} sizes="100vw"
-                                        style={{ width: '100%', height: 'auto' }} src={shopIcon} alt="" />
-                                </div>
-                                <div>
-                                    <h4>Shop</h4>
-                                    <p>Get coupons, deals and offers for huge savings.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 use-coupons">
-                            <div className="d-flex use-items" id="last-item">
-                                <div className="image">
-                                    <Image width={0} height={0} sizes="100vw"
-                                        style={{ width: '100%', height: 'auto' }} src={saveIcon} alt="" />
-                                </div>
-                                <div>
-                                    <h4>Save</h4>
-                                    <p>Read reviews and save some cash</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+             <FeaturesBar/>
             <Footer />
         </>
     )
