@@ -6,6 +6,34 @@ import getConfig from 'next/config'
 import Categories from '.';
 const { publicRuntimeConfig } = getConfig()
 
+const getImageUrl = (imagePath) => {
+    if (!imagePath) {
+        return null;
+    }
+
+    if (imagePath.startsWith("http")) {
+        return imagePath;
+    }
+
+    if (imagePath.startsWith("/")) {
+        return `${publicRuntimeConfig.imageUrl.replace(/\/$/, "")}${imagePath}`;
+    }
+
+    if (imagePath.startsWith("images/") || imagePath.startsWith("wp-content/")) {
+        return `${publicRuntimeConfig.imageUrl}${imagePath}`;
+    }
+
+    return `${publicRuntimeConfig.imageUrl}images/${imagePath}`;
+}
+
+const getReviewImageUrl = (item) => {
+    return getImageUrl(item?.featured_image || item?.image || item?.thumb || item?.review_logo);
+}
+
+const getStoreImageUrl = (item) => {
+    return getImageUrl(item?.featured_image || item?.image || item?.thumb || item?.store_logo);
+}
+
 const exampleFunction = ({ page, slug }) => {
     return (
 
@@ -17,8 +45,8 @@ const exampleFunction = ({ page, slug }) => {
                         <div className="row breadcrumbBox">
                             <div className="breadcrumb">
                                 <ul>
-                                    <li><a href="/">scoopreview.com</a> /</li>
-                                    <li> <a href='#'>Review category</a> /</li>
+                                    <li><Link href="/">scoopreview.com</Link> /</li>
+                                    <li> <Link href='/categories/review-category'>Review category</Link> /</li>
                                     <li>{slug}</li>
                                 </ul>
                             </div>
@@ -28,22 +56,38 @@ const exampleFunction = ({ page, slug }) => {
                 <div className="container-fluid categories">
                     <div className="container col-lg-9 col-md-9 col-sm-9">
                         <div className="row">
-                            {page.reviews.map((item) =>
+                            {page.reviews.map((item) => {
+                                const reviewImageUrl = getReviewImageUrl(item);
 
-                                <div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
-                                    <div className="shadow categories-box">
-                                        <Link href={`/${item.slug}`}>{item.render_name}</Link>
+                                return (
+                                    <div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
+                                        <div className="shadow categories-box">
+                                            {reviewImageUrl && (
+                                                <Link href={`/${item.slug}`} className="category-featured-image">
+                                                    <img src={reviewImageUrl} alt={item.render_name} />
+                                                </Link>
+                                            )}
+                                            <Link href={`/${item.slug}`}>{item.render_name}</Link>
+                                        </div>
                                     </div>
-                                </div>
-                            )} 
-                                    {page.stores.map((item) =>
+                                )
+                            })} 
+                            {page.stores.map((item) => {
+                                const storeImageUrl = getStoreImageUrl(item);
 
-<div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
-    <div className="shadow categories-box">
-        <Link href={`/${item.slug}`}>{item.render_name}</Link>
-    </div>
-</div>
-)} 
+                                return (
+                                    <div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
+                                        <div className="shadow categories-box">
+                                            {storeImageUrl && (
+                                                <Link href={`/${item.slug}`} className="category-featured-image">
+                                                    <img src={storeImageUrl} alt={item.render_name || item.name} />
+                                                </Link>
+                                            )}
+                                            <Link href={`/${item.slug}`}>{item.render_name || item.name}</Link>
+                                        </div>
+                                    </div>
+                                )
+                            })} 
                         </div>
                     </div>
                 </div>

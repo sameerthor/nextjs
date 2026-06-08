@@ -6,6 +6,44 @@ import Link from 'next/link';
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
+const categoryIcons = {
+    services: "🛎️",
+    plugins: "🔌",
+    seo: "🔎",
+    "sex-toys": "🔞",
+    pets: "🐾",
+    software: "💻",
+    "tech-and-gadgets": "📱",
+    "tools-and-equipment": "🧰",
+    womenscare: "💜",
+    vapes: "💨",
+    fashion: "👗",
+    "trending-articles": "🔥",
+    babycare: "🍼",
+    "vitamins-supplements": "💊",
+    gaming: "🎮",
+    food: "🍽️",
+    education: "🎓",
+    "cbd-oils-deals": "🌿",
+    "marketing-tools": "📣",
+    healthcare: "🏥",
+    lifestyle: "✨",
+    business: "💼",
+    technology: "⚙️"
+}
+
+const normalizeCategoryName = (category) => {
+    return (category || "")
+        .toLowerCase()
+        .replace(/&/g, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+}
+
+const getCategoryIcon = (category) => {
+    return categoryIcons[normalizeCategoryName(category)] || "⭐";
+}
+
 export default function Categories({ page }) {
 
     return (<>
@@ -42,29 +80,26 @@ export default function Categories({ page }) {
                             </div>
                             <div className="row row-cols-2">
                                 {page.categories.map((item) =>
-                                <div className="col-lg-2 col-md-3 col-sm-4 category-box" key={item.id}>
+                                <Link
+                                 href={`/categories/${item.slug}`} 
+                                 className="col-lg-2 col-md-3 col-sm-4 category-box" key={item.id}>
                                     <div className="category-item">
                                         <div className="cat-img">
                                             <a href={`/categories/${item.slug}`}>
-                                                <img 
-                                                alt="Accessories" 
-                                                loading="lazy" 
-                                                width="100" 
-                                                height="100" 
-                                                decoding="async" 
-                                                data-nimg="1"  
-                                                src="../assets/batteries.png" 
-                                                />
+                                                <span className="cat-emoji" aria-hidden="true">
+                                                    {getCategoryIcon(item.name)}
+                                                </span>
                                             </a>
                                         </div>
                                         <div className="category-title">
-                                            <a href={`/categories/${item.slug}`}>
+                                            <span>
                                             {item.name}
-                                            </a>
+                                            </span>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                                 )} 
+                                 
 
                             </div>
                         </div>

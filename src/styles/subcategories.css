@@ -30,9 +30,29 @@
     font-size: .9rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    line-clamp: 1;
     -webkit-line-clamp: 1;
     overflow: hidden;
 }
 .sub-categories-box a:hover{
     color: #111111;
+}
+
+.category-featured-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 90px;
+    margin-bottom: .75rem;
+}
+
+.category-featured-image img {
+    display: block;
+    width: 100%;
+    max-width: 140px;
+    height: 90px;
+    object-fit: contain;
+    margin: auto;
+    border-radius: 16px;
 }
