@@ -7,6 +7,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css"
 import { useEffect } from "react"
 import { Montserrat } from 'next/font/google'
+import Loading from "@/components/loading";
 
 const inter = Montserrat({ subsets: ['vietnamese'] })
 
@@ -21,5 +22,6 @@ export default function App({ Component, pageProps }) {
       font-family: ${inter.style.fontFamily};
     }
   `}</style>      <GoogleAnalytics gaMeasurementId='UA-141223995-1' strategy="lazyOnload" />
+    <Loading />
     <Component {...pageProps} /></>
 }

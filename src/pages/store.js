@@ -43,7 +43,6 @@ export default function Store({ data }) {
     const router = useRouter()
     const [storedata, setStoredata] = useState(data);
 
-    console.log(storedata);
     const [activetab, setActivetab] = useState("all");
     const [copytext, setCopytext] = useState("COPY")
     const [dealModaldata, setDealModaldata] = useState({});

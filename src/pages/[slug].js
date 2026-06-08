@@ -37,30 +37,45 @@ const exampleFunction = ({ page }) => {
 };
 
 export async function getStaticPaths() {
-  const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}/api/slugs`);
-  const data = await response.json();
-  // Get the paths we want to pre-render based on posts
-  const paths = data.map(post => ({
-    params: { slug: post.slug },
-  }));
+  try {
+    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}/api/slugs`);
 
-  // We'll pre-render only these paths at build time.
-  return { paths, fallback: 'blocking' }
+    if (!response.ok) {
+      return { paths: [], fallback: 'blocking' }
+    }
+
+    const data = await response.json();
+    const paths = data.map(post => ({
+      params: { slug: post.slug },
+    }));
+
+    return { paths, fallback: 'blocking' }
+  } catch {
+    return { paths: [], fallback: 'blocking' }
+  }
 }
 
 
 export async function getStaticProps({ params }) {
 
+  try {
+    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}/api/slug/${params.slug}`);
 
-  const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}/api/slug/${params.slug}`);
-  const data = await response.json();
-  return {
-    props: {
-      page: data || null,
-    },
-    revalidate: 10
+    if (!response.ok) {
+      return { notFound: true, revalidate: 10 }
+    }
 
-  };
+    const data = await response.json();
+    return {
+      props: {
+        page: data || null,
+      },
+      revalidate: 10
+
+    };
+  } catch {
+    return { notFound: true, revalidate: 10 }
+  }
 }
 
 export default exampleFunction;

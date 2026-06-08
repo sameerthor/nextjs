@@ -430,6 +430,8 @@
    -webkit-line-clamp: 1;
    -webkit-box-orient: vertical;
    overflow: hidden;
+   font-size: 1rem;
+   font-weight: 500;
 }
 .review-item a:hover {
   color: #177761;

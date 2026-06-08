@@ -11,7 +11,6 @@ const { publicRuntimeConfig } = getConfig()
 
 
 export default function Reviews({ data }) {
-    console.log(data);
     const router = useRouter()
     const [reviewdata, setReviewdata] = useState(data);
     const [email, setEmail] = useState("");
