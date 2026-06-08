@@ -8,6 +8,44 @@ import getConfig from 'next/config'
 import moment from "moment";
 const { publicRuntimeConfig } = getConfig()
 
+const categoryIcons = {
+    services: "🛎️",
+    plugins: "🔌",
+    seo: "🔎",
+    "sex-toys": "🔞",
+    pets: "🐾",
+    software: "💻",
+    "tech-and-gadgets": "📱",
+    "tools-and-equipment": "🧰",
+    womenscare: "💜",
+    vapes: "💨",
+    fashion: "👗",
+    "trending-articles": "🔥",
+    babycare: "🍼",
+    "vitamins-supplements": "💊",
+    gaming: "🎮",
+    food: "🍽️",
+    education: "🎓",
+    "cbd-oils-deals": "🌿",
+    "marketing-tools": "📣",
+    healthcare: "🏥",
+    lifestyle: "✨",
+    business: "💼",
+    technology: "⚙️"
+}
+
+const normalizeCategoryName = (category) => {
+    return (category || "")
+        .toLowerCase()
+        .replace(/&/g, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+}
+
+const getCategoryIcon = (category) => {
+    return categoryIcons[normalizeCategoryName(category)] || "⭐";
+}
+
 export default function Blogs({ data }) {
 
     const [blogdata, setBlogdata] = useState([]);
@@ -23,7 +61,10 @@ export default function Blogs({ data }) {
         const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/blogs?page=${i}`);
         const data = await response.json();
         ;
-        setBlogdata(data);
+        setBlogdata((prevData) => ({
+            ...data,
+            review_categories: prevData.review_categories
+        }));
     };
 
 
@@ -53,7 +94,7 @@ export default function Blogs({ data }) {
             <div id="blogHeader">
                 <div className="container">
                     <div className="d-flex blog-title justify-content-center align-items-center">
-                        <h2>Sponsored Blogs</h2>
+                        <h2>Read Blogs</h2>
                     </div>
                 </div>
             </div>
@@ -108,14 +149,16 @@ export default function Blogs({ data }) {
             )}
             <div className="container-fluid fav-box">
                 <div className="container col-lg-12 col-md-12 col-sm-12">
-                    <h2 className="text-center">Favourite Categories</h2>
+                    <h2 className="text-center">Favourite Review Categories</h2>
                     <div className="row row-cols-2">
-                        {blogdata.blog_categories && (blogdata.blog_categories.map((item) =>
+                        {blogdata.review_categories && (blogdata.review_categories.slice(0, 8).map((item) =>
 
                             <div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
                                 <div className="fav-item">
-                                    <Link href={`/blog/category/${item.slug}`}><img src={`${publicRuntimeConfig.imageUrl}images/${item.image}`} alt="" /></Link>
-                                    <span><Link href={`blog/category/${item.slug}`}>{item.name}</Link></span>
+                                    <Link href={`/categories/${item.slug}`} className="fav-emoji" aria-hidden="true">
+                                        {getCategoryIcon(item.name)}
+                                    </Link>
+                                    <span><Link href={`/categories/${item.slug}`}>{item.name}</Link></span>
                                 </div>
                             </div>
                         )
@@ -153,8 +196,16 @@ export async function getStaticProps() {
 
     const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/blogs`);
     const data = await response.json();
+    const categoriesResponse = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/categories`);
+    const categoriesData = await categoriesResponse.json();
 
     return {
-        props: { data }, revalidate: 10
+        props: {
+            data: {
+                ...data,
+                review_categories: categoriesData.categories || []
+            }
+        },
+        revalidate: 10
     }
 }
