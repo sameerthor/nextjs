@@ -6,7 +6,7 @@ import getConfig from 'next/config'
 import Categories from '.';
 const { publicRuntimeConfig } = getConfig()
 
-const exampleFunction = ({page}) => {
+const exampleFunction = ({ page, slug }) => {
     return (
 
         page && (
@@ -19,7 +19,7 @@ const exampleFunction = ({page}) => {
                                 <ul>
                                     <li><a href="/">scoopreview.com</a> /</li>
                                     <li> <a href='#'>Review category</a> /</li>
-                                    <li>Review  Name</li>
+                                    <li>{slug}</li>
                                 </ul>
                             </div>
                         </div>
@@ -60,10 +60,11 @@ export async function getServerSideProps(ctx) {
 
     const slug = ctx.params.slug;
     const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/categories/${slug}`);
-    const data = await response.json();
+    const data = await response.json();  
     return {
         props: {
-            page: data || null
+            page: data || null,
+            slug
         }
     };
 }
