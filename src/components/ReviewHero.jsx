@@ -3,11 +3,11 @@ import styles from './ReviewHero.module.css';
 
 const featuredStories = [
   {
-    href: "/clinique-review",
-    imgSrc: "https://scoopreview.com/images/review-logo/ikaria-beauty-review.webp",
-    category: "Health And Wellness",
-    title: "Clinique Review: Scientific Backing, Real Results",
-    desc: "Clinique has grown over the years while remaining faithful to its basic ideas, developing products with scientific support that deliver substantial effects without causing irritation.",
+    href: "/anact-review",
+    imgSrc: "/images/anact.webp",
+    category: "Beauty",
+    title: "Anact Review: Best Hemp-Based Towel And Face Masks",
+    desc: "Anact has grown over the years while remaining faithful to its basic ideas, developing products with scientific support that deliver substantial effects without causing irritation.",
     date: "January 22, 2024"
   },
   {
@@ -30,9 +30,9 @@ const featuredStories = [
 
 const latestFinds = [
   {
-    href: "/anact-review",
-    imgSrc: "/images/anact.webp",
-    title: "Anact Reviews: Best Hemp-Based Towel And Face Masks",
+    href: "/clinique-review",
+    imgSrc: "/assets/clinique.webp",
+    title: "Clinique: Scientific Backing, Real Results",
     date: "September 12, 2025"
   },
   {
@@ -52,7 +52,31 @@ const latestFinds = [
     imgSrc: "/images/vellen-hair.webp",
     title: "Vellen-Hair Reviews | Best Hair Highlighting Comb Set",
     date: "November 14, 2025"
-  }
+  },
+  {
+    href: "/myles-apparel-review", 
+    imgSrc: "/images/myles.webp",
+    title: "Myles Apparel is a well-recognized brand in the mes’ garments and accessories industry.",
+    date: "November 12, 2024"
+  },
+  {
+    href: "/palladio-beauty-review", 
+    imgSrc: "/images/palladiobeauty.webp",
+    title: "Palladio Beauty Reviews 2026 | Best Quality Lip Products At Palladio Beauty",
+    date: "April 10, 2025"
+  },
+  {
+    href: "/adorime-review", 
+    imgSrc: "/images/aldorime.avif",
+    title: "Adorime Reviews 2026 | Best Adult Sex Toy For Satisfied Sexual Life",
+    date: "Feb 14, 2026"
+  },
+  {
+    href: "/fleshlight-review", 
+    imgSrc: "/images/imbesharam.png",
+    title: "Fleshlight Reviews 2026 | Best Adult Sex Toys & Male Pleasure Products",
+    date: "April 8, 2026"
+  },
 ];
 
 export default function ReviewHero() {

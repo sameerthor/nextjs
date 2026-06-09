@@ -1,200 +1,336 @@
-.reviewSection {
-  background-color: #fafbfe;
- 
+/* Container Frame Foundations */
+.forbesSectionWrapper {
+  background-color: #ffffff;
+  padding: 50px 0;
+  color: #111111;
 }
 
 .container {
-  max-width: 1040px;
+  max-width: 1050px;
   margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-.sectionHeading {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 3.5rem;
-  letter-spacing: -0.025em;
-}
-
-/* ==========================================
-   Editorial Showcase Layout Geometry
-   ========================================== */
-.editorialGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 3.5rem;
-}
-
-@media (min-width: 1024px) {
-  .editorialGrid {
-    /* Left column gets 45% spatial weight, Right column gets 55% weight */
-    grid-template-columns: 45fr 55fr;
-  }
-}
-
-/* Right-side multi-card layout container box */
-.subGridColumn {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-@media (min-width: 640px) {
-  .subGridColumn {
-    /* Split into exactly 2 columns and 2 rows on bigger displays */
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-}
-
-/* Base card layout styles rules */
-.reviewCard {
-  background: #ffffff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
-  border: 1px solid #f1f5f9;
+/* Forbes Traditional Heavy Header Frame */
+.editorialHeaderFrame {
   display: flex;
-  flex-direction: column;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid #111111;
+  border-bottom: 1px solid #111111;
+  padding: 12px 0;
+  margin-bottom: 35px;
 }
 
-.reviewCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 35px rgba(15, 23, 42, 0.08);
+.leftMetaLabel {
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #111111;
 }
 
-.imageContainer {
+.rightMetaLabel {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #b20000; /* Editorial accent shade */
+}
+
+.centerDividerStripe {
+  flex-grow: 1;
+  margin: 0 25px;
+}
+
+/* Asymmetric Grid Structural Rows */
+.editorialMainRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+
+.primaryFeatureHero {
+  flex: 1 1 64%;
+  min-width: 320px;
+}
+
+.sideTickerRail {
+  flex: 1 1 29%;
+  min-width: 280px;
+  border-left: 1px solid #e2e8f0;
+  padding-left: 36px;
+}
+
+@media (max-width: 991px) {
+  .sideTickerRail {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 35px;
+  }
+}
+
+/* Hero Core Card Styles */
+.heroBlockLink {
+  text-decoration: none !important;
+  color: #111111 !important;
+  display: block;
+}
+
+.heroImageFrame {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  background-color: #f1f5f9;
+  background-color: #f8fafc;
+  margin-bottom: 20px;
 }
 
-.imageLink {
+.editorialImageElement {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heroBlockLink:hover .editorialImageElement,
+.streamImageLink:hover .editorialImageElement {
+  opacity: 0.91;
+}
+
+.categoryEditorialTag {
+  display: inline-block;
+  color: #b20000;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.heroHeadlineTitle {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.02em;
+}
+
+.heroBlockLink:hover .heroHeadlineTitle {
+  text-decoration: underline;
+}
+
+.heroSummaryParagraph {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #333333;
+  margin: 0;
+}
+
+.editorialReadMore {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #b20000;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* Side Rail Text Wire Styles */
+.tickerHeaderTitle {
+  border-bottom: 2px solid #111111;
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+
+.tickerHeaderTitle h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tickerStreamList {
+  display: flex;
+  flex-direction: column;
+}
+
+.tickerFeedCard {
+  padding: 18px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.tickerFeedCard:first-child {
+  padding-top: 0;
+}
+
+.tickerFeedCard:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.tickerCategoryTag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none !important;
+  margin-bottom: 6px;
+}
+
+.tickerCategoryTag:hover {
+  color: #b20000;
+}
+
+.tickerCardTitle {
+  margin: 0 0 8px 0;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.tickerCardTitle a {
+  text-decoration: none !important;
+  color: #111111 !important;
+}
+
+.tickerCardTitle a:hover {
+  color: #b20000 !important;
+  text-decoration: underline;
+}
+
+.tickerBriefDesc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Mid Section Break Rules */
+.horizontalBreakStripe {
+  border-bottom: 1px solid #111111;
+  margin: 45px 0 30px 0;
+  position: relative;
+}
+
+.horizontalBreakStripe span {
+  position: absolute;
+  top: -9px;
+  left: 0;
+  background-color: #ffffff;
+  padding-right: 16px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Bottom Grid Streaming Block Styles */
+.bottomSecondaryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
+.secondaryGridColumn {
+  width: 50%;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .secondaryGridColumn {
+    width: 100%;
+  }
+  .heroHeadlineTitle {
+ font-size: 1.2rem;
+}
+}
+
+.streamInlineHorizontalCard {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 480px) {
+  .streamInlineHorizontalCard {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.streamImageContainer {
+  position: relative;
+  flex: 0 0 40%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
+@media (max-width: 480px) {
+  .streamImageContainer {
+    flex: 1 1 100%;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+.streamImageLink {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.cardImage {
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reviewCard:hover .cardImage {
-  transform: scale(1.04);
-}
-
-.cardBody {
-  padding: 1.5rem;
+.streamTextContainer {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 
-/* Badges & Typography styling structures */
-.categoryBadge {
-  display: inline-block;
-  align-self: flex-start;
-  margin-bottom: 0.85rem;
-}
-
-.categoryBadge a {
-  font-size: 0.725rem;
-  font-weight: 700;
-  color: #4f46e5;
+.categoryEditorialTagSmall {
+  font-size: 10px;
+  font-weight: 800;
+  color: #b20000;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  text-decoration: none;
-  background: #f5f3ff;
-  padding: 0.25rem 0.75rem;
-  border-radius: 100px;
+  margin-bottom: 4px;
 }
 
-.cardTitle {
-  font-size: 1.25rem;
+.streamCardTitle {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 16px;
   font-weight: 700;
-  color: #1e293b;
-  line-height: 1.4;
-  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
 }
 
-.cardTitle a {
-  color: inherit;
-  text-decoration: none;
+.streamCardTitle a {
+  text-decoration: none !important;
+  color: #111111 !important;
 }
 
-.cardTitle a:hover {
-  color: #4f46e5;
-}
-
-.cardText {
-  font-size: 0.925rem;
-  line-height: 1.6;
-  color: #64748b;
-  margin: 0;
-}
-
-.readMore {
-  font-weight: 600;
-  color: #4f46e5;
-  text-decoration: none;
-  margin-left: 0.25rem;
-}
-
-.readMore:hover {
+.streamCardTitle a:hover {
   text-decoration: underline;
 }
 
-/* ==========================================
-   Structural Sizing Variations
-   ========================================== */
-
-/* 1. Giant Left Feature Card View */
-.heroCard {
-  height: 100%;
-}
-
-.heroCard .imageContainer {
-  height: 250px;
-}
-
-@media (min-width: 1024px) {
-  .heroCard .imageContainer {
-    height: 400px; /* Expansive layout look */
-  }
-  .heroCard .cardTitle {
-    font-size: 1.65rem;
-  }
-}
-
-/* 2. 2x2 Right Subgrid Compact Cards View */
-.compactCard .imageContainer {
-  height: 150px;
-}
-
-.compactCard .cardTitle {
-  font-size: 1.1rem;
-}
-
-.compactCard .cardText {
+.streamCardParagraph {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #4a5568;
+  margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Keeps descriptions clean inside small cards */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-/* 3. Base Bottom Overflow Row Layout Rows (6th item onwards) */
-.regularGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  border-top: 1px solid #e2e8f0;
-  padding-top: 3.5rem;
-}
-
-.baseCard .imageContainer {
-  height: 180px;
 }
