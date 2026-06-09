@@ -5,6 +5,7 @@ import "@/styles/fonts.css";
 import '@/styles/global.css'
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css"
+import '@/styles/tailwind.css'
 import { useEffect } from "react"
 import { Montserrat } from 'next/font/google'
 import Loading from "@/components/loading";

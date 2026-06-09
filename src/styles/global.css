@@ -347,7 +347,7 @@ header nav.navbar-expand-lg{
     margin-left: 2.5rem;
 }
 
- @media(max-width:769px) {
+ @media(max-width:991px) {
     #searchform {
         height: 2.5rem;
         margin: .4rem auto .5rem auto;
