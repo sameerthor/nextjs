@@ -9,9 +9,9 @@ const nextConfig = {
     unoptimized: true,
   },
   publicRuntimeConfig: {
-    apiBaseUrl: 'https://admin.scoopreview.com/',
-    imageUrl: 'https://scoopreview.com/',
-    webUrl: 'https://scoopreview.com/'
+    apiBaseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://admin.scoopreview.com/',
+    imageUrl: process.env.NEXT_PUBLIC_IMAGE_URL || 'https://scoopreview.com/',
+    webUrl: process.env.NEXT_PUBLIC_WEB_URL || 'https://scoopreview.com/'
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(

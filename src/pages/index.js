@@ -17,6 +17,17 @@ const OwlCarousel = dynamic(() => import("react-owl-carousel"), {
     autoplay: true,
 });
 
+const fallbackHomePage = {
+    meta: {
+        site_ico: { value: 'favicon.png' },
+        site_title: { value: 'ScoopReview' },
+        site_desc: { value: 'ScoopReview' },
+        site_logo: { value: 'images/logo.png' },
+        fbapp_id: { value: '' },
+    },
+    blogs: [],
+};
+
 // Images Import //
 import BathnBodyImage from '../../public/assets/Bath-n-Body-Works.webp';
 import ebayImage from '../../public/assets/Ebay.webp';
@@ -566,9 +577,20 @@ export default function Home({ page }) {
 }
 export async function getStaticProps() {
 
+    let data = fallbackHomePage;
 
-    const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/home`);
-    const data = await response.json();
+    try {
+        const response = await fetch(`${publicRuntimeConfig.apiBaseUrl}api/home`);
+
+        if (!response.ok) {
+            throw new Error(`Home API responded with ${response.status}`);
+        }
+
+        data = await response.json();
+    } catch (error) {
+        console.warn('Unable to load home page data:', error.message);
+    }
+
     return {
         props: {
             page: data
