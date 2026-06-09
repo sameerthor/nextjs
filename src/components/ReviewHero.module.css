@@ -1,0 +1,331 @@
+/* Core Structural Layout Variables */
+.section {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  padding: 40px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.editorialGrid {
+  display: grid;
+  grid-template-cols: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 992px) {
+  .editorialGrid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 40px;
+  }
+}
+
+/* Left Section Controls */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 32px;
+}
+
+@media (min-width: 992px) {
+  .leftColumn {
+    grid-column: span 7 / span 7;
+    border-bottom: 0;
+    border-r: 1px solid #e5e7eb;
+    padding-bottom: 0;
+    padding-right: 32px;
+  }
+}
+
+.spotlightHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.spotlightTag {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #247e6a;
+}
+
+.lineDivider {
+  height: 1px;
+  flex-grow: 1;
+  background-color: #f3f4f6;
+}
+
+/* Main Hero Setup (Enforces strict override against Bootstrap defaults) */
+.mainHeroCard {
+  display: block;
+  margin-bottom: 24px;
+  text-decoration: none !important;
+  color: #1a1a1a !important;
+  transition: color 0.2s ease;
+}
+
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: #f9fafb;
+  margin-bottom: 16px;
+  border-radius: 2px;
+  border: 1px solid rgba(229, 231, 235, 0.6);
+}
+
+.heroImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mainHeroCard:hover .heroImageWrapper img {
+  transform: scale(1.01);
+}
+
+.categoryTag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(36, 126, 106, 0.9);
+}
+
+.heroTitle {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 4px 0 8px 0;
+  color: #1a1a1a !important;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .heroTitle {
+    font-size: 24px;
+  }
+}
+
+.mainHeroCard:hover .heroTitle {
+  color: #247e6a !important;
+}
+
+.heroDesc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #6b7280;
+  margin: 0 0 12px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 400;
+}
+
+.dateStamp {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+/* Secondary Two-Column Sub Grid Below Hero */
+.subFeaturesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+@media (min-width: 640px) {
+  .subFeaturesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.subCard {
+  display: block;
+  text-decoration: none !important;
+  color: #1a1a1a !important;
+}
+
+.subImageWrapper {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f9fafb;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+
+.subImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.subCard:hover .subImageWrapper img {
+  transform: scale(1.02);
+}
+
+.categoryTagSmall {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #247e6a;
+}
+
+.subTitle {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 2px 0 6px 0;
+  color: #1a1a1a !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s ease;
+}
+
+.subCard:hover .subTitle {
+  color: #247e6a !important;
+}
+
+/* Right Stream Section Controls */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@media (min-width: 992px) {
+  .rightColumn {
+    grid-column: span 5 / span 5;
+  }
+}
+
+.feedHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.feedHeading {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+.feedLineDivider {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(26, 26, 26, 0.1);
+}
+
+.feedList {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedItem {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  align-items: center;
+  text-decoration: none !important;
+  color: #1a1a1a !important;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.feedItem:first-child { padding-top: 0; }
+.feedItem:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.thumbWrapper {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  background-color: #f9fafb;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid #f3f4f6;
+}
+
+@media (min-width: 640px) {
+  .thumbWrapper {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.thumbWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.feedItem:hover .thumbWrapper img {
+  transform: scale(1.05);
+}
+
+.feedTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-w: 0;
+}
+
+.feedItemTitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  margin: 0 0 4px 0;
+  color: #1a1a1a !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .feedItemTitle {
+    font-size: 13px;
+  }
+}
+
+.feedItem:hover .feedItemTitle {
+  color: #247e6a !important;
+}
