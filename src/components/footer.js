@@ -1,20 +1,65 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import getConfig from 'next/config';
 import styles from './Footer.module.css';
 
-const { publicRuntimeConfig } = getConfig() || {};
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function Footer() {
   const pathname = usePathname();
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Helper method to assign interactive active color values smoothly
   const getLinkClass = (href) => {
     return pathname === href 
       ? `${styles.footerLink} ${styles.activeLink}` 
       : styles.footerLink;
+  };
+
+  const handleSubscribe = async (event) => {
+    event.preventDefault();
+
+    const trimmedEmail = email.trim().toLowerCase();
+
+    if (!emailPattern.test(trimmedEmail)) {
+      setMessage('Please enter a valid email address.');
+      setMessageType('error');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setMessage('');
+    setMessageType('');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: trimmedEmail }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.message || data.error || 'Subscription failed. Please try again later.');
+      }
+
+      setEmail('');
+      setMessage(data.message || data.success || 'Thanks for subscribing. Please check your inbox.');
+      setMessageType('success');
+    } catch (error) {
+      setMessage(error.message || 'Subscription failed. Please try again later.');
+      setMessageType('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -109,6 +154,36 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
+
+          <div className={styles.subscribeColumn}>
+            <h3 className={styles.columnHeading}>Subscribe</h3>
+            <p className={styles.subscribeText}>
+              Get fresh reviews, buying guides, and deal updates in your inbox.
+            </p>
+            <form className={styles.subscribeForm} onSubmit={handleSubscribe}>
+              <label className={styles.visuallyHidden} htmlFor="footer-subscribe-email">
+                Email address
+              </label>
+              <input
+                id="footer-subscribe-email"
+                className={styles.subscribeInput}
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                value={email}
+                disabled={isSubmitting}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+              <button className={styles.subscribeButton} type="submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Subscribe'}
+              </button>
+            </form>
+            {message && (
+              <p className={`${styles.subscribeMessage} ${messageType === 'success' ? styles.successMessage : styles.errorMessage}`}>
+                {message}
+              </p>
+            )}
           </div>
 
         </div>
