@@ -137,7 +137,6 @@ export default function ProductReviews() {
         <div className={styles.horizontalBreakStripe}>
           <span>Strategic Trends Stream</span>
         </div>
-
         {/* BOTTOM LAYER: TWO-COLUMN DEEP HOVER STREAM CARDS */}
         <div className={styles.bottomSecondaryGrid}>
           {dynamicStreamItems.map((item) => (
